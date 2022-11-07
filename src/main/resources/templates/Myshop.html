@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="/static/css/Myshop.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body style="width: 1361px;">
+    <header class="site-header"style="position: fixed !important; top: 0px; width: 1361px; right: 0px; bottom: 182px; left: 0px;">
+        <!-- style="position: fixed !important;" -->
+    </header>
+    <div class="contents">
+
+        <div class="titleArea">
+            <h2 style="margin-top: 0px;margin-bottom: 0px;">My Shopping</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2>Account</h2>
+            <li><a href="">마이쇼핑</a></li>
+            <li><a href="">주문내역조회</a></li>
+            <li><a href="">회원정보관리</a></li>
+            <li><a href="">게시물관리</a></li>
+            <li><a href="">배송주소록</a></li>
+        </ul>     
+        <div class="myshopping">
+            <div class="myshop-asyncbenefit">
+                <div class="memberMent">
+                    <p class="welcome">
+                        <span class="member-var-name">최준호</span> 고객님, 환영합니다. <br>
+                    </p>
+                    <p class="grade">회원 님은 
+                        <strong>
+                            [<span class="member-group_name">일반회원</span>]
+                        </strong>
+                         회원이십니다.
+                    </p>
+                </div>
+            </div>
+            <div class="xanselement - xans-myshop xans-myshop-orderstate">
+                <div class="title">
+                    <h3>
+                        나의 주문처리 현황
+                        <span class="desc">
+                            (최근
+                            <em>3개월</em>
+                            기준)
+                        </span>
+                    </h3>
+                </div>
+                <div class="state">
+                    <ul class="order">
+                        <li>
+                            <strong>입금전</strong>
+                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
+                            
+                        </li>
+                        <li>
+                            <strong>배송준비중</strong>
+                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
+                        </li>
+                        <li>
+                            <strong>배송중</strong>
+                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
+                        </li>
+                        <li>
+                            <strong>배송완료</strong>
+                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
+                        </li>
+                    </ul>
+                    <ul class="cs">
+                        <li>
+                            <span class="icoDot"></span>
+                            <strong>취소 : </strong>
+                            <a href="" class="count"></a>
+                        </li>
+                        <li>
+                            <span class="icoDot"></span>
+                            <strong>교환 : </strong>
+                            <a href="" class="count"></a>
+                        </li>
+                        <li>
+                            <span class="icoDot"></span>
+                            <strong>반품 : </strong>
+                            <a href="" class="count"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="xans-element- xans-myshop xans-myshop-asyncbankbook">
+                <ul>
+                    <li class=" ">
+                        <p class="title">가용적립금</p>
+                        <p class="data use">&nbsp;<span id="xans_myshop_bankbook_avail_mileage">0원</span></p>
+                        <a href="/myshop/mileage/historyList.html" class="btnType-2">조회</a>
+                    </li>
+                    <li class="">
+                        <p class="title">총적립금</p>
+                        <p class="data"><span id="xans_myshop_bankbook_total_mileage">0원</span></p>
+                    </li>
+                    <li class="">
+                        <p class="title">사용적립금</p>
+                        <p class="data"><span id="xans_myshop_bankbook_used_mileage">0원</span></p>
+                    </li>
+                        <li class="displaynone">
+                            <p class="title"></p>
+                            <p class="data use">&nbsp;</p>
+                            <a href="/myshop/deposits/historyList.html" class="button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_result.gif" alt="조회"></a>
+                        </li>
+                    <li class="total">
+                        <p class="title">총주문</p>
+                        <p class="data"><span id="xans_myshop_bankbook_order_price">KRW 0</span>(<span id="xans_myshop_bankbook_order_count">0</span>회)</p>
+                    </li>
+                    <li class="">
+                        <p class="title">쿠폰</p>
+                        <p class="data"><span id="xans_myshop_bankbook_coupon_cnt">1</span><span>개</span></p>
+                        <a href="/myshop/coupon/coupon.html" class="btnType-2">조회</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

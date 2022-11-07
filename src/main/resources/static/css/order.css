@@ -1,0 +1,132 @@
+header {
+    width: 100%;
+}
+.site-header {
+    width: 100%;
+    height: 59px;
+    padding: 5px 10px 5px 10px;
+    z-index: 999;
+    background-color:red;
+}
+
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 60px 0 0 0px;
+    
+    min-height: 800px;
+    padding-bottom: 0px;
+
+}
+.titleArea {
+    width: 100%;
+    height: 20px;
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.titleArea h2 {  
+    
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+.sideMenu {
+    text-decoration-line:none;
+    position: fixed;
+    top: 135px;
+    left: 2.5%;
+    width: 136.1px;
+    float: Left;
+    background: none;
+}
+
+.sideMenu h2 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    
+}
+.oderList {
+    
+    width: 1000px;
+    height: 491.297px;
+    margin: 0 auto;
+}
+.ec-base-tab .menu {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    padding: 7px 0;
+    border-bottom: 1px dashed #ccc;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.ec-base-tab .menu li {
+    float: left;
+    padding: 0px 20px;
+    line-height: 16px;
+    border-right: 1px solid #ddd;
+}
+.ec-base-tab .menu li.selected a {
+    position: relative;
+    top: -1px;
+    left: -1px;
+    font-weight: bold;
+    color: #111;
+    font-size: 16px;
+    
+}
+.ec-base-tab .menu li a {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+}
+.ec-base-box {
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+}
+.xans-myshop-orderhistoryhead .stateSelect {
+    display: inline-block;
+    min-width: 150px;
+    padding: 0 12px 0 0;
+    margin: 0 5px 0 2px;
+    background: url(//img.echosting.cafe24.com/skin/base/common/ico_bar.gif) no-repeat 100% 6px;
+}
+.xans-myshop-orderhistoryhead .stateSelect select {
+    width: 100%;
+}
+
+.xans-myshop-orderhistoryhead fieldset .period {
+    margin: 0 7px;
+}
+.xans-myshop-orderhistoryhead fieldset .period a {
+    margin: 0 0 0 -5px;
+}
+.xans-myshop-orderhistoryhead fieldset img {
+    vertical-align: middle;
+}
+
+.order-search-control input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+    height: 32px;
+    padding: 0;
+}
+
+.xans-myshop-orderhistoryhead ul {
+    margin: 10px 0 0;
+    color: #939393;
+    line-height: 1.5;
+}
+.xans-myshop-orderhistoryhead ul li {
+    padding: 0 0 0 9px;
+    list-style: none;
+    background: url(//img.echosting.cafe24.com/skin/base/common/ico_square2.gif) no-repeat 4px 7px;
+}
