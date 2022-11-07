@@ -5,5 +5,19 @@
     text-align: center;
 }
 
+.brand-page h2 {
+    width: 1000px;
+    margin: 0 auto;
+
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+.brand-page img {
+    margin-top: 30px;
+    width: 1000px;
+}
+
 
 
