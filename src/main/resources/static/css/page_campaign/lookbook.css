@@ -1,18 +1,29 @@
 .lookbook-detail-top {
-    width: 100%;
+    top: 60px;
+    height: 140vh;
+    position: relative;
     text-align: center;
+
+    overflow: hidden;
+
 }
 
 .lookbook-detail-top img {
     width: 100%;
 }
 
-.lookbook-title {
-    font-size: 24px;
-    color: #fff;
-    position: absolute;
+.lookbook-top-title {
     width: 100%;
-    top: calc(50% - 12px);
+    position: absolute;
+
+    font-size: 25px;
+    font-weight: 600;
+
+    text-align: center;
+    color: rgb(255, 255, 255);
+    top: 38%;
+    /* top: calc(50% - 12px); */
+
 }
 
 .lookbook-detail-content {

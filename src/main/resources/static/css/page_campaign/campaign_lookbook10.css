@@ -1,0 +1,74 @@
+.lookbook-detail-top {
+    width: 100%;
+    text-align: center;
+}
+
+.lookbook-detail-top img {
+    width: 100%;
+}
+
+.lookbook-title {
+    font-size: 24px;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 12px);
+}
+
+.lookbook-detail-content {
+    width: 100%;
+    padding: 15% 15% 0 15%;
+
+    text-align: center;
+}
+
+.lookbook-detail-title {
+    margin-bottom: 150px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.lookbook-detail-text {
+    margin-bottom: 220px;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.lookbook-detail-content img {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.lookbook-detail-bottom {
+    margin-top: 10px;
+    width: 100%;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    
+}
+
+.bottom-left-area {
+    width: 50%;
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.bottom-right-area {
+    width: 50%;
+}
+
+.bottom-list-button {
+    font-size: 18px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+a {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+}
