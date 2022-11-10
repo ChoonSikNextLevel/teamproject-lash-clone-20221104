@@ -15,15 +15,14 @@
 .lookbook-top-title {
     width: 100%;
     position: absolute;
+    top: 35%;
 
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
     font-size: 25px;
-    font-weight: 600;
 
     text-align: center;
     color: rgb(255, 255, 255);
-    top: 38%;
-    /* top: calc(50% - 12px); */
-
 }
 
 .lookbook-detail-content {
@@ -36,23 +35,24 @@
 .lookbook-detail-title {
     margin-bottom: 60px;
 
+    font-family: 'Nanum Myeongjo', serif;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .lookbook-detail-text {
     margin-bottom: 220px;
-    font-size: 14px;
-    line-height: 25px;
+    font-size: 13px;
+    line-height: 23px;
+    color: rgb(99, 99, 99);
 }
 
 .lookbook-detail-content img {
-    margin-bottom: 220px;
     width: 100%;
 }
 
 .lookbook-detail-bottom {
-    margin-top: 170px;
+    margin-top: 100px;
     width: 100%;
     height: 130px;
 
@@ -64,6 +64,7 @@
 .bottom-left-area {
     width: 50%;
     display: flex;
+
     /* justify-content: space-between; */
 }
 
@@ -72,14 +73,13 @@
 }
 
 .bottom-list-button {
-    font-size: 18px;
-    font-weight: 700;
-
     cursor: pointer;
 }
 
-a {
-    color: #000;
-    font-size: 18px;
-    font-weight: 700;
+.bottom-list-button a {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
+    font-size: 15px;
+
+    color: #1b1c1c;
 }
