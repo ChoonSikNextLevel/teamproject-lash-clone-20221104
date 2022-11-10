@@ -269,6 +269,17 @@ nav {
     background-color: rgba(0, 0, 0, 0.8);
     overflow-x: hidden;
 }
+/*---------------------------본문--------------------------------------------------------------------*/
+/* .site-header {
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    z-index: 999;
+    background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 .site-header.fix.animate {
     transform: translateY(0);
 }
@@ -339,113 +350,8 @@ section {
 .sideMenu a {float:none;}
 .sideMenu a:hover {text-decoration:underline}
 }
-.oderList {
-    
-    width: 1000px;
-    height: 491.297px;
-    margin: 0 auto;
-}
-/*-----------------------본문 첫번째-------------------------------*/
-.ec-base-tab .menu li:first-child {
-    padding-left: 0;
-}
-.ec-base-tab .menu {
-    width: 100%;
-    float: left;
-    margin-bottom: 20px;
-    padding: 7px 0;
-    border-bottom: 1px dashed #ccc;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-.ec-base-tab .menu li {
-    float: left;
-    padding: 0px 20px;
-    line-height: 16px;
-    border-right: 1px solid #ddd;
-}
-.ec-base-tab .menu li.selected a {
-    position: relative;
-    top: -1px;
-    left: -1px;
-    font-weight: bold;
-    color: #111;
-    font-size: 16px;
-    
-}
-.ec-base-tab .menu li a {
-    display: block;
-    font-size: 14px;
-    color: #999;
-    font-weight: 500;
-}
-.ec-base-box {
-    padding: 10px 10px;
-    border: 2px solid #ddd;
-}
-.xans-myshop-orderhistoryhead .stateSelect {
-    display: inline-block;
-    min-width: 150px;
-    padding: 0 12px 0 0;
-    margin: 0 5px 0 2px;
-    background: url(//img.echosting.cafe24.com/skin/base/common/ico_bar.gif) no-repeat 100% 6px;
-}
-.xans-myshop-orderhistoryhead .stateSelect select {
-    width: 100%;
-}
-
-.xans-myshop-orderhistoryhead fieldset .period {
-    margin: 0 7px;
-}
-.xans-myshop-orderhistoryhead fieldset .period a {
-    margin: 0 0 0 -5px;
-}
-.xans-myshop-orderhistoryhead fieldset img {
-    vertical-align: middle;
-}
-
-.order-search-control input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
-    height: 32px;
-    padding: 0;
-}
-
-.xans-myshop-orderhistoryhead ul {
-    margin: 10px 0 0;
-    color: #939393;
-    line-height: 1.5;
-}
-.xans-myshop-orderhistoryhead ul li {
-    padding: 0 0 0 9px;
-    font-size: 15px;
-    background: url(//img.echosting.cafe24.com/skin/base/common/ico_square2.gif) no-repeat 4px 7px;
-}
-/*-----------------------본문 두번째-------------------------------*/
-.title {
-    position: relative;
-    width: 99%;
-    float: left;
-    background: none;
-    border-left: 2px solid #bbb;
-    padding: 0 0 0 1%;
-    line-height: 16px;
-    margin: 50px 0 20px;
-}
-.title h3 {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    letter-spacing: -0.1px;
-}
-
 .ec-base-table.typeList table {
     border-top-color: #d7d5d5;
-}
-table {
-    width: 100%;
-    border: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
 }
 .ec-base-table table {
     position: relative;
@@ -454,9 +360,8 @@ table {
     color: #fff;
     line-height: 1.5;
 }
-.ec-base-table th:first-child {
-    border-left: 0;
-}
+
+
 .ec-base-table thead th {
     padding: 11px 0 10px;
     border-left: 1px solid #ddd;
@@ -464,97 +369,56 @@ table {
     color: #353535;
     vertical-align: middle;
     font-weight: normal;
-    font-size: 15px;
 }
-.ec-base-table table + .message {
-    margin: -1px 0 0;
-}
-.ec-base-table .message {
-    border: 1px solid #d7d5d5;
-    padding: 50px 0;
+.ec-base-table .center {
     text-align: center;
-    color: #757575;
-    font-weight: bold;
-    font-size: 15px;
 }
-.sm-paginate {
-    width: 100%;
-    float: left;
-    text-align: center;
-    font-size: 12px;
-    line-height: 20px;
-    padding: 15px 0;
-}
-
-.sm-paginate a.first {
-    padding-right: 50px;
-    margin-right: 20px;
-    padding-bottom: 2px;
-    color: #bbb;
-    font-weight: 400;
-    font-size: 12px;
-    border-bottom: 1px solid #ddd;
-}
-
-.sm-paginate a.prev {
-    padding-right: 20px;
-    margin-right: 10px;
-    padding-bottom: 2px;
-    color: #777;
-    font-weight: 400;
-    font-size: 12px;
-    border-bottom: 1px solid #aaa;
-}
-
-.sm-paginate ol {
-    display: inline-block;
-    vertical-align: top;
-    *display: inline;
-    *zoom: 1;
-    *margin: 0;
-}
-
-.sm-paginate li {
-    display: inline-block;
-    font-size: 12px;
-    vertical-align: top;
-    *display: inline;
-    *zoom: 1;
-}
-.sm-paginate li a.this {
-    color: #111;
-    font-weight: 700;
-}
-.sm-paginate li a {
-    display: block;
-    width: 33px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #aaa;
-    line-height: 24px;
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #ddd;
+    color: #353535;
+    vertical-align: middle;
     background: #fff;
 }
-.sm-paginate li a:hover {
-    text-decoration: none;
-    background: #f0f2f2;
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+colgroup {
+    display: table-column-group;
+}
+.ec-base-table.typeList td {
+    padding: 8px 10px 7px;
 }
 
-.sm-paginate a.next {
-    padding-left: 20px;
-    margin-left: 10px;
-    padding-bottom: 2px;
-    color: #777;
-    font-weight: 400;
-    font-size: 12px;
-    border-bottom: 1px solid #aaa;
+/*----------배송유의사항-----------------*/
+div.ec-base-help {
+    margin: 40px 0;
+}
+.ec-base-help {
+    width: 100%;
+    float: left;
 }
 
-.sm-paginate a.last {
-    padding-left: 50px;
-    margin-left: 20px;
-    padding-bottom: 2px;
-    color: #bbb;
-    font-weight: 400;
-    font-size: 12px;
-    border-bottom: 1px solid #ddd;
+div.ec-base-help > h2, div.ec-base-help > h3 {
+    padding: 9px 0 6px 0;
+    color: #101010;
+    font-size: 15px;
+}
+
+div.ec-base-help ul, div.ec-base-help ol {
+    margin: 15px 0 0 11px;
+}
+
+div.ec-base-help ol .item1 {
+    background-position: -484px 0;
+}
+div.ec-base-help ol li {
+    font-size: 14px;
+    line-height: 1.9em;
+}
+div.ec-base-help li {
+    color: #707070;
 }

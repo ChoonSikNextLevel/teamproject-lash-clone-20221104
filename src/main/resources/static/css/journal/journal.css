@@ -1,14 +1,8 @@
+/* ==============header============= */
 header {
-    width: 100px;
+    width: 100%;
     height: 59.6px;
 
-}
-
-.site-header.desktop-view--classic {
-    padding: 5px 10px;
-}
-.site-header.desktop-view--classic {
-    z-index: 999;
 }
 .site-header {
     font-weight: 600;
@@ -43,7 +37,12 @@ header {
 
     background-color: #ffffff;
 }
-
+.site-header.desktop-view--classic {
+    padding: 5px 10px;
+}
+.site-header.desktop-view--classic {
+    z-index: 999;
+}
 .header-flex {
     display: flex;
     justify-content: space-between;
@@ -269,8 +268,7 @@ nav {
     background-color: rgba(0, 0, 0, 0.8);
     overflow-x: hidden;
 }
-/*---------------------------본문--------------------------------------------------------------------*/
-/* .site-header {
+/* .header-container {
     width: 100%;
     padding: 5px 10px 5px 10px;
     z-index: 999;
@@ -286,7 +284,6 @@ nav {
 .site-header.fix.ready {
     transition: right .5s cubic-bezier(.25,.46,.45,.94),transform .1s linear;
 }
-
 section {
     width: 100%;
     height: 100%;
@@ -302,9 +299,7 @@ section {
 .content-container li {
     width: 25%;
 }
-/* .contents {
-    margin: 60px 0 0 5px;
-} */
+
 
 .contents {
     position: relative;
@@ -312,184 +307,144 @@ section {
     width: 100%;
     margin-top: 60px;
     height: 100%;
-    
     min-height: 800px;
     padding-bottom: 0px;
-
 }
-
-.titleArea {
-    width: 100%;
-
-    float: left;
-    margin-bottom: 20px;
-    text-align: center;
+/* element.style {
+    position: fixed !important;
 }
-
-.titleArea h2 {  
-    
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    line-height: 20px;
+.site-header.fix.animate {
+    transform: translateY(0);
 }
-
-
-/*---------------------------사이드바--------------------------------------------------------------------*/
-.sideMenu {position:fixed; top:135px; left:2.5%; width:10%; float:Left; background:none; }
-.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
-.sideMenu ul {width:100%; float:left; }
-.sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
-.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
-.sideMenu a:hover {text-decoration:underline}
-    
-@media screen and (max-width: 1280px) {
-.sideMenu {width:100%; float:none; text-align:center; position:static; top:0; left:0;}
-.sideMenu ul {text-align:center;}
-.sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
-.sideMenu a {float:none;}
-.sideMenu a:hover {text-decoration:underline}
+.site-header.fix.ready {
+    transition: right .5s cubic-bezier(.25,.46,.45,.94),transform .1s linear;
 }
-
-.myshopping .memberMent {
-    width: 100%;
-    float: left;
+.site-header.desktop-view--classic {
+    padding: 5px 10px;
 }
-
-/* .myshopping .memberMent {
-    float: left;
+.site-header.desktop-view--classic {
+    z-index: 999;
 }
-div .memberMent {
-    width: 100%;
-    height: 202.2px;
-} */
-/* .memberMent{
-    display: block;
-    height: 202.2px;
-    float: left;
-    
-    margin: 0;
-    padding: 0;
-    border: 0;
-
-    font: inherit;
-} */
-.myshopping {
-    width: 1000px;
-    margin: 0 auto;
+.site-header {
+    font-weight: 600;
 }
-/*---------------------------본문1번째--------------------------------------------------------------------*/
-.myshopping .memberMent p.welcome {
-    font-size: 50px;
-    font-weight: 300;
-    margin-top: 30.6px;
-}
-.myshopping .memberMent p.grade {
-    font-size: 16px;
+.site-header {
+    font-family: Cabin,sans-serif;
     font-weight: 400;
-    margin: 50px 0 20px;
-    padding-top: 14px;
-}
-/*---------------------------본문2번째--------------------------------------------------------------------*/
-.xans-myshop-orderstate {
-    width: 100%;
-    margin: 20px 0 0;
-    float: left;
-    border: 1px solid #777;
-
-}
-.xans-myshop-orderstate .title h3 {
-    padding: 0;
-    font-size: 14.5px;
-    color: #444;
-    font-weight: 700;
-}
-.xans-myshop-orderstate .order .count {
-    font-weight: bold;
-    font-size: 24px;
-    color: #222;
-}
-.xans-myshop-orderstate .cs .count {
-    padding: 0 0 0 4px;
-    font-weight: bold;
-    font-size: 15px;
-    color: #222;
-}
-.title {
-    padding: 11px 21px 11px 21px;
-}
-.xans-myshop-orderstate .order {
-    float: left;
-    width: 80%;
-}
-.xans-myshop-orderstate .title {
-    padding: 11px 21px;
-    margin: 0;
-    border-bottom: 1px solid #e9e9e9;
-    background: #f6f6f6;
-}
-.xans-myshop-orderstate .desc {
-    padding: 0 0 0 4px;
-    font-weight: normal;
-    font-size: 11px;
-    color: #8f8f8f;
-}
-.xans-myshop-orderstate .desc em {
-    color: #000;
     font-style: normal;
-}
-.xans-myshop-orderstate .state {
-    overflow: hidden;
-    padding: 19px 0;
-}
-.xans-myshop-orderstate .order li {
-    float: left;
-    width: 25%;
-    padding: 0 0 4px;
-    margin: 0 -1px 0 0;
-    border-right: 1px dotted #c9c7ca;
-    text-align: center;
-}
-.xans-myshop-orderstate .order li strong {
-    display: block;
-    margin: 2px 0 12.4px;
-    font-size: 14px;
-    color: #353535;
-}
-.xans-myshop-orderstate .cs {
-    float: right;
-    width: 20%;
-}
-.xans-myshop-orderstate .cs li {
-    margin: 0 0 5px 57px;
-    height: 25.5px;
-    letter-spacing: 0.04em;
-    word-spacing: 4px;
-}
-.xans-myshop-orderstate .cs strong {
-    font-weight: normal;
-    font-size: 12px;
-    color: #353535;
-}
-.xans-myshop-orderstate .cs .icoDot {
-    display: inline-block;
-    width: 2.5px;
-    height: 2.5px;
-    margin: 3px 0 0 0;
-    background: #4d4d4d;
-    vertical-align: top;
-}
-/*---------------------------본문3번째--------------------------------------------------------------------*/
-.xans-myshop-asyncbankbook ul {
+    right: 0;
+    padding: 0 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: white;
+    color: #1b1c1c;
+    border-bottom: 0px solid #ededed;
+    z-index: 999;
+    font-weight: 700;
+    transition: right .5s cubic-bezier(.25,.46,.45,.94);
+    top: 0;
+    position: fixed;
+    align-items: center;
     width: 100%;
-    float: Left;
-    margin-top: 50px;
-    padding-bottom: 30px;
-    border-bottom: 2px solid #222;
+    background-color: aqua;
+} */
+/* ==============header-left============= */
+/* .site-nav.style--classic {
+    display: flex;
+    margin-right: -10px;
 }
-.xans-myshop-asyncbankbook ul li {
-    width: 180px;
+.site-nav {
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #1b1c1c;
+}
+header.site-header div.site-nav-container {
+    margin-right: 25px;
+}
+.site-header .site-nav-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+} */
+
+.journal-masonry {
+    opacity: 0;
+    transition: opacity 0.7s;
+    padding: 0 8px;
+}
+/* ==============첫번째 사진============= */
+.journal-item:nth-child(4n-2), .journal-item:nth-child(4n-1) {
+    padding: 0 4px;
+}
+.journal-masonry {opacity:0; transition:opacity 0.7s; padding:0 8px;}
+.journal-item {float:left; width:calc(25% - 4px);}
+.journal-item:nth-child(4n-3) {padding-right:4px;}
+.journal-item:nth-child(4n-2),
+.journal-item:nth-child(4n-1) {padding:0 4px;}
+.journal-item:nth-child(4n) {padding-left:4px;}
+
+.journal-item img {border-radius:6px;}
+
+.journal-item .description {padding:0 0.5rem}
+.journal-item .name {display:block; line-height:1; text-align:left; padding:3rem 0 1.5rem 0; font-family:"Nimbus Sans Cond L", "Nimbus Sans L"; font-weight:bold; letter-spacing:-1px;}
+.journal-item .name span {font-size:1.5rem!important;}
+.journal-item p {margin-bottom:3rem; font-size:0.9rem;}
+.journal-item .description > a {display:block; margin-bottom:6rem; font-weight:400; font-family:"Nimbus Sans Cond L", "Nimbus Sans L"; letter-spacing:-1px;}
+
+.journal-item xans-record-1 {
+    position: absolute;
+     left: 8px;
+      top: 0px;
+}
+.journal-item xans-record-2 {
+    position: absolute;
+     left: 341.25x;
+      top: 0px;
+}
+.journal-item xans-record-3 {
+    position: absolute;
+     left: 951.5px;
+      top: 0px;
+}
+
+/* .journal-item:nth-child(4n-3) {
+    padding-right: 4px;
+}
+.journal-item {
     float: left;
-    font-size: 20px;
-    margin: 20px 0;
+    width: calc(25% - 4px);
+}
+.journal-item img {
+    border-radius: 6px;
+}
+.journal-item .description {
+    padding: 0 0.5rem;
+}
+.journal-item .name {
+    display: block;
+    line-height: 1;
+    text-align: left;
+    padding: 3rem 0 1.5rem 0;
+    font-family: "Nimbus Sans Cond L", "Nimbus Sans L";
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+.journal-item p {
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+}
+.journal-item .description > a {
+    display: block;
+    margin-bottom: 6rem;
+    font-weight: 400;
+    font-family: "Nimbus Sans Cond L", "Nimbus Sans L";
+    letter-spacing: -1px;
+}
+.journal-item .name span {
+    font-size: 1.5rem!important;
+}
+*, input, :before, :after {
+    box-sizing: border-box;
 }

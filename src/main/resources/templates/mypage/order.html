@@ -1,16 +1,92 @@
-<!DOCTYPE html>
-<html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"class=" wf-nimbus-sans-n4-active wf-nimbus-sans-i4-active wf-nimbus-sans-n7-active wf-nimbus-sans-i7-active wf-nimbus-sans-condensed-n4-active wf-nimbus-sans-condensed-n7-active wf-nimbus-sans-extended-n4-active wf-nimbus-sans-extended-n7-active wf-adobe-myungjo-std-n5-active wf-bookmania-i7-active wf-bookmania-n7-active wf-bookmania-i4-active wf-bookmania-n4-active wf-din-2014-n2-active wf-din-2014-i2-active wf-din-2014-n3-active wf-din-2014-i3-active wf-din-2014-i4-active wf-din-2014-n4-active wf-din-2014-n6-active wf-din-2014-i6-active wf-din-2014-i7-active wf-din-2014-n7-active wf-din-2014-n8-active wf-din-2014-i8-active wf-din-2014-narrow-n4-active wf-din-2014-narrow-n7-active wf-active">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <SCRIPT src="/static/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <SCRIPT src="/static/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
     <link rel="stylesheet" href="/static/css/order.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header class="header-container"style="position: fixed !important;">
-        nav메뉴 / 로고 / mypage 등<!-- style="position: fixed !important;" -->
+    <div class="overlay"></div>
+    <header header id="site-header" class="site-header desktop-view--classic header-scroll fix ready animate"style="position: fixed !important;">
+        <div class="header-container">
+            <div class="header-flex">
+                <div class="header-left-container">
+                    <div class="menu-container">
+                        <div class="site-nav-menu">
+                            <div class="site-nav-parent">
+                                <a href="" class="menu-product">제품</a>
+                            </div>
+                            <nav class="nav-invisible">
+                                <div class="site-nav-mega">
+                                    <a href="">전체</a>
+                                    <a href=""><span class="metal-button">메탈</span>
+                                        <img src="/static/images/Logo_img/catemetal.jpg"
+                                            class="metal-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acetate-button">아세테이트</span>
+                                        <img src="/static/images/Logo_img/cateacetate.jpg"
+                                            class="acetate-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="combination-button">콤비네이션</span>
+                                        <img src="/static/images/Logo_img/cateCombination.jpg"
+                                            class="combination-image image-display" alt="">
+                                    </a>
+                                </div>
+                                <div class="site-nav-mega site-nav-mega2">
+                                    <a href=""><span class="refined-button">리파인드</span>
+                                        <img src="/static/images/Logo_img/cateRefined.jpg"
+                                            class="refined-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="vintage-button">빈티지</span>
+                                        <img src="/static/images/Logo_img/cateVintage.jpg"
+                                            class="vintage-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="sunglasses-button">선글라스</span>
+                                        <img src="/static/images/Logo_img/cateSunglasses.jpg"
+                                            class="sunglasses-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acc-button">Acc</span>
+                                        <img src="/static/images/Logo_img/cateAcc.jpg" class="acc-image image-display"
+                                            alt="">
+                                    </a>
+                                </div>
+                            </nav>
+                            <div><a href="" class="">캠페인</a></div>
+                            <div><a href="" class="">저널</a></div>
+                            <div><a href="" class="">브랜드</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <a href=""><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
+                </div>
+                <div class="header-right-container">
+                    <!-- <button class="site-header-button">SEARCH</button> -->
+                    <div class="search-box">
+                        <form action="." method="post">
+                            <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
+                            <button class="search-btn" type="submit"><i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <button class="site-header-button">My page</button>
+                    <button class="site-header-button">Log in</button>
+                    <button class="site-header-button basket-button">My Shopping Basket
+                        <span class="basket-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
     <div class="contents">
         <div class="titleArea">
@@ -75,7 +151,7 @@
                         <button type="button" class="ui-datepicker-trigger">
                             <img src="//img.echosting.cafe24.com/skin/admin_ko_KR/myshop/ico_cal.gif" alt="..." title="...">
                         </button>
-                        " ~ "
+                         ~ 
                         <input id="history_end_date" name="history_end_date" class="fText hasDatepicker" readonly="readonly" size="10" value="2022-11-06" type="text">
                         <button type="button" class="ui-datepicker-trigger">
                             <img src="//img.echosting.cafe24.com/skin/admin_ko_KR/myshop/ico_cal.gif" alt="..." title="...">
@@ -117,7 +193,7 @@
                         </tr>
                     </thead>
                     <tbody class="center displaynone">
-                        <tr class="">
+                        <!-- <tr class="">
                             <td class="number displaynone">
                                 <p>
                                     <a href="detail.html" class="line">[]</a>
@@ -204,7 +280,7 @@
                                 <p class="displaynone"><a href="#none" class="line" onclick="">[상세정보]</a></p>
                                 <p class="displaynone">-</p>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <p class="message ">주문 내역이 없습니다.</p>

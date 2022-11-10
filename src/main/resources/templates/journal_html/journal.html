@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>journal</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <SCRIPT src="/static/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
     <SCRIPT src="/static/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    
+    <link rel="stylesheet" href="/static/css/journal/journal.css">
+    <link rel="stylesheet" href="/static/css/journal/style.css">
+    <link rel="stylesheet" href="/static/js/journal.js">
     <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
-    <link rel="stylesheet" href="/static/css/Myshop.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="overlay"></div>
@@ -89,122 +91,66 @@
         </div>
     </header>
     <div class="contents">
-        <div class="titleArea">
-            <h2 style="margin-top: 0px;margin-bottom: 0px;">My Shopping</h2>
-        </div>
-        <ul class="sideMenu">
-            <h2 style="margin-top:0px;">Account</h2>
-            <li><a href="">마이쇼핑</a></li>
-            <li><a href="">주문내역조회</a></li>
-            <li><a href="">회원정보관리</a></li>
-            <li><a href="">게시물관리</a></li>
-            <li><a href="">배송주소록</a></li>
-        </ul>     
-        <div class="myshopping">
-            <div class="myshop-asyncbenefit">
-                <div class="memberMent">
-                    <p class="welcome">
-                        <span class="member-var-name">최준호</span> 고객님, 환영합니다. <br>
-                    </p>
-                    <p class="grade">회원 님은 
-                        <strong>
-                            [<span class="member-group_name">일반회원</span>]
-                        </strong>
-                         회원이십니다.
-                    </p>
-                </div>
-            </div>
-            <div class="xanselement - xans-myshop xans-myshop-orderstate">
-                <div class="title">
-                    <h3>
-                        나의 주문처리 현황
-                        <span class="desc">
-                            (최근
-                            <em>3개월</em>
-                            기준)
-                        </span>
-                    </h3>
-                </div>
-                <div class="state">
-                    <ul class="order">
-                        <li>
-                            <strong>입금전</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
-                            
-                        </li>
-                        <li>
-                            <strong>배송준비중</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
-                        </li>
-                        <li>
-                            <strong>배송중</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
-                        </li>
-                        <li>
-                            <strong>배송완료</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
-                        </li>
-                    </ul>
-                    <ul class="cs">
-                        <li>
-                            <span class="icoDot"></span>
-                            <strong>취소 : </strong>
-                            <a href="" class="count">
-                                <span id="xans_myshop_orderstate_order_cancel_count">0</span>
-                            </a>
-                        </li>
-                        <li>
-                            <span class="icoDot"></span>
-                            <strong>교환 : </strong>
-                            <a href="" class="count">
-                                <span id="xans_myshop_orderstate_order_exchange_count">0</span>
-                            </a>
-                        </li>
-                        <li>
-                            <span class="icoDot"></span>
-                            <strong>반품 : </strong>
-                            <a href="" class="count">
-                                <span id="xans_myshop_orderstate_order_return_count">0</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="xans-element- xans-myshop xans-myshop-asyncbankbook">
-                <ul>
-                    <li class=" ">
-                        <p class="title">가용적립금</p>
-                        <p class="data use">&nbsp;<span id="xans_myshop_bankbook_avail_mileage">0원</span></p>
-                        <a href="/myshop/mileage/historyList.html" class="btnType-2">조회</a>
+        <div class="xans-element- xans-product xans-product-normalpackage ">
+            <div class="xans-element- xans-product xans-product-listnormal">
+                <ul class="journal-masonry" style="position: relative; height: 921.1px; opacity: 1; margin-top: 0px; margin-bottom: 0px;">
+                    <li id="anchorBoxId_1912" class="journal-item xans-record-" style="position: absolute; left: 8px; top: 0px;">
+                        <div class="thumbnail">
+                            <div class="prdImg">
+                                <a href="/journal/detail.html?product_no=1912&amp;cate_no=130&amp;display_group=1" name="anchorBoxName_1912">
+                                    <img src="//www.lasheyewear.com/web/product/medium/202211/3bae0eb147f4555d4c81e6900a494984.jpg" id="eListPrdImage1912_1" alt="WOOZ STORE LASH 래쉬 안경테 선글라스">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <strong class="name">
+                                <a href="/journal/detail.html?product_no=1912&amp;cate_no=130&amp;display_group=1" class="">
+                                    <span style="font-size:16px;color:#000000;">WOOZ STORE</span>
+                                </a>
+                            </strong>
+                            <p style="margin-top: 0px;">2020년 9월에 오픈한 안경원입니다. 하우스 브랜드를 전문으로 다루고, 칼자이스 i-profiler, 에실로 eye-ruler 등 검안 장비에도 신경쓰고있으며 안경에 가장 기본이되는 검안과 피팅을 중요시하고 있습니다.</p>
+                            <a href="/journal/detail.html?product_no=1912&amp;cate_no=130&amp;display_group=1">READ MORE</a>
+                        </div>
                     </li>
-                    <li class="">
-                        <p class="title">총적립금</p>
-                        <p class="data"><span id="xans_myshop_bankbook_total_mileage">0원</span></p>
+                    <li id="anchorBoxId_1911" class="journal-item xans-record-" style="position: absolute; left: 383.8px; top: 0px;">
+                        <div class="thumbnail">
+                            <div class="prdImg">
+                                <a href="/journal/detail.html?product_no=1911&amp;cate_no=130&amp;display_group=1" name="anchorBoxName_1911">
+                                    <img src="//www.lasheyewear.com/web/product/medium/202211/e22d23dd1fe4f135b5e1644fd5130724.jpg" id="eListPrdImage1911_1" alt="LASH BRAND SHOWCASE LASH 래쉬 안경테 선글라스">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <strong class="name">
+                                <a href="/journal/detail.html?product_no=1911&amp;cate_no=130&amp;display_group=1" class="">
+                                    <span style="font-size:16px;color:#000000;">LASH BRAND SHOWCASE</span>
+                                </a>
+                            </strong>
+                            <p style="margin-top: 0px;">래쉬아이웨어의 첫 공식 오프라인 행사인 2023 뉴 컬렉션 브랜드 쇼케이스.</p>
+                            <a href="/journal/detail.html?product_no=1911&amp;cate_no=130&amp;display_group=1">READ MORE</a>
+                        </div>
                     </li>
-                    <li class="">
-                        <p class="title">사용적립금</p>
-                        <p class="data"><span id="xans_myshop_bankbook_used_mileage">0원</span></p>
+                    <li id="anchorBoxId_1910" class="journal-item xans-record-" style="position: absolute; left: 759.6px; top: 0px;">
+                        <div class="thumbnail">
+                            <div class="prdImg">
+                                <a href="/journal/detail.html?product_no=1910&amp;cate_no=130&amp;display_group=1" name="anchorBoxName_1910">
+                                    <img src="//www.lasheyewear.com/web/product/medium/202211/9432b0566d9c0eb350623087240d7bae.jpg" id="eListPrdImage1910_1" alt="D CLASSIC STORE LASH 래쉬 안경테 선글라스">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <strong class="name">
+                                <a href="/journal/detail.html?product_no=1910&amp;cate_no=130&amp;display_group=1" class="">
+                                    <span style="font-size:16px;color:#000000;">D CLASSIC STORE</span>
+                                </a>
+                            </strong>
+                            <p style="margin-top: 0px;">우드와 화이트톤을 사용하여 전반적으로 따뜻하고 차분한 분위기를 연출했으며, 편하게 앉아 서로 대화를 통해 원하는 안경을 찾을 수 있게끔 조성된 디클래식 안경원.</p>
+                            <a href="/journal/detail.html?product_no=1910&amp;cate_no=130&amp;display_group=1">READ MORE</a>
+                        </div>
                     </li>
-                    <!-- <li class="displaynone">
-                        <p class="title"></p>
-                        <p class="data use">&nbsp;</p>
-                        <a href="/myshop/deposits/historyList.html" class="button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_result.gif" alt="조회"></a>
-                    </li> -->
-                    <li class="total">
-                        <p class="title">총주문</p>
-                        <p class="data"><span id="xans_myshop_bankbook_order_price">KRW 0</span>(<span id="xans_myshop_bankbook_order_count">0</span>회)</p>
-                    </li>
-                    <!-- <li class="">
-                        <p class="title">쿠폰</p>
-                        <p class="data"><span id="xans_myshop_bankbook_coupon_cnt">1</span><span>개</span></p>
-                        <a href="/myshop/coupon/coupon.html" class="btnType-2">조회</a>
-                    </li> -->
                 </ul>
-                
             </div>
         </div>
-
     </div>
-    
 </body>
 </html>
