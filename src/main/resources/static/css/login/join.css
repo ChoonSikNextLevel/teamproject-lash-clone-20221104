@@ -24,9 +24,6 @@ body {
 }
 
 
-
-
-
 /* 입력 폼 */
 
 .join-area {
@@ -147,6 +144,19 @@ th {
     cursor: pointer;
 }
 
+.join-terms-content {
+    font-size: 13px;
+    cursor: default;
+}
+
+.join-terms-content p {
+    margin: 0;
+}
+
+.shopping-information p {
+    margin-bottom: 24px;
+}
+
 .join-toggle {
     float: left;
     width: 100%;
@@ -162,11 +172,9 @@ th {
     color: #666;
 }
 
-
-
-
-
-
+.invisible{
+    display: none;
+}
 
 /* check-list */
 
@@ -237,7 +245,6 @@ a {
 
 .join-terms-content {
     float: left;
-    display: block;
     margin: 20px 0;
 
     max-height: 300px;
@@ -252,5 +259,4 @@ a {
 
     word-wrap: break-word;
 }
-
 
