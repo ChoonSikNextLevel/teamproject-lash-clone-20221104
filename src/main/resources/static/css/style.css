@@ -1,7 +1,25 @@
-* {
-    box-sizing: border-box;
+body {
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .9375rem;
+    line-height: 1.7;
+    color: #1b1c1c;
+    background: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    right: 0;
+    overflow-x: hidden;
+    transition: right .5s cubic-bezier(.25,.46,.45,.94);
 }
-
+body {
+    width: 100%;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
 body, html {
     margin: 0; 
     padding: 0;   
@@ -10,12 +28,47 @@ body, html {
 ul, li {
     list-style: none;
 }
+a {
+    color: #1b1c1c;
+    transition: opacity .15s linear,color .15s linear,background .15s linear;
+}
 
 a {
     text-decoration: none;
 }
-
-
+a {
+    text-decoration: none;
+    outline: none;
+    color: #000;
+}
+p {
+    margin-bottom: 24px;
+    font-size: 15px;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+ol, ul {
+    list-style: none;
+}
+li {
+    list-style: none;
+}
+li {
+    text-align: -webkit-match-parent;
+    
+}
+img {
+    border: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 /* ================= header는 나중에 교체 ====================*/
 
@@ -92,19 +145,19 @@ html:after {
     box-sizing: border-box;
 }
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 16px;
 }
+
 ::-webkit-scrollbar-thumb {
-    height: 50px;
-    width: 50px;
-    background: rgba(0,0,0,.7);
-    -webkit-box-shadow: inset 0 0 0 rgb(0 0 0);
+    background-color: rgb(83, 82, 82);
 }
+
 ::-webkit-scrollbar-track {
-    background: #f2f2f2;
-    -webkit-box-shadow: inset 0 0 0 rgb(0 0 0);
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
+
 ::selection {
     background: #222;
     color: #fff;
@@ -126,17 +179,8 @@ strong {
     font-weight: 400;
     letter-spacing: -0.1px;
 }
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-li {
-    text-align: -webkit-match-parent;
-    
-}
+
+
 h2 {
     display: block;
     font-size: 1.5em;
@@ -147,20 +191,6 @@ h2 {
     font-weight: bold;
 }
 
-.sideMenu a {
-    width: 100%;
-    float: left;
-    font-size: 12.5px;
-    font-weight: 400;
-    letter-spacing: -0.01px;
-    text-decoration-line:none;
-}
-.sideMenu li {
-    width: 100%;
-    float: left;
-    list-style: none;
-    margin-bottom: 12px;
-}
 h1, h2, h3, h4, h5, h6 {
     font-family: Cabin,sans-serif;
     font-weight: 400;
@@ -187,7 +217,7 @@ select {
     height: 24px;
     border: 1px solid #ccc;
     min-width: 120px;
-    -webkit-appearance: none;
+    -webkit-appearance: none; 
     -moz-appearance: none;
     appearance: none;
     background: url(/web/upload/p2/select-arrow.png) no-repeat 95% 50%;
@@ -201,6 +231,7 @@ input, select, textarea {
     vertical-align: middle;
     outline: none;
 }
+
 input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     height: 55px;
     font-family: Cabin,sans-serif;
@@ -240,19 +271,63 @@ option {
     min-height: 1.2em;
     padding: 0px 2px 1px;
 }
-input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
-    height: 55px;
-    font-family: Cabin,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: .9375rem;
-    padding: 0 20px;
-    margin: 0;
+body, code {
+    font: 0.75em 'DIN-2014','roboto','NanumBarunGothic',sans-serif;
+    color: #353535;
+    background: #fff;
+}
+th, td {
+    border: 0;
+    vertical-align: top;
+}
+.btnType-1 {
+    position: relative;
+    z-index: 100;
+    padding: 3px 15px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    color: #777;
+}
+.ec-base-table.typeList .center td, .ec-base-table.typeList td.center {
+    padding-left: 0;
+    padding-right: 0;
+}
+.btnType-2B {
+    position: relative;
+    z-index: 100;
+    padding: 5px 40px;
+    margin: 5px auto 0;
+    line-height: 23px;
     display: inline-block;
-    border-radius: 0;
-    -webkit-appearance: none;
-    border: 1px solid transparent;
-    background: #ededed;
-    color: #1b1c1c;
-    transition: all .15s linear;
+    border: 1px solid #333;
+    color: #333 !important;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.1px;
+}
+.xans-member-edit #birth_year, .xans-member-edit #marry_year, .xans-member-edit #partner_year {
+    width: 60px;
+    margin: 0 4px 0 0;
+}
+.xans-member-edit #birth_month, .xans-member-edit #marry_month, .xans-member-edit #partner_month, .xans-member-edit #birth_day, .xans-member-edit #marry_day, .xans-member-edit #partner_day {
+    width: 30px;
+    margin: 0 4px 0 0;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.xans-member-edit #phone2, .xans-member-edit #phone3, .xans-member-edit #mobile2, .xans-member-edit #mobile3 {
+    width: 50px;
+    margin: 0 4px;
+}
+.xans-member-edit #addr1, .xans-member-edit #addr2 {
+    width: 280px;
+    margin: 5px 0 0;
+}
+.xans-member-edit #postcode1, .xans-member-edit #postcode2 {
+    width: 40px;
+    text-align: center;
 }

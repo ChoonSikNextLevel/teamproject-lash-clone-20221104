@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"class=" wf-nimbus-sans-n4-active wf-nimbus-sans-i4-active wf-nimbus-sans-n7-active wf-nimbus-sans-i7-active wf-nimbus-sans-condensed-n4-active wf-nimbus-sans-condensed-n7-active wf-nimbus-sans-extended-n4-active wf-nimbus-sans-extended-n7-active wf-adobe-myungjo-std-n5-active wf-bookmania-i7-active wf-bookmania-n7-active wf-bookmania-i4-active wf-bookmania-n4-active wf-din-2014-n2-active wf-din-2014-i2-active wf-din-2014-n3-active wf-din-2014-i3-active wf-din-2014-i4-active wf-din-2014-n4-active wf-din-2014-n6-active wf-din-2014-i6-active wf-din-2014-i7-active wf-din-2014-n7-active wf-din-2014-n8-active wf-din-2014-i8-active wf-din-2014-narrow-n4-active wf-din-2014-narrow-n7-active wf-active">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user_info_editor</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <SCRIPT src="/static/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <SCRIPT src="/static/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
+    <link rel="stylesheet" href="/static/css/user_info_editor.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="overlay"></div>
+    <header header id="site-header" class="site-header desktop-view--classic header-scroll fix ready animate"style="position: fixed !important;">
+        <div class="header-container">
+            <div class="header-flex">
+                <div class="header-left-container">
+                    <div class="menu-container">
+                        <div class="site-nav-menu">
+                            <div class="site-nav-parent">
+                                <a href="" class="menu-product">제품</a>
+                            </div>
+                            <nav class="nav-invisible">
+                                <div class="site-nav-mega">
+                                    <a href="">전체</a>
+                                    <a href=""><span class="metal-button">메탈</span>
+                                        <img src="/static/images/Logo_img/catemetal.jpg"
+                                            class="metal-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acetate-button">아세테이트</span>
+                                        <img src="/static/images/Logo_img/cateacetate.jpg"
+                                            class="acetate-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="combination-button">콤비네이션</span>
+                                        <img src="/static/images/Logo_img/cateCombination.jpg"
+                                            class="combination-image image-display" alt="">
+                                    </a>
+                                </div>
+                                <div class="site-nav-mega site-nav-mega2">
+                                    <a href=""><span class="refined-button">리파인드</span>
+                                        <img src="/static/images/Logo_img/cateRefined.jpg"
+                                            class="refined-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="vintage-button">빈티지</span>
+                                        <img src="/static/images/Logo_img/cateVintage.jpg"
+                                            class="vintage-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="sunglasses-button">선글라스</span>
+                                        <img src="/static/images/Logo_img/cateSunglasses.jpg"
+                                            class="sunglasses-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acc-button">Acc</span>
+                                        <img src="/static/images/Logo_img/cateAcc.jpg" class="acc-image image-display"
+                                            alt="">
+                                    </a>
+                                </div>
+                            </nav>
+                            <div><a href="" class="">캠페인</a></div>
+                            <div><a href="" class="">저널</a></div>
+                            <div><a href="" class="">브랜드</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <a href=""><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
+                </div>
+                <div class="header-right-container">
+                    <!-- <button class="site-header-button">SEARCH</button> -->
+                    <div class="search-box">
+                        <form action="." method="post">
+                            <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
+                            <button class="search-btn" type="submit"><i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <button class="site-header-button">My page</button>
+                    <button class="site-header-button">Log in</button>
+                    <button class="site-header-button basket-button">My Shopping Basket
+                        <span class="basket-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="contents">
+        <div class="titleArea">
+            <h2 style="margin-top: 0px;margin-bottom: 0px;">USER INFO EDITOR</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2>Account</h2>
+            <li><a href="">마이쇼핑</a></li>
+            <li><a href="">주문내역조회</a></li>
+            <li><a href="">회원정보관리</a></li>
+            <li><a href="">게시물관리</a></li>
+            <li><a href="">배송주소록</a></li>
+        </ul>
+        <div id="modify">
+            <form id="editForm" name="editForm" action="/exec/front/Member/edit/" method="post" target="_self" enctype="multipart/form-data">
+                <input id="useSimpleSignin" name="useSimpleSignin" value="T" type="hidden">
+                <input id="is_certification" name="is_certification" value="F" type="hidden">
+                <input id="is_email_auth_use" name="is_email_auth_use" value="F" type="hidden">
+                <input id="emailDuplCheck" name="emailDuplCheck" value="T" type="hidden">
+                <input id="login_id_type" name="login_id_type" value="id" type="hidden">
+                <input id="is_display_register_name" name="is_display_register_name" value="T" type="hidden">
+                <input id="display_required_name" name="display_required_name" value="T" type="hidden">
+                <input id="is_display_register_name_phonetic" name="is_display_register_name_phonetic" value="F" type="hidden">
+                <input id="display_required_name_phonetic" name="display_required_name_phonetic" value="F" type="hidden">
+                <input id="is_display_register_eng_name" name="is_display_register_eng_name" value="F" type="hidden">
+                <input id="display_required_name_en" name="display_required_name_en" value="F" type="hidden">
+                <input id="passwd_type" name="passwd_type" value="D" type="hidden">
+                <input id="is_display_register_addr" name="is_display_register_addr" value="T" type="hidden">
+                <input id="is_display_register_addr2" name="is_display_register_addr2" value="T" type="hidden">
+                <input id="__addr1" name="__addr1" value="" type="hidden">
+                <input id="__city_name" name="__city_name" value="" type="hidden">
+                <input id="__state_name" name="__state_name" value="" type="hidden">
+                <input id="__isRuleBasedAddrForm" name="__isRuleBasedAddrForm" value="F" type="hidden">
+                <input id="address_direct_input_check" name="address_direct_input_check" value="F" type="hidden">
+                <input id="display_required_address" name="display_required_address" value="T" type="hidden">
+                <input id="display_required_address2" name="display_required_address2" value="T" type="hidden">
+                <input id="is_display_register_mobile" name="is_display_register_mobile" value="T" type="hidden">
+                <input id="display_required_cell" name="display_required_cell" value="T" type="hidden">
+                <input id="display_register_mobile" name="display_register_mobile" value="T" type="hidden">
+                <input id="use_checking_mobile_number_duplication" name="use_checking_mobile_number_duplication" value="F" type="hidden">
+                <input id="isMobileVerify" name="isMobileVerify" value="F" type="hidden">
+                <input id="is_display_register_phone" name="is_display_register_phone" value="F" type="hidden">
+                <input id="display_required_phone" name="display_required_phone" value="F" type="hidden">
+                <input id="display_register_phone" name="display_register_phone" value="T" type="hidden">
+                <input id="is_display_password_hint" name="is_display_password_hint" value="F" type="hidden">
+                <input id="required_is_sms_flag" name="required_is_sms_flag" value="T" type="hidden">
+                <input id="required_is_news_mail_flag" name="required_is_news_mail_flag" value="T" type="hidden">
+                <input id="is_display_register_birthday" name="is_display_register_birthday" value="F" type="hidden">
+                <input id="display_required_is_birthday" name="display_required_is_birthday" value="F" type="hidden">
+                <input id="display_required_sex" name="display_required_sex" value="F" type="hidden">
+                <input id="nick_name_flag" name="nick_name_flag" value="F" type="hidden">
+                <input id="nick_name_confirm" name="nick_name_confirm" value="F" type="hidden">
+                <input id="display_required_nick_name_flag" name="display_required_nick_name_flag" value="F" type="hidden">
+                <input id="is_display_register_wedding" name="is_display_register_wedding" value="F" type="hidden">
+                <input id="display_required_is_wedding_anniversary" name="display_required_is_wedding_anniversary" value="F" type="hidden">
+                <input id="is_display_register_life_partner" name="is_display_register_life_partner" value="F" type="hidden">
+                <input id="display_required_is_life_partner" name="display_required_is_life_partner" value="F" type="hidden">
+                <input id="display_required_job" name="display_required_job" value="F" type="hidden">
+                <input id="display_required_job_class" name="display_required_job_class" value="F" type="hidden">
+                <input id="display_required_school" name="display_required_school" value="F" type="hidden">
+                <input id="display_required_interest" name="display_required_interest" value="F" type="hidden">
+                <input id="display_required_region" name="display_required_region" value="F" type="hidden">
+                <input id="display_required_internet" name="display_required_internet" value="F" type="hidden">
+                <input id="display_required_child" name="display_required_child" value="F" type="hidden">
+                <input id="display_required_car" name="display_required_car" value="F" type="hidden">
+                <input id="display_required_earning" name="display_required_earning" value="F" type="hidden">
+                <input id="display_required_reco_id" name="display_required_reco_id" value="F" type="hidden">
+                <input id="display_required_add1" name="display_required_add1" value="F" type="hidden">
+                <input id="display_required_add2" name="display_required_add2" value="F" type="hidden">
+                <input id="display_required_add3" name="display_required_add3" value="F" type="hidden">
+                <input id="display_required_add4" name="display_required_add4" value="F" type="hidden">
+                <input id="returnUrl" name="returnUrl" value="/" type="hidden">
+                <input id="sUseCountryNumberFlag" name="sUseCountryNumberFlag" value="T" type="hidden">
+                <input id="sUseSeparationNameFlag" name="sUseSeparationNameFlag" value="F" type="hidden">
+                <input id="sEData" name="sEData" value="f4JfunVARxu6I+o7sLvpiqbmaHUhIdDeb+7fQNJAIeG0HO/S9ymkW8lxNgEwPKIKZOHjdVZGQ+oPpFGvgGK/ezPV3q5VSPC5zeYAYt1o8qx5XdEb61w8ywYIu9g2X8APX4x/3dLn5rnwqLJ0FN0p9fUMO2C/sea5A1cmr4/tuDObJ+NtUCLmwwu7xAnqKzz5bJkylsDkq6rLPmswVqz9l9nz+dZ2n3AqiyZaO4l769qaZKIPCj56P1yFhE4ihvzem4g8U3qDuLZEnBmmKTBNLia4QZkJ7Edqxqg2nb5XlpyAwnkds1sA7RdXiC5b1bUes4TCOsMGetpVPAxCcFI6VIZa3Ngtc94IFmJ/GwV1D36EJbOBFIsza5v7nmCTd2w0dT7w0nwna1LHCMI5NwF/twcXHqt5W6gjsMYhvY24FlsDeAsN+9cUH5KJNs7obERNL4D8BFpAfO9DKupyCgVBOo0nVc6m7WNQRuPuCV3i8f9cNb+EytVTYrIgfE4QCqjLSFw6JEe7jcet6LA6xvyWMeSZZJQSAHywKVydvSh7ItY24tDDc1Wit3hRKOgejrDIeBKPALF1suxCiyS9xa3txuL2QLTrGYkQq9305j16jJv5ZWf8XCSRThgt75YEEewwO0ev7Qtu/mFasY0CvYp9KbqgF/DMhQzrGmkxk/+5gD1fPYxIqJO3KjV0a+uDJbzpG0mT0+yLzEXFeSpcZVIJNlyie7eNjZx0BaBIuy3iVeVGl0QChJ9VAKWEj3LzDc6wYDj2G7tivg4k7NMgZTg0BSJQY/rxfqXsjQAPQKCYkhw4iE34AX31M0UB7SdU8gudGpoFWqPyYCMhecjUnLC3IDoTzk3u64U89ZhkmGmSbpHf6fPDsj13rVgNNpuDcmaVRb8lLlk9cCfGEclCw3ujPzU3OCGwOqSolxq1cktZS85i/Pbhnoq51Oy6nLCp80DgOHWNq02cPlilQZ7Y6e0t3C14pQdiFvs6V9WvhMD072C4ozqKd/PJQeeK3a9WWsfgJVrW0G6j3VP8Olo6SbSwm7Kljsns7E7YNhOOujVZgZNlOrpTRMRCMTMCKKaWP2lvNL3G+brgfISJn4OG7fuIVRQEqJ6D1bi9SJQiT/F3pck0O42VTFwIfRb0txc82Lhrp8UlqfnKqjhqDeilaWSnAP+e/oVms3dRdJvPNr+HuJUWf5CAEKII4qD26IGAybwnX5C9oOmflD7XMcI/ZCtt05s+FQPMFRUrdKJpu/o/swDwVciJhbSn0HlXWdWvCzosmgdhYGSs2bXQy6GFkJ2JrWLKlG8Tu6CcvVBHAu2dvHD2D9HZwa1Km/wL0V81cnhawT7pyAyld+JfzGirSdbn1w==" type="hidden">
+                <input id="sEDataDiff" name="sEDataDiff" value="eyJhZGQxIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJhZGQyIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJhZGQzIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJhZGQ0IjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJtZW1iZXJfaWQiOiIyNGMwM2M2YWQ3YTk4YTZmOTc2YWI5N2ZlZjgwOWJmNSIsImhpbnRfYW5zd2VyIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJuYW1lX2NvbnRlbnRzIjoiMjU1Mzg5NzYzZGFmOTE3MjNkZjBmOTJhMmQ0MDBkMDMiLCJzc25fY29udGVudHMiOiI1OGE0YTQ3YzQ3ZGRhMTE1MmFjNGYxOGIwZjE2M2U3NCIsInBvc3Rjb2RlMSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwicG9zdGNvZGUyIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJhZGRyMSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiYWRkcjIiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsImNpdHlfbmFtZSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwic3RhdGVfbmFtZSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwic3RyZWV0X25hbWUiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsInBob25lMSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwicGhvbmUyIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJwaG9uZTMiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIm1vYmlsZTEiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIm1vYmlsZTIiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIm1vYmlsZTMiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsImVtYWlsMSI6ImI0ZjFiMmFhNzNkMjRjNzRhMDhjZTlhNTViZDY1NTdiIiwiZW1haWwyIjoiMjAwYjBlNjg5NWU5OTNjMjlkZDA5ZGM3NGJjZTE3NzIiLCJlbWFpbDMiOiIyMDBiMGU2ODk1ZTk5M2MyOWRkMDlkYzc0YmNlMTc3MiIsImJpcnRoX3llYXIiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsImJpcnRoX21vbnRoIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJiaXJ0aF9kYXkiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIm1hcnJ5X3llYXIiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIm1hcnJ5X21vbnRoIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJtYXJyeV9kYXkiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsInBhcnRuZXJfeWVhciI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwicGFydG5lcl9tb250aCI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwicGFydG5lcl9kYXkiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIl9fYWRkcjEiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIl9fY2l0eV9uYW1lIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJfX3N0YXRlX25hbWUiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsIm5pY2tfbmFtZSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiaXNfbmV3c19tYWlsIjoiODAwNjE4OTQzMDI1MzE1Zjg2OWU0ZTFmMDk0NzEwMTIiLCJpc19zbXMiOiI4MDA2MTg5NDMwMjUzMTVmODY5ZTRlMWYwOTQ3MTAxMiIsInNleCI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiaXNfc29sYXJfY2FsZW5kYXIiOiJiOWVjZTE4Yzk1MGFmYmZhNmIwZmRiZmE0ZmY3MzFkMyIsInJlZ2lvbiI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiaW50ZXJlc3QiOiI4NTNhZTkwZjAzNTEzMjRiZDczZWE2MTVlNjQ4NzUxNyIsImludGVybmV0IjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJjaGlsZCI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiY2FyIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJhdmFpbF9taWxlYWdlIjoiZjdkZGQ0ODlhYjBhODI1NjdiMjQxYjA1OTcxY2JkYjMiLCJyZWNvX2lkIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJ6aXBjb2RlIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJtZW1iZXJfdHlwZSI6IjgzODc4YzkxMTcxMzM4OTAyZTBmZTBmYjk3YThjNDdhIiwiY29tcGFueV90eXBlIjoiNzIxNWVlOWM3ZDlkYzIyOWQyOTIxYTQwZTg5OWVjNWYiLCJjc3NuIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJibmFtZSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiY25hbWUiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsImJzc24xIjoiZDQxZDhjZDk4ZjAwYjIwNGU5ODAwOTk4ZWNmODQyN2UiLCJmb3JlaWduZXJfdHlwZSI6IjcyMTVlZTljN2Q5ZGMyMjlkMjkyMWE0MGU4OTllYzVmIiwiY2l0aXplbnNoaXAiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsInBlcnNvbmFsX3R5cGUiOiI3MjE1ZWU5YzdkOWRjMjI5ZDI5MjFhNDBlODk5ZWM1ZiIsInJlZnVuZF9iYW5rX2NvZGUiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsImNvdW50cnlfY29kZSI6IjBhZTE2NmRmZmRlMGUzNjhlOWM3MTM5NjhlYTgzZmM3IiwiaXNfYWdyZWVkX3Byb3ZpZGluZ19pbmZvcm1hdGlvbiI6IjgwMDYxODk0MzAyNTMxNWY4NjllNGUxZjA5NDcxMDEyIiwiaXNfYWdyZWVkX2NvbnNpZ25pbmdfaW5mb3JtYXRpb24iOiI4MDA2MTg5NDMwMjUzMTVmODY5ZTRlMWYwOTQ3MTAxMiIsImlzX2F1dGhlbnRpY2F0ZWRfYnlfZW1haWwiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsInRvdGFsX2RlcG9zaXQiOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsImRpcmVjdF9pbnB1dF9jaGVjayI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiaXNfam9pbl9wcml2YWN5X3BvbGljeV9vcHRpb25hbCI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIiwiY29tcGFueV9jb25kaXRpb24iOiJkNDFkOGNkOThmMDBiMjA0ZTk4MDA5OThlY2Y4NDI3ZSIsImNvbXBhbnlfbGluZSI6ImQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0MjdlIn0=" type="hidden">
+                <input id="display_agree_information_check_flag" name="display_agree_information_check_flag" value="F" type="hidden">
+                <input id="display_agree_consignment_check_flag" name="display_agree_consignment_check_flag" value="F" type="hidden">
+                <input id="display_agree_privacy_optional_check_flag" name="display_agree_privacy_optional_check_flag" value="F" type="hidden"><div class="xans-element- xans-member xans-member-edit">
+
+                <!-- <div class="displaynone">
+                    <h3>회원인증</h3>
+                    <div class="ec-base-table-black typeWrite">
+                        <table border="1" summary="">
+                            <caption>회원인증</caption>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr class="displaynone">
+                                    <th scope="row">회원구분</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">인증여부</th>
+                                    <td>
+                                        <strong class="txtEm">미인증</strong>
+                                        <ul class="certifInfo"></ul>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <th scope="row">회원인증</th>
+                                    <td>
+                                        <div class="certifForm" id="ipinWrap">
+                                            <a href="#none" onclick="">
+                                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_check6.gif" alt="아이핀 인증">
+                                            </a>
+                                            <p class="certifInfo">아이핀이란, 회원님의 개인정보 보호를 위해 웹사이트에 주민등록번호를 제공하지 않고 본인임을 확인하는 인터넷상의 개인식별번호 서비스입니다.<br>아이핀을 통한 가입을 원하시면 아이핀 인증 버튼을 눌러 진행해 주십시오.</p>
+                                        </div>
+                                        <div class="certifForm" id="mobileWrap">
+                                            <a href="#none" onclick="">
+                                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_check5.gif" alt="휴대폰 인증">
+                                            </a>
+                                            <p class="certifInfo">본인 명의의 휴대폰으로 본인인증을 진행합니다.</p>
+                                        </div>
+                                        <div class="certifForm" id="emailWrap">
+                                            <p class="certifInfo">기본정보 &gt; 이메일 항목에 입력하신 정보로 본인인증을 진행합니다.
+                                                <br>정보수정 후에 입력하신 이메일 주소로 인증 메일이 발송되오니, 확인해 주시기 바랍니다.
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+                <!-- <h3 class="displaynone ">기본정보</h3>
+                <p class="required displaynone">
+                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"> 필수입력사항
+                </p> -->
+                <div class="ec-base-table-black typeWrite">
+                    <table border="1" summary>
+                        <colgroup>
+                            <col style="width:150px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">아이디
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                    <input id="member_id" name="member_id" fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity" fw-label="아이디" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text">						 (영문소문자/숫자, 4~16자)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">비밀번호 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="passwd" name="passwd" fw-filter="isMin[4]&amp;isMax[16]" fw-label="비밀번호" fw-msg="" autocomplete="off" maxlength="16" disabled="1" value="" type="password"> (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자)
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">비밀번호 확인 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="user_passwd_confirm" name="user_passwd_confirm" fw-filter="isMatch[passwd]" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다."  type="password"> <span id="pwConfirmMsg"></span>
+                                </td>
+                            </tr>
+                            <!-- <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">새 비밀번호</th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="new_passwd" name="new_passwd" fw-filter="isMin[4]&amp;isMax[16]" fw-label="새 비밀번호" fw-msg="" maxlength="16" disabled="1" value="" type="password"> (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자)
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">새 비밀번호 확인</th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="new_passwd_confirm" name="new_passwd_confirm" fw-filter="isMin[4]&amp;isMax[16]" fw-label="비밀번호" fw-msg="" maxlength="16" disabled="1" value="" type="password"> <span id="new_pwConfirmMsg"></span>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">비밀번호 확인 질문 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="hint" name="hint" fw-filter="" fw-label="hint" fw-msg="">
+                                        <option value="hint_01">기억에 남는 추억의 장소는?</option>
+                                        <option value="hint_02">자신의 인생 좌우명은?</option>
+                                        <option value="hint_03">자신의 보물 제1호는?</option>
+                                        <option value="hint_04">가장 기억에 남는 선생님 성함은?</option>
+                                        <option value="hint_05">타인이 모르는 자신만의 신체비밀이 있다면?</option>
+                                        <option value="hint_06">추억하고 싶은 날짜가 있다면?</option>
+                                        <option value="hint_07">받았던 선물 중 기억에 남는 독특한 선물은?</option>
+                                        <option value="hint_08">유년시절 가장 생각나는 친구 이름은?</option>
+                                        <option value="hint_09">인상 깊게 읽은 책 이름은?</option>
+                                        <option value="hint_10">읽은 책 중에서 좋아하는 구절이 있다면?</option>
+                                        <option value="hint_11">자신이 두번째로 존경하는 인물은?</option>
+                                        <option value="hint_12">친구들에게 공개하지 않은 어릴 적 별명이 있다면?</option>
+                                        <option value="hint_13">초등학교 때 기억에 남는 짝꿍 이름은?</option>
+                                        <option value="hint_14">다시 태어나면 되고 싶은 것은?</option>
+                                        <option value="hint_15">내가 좋아하는 캐릭터는?</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">비밀번호 확인 답변 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="hint_answer" name="hint_answer" fw-filter="" fw-label="비밀번호 확인시 답변" fw-msg="" class="inputTypeText" placeholder="" value="" type="text">
+                                </td>
+                            </tr> -->
+                            <tr style="display:1">
+                                <th scope="row" id="" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">이름 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="name" name="name" fw-filter="isFill&amp;isMax[30]" fw-label="이름" fw-msg="" class="ec-member-name" placeholder="" maxlength="30" readonly="readonly" value="최준호" type="text">
+                                </td>
+                            </tr>
+                            <!-- <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">이름(영문) 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="name_en" name="name_en" fw-filter="isMax[30]&amp;isAlphaSpace" fw-label="이름(영문)" fw-msg="" class="ec-member-name" placeholder="" maxlength="30" value="" type="text"> (이름 - 성 형식으로 입력해 주세요.)
+                                </td>
+                            </tr> -->
+                            <!-- <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;"></th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;"></td>
+                            </tr> -->
+                            <!-- <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">법인명 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;"></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">법인번호 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;"></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">상호명 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;"></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">사업자번호 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;"></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">국적 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;"></td>
+                            </tr> -->
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">주소 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="postcode1" name="postcode1" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">						<a href="#none" onclick="ZipcodeFinder.Opener.bind('postBtn', 'postcode1', 'postcode2', 'addr1', 'layer', 'ko_KR');" id="postBtn"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif" alt="우편번호"></a><br>
+                                    <input id="addr1" name="addr1" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
+                                    <input id="addr2" name="addr2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 					
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">일반전화 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="phone1" name="phone[]" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="">
+                                        <option value="02">02</option>
+                                        <option value="031">031</option>
+                                        <option value="032">032</option>
+                                        <option value="033">033</option>
+                                        <option value="041">041</option>
+                                        <option value="042">042</option>
+                                        <option value="043">043</option>
+                                        <option value="044">044</option>
+                                        <option value="051">051</option>
+                                        <option value="052">052</option>
+                                        <option value="053">053</option>
+                                        <option value="054">054</option>
+                                        <option value="055">055</option>
+                                        <option value="061">061</option>
+                                        <option value="062">062</option>
+                                        <option value="063">063</option>
+                                        <option value="064">064</option>
+                                        <option value="0502">0502</option>
+                                        <option value="0503">0503</option>
+                                        <option value="0504">0504</option>
+                                        <option value="0505">0505</option>
+                                        <option value="0506">0506</option>
+                                        <option value="0507">0507</option>
+                                        <option value="070">070</option>
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="019">019</option>
+                                        <option value="0508">0508</option>
+                                    </select>-<input id="phone2" name="phone[]" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="" value="" type="text">-<input id="phone3" name="phone[]" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg="" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">휴대전화 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="mobile1" name="mobile[]" fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="">
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="019">019</option>
+                                    </select>-<input id="mobile2" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value="" type="text">-<input id="mobile3" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">SMS 수신여부 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="is_sms0" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="T" type="radio"><label for="is_sms0">수신함</label>
+                                    <input id="is_sms1" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg="" value="F" type="radio" checked="checked"><label for="is_sms1">수신안함</label><p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">이메일 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="email1" name="email1" fw-filter="isFill&amp;isEmail" fw-label="이메일" fw-alone="N" fw-msg="" value="" type="text"> <span id="emailMsg"></span>
+                                    <!-- <p class="displaynone">이메일 주소 변경 시 로그아웃 후 재인증을 하셔야만 로그인이 가능합니다.<br>인증 메일은 24시간 동안 유효하며, 유효 시간이 만료된 후에는 가입 정보로 로그인 하셔서 재발송 요청을 해주시기 바랍니다.</p> -->
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">이메일 수신여부 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="is_news_mail0" name="is_news_mail" fw-filter="isFill" fw-label="is_news_mail" fw-msg="" value="T" type="radio"><label for="is_news_mail0">수신함</label>
+                                    <input id="is_news_mail1" name="is_news_mail" fw-filter="isFill" fw-label="is_news_mail" fw-msg="" value="F" type="radio" checked="checked"><label for="is_news_mail1">수신안함</label><p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 class=" ">추가정보</h3>
+                <div class="ec-base-table-black typeWrite">
+                    <table border="1" summary>
+                        <!-- <caption>회원 추가정보</caption> -->
+                        <colgroup>
+                            <col style="width:150px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <!-- <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">별명 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="nick_name" name="nick_name" fw-filter="" fw-label="별명" fw-msg="" class="inputTypeText" placeholder="" maxlength="20" value="" type="text"> (한글2~10자/영문 대소문자4~20자/숫자 혼용가능)
+                                </td> -->
+                            </tr>
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">성별 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="is_sex0" name="is_sex" fw-filter="" fw-label="성별" fw-msg="" 0="disabled" value="M" type="radio" class=""><label for="is_sex0">남자</label>
+                                    <input id="is_sex1" name="is_sex" fw-filter="" fw-label="성별" fw-msg="" 0="disabled" value="F" type="radio" class=""><label for="is_sex1">여자</label>
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">생년월일 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="birth_year" name="birth_year" fw-filter="" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 <input id="birth_month" name="birth_month" fw-filter="" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 <input id="birth_day" name="birth_day" fw-filter="" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일 <span class="gIndent20 "><input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked"><label for="is_solar_calendar0">양력</label>
+                                    <input id="is_solar_calendar1" name="is_solar_calendar" fw-filter="" fw-label="생년월일" fw-msg="" value="F" type="radio"><label for="is_solar_calendar1">음력</label></span>
+                                </td>
+                            <!-- </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">결혼기념일 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="marry_year" name="marry_year" fw-filter="" fw-label="결혼 기념일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
+                                    <input id="marry_month" name="marry_month" fw-filter="" fw-label="결혼 기념일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
+                                    <input id="marry_day" name="marry_day" fw-filter="" fw-label="결혼 기념일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">배우자생일 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <input id="partner_year" name="partner_year" fw-filter="" fw-label="배우자 생일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년 
+                                    <input id="partner_month" name="partner_month" fw-filter="" fw-label="배우자 생일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 월 
+                                    <input id="partner_day" name="partner_day" fw-filter="" fw-label="배우자 생일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"> 일
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">자녀 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="child" name="child" fw-filter="" fw-label="자녀" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="child_01">없음</option>
+                                        <option value="child_02">1</option>
+                                        <option value="child_03">2</option>
+                                        <option value="child_04">3</option>
+                                        <option value="child_05">4</option>
+                                        <option value="child_06">5</option>
+                                        <option value="child_07">6</option>
+                                        <option value="child_08">7</option>
+                                        <option value="child_09">8</option>
+                                        <option value="child_10">9</option>
+                                        <option value="child_11">10 이상</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">최종학력 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="school" name="school" fw-filter="" fw-label="최종학력" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="school_01">초등학교재학</option>
+                                        <option value="school_02">초등학교졸업</option>
+                                        <option value="school_03">중학교재학</option>
+                                        <option value="school_04">중학교졸업</option>
+                                        <option value="school_05">고등학교재학</option>
+                                        <option value="school_06">고등학교졸업</option>
+                                        <option value="school_07">대학교재학</option>
+                                        <option value="school_08">대학교졸업</option>
+                                        <option value="school_09">대학원재학</option>
+                                        <option value="school_10">대학원졸업이상</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">직종 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="job_class" name="job_class" fw-filter="" fw-label="직종" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="job_class_05">서비스</option>
+                                        <option value="job_class_06">교육</option>
+                                        <option value="job_class_07">부동산/운송</option>
+                                        <option value="job_class_08">농/임/수/광업</option>
+                                        <option value="job_class_09">금융</option>
+                                        <option value="job_class_10">유통</option>
+                                        <option value="job_class_11">예술</option>
+                                        <option value="job_class_12">의료</option>
+                                        <option value="job_class_13">법률</option>
+                                        <option value="job_class_14">제조/무역</option>
+                                        <option value="job_class_15">건설업</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">직업 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="job" name="job" fw-filter="" fw-label="직업" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="job_01">학생</option>
+                                        <option value="job_02">회사원</option>
+                                        <option value="job_03">자영업</option>
+                                        <option value="job_04">무직</option>
+                                        <option value="job_05">기타</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">연소득 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                    <select id="earning" name="earning" fw-filter="" fw-label="연소득" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="earning_01">없음</option>
+                                        <option value="earning_02">1000만원 이하</option>
+                                        <option value="earning_03">1200만원 이하</option>
+                                        <option value="earning_04">1500만원 이하</option>
+                                        <option value="earning_05">1800만원 이하</option>
+                                        <option value="earning_06">2000만원 이하</option>
+                                        <option value="earning_07">2500만원 이하</option>
+                                        <option value="earning_08">3000만원 이하</option>
+                                        <option value="earning_09">4000만원 이하</option>
+                                        <option value="earning_10">5000만원 이하</option>
+                                        <option value="earning_11">5000만원 이상</option>
+                                        <option value="earning_12">기타</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row">자동차 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <select id="car" name="car" fw-filter="" fw-label="자동차" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="car_01">없음</option>
+                                        <option value="car_02">1000cc 이하</option>
+                                        <option value="car_03">1000cc ~ 1500cc</option>
+                                        <option value="car_04">1500cc ~ 2000cc</option>
+                                        <option value="car_05">2000cc ~ 3000cc</option>
+                                        <option value="car_06">3000cc ~ 4000cc</option>
+                                        <option value="car_07">4000cc 이상</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row">지역 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <select id="region" name="region" fw-filter="" fw-label="지역" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="region_01">경기</option>
+                                        <option value="region_02">서울</option>
+                                        <option value="region_03">인천</option>
+                                        <option value="region_04">강원</option>
+                                        <option value="region_05">충남</option>
+                                        <option value="region_06">충북</option>
+                                        <option value="region_07">대전</option>
+                                        <option value="region_08">경북</option>
+                                        <option value="region_09">경남</option>
+                                        <option value="region_10">대구</option>
+                                        <option value="region_11">부산</option>
+                                        <option value="region_12">울산</option>
+                                        <option value="region_13">전북</option>
+                                        <option value="region_14">전남</option>
+                                        <option value="region_15">광주</option>
+                                        <option value="region_15_01">세종</option>
+                                        <option value="region_16">제주</option>
+                                        <option value="region_17">해외</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row">인터넷 이용장소 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <select id="internet" name="internet" fw-filter="" fw-label="인터넷" fw-msg="">
+                                        <option value="" selected="selected">선택</option>
+                                        <option value="internet_01">집</option>
+                                        <option value="internet_02">회사</option>
+                                        <option value="internet_03">PC방</option>
+                                        <option value="internet_04">기타</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row">관심분야 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <div class="interest">
+                                        <input id="inter_check0" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="0" type="checkbox"><label for="inter_check0">애니메이션</label>
+                                        <input id="inter_check1" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="1" type="checkbox"><label for="inter_check1">영화/연극</label>
+                                        <input id="inter_check2" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="2" type="checkbox"><label for="inter_check2">놀이공원</label>
+                                        <input id="inter_check3" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="3" type="checkbox"><label for="inter_check3">경품정보</label>
+                                        <input id="inter_check4" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="4" type="checkbox"><label for="inter_check4">미술전시회</label>
+                                        <input id="inter_check5" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="5" type="checkbox"><label for="inter_check5">클래식 콘서트</label>
+                                        <input id="inter_check6" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="6" type="checkbox"><label for="inter_check6">패션/미용</label>
+                                        <input id="inter_check7" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="7" type="checkbox"><label for="inter_check7">정치</label>
+                                        <input id="inter_check8" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="8" type="checkbox"><label for="inter_check8">IT/정보통신</label>
+                                        <input id="inter_check9" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="9" type="checkbox"><label for="inter_check9">스포츠</label>
+                                        <input id="inter_check10" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="10" type="checkbox"><label for="inter_check10">요리/음식</label>
+                                        <input id="inter_check11" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="11" type="checkbox"><label for="inter_check11">연예인</label>
+                                        <input id="inter_check12" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="12" type="checkbox"><label for="inter_check12">여성/주부</label>
+                                        <input id="inter_check13" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="13" type="checkbox"><label for="inter_check13">육아</label>
+                                        <input id="inter_check14" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="14" type="checkbox"><label for="inter_check14">비즈니스/금융/부동산</label>
+                                        <input id="inter_check15" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="15" type="checkbox"><label for="inter_check15">주식/증권</label>
+                                        <input id="inter_check16" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="16" type="checkbox"><label for="inter_check16">스포츠/레져/취미</label>
+                                        <input id="inter_check17" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="17" type="checkbox"><label for="inter_check17">경매/공동구매</label>
+                                        <input id="inter_check18" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="18" type="checkbox"><label for="inter_check18">뉴스/정보</label>
+                                        <input id="inter_check19" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="19" type="checkbox"><label for="inter_check19">컴퓨터/게임</label>
+                                        <input id="inter_check20" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="20" type="checkbox"><label for="inter_check20">대학교/대학원정보</label>
+                                        <input id="inter_check21" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="21" type="checkbox"><label for="inter_check21">건강/의료</label>
+                                        <input id="inter_check22" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="22" type="checkbox"><label for="inter_check22">자동차/여행</label>
+                                        <input id="inter_check23" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="23" type="checkbox"><label for="inter_check23">쇼핑/전자상거래</label>
+                                        <input id="inter_check24" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="24" type="checkbox"><label for="inter_check24">구인/구직</label>
+                                        <input id="inter_check25" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="25" type="checkbox"><label for="inter_check25">어학강좌</label>
+                                        <input id="inter_check26" name="inter_check[]" fw-filter="" fw-label="관심분야" fw-msg="" value="26" type="checkbox"><label for="inter_check26">기타등등</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <input id="add1" name="add1" fw-filter="" fw-label="추가항목1" fw-msg="" class="inputTypeText" placeholder="" maxlength="200" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <input id="add2" name="add2" fw-filter="" fw-label="추가항목2" fw-msg="" class="inputTypeText" placeholder="" maxlength="200" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <input id="add3" name="add3" fw-filter="" fw-label="추가항목3" fw-msg="" class="inputTypeText" placeholder="" maxlength="200" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <input id="add4" name="add4" fw-filter="" fw-label="추가항목4" fw-msg="" class="inputTypeText" placeholder="" maxlength="200" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row"> 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td></td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row">추천인 아이디 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <input id="reco_id" name="reco_id" fw-filter="" fw-label="추천인 ID" fw-msg="" class="inputTypeText" placeholder="" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr class="displaynone">
+                                <th scope="row">환불계좌 
+                                    <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수">
+                                </th>
+                                <td>
+                                    <span id=""></span> 
+                                    <a href="#none">
+                                        <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_account_change.gif" alt="환불계좌변경" id="id_has_bank_img" class="displaynone">
+                                        <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_account.gif" alt="환불계좌등록" id="id_reg_bank_img" class="displaynone">
+                                    </a>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="displaynone">
+                    <h3>개인정보 제3자 제공 동의(선택)</h3>
+                    <div class="ec-base-box typeThinBg agreeArea">
+                        <div class="content">
+                            아래 내용의 동의 여부는 회원가입에 영향을 미치지 않습니다. 단, 동의 거부시 서비스 이용에 제한이 있을 수 있습니다.<br>
+                            <br>
+                            - 제공 받는 자 :<br>
+                            <br>
+                            - 제공 항목 :<br>
+                            <br>
+                            - 제공 목적 :<br>
+                            <br>
+                            - 보유 및 이용기간 :<br>
+                        </div>
+                        <p class="check"><span>개인정보 제3자 제공에 동의하십니까?</span> 
+                            <input id="agree_information_check0" name="agree_information_check[]" fw-filter="" fw-label="개인정보 제3자 제공 동의" fw-msg="" value="1" type="checkbox"><label for="agree_information_check0">동의함</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="displaynone">
+                    <h3>개인정보 처리 위탁 동의(선택)</h3>
+                    <div class="ec-base-box typeThinBg agreeArea">
+                        <div class="content">
+                            아래 내용의 동의 여부는 회원가입에 영향을 미치지 않습니다. 단, 동의 거부시 서비스 이용에 제한이 있을 수 있습니다.<br>
+                            <br>
+                            - 위탁받는 자(수탁업체) :<br>
+                            <br>
+                            - 위탁업무의 내용:<br>
+                        </div>
+                        <p class="check"><span>개인정보 처리 위탁에 동의하십니까?</span> 
+                            <input id="agree_consignment_check0" name="agree_consignment_check[]" fw-filter="" fw-label="개인정보 처리 위탁 동의" fw-msg="" value="1" type="checkbox"><label for="agree_consignment_check0">동의함</label>
+                        </p>
+                    </div>
+                </div>-->
+                <div class="ec-base-button justify">
+                    <span class="gRight">
+                        <a href="/index.html" class="btnType-2B" style="background-color: #ededed;color:#fff;">취소</a>
+                        <a href="#none" onclick="memberEditAction()" class="btnType-2B" style="background-color: #ededed;color:#fff;">회원정보수정</a>			
+                    </span>
+                    <span class="gLeft">
+                        <a href="#none" onclick="memberDelAction(0, -1, -1)" class="btnType-2B" style="float:left; background-color: #ededed;color:#fff;">회원탈퇴</a>
+                    </span>
+                </div>
+                <!-- <div class="layerLeave ec-base-layer" id="">
+                    <div class="header">
+                        <h3>회원탈퇴</h3>
+                    </div>
+                    <div class="content">
+                        <div class="ec-base-box typeMember">
+                            <div class="information">
+                                <strong class="title">혜택 내역</strong>
+                                <div class="description">
+                                    <ul>
+                                        <li id="">탈퇴시 보유하고 있는 적립금은 모두 삭제됩니다.</li>
+                                        <li>현재 적립금 : 
+                                            <strong id="" class="txtEm">0</strong>
+                                        </li>
+                                        <li id="">현재 예치금 : 
+                                            <strong id="" class="txtEm">0</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>회원탈퇴 사유</h4>
+                        <div class="ec-base-table-black typeWrite">
+                            <table border="1" summary="">
+                                <caption>회원탈퇴 사유</caption>
+                                <colgroup>
+                                    <col style="width:140px;">
+                                    <col style="width:auto;">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">선택</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr id="">
+                                        <th scope="row">기타</th>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="ec-base-button">
+                        <a href="#none" id="" class="btnType-2">회원탈퇴</a>
+                        <a href="#none" onclick="$('#').hide();">
+                            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_leave_cancel.gif" alt="취소">
+                        </a>
+                    </div>
+                    <a href="#none" class="close" onclick="$('#').hide();"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close.gif" alt="닫기">44</a>
+                </div> -->
+                <input type="hidden" name="agree_information_check_display" value="T"><input type="hidden" name="agree_consignment_check_display" value="T">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

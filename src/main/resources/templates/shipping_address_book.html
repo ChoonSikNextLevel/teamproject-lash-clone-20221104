@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"class=" wf-nimbus-sans-n4-active wf-nimbus-sans-i4-active wf-nimbus-sans-n7-active wf-nimbus-sans-i7-active wf-nimbus-sans-condensed-n4-active wf-nimbus-sans-condensed-n7-active wf-nimbus-sans-extended-n4-active wf-nimbus-sans-extended-n7-active wf-adobe-myungjo-std-n5-active wf-bookmania-i7-active wf-bookmania-n7-active wf-bookmania-i4-active wf-bookmania-n4-active wf-din-2014-n2-active wf-din-2014-i2-active wf-din-2014-n3-active wf-din-2014-i3-active wf-din-2014-i4-active wf-din-2014-n4-active wf-din-2014-n6-active wf-din-2014-i6-active wf-din-2014-i7-active wf-din-2014-n7-active wf-din-2014-n8-active wf-din-2014-i8-active wf-din-2014-narrow-n4-active wf-din-2014-narrow-n7-active wf-active">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shipping_address_book</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <SCRIPT src="/static/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <SCRIPT src="/static/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="stylesheet" href="/static/js/index.js">
+    <link rel="stylesheet" href="/static/css/shipping_address_book.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="overlay"></div>
+    <header header id="site-header" class="site-header desktop-view--classic header-scroll fix ready animate"style="position: fixed !important;">
+        <div class="header-container">
+            <div class="header-flex">
+                <div class="header-left-container">
+                    <div class="menu-container">
+                        <div class="site-nav-menu">
+                            <div class="site-nav-parent">
+                                <a href="" class="menu-product">제품</a>
+                            </div>
+                            <nav class="nav-invisible">
+                                <div class="site-nav-mega">
+                                    <a href="">전체</a>
+                                    <a href=""><span class="metal-button">메탈</span>
+                                        <img src="/static/images/Logo_img/catemetal.jpg"
+                                            class="metal-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acetate-button">아세테이트</span>
+                                        <img src="/static/images/Logo_img/cateacetate.jpg"
+                                            class="acetate-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="combination-button">콤비네이션</span>
+                                        <img src="/static/images/Logo_img/cateCombination.jpg"
+                                            class="combination-image image-display" alt="">
+                                    </a>
+                                </div>
+                                <div class="site-nav-mega site-nav-mega2">
+                                    <a href=""><span class="refined-button">리파인드</span>
+                                        <img src="/static/images/Logo_img/cateRefined.jpg"
+                                            class="refined-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="vintage-button">빈티지</span>
+                                        <img src="/static/images/Logo_img/cateVintage.jpg"
+                                            class="vintage-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="sunglasses-button">선글라스</span>
+                                        <img src="/static/images/Logo_img/cateSunglasses.jpg"
+                                            class="sunglasses-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acc-button">Acc</span>
+                                        <img src="/static/images/Logo_img/cateAcc.jpg" class="acc-image image-display"
+                                            alt="">
+                                    </a>
+                                </div>
+                            </nav>
+                            <div><a href="" class="">캠페인</a></div>
+                            <div><a href="" class="">저널</a></div>
+                            <div><a href="" class="">브랜드</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <a href=""><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
+                </div>
+                <div class="header-right-container">
+                    <!-- <button class="site-header-button">SEARCH</button> -->
+                    <div class="search-box">
+                        <form action="." method="post">
+                            <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
+                            <button class="search-btn" type="submit"><i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <button class="site-header-button">My page</button>
+                    <button class="site-header-button">Log in</button>
+                    <button class="site-header-button basket-button">My Shopping Basket
+                        <span class="basket-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="contents">
+        <div class="titleArea">
+            <h2 style="margin-top: 0px;margin-bottom: 0px;">ADDESS BOOK</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2>Account</h2>
+            <li><a href="">마이쇼핑</a></li>
+            <li><a href="">주문내역조회</a></li>
+            <li><a href="">회원정보관리</a></li>
+            <li><a href="">게시물관리</a></li>
+            <li><a href="">배송주소록</a></li>
+        </ul>
+        <div id="addressBook" style="width:1000px; margin:0 auto">
+            <p style="width:100%; text-align:center; font-size:13px; margin:10px 0 20px">자주 쓰는 배송지를 등록 관리하실 수 있습니다.</p>
+            <form id="frmAddr" name="" action="/exec/front/Myshop/Addr/?mode=Delete&amp;return_url=%2Fmyshop%2Faddr%2Flist.html" method="post" target="_self" enctype="multipart/form-data">
+                <input id="__address_addr1" name="__address_addr1" value="" type="hidden">
+                <input id="__city_name" name="__city_name" value="" type="hidden">
+                <input id="__state_name" name="__state_name" value="" type="hidden">
+                <input id="__isRuleBasedAddrForm" name="__isRuleBasedAddrForm" value="" type="hidden">
+                <input id="__use_foreign_country_list" name="__use_foreign_country_list" value="F" type="hidden">
+                <input id="__ma_rcv_contry_code" name="__ma_rcv_contry_code" value="" type="hidden">
+                <input id="__country" name="__country" value="" type="hidden">
+                <input id="__province" name="__province" value="" type="hidden">
+                <input id="__city" name="__city" value="" type="hidden">
+                <input id="__district" name="__district" value="" type="hidden">
+                <input id="is_display_phone" name="is_display_phone" value="" type="hidden">
+                <input id="is_display_mobile" name="is_display_mobile" value="" type="hidden">
+                <input id="sUseCountryNumberFlag" name="sUseCountryNumberFlag" value="T" type="hidden">
+                <div class="xans-element- xans-myshop xans-myshop-addrlist">
+                    <!--$return_url = /myshop/addr/list.html-->
+                    <div class="ec-base-table typeList">
+                        <table border="1" summary>
+                            <!-- <caption>배송 주소록 목록</caption> -->
+                            <colgroup>
+                                <col style="width:27px">
+                                <col style="width:80px">
+                                <col style="width:95px">
+                                <col style="width:95px">
+                                <col style="width:120px">
+                                <col style="width:120px">
+                                <col style="width:auto">
+                                <col style="width:76px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <span class="displaynone">
+                                            <input id="allCheck" onclick="myshopAddr.checkAll(this)" value="" type="checkbox">
+                                        </span>
+                                    </th>
+                                    <th scope="col">주소록 고정</th>
+                                    <th scope="col">배송지명</th>
+                                    <th scope="col">수령인</th>
+                                    <th scope="col">일반전화</th>
+                                    <th scope="col">휴대전화</th>
+                                    <th scope="col">주소</th>
+                                    <th scope="col">수정</th>
+                                </tr>
+                                
+                            </thead>
+                            <tbody class="center">
+                                <tr class="xans-record-">
+                                    <td>
+                                        <input name="ma_idx[]" value="717" type="checkbox">
+                                    </td>
+                                    <td>
+                                        <a href="/exec/front/Myshop/Addr/?mode=Fix&amp;ma_idx=717&amp;ma_fixed_flag=F&amp;return_url=%2Fmyshop%2Faddr%2Flist.html">
+                                            <!-- <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_clear.gif" class="" alt="해제"> -->
+                                            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_fix.gif" class="displaynone" alt="고정">
+                                        </a>
+                                        <!-- <span class="displaynone">-</span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="displaynone" alt="기본"> -->
+                                        <span>부산</span>
+                                    </td>
+                                    <td><span>최준호</span></td>
+                                    <td><span>02--</span></td>
+                                    <td><span>010-7399-6207</span></td>
+                                    <td class="left">
+                                        (<span>48744</span>)<span>부산광역시 동구 조방로49번길 23 (범일동)</span>
+                                        <span>범일우리에</span>
+                                    </td>
+                                    <td>
+                                        <a href="modify.html?ma_idx=717" class="btnType-1">수정</a>
+                                    </td>
+                                </tr>
+                                <tr class="xans-record-">
+                                    <td>
+                                        <input name="ma_idx[]" value="716" type="checkbox">
+                                    </td>
+                                    <td>
+                                        <a href="/exec/front/Myshop/Addr/?mode=Fix&amp;ma_idx=716&amp;ma_fixed_flag=T&amp;return_url=%2Fmyshop%2Faddr%2Flist.html">
+                                            <!-- <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_clear.gif" class="displaynone" alt="해제"> -->
+                                            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_fix.gif" class="" alt="고정">
+                                        </a>
+                                        <!-- <span class="displaynone">-</span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="displaynone" alt="기본"> -->
+                                        <span>본집 </span>
+                                    </td>
+                                    <td><span>최준호</span></td>
+                                    <td><span>02--</span></td>
+                                    <td><span>010-7399-6207</span></td>
+                                    <td class="left">(<span>36675</span>)<span>경상북도 안동시 배움길 75 (당북동)</span> <span>안동센트럴자이</span></td>
+                                    <td><a href="modify.html?ma_idx=716" class="btnType-1">수정</a></td>
+                                </tr>
+                            </tbody>
+                            <tbody class="">
+                                <!-- <tr>
+                                    <td colspan="8" class="message">등록된 주소가 없습니다.</td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="checkBtn">
+                        <span class="gDelete {delete_display|display}">
+                            <a href="#none" onclick="myshopAddr.deleteAddress(); return false;">
+                                <span>X</span>선택 주소록 삭제
+                            </a>
+                        </span>
+                        <span class="gRight">
+                            <a href="register.html">배송지등록</a>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <div class="ec-base-help">
+                <h3>배송주소록 유의사항</h3>
+                <div class="inner">
+                    <ol>
+                        <li class="item1">배송 주소록은 최대 10개까지 등록할 수 있으며, 별도로 등록하지 않을 경우 최근 배송 주소록 기준으로 자동 업데이트 됩니다.</li>
+                        <li class="item2">자동 업데이트를 원하지 않을 경우 주소록 고정 선택을 선택하시면 선택된 주소록은 업데이트 대상에서 제외됩니다.</li>
+                        <li class="item3">기본 배송지는 1개만 저장됩니다. 다른 배송지를 기본 배송지로 설정하시면 기본 배송지가 변경됩니다.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
