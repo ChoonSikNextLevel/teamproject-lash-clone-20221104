@@ -1,3 +1,6 @@
+
+// 화면 첫 이미지 스크롤 시 축소 이벤트 
+
 const scrollImg = document.querySelector(".lookbook-detail-top img");
 const content = document.querySelector(".lookbook-detail-content");
 

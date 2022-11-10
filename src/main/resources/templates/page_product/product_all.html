@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
+    
+    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/page_product/product_all.css">
 
-    <title>Product_All</title>
+    <title>Optical | LASH 래쉬 안경테</title>
+
 </head>
 
 <body>
 
-    <!-- header -->
+    <!--========================= header =================================-->
 
     <header id="header">
         <div class="header-container">
@@ -59,8 +61,20 @@
             </div>
         </div>
     </header>
+    <!--======================================================================-->
+
+
+
+    <!-- 
+        
+        11/10(목) 문제점
+        같은 class 명 사용하고 있기 때문에 마우스오버 시 다른 제품 이미지에도 영향
+
+     -->
+
 
     <section>
+        
         <div class="product-container">
 
             <div class="product-first-img">
@@ -68,23 +82,29 @@
                 <div></div>
             </div>
             
-
-            <!-- 11/8(화) mouseover event 적용해야함 -->
-
-            
             <div class="product-list">
                 <div class="product-list-img">
-                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg" class="hunter-c1">
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg" class="hunter-c2"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg" class="hunter-c3"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg" class="hunter-c4"> -->
+                    <div class="product-hunter hunter-c1">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg">
+                    </div>
+                    <div class="product-hunter hunter-c2">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg">
+                    </div>
+                    <div class="product-hunter hunter-c3">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg">
+                    </div>
+                    <div class="product-hunter hunter-c4">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg">
+                    </div>
                 </div>
                 <div class="product-info-box">
                     <div class="product-info-text">
                         <p>HUNTER</p>
                         <p>245,000</p>
                     </div>
-                    <div class="product-info-color">
+
+                                             <!--  ▼ class="hunter-color" 는 동작 임시 확인용  -->
+                    <div class="product-info-color hunter-color">
                         <img src="/static/images/product_img/product_color_img/HUNTER_c1.jpg">
                         <img src="/static/images/product_img/product_color_img/HUNTER_c2.jpg">
                         <img src="/static/images/product_img/product_color_img/HUNTER_c3.jpg">
@@ -95,14 +115,24 @@
             
             <div class="product-list">
                 <div class="product-list-img">
-                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg" class="hunter-c1">
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg" class="hunter-c2"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg" class="hunter-c3"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg" class="hunter-c4"> -->
+                    <div class="product-hunter1 hunter-c1">
+                        <img src="/static/images/product_img/Combination_img/Combination_Holden_C1.jpg">
+                    </div>
+                <!-- 
+                    <div class="product-hunter1 hunter-c2">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c3">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c4">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg">
+                    </div> 
+                -->
                 </div>
                 <div class="product-info-box">
                     <div class="product-info-text">
-                        <p>HUNTER</p>
+                        <p>HOLDEN</p>
                         <p>245,000</p>
                     </div>
                     <div class="product-info-color">
@@ -116,14 +146,24 @@
 
             <div class="product-list">
                 <div class="product-list-img">
-                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg" class="hunter-c1">
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg" class="hunter-c2"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg" class="hunter-c3"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg" class="hunter-c4"> -->
+                    <div class="product-hunter1 hunter-c1">
+                        <img src="/static/images/product_img/Combination_img/Combination_Henry_C1.jpg">
+                    </div>
+                <!-- 
+                    <div class="product-hunter1 hunter-c2">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c3">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c4">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg">
+                    </div> 
+                -->
                 </div>
                 <div class="product-info-box">
                     <div class="product-info-text">
-                        <p>HUNTER</p>
+                        <p>HENRY</p>
                         <p>245,000</p>
                     </div>
                     <div class="product-info-color">
@@ -140,14 +180,24 @@
 
             <div class="product-list">
                 <div class="product-list-img">
-                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg" class="hunter-c1">
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg" class="hunter-c2"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg" class="hunter-c3"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg" class="hunter-c4"> -->
+                    <div class="product-hunter1 hunter-c1">
+                        <img src="/static/images/product_img/Refined_img/Refined_Larch_C1.jpg">
+                    </div>
+                <!-- 
+                    <div class="product-hunter1 hunter-c2">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c3">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c4">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg">
+                    </div> 
+                -->
                 </div>
                 <div class="product-info-box">
                     <div class="product-info-text">
-                        <p>HUNTER</p>
+                        <p>LARCH</p>
                         <p>245,000</p>
                     </div>
                     <div class="product-info-color">
@@ -161,14 +211,24 @@
             
             <div class="product-list">
                 <div class="product-list-img">
-                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg" class="hunter-c1">
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg" class="hunter-c2"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg" class="hunter-c3"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg" class="hunter-c4"> -->
+                    <div class="product-hunter1 hunter-c1">
+                        <img src="/static/images/product_img/Refined_img/Refined_Kauri_C1.jpg">
+                    </div>
+                <!-- 
+                    <div class="product-hunter1 hunter-c2">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c3">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c4">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg">
+                    </div> 
+                -->
                 </div>
                 <div class="product-info-box">
                     <div class="product-info-text">
-                        <p>HUNTER</p>
+                        <p>KAURI</p>
                         <p>245,000</p>
                     </div>
                     <div class="product-info-color">
@@ -182,14 +242,24 @@
             
             <div class="product-list">
                 <div class="product-list-img">
-                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg" class="hunter-c1">
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg" class="hunter-c2"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg" class="hunter-c3"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg" class="hunter-c4"> -->
+                    <div class="product-hunter1 hunter-c1">
+                        <img src="/static/images/product_img/Sunglasses_img/Sunglasses_glow_C1.jpg">
+                    </div>
+                <!-- 
+                    <div class="product-hunter1 hunter-c2">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c3">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c4">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg">
+                    </div> 
+                -->
                 </div>
                 <div class="product-info-box">
                     <div class="product-info-text">
-                        <p>HUNTER</p>
+                        <p>GLOW</p>
                         <p>245,000</p>
                     </div>
                     <div class="product-info-color">
@@ -203,14 +273,24 @@
 
             <div class="product-list">
                 <div class="product-list-img">
-                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg" class="hunter-c1">
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg" class="hunter-c2"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg" class="hunter-c3"> -->
-                    <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg" class="hunter-c4"> -->
+                    <div class="product-hunter1 hunter-c1">
+                        <img src="/static/images/product_img/Sunglasses_img/Sunglasses_Tim_C1.jpg">
+                    </div>
+                <!-- 
+                    <div class="product-hunter1 hunter-c2">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c3">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg">
+                    </div>
+                    <div class="product-hunter1 hunter-c4">
+                        <img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg">
+                    </div> 
+                -->
                 </div>
                 <div class="product-info-box">
                     <div class="product-info-text">
-                        <p>HUNTER</p>
+                        <p>TIM</p>
                         <p>245,000</p>
                     </div>
                     <div class="product-info-color">
@@ -222,11 +302,11 @@
                 </div>
             </div>
         </div>
-
         
     </section>
 
     <script src="/static/js/header.js"></script>
+    <script src="/static/js/page_product/product_all.js"></script>
     
 </body>
 
