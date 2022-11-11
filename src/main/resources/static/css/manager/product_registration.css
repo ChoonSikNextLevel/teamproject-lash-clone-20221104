@@ -1,0 +1,66 @@
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container li {
+    width: 25%;
+}
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    padding-bottom: 0px;
+
+}
+
+.titleArea {
+    width: 100%;
+
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.titleArea h2 {  
+    
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+
+/*---------------------------사이드바--------------------------------------------------------------------*/
+.sideMenu {position:fixed; top:135px; left:2.5%; width:10%; float:Left; background:none; }
+.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
+.sideMenu ul {width:100%; float:left; }
+.sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
+.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
+.sideMenu a:hover {text-decoration:underline}
+    
+@media screen and (max-width: 1280px) {
+.sideMenu {width:100%; float:none; text-align:center; position:static; top:0; left:0;}
+.sideMenu ul {text-align:center;}
+.sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
+.sideMenu a {float:none;}
+.sideMenu a:hover {text-decoration:underline}
+}
+.registration {
+    width: 1000px;
+    margin: 0 auto;
+    
+}
+.registration .memberMent {
+    width: 100%;
+    float: left;
+}
