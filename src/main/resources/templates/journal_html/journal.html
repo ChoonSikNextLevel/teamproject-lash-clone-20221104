@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>journal</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <SCRIPT src="/static/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
-    <SCRIPT src="/static/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
-    
+    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">   
     <link rel="stylesheet" href="/static/css/journal/journal.css">
     <link rel="stylesheet" href="/static/css/journal/style.css">
-    <link rel="stylesheet" href="/static/js/journal.js">
-    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/page_main/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="overlay"></div>
-    <header header id="site-header" class="site-header desktop-view--classic header-scroll fix ready animate"style="position: fixed !important;">
+    <header id="header">
         <div class="header-container">
             <div class="header-flex">
                 <div class="header-left-container">
@@ -30,7 +30,7 @@
                             </div>
                             <nav class="nav-invisible">
                                 <div class="site-nav-mega">
-                                    <a href="">전체</a>
+                                    <a href="/templates/page_product/product_all.html">전체</a>
                                     <a href=""><span class="metal-button">메탈</span>
                                         <img src="/static/images/Logo_img/catemetal.jpg"
                                             class="metal-image image-display" alt="">
@@ -63,27 +63,32 @@
                                     </a>
                                 </div>
                             </nav>
-                            <div><a href="" class="">캠페인</a></div>
-                            <div><a href="" class="">저널</a></div>
-                            <div><a href="" class="">브랜드</a></div>
+                            <div><a href="/templates/page_campaign/campaign.html" class="">캠페인</a></div>
+                            <div><a href="/templates/journal_html/journal.html" class="">저널</a></div>
+                            <div><a href="/templates/page_brand/brand-CB.html" class="">브랜드</a></div>
                         </div>
                     </div>
                 </div>
+                <!-- 로고 -->
                 <div class="logo-container">
-                    <a href=""><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
+                    <a href="/templates/page_main/index.html"><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
                 </div>
                 <div class="header-right-container">
-                    <!-- <button class="site-header-button">SEARCH</button> -->
+                    <!-- search -->
                     <div class="search-box">
-                        <form action="." method="post">
-                            <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
-                            <button class="search-btn" type="submit"><i class="fas fa-search"></i>
-                            </button>
+                        <form action="." method="get">
+                            <input class="search-text search-display" type="text" placeholder="">
+                            <span class="search-button" type="submit">
+                                <i class="fas fa-search"></i>
+                            </span>
                         </form>
                     </div>
-                    <button class="site-header-button">My page</button>
-                    <button class="site-header-button">Log in</button>
-                    <button class="site-header-button basket-button">My Shopping Basket
+                    <button class="site-header-button">
+                        <a href="/templates/mypage/Myshop.html">My page</a> 
+                    </button>
+                    <button class="site-header-button"><a href="/templates/login/login.html">Log in</a></button>
+                    <button class="site-header-button basket-button"><a
+                            href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
                         <span class="basket-count">0</span>
                     </button>
                 </div>
@@ -97,60 +102,61 @@
                     <li id="anchorBoxId_1912" class="journal-item xans-record-1">
                         <div class="thumbnail">
                             <div class="prdImg">
-                                <a href="/journal/detail.html?product_no=1912&amp;cate_no=130&amp;display_group=1" name="anchorBoxName_1912">
+                                <a href="/templates/journal_html/wooz_store.html" name="anchorBoxName_1912">
                                     <img src="//www.lasheyewear.com/web/product/medium/202211/3bae0eb147f4555d4c81e6900a494984.jpg" id="eListPrdImage1912_1" alt="WOOZ STORE LASH 래쉬 안경테 선글라스">
                                 </a>
                             </div>
                         </div>
                         <div class="description">
                             <strong class="name">
-                                <a href="/journal/detail.html?product_no=1912&amp;cate_no=130&amp;display_group=1" class="">
+                                <a href="/templates/journal_html/wooz_store.html" class="">
                                     <span style="font-size:16px;color:#000000;">WOOZ STORE</span>
                                 </a>
                             </strong>
                             <p style="margin-top: 0px;">2020년 9월에 오픈한 안경원입니다. 하우스 브랜드를 전문으로 다루고, 칼자이스 i-profiler, 에실로 eye-ruler 등 검안 장비에도 신경쓰고있으며 안경에 가장 기본이되는 검안과 피팅을 중요시하고 있습니다.</p>
-                            <a href="/journal/detail.html?product_no=1912&amp;cate_no=130&amp;display_group=1">READ MORE</a>
+                            <a href="/templates/journal_html/wooz_store.html">READ MORE</a>
                         </div>
                     </li>
                     <li id="anchorBoxId_1911" class="journal-item xans-record-2">
                         <div class="thumbnail">
                             <div class="prdImg">
-                                <a href="/journal/detail.html?product_no=1911&amp;cate_no=130&amp;display_group=1" name="anchorBoxName_1911">
+                                <a href="/templates/journal_html/lash_brand_showcase.html" name="anchorBoxName_1911">
                                     <img src="//www.lasheyewear.com/web/product/medium/202211/e22d23dd1fe4f135b5e1644fd5130724.jpg" id="eListPrdImage1911_1" alt="LASH BRAND SHOWCASE LASH 래쉬 안경테 선글라스">
                                 </a>
                             </div>
                         </div>
                         <div class="description">
                             <strong class="name">
-                                <a href="/journal/detail.html?product_no=1911&amp;cate_no=130&amp;display_group=1" class="">
+                                <a href="/templates/journal_html/lash_brand_showcase.html" class="">
                                     <span style="font-size:16px;color:#000000;">LASH BRAND SHOWCASE</span>
                                 </a>
                             </strong>
                             <p style="margin-top: 0px;">래쉬아이웨어의 첫 공식 오프라인 행사인 2023 뉴 컬렉션 브랜드 쇼케이스.</p>
-                            <a href="/journal/detail.html?product_no=1911&amp;cate_no=130&amp;display_group=1">READ MORE</a>
+                            <a href="/templates/journal_html/lash_brand_showcase.html">READ MORE</a>
                         </div>
                     </li>
                     <li id="anchorBoxId_1910" class="journal-item xans-record-3">
                         <div class="thumbnail">
                             <div class="prdImg">
-                                <a href="/journal/detail.html?product_no=1910&amp;cate_no=130&amp;display_group=1" name="anchorBoxName_1910">
+                                <a href="/templates/journal_html/d_classic_store.html" name="anchorBoxName_1910">
                                     <img src="//www.lasheyewear.com/web/product/medium/202211/9432b0566d9c0eb350623087240d7bae.jpg" id="eListPrdImage1910_1" alt="D CLASSIC STORE LASH 래쉬 안경테 선글라스">
                                 </a>
                             </div>
                         </div>
                         <div class="description">
                             <strong class="name">
-                                <a href="/journal/detail.html?product_no=1910&amp;cate_no=130&amp;display_group=1" class="">
+                                <a href="/templates/journal_html/d_classic_store.html" class="">
                                     <span style="font-size:16px;color:#000000;">D CLASSIC STORE</span>
                                 </a>
                             </strong>
                             <p style="margin-top: 0px;">우드와 화이트톤을 사용하여 전반적으로 따뜻하고 차분한 분위기를 연출했으며, 편하게 앉아 서로 대화를 통해 원하는 안경을 찾을 수 있게끔 조성된 디클래식 안경원.</p>
-                            <a href="/journal/detail.html?product_no=1910&amp;cate_no=130&amp;display_group=1">READ MORE</a>
+                            <a href="/templates/journal_html/d_classic_store.html">READ MORE</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+    <script src="/static/js/header.js"></script>
 </body>
 </html>
