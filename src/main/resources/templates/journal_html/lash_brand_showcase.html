@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lash_brand_showcase</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <SCRIPT src="/static/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
-    <SCRIPT src="/static/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
-    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
+    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">   
     <link rel="stylesheet" href="/static/css/journal/journal_all.css">
     <link rel="stylesheet" href="/static/css/journal/style.css">
-    <link rel="stylesheet" href="/static/js/journal.js">
-    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/page_main/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="overlay"></div>
-    <header header id="site-header" class="site-header desktop-view--classic header-scroll fix ready animate"style="position: fixed !important;">
+    <header id="header">
         <div class="header-container">
             <div class="header-flex">
                 <div class="header-left-container">
@@ -30,7 +30,7 @@
                             </div>
                             <nav class="nav-invisible">
                                 <div class="site-nav-mega">
-                                    <a href="">전체</a>
+                                    <a href="/templates/page_product/product_all.html">전체</a>
                                     <a href=""><span class="metal-button">메탈</span>
                                         <img src="/static/images/Logo_img/catemetal.jpg"
                                             class="metal-image image-display" alt="">
@@ -63,27 +63,32 @@
                                     </a>
                                 </div>
                             </nav>
-                            <div><a href="" class="">캠페인</a></div>
-                            <div><a href="" class="">저널</a></div>
-                            <div><a href="" class="">브랜드</a></div>
+                            <div><a href="/templates/page_campaign/campaign.html" class="">캠페인</a></div>
+                            <div><a href="/templates/journal_html/journal.html" class="">저널</a></div>
+                            <div><a href="/templates/page_brand/brand-CB.html" class="">브랜드</a></div>
                         </div>
                     </div>
                 </div>
+                <!-- 로고 -->
                 <div class="logo-container">
-                    <a href=""><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
+                    <a href="/templates/page_main/index.html"><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
                 </div>
                 <div class="header-right-container">
-                    <!-- <button class="site-header-button">SEARCH</button> -->
+                    <!-- search -->
                     <div class="search-box">
-                        <form action="." method="post">
-                            <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
-                            <button class="search-btn" type="submit"><i class="fas fa-search"></i>
-                            </button>
+                        <form action="." method="get">
+                            <input class="search-text search-display" type="text" placeholder="">
+                            <span class="search-button" type="submit">
+                                <i class="fas fa-search"></i>
+                            </span>
                         </form>
                     </div>
-                    <button class="site-header-button">My page</button>
-                    <button class="site-header-button">Log in</button>
-                    <button class="site-header-button basket-button">My Shopping Basket
+                    <button class="site-header-button">
+                        <a href="/templates/mypage/Myshop.html">My page</a> 
+                    </button>
+                    <button class="site-header-button"><a href="/templates/login/login.html">Log in</a></button>
+                    <button class="site-header-button basket-button"><a
+                            href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
                         <span class="basket-count">0</span>
                     </button>
                 </div>
@@ -114,10 +119,11 @@
                             <strong>래쉬아이웨어의 첫 공식 오프라인 행사인 2023 뉴 컬렉션 브랜드 쇼케이스.</strong>
                         </span>
                         <br>디스플레이 공간 구성은 국내 모듈러 가구 브랜드인 빌드웰러(builddweller)와 함께 협업하여 제작하였습니다. 분산되는 집기들을 덜어내고, 구심점을 지닌 센터피스를 통해 최소한의 집기로 디스플레이 수량을 수용할 수 있는 효율성과 래쉬의 정체성을 단번에 각인시킬 수 있는 임팩트의 공간감을 지향하였습니다. 또 ‘어우러짐’이라는 가치 아래 일상에 접목한 가구를 제작하는 ‘공원 컴퍼니’에서 맞춤 제작한 디스플레이 집기도 추가하여 공간을 더 풍성하게 구성하였습니다.<br></div>
-                    <a href="/journal/list.html?cate_no=130" class="back">BACK TO LIST</a>
+                    <a href="/templates/journal_html/journal.html" class="back">BACK TO LIST</a>
                 </div>
             </div>
         </div>
     </div>
+    <script src="/static/js/header.js"></script>
 </body>
 </html>

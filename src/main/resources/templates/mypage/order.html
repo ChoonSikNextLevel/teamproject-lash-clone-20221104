@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <SCRIPT src="/static/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
-    <SCRIPT src="/static/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
-    <link rel="shortcut icon" href="/src/main/resources/static/images/Brand_img/favicon_img.ico">
-    <link rel="stylesheet" href="/static/css/order.css">
+    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">   
+    <link rel="stylesheet" href="/static/css/mypage/order.css">
+    <link rel="stylesheet" href="/static/css/mypage/style.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/page_main/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="overlay"></div>
-    <header header id="site-header" class="site-header desktop-view--classic header-scroll fix ready animate"style="position: fixed !important;">
+    <header id="header">
         <div class="header-container">
             <div class="header-flex">
                 <div class="header-left-container">
@@ -28,7 +30,7 @@
                             </div>
                             <nav class="nav-invisible">
                                 <div class="site-nav-mega">
-                                    <a href="">전체</a>
+                                    <a href="/templates/page_product/product_all.html">전체</a>
                                     <a href=""><span class="metal-button">메탈</span>
                                         <img src="/static/images/Logo_img/catemetal.jpg"
                                             class="metal-image image-display" alt="">
@@ -61,27 +63,32 @@
                                     </a>
                                 </div>
                             </nav>
-                            <div><a href="" class="">캠페인</a></div>
-                            <div><a href="" class="">저널</a></div>
-                            <div><a href="" class="">브랜드</a></div>
+                            <div><a href="/templates/page_campaign/campaign.html" class="">캠페인</a></div>
+                            <div><a href="/templates/journal_html/journal.html" class="">저널</a></div>
+                            <div><a href="/templates/page_brand/brand-CB.html" class="">브랜드</a></div>
                         </div>
                     </div>
                 </div>
+                <!-- 로고 -->
                 <div class="logo-container">
-                    <a href=""><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
+                    <a href="/templates/page_main/index.html"><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
                 </div>
                 <div class="header-right-container">
-                    <!-- <button class="site-header-button">SEARCH</button> -->
+                    <!-- search -->
                     <div class="search-box">
-                        <form action="." method="post">
-                            <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
-                            <button class="search-btn" type="submit"><i class="fas fa-search"></i>
-                            </button>
+                        <form action="." method="get">
+                            <input class="search-text search-display" type="text" placeholder="">
+                            <span class="search-button" type="submit">
+                                <i class="fas fa-search"></i>
+                            </span>
                         </form>
                     </div>
-                    <button class="site-header-button">My page</button>
-                    <button class="site-header-button">Log in</button>
-                    <button class="site-header-button basket-button">My Shopping Basket
+                    <button class="site-header-button">
+                        <a href="/templates/mypage/Myshop.html">My page</a> 
+                    </button>
+                    <button class="site-header-button"><a href="/templates/login/login.html">Log in</a></button>
+                    <button class="site-header-button basket-button"><a
+                            href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
                         <span class="basket-count">0</span>
                     </button>
                 </div>
@@ -94,11 +101,11 @@
         </div>
         <ul class="sideMenu">
             <h2>Account</h2>
-            <li><a href="">마이쇼핑</a></li>
-            <li><a href="">주문내역조회</a></li>
-            <li><a href="">회원정보관리</a></li>
+            <li><a href="/templates/mypage/Myshop.html">마이쇼핑</a></li>
+            <li><a href="/templates/mypage/order.html">주문내역조회</a></li>
+            <li><a href="/templates/mypage/user_info_editor.html">회원정보관리</a></li>
             <li><a href="">게시물관리</a></li>
-            <li><a href="">배송주소록</a></li>
+            <li><a href="/templates/mypage/shipping_address_book.html">배송주소록</a></li>
         </ul>     
        <div class="oderList">
             <div class="xans-element- xans-myshop xans-myshop-orderhistorytab ec-base-tab ">
@@ -298,6 +305,6 @@
             </div>
         </div>
     </div>
-   
+    <script src="/static/js/header.js"></script>
 </body>
 </html>
