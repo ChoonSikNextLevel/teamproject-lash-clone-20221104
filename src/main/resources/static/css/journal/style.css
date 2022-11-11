@@ -98,7 +98,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    /* font: inherit; */
     vertical-align: baseline;
 }
 html {
@@ -139,7 +139,7 @@ html:after {
 *, input, :before, :after {
     box-sizing: border-box;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 16px;
 }
 
@@ -151,7 +151,7 @@ html:after {
     background-color: #eee;
     border-radius: 10px;
     box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
-}
+} */
 
 ::selection {
     background: #222;
@@ -227,7 +227,7 @@ input, select, textarea {
     outline: none;
 }
 
-input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+/* input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     height: 55px;
     font-family: Cabin,sans-serif;
     font-weight: 400;
@@ -243,6 +243,13 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     color: #1b1c1c;
     transition: all .15s linear;
 }
+input[type=text], input[type=password] {
+    height: 22px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    color: #353535;
+    font-size: 12px;
+} */
 .xans-myshop-orderhistoryhead fieldset .fText {
     width: 72px;
     height: 22px;
@@ -252,13 +259,7 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     line-height: 22px;
     font-size: 12px;
 }
-input[type=text], input[type=password] {
-    height: 22px;
-    line-height: 20px;
-    border: 1px solid #ccc;
-    color: #353535;
-    font-size: 12px;
-}
+
 option {
     font-weight: normal;
     display: block;
@@ -266,14 +267,18 @@ option {
     min-height: 1.2em;
     padding: 0px 2px 1px;
 }
-body, code {
+/* body, code {
     font: 0.75em 'DIN-2014','roboto','NanumBarunGothic',sans-serif;
     color: #353535;
     background: #fff;
-}
+} */
 th, td {
     border: 0;
     vertical-align: top;
+}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
 }
 .btnType-1 {
     position: relative;

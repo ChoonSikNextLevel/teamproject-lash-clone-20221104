@@ -156,6 +156,10 @@ input[type=radio] + label, input[type=checkbox] + label {
     font-size: 15px;
     margin: 0 4px 0 2px;
 }
+.xans-member-edit #postcode1, .xans-member-edit #postcode2 {
+    width: 40px;
+    text-align: center;
+}
 
 #modify input {
     height: 30px !important;
