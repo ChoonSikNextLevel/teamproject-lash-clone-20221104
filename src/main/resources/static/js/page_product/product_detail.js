@@ -1,3 +1,4 @@
+
 /*  상세 정보 */
 
 const fea = document.getElementById("proAdd")
@@ -24,10 +25,10 @@ rPolicy.addEventListener('click', () => {
 
 $(function(){
 
-	// hide #back-top first
 	$("#top").hide();
 	
-	// fade in #back-top
+
+
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 900) {
@@ -37,7 +38,6 @@ $(function(){
 			}
 		});
 
-		// scroll body to 0px on click
 		$('#top a').click(function () {
 			$('body,html').animate({
 				scrollTop: 0
