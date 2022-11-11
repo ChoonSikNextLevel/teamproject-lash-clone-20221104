@@ -22,3 +22,18 @@ ul,
 li {
     list-style: none;
 }
+
+/* 스크롤 */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(83, 82, 82);
+}
+
+::-webkit-scrollbar-track {
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}

@@ -1,7 +1,7 @@
 
 /*  상세 정보 */
 
-const fea = document.getElementById("proAdd")
+const fea = document.getElementById("proFea")
 const des = document.getElementById("proDes");
 const rPolicy = document.getElementById("rPolicy");
 
