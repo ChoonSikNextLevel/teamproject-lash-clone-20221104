@@ -10,16 +10,6 @@ html {
 }
 
 
-header {
-    height: 60px;
-    background-color: rgb(251, 252, 206) !important;
-    color: black;
-    margin: 0;
-    padding: 0;
-    
-}
-
-
 /* img */
 
 .contents {
