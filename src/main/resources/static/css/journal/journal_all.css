@@ -64,64 +64,7 @@ section {
     min-height: 800px;
     padding-bottom: 0px;
 }
-/* element.style {
-    position: fixed !important;
-}
-.site-header.fix.animate {
-    transform: translateY(0);
-}
-.site-header.fix.ready {
-    transition: right .5s cubic-bezier(.25,.46,.45,.94),transform .1s linear;
-}
-.site-header.desktop-view--classic {
-    padding: 5px 10px;
-}
-.site-header.desktop-view--classic {
-    z-index: 999;
-}
-.site-header {
-    font-weight: 600;
-}
-.site-header {
-    font-family: Cabin,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    right: 0;
-    padding: 0 60px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    background: white;
-    color: #1b1c1c;
-    border-bottom: 0px solid #ededed;
-    z-index: 999;
-    font-weight: 700;
-    transition: right .5s cubic-bezier(.25,.46,.45,.94);
-    top: 0;
-    position: fixed;
-    align-items: center;
-    width: 100%;
-    background-color: aqua;
-} */
-/* ==============header-left============= */
-/* .site-nav.style--classic {
-    display: flex;
-    margin-right: -10px;
-}
-.site-nav {
-    font-family: Cabin,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #1b1c1c;
-}
-header.site-header div.site-nav-container {
-    margin-right: 25px;
-}
-.site-header .site-nav-container {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-} */
+
 
 .journal-masonry {
     opacity: 0;
@@ -164,4 +107,8 @@ header.site-header div.site-nav-container {
     font-family: "Nimbus Sans Cond L", "Nimbus Sans L";
     font-weight: 400;
     letter-spacing: -1px;
+}
+/* ==============부가 폰트============= */
+.jd-content {
+    font-size: 15px;
 }

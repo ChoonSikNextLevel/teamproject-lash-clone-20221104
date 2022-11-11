@@ -5,7 +5,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    
     vertical-align: baseline;
 }
 html {
@@ -52,20 +52,7 @@ html:after {
 *, input, :before, :after {
     box-sizing: border-box;
 }
-::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-}
-::-webkit-scrollbar-thumb {
-    height: 50px;
-    width: 50px;
-    background: rgba(0,0,0,.7);
-    -webkit-box-shadow: inset 0 0 0 rgb(0 0 0);
-}
-::-webkit-scrollbar-track {
-    background: #f2f2f2;
-    -webkit-box-shadow: inset 0 0 0 rgb(0 0 0);
-}
+
 ::selection {
     background: #222;
     color: #fff;
@@ -162,22 +149,15 @@ input, select, textarea {
     vertical-align: middle;
     outline: none;
 }
-input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
-    height: 55px;
-    font-family: Cabin,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: .9375rem;
-    padding: 0 20px;
-    margin: 0;
-    display: inline-block;
-    border-radius: 0;
-    -webkit-appearance: none;
-    border: 1px solid transparent;
-    background: #ededed;
-    color: #1b1c1c;
-    transition: all .15s linear;
+.xans-member-edit #addr1, .xans-member-edit #addr2 {
+    width: 280px;
+    margin: 5px 0 0;
 }
+.xans-member-edit #phone2, .xans-member-edit #phone3, .xans-member-edit #mobile2, .xans-member-edit #mobile3 {
+    width: 50px;
+    margin: 0 4px;
+}
+
 .xans-myshop-orderhistoryhead fieldset .fText {
     width: 72px;
     height: 22px;
@@ -187,19 +167,12 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     line-height: 22px;
     font-size: 12px;
 }
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] {
     height: 22px;
     line-height: 20px;
     border: 1px solid #ccc;
     color: #353535;
     font-size: 12px;
-}
-option {
-    font-weight: normal;
-    display: block;
-    white-space: nowrap;
-    min-height: 1.2em;
-    padding: 0px 2px 1px;
 }
 input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     height: 55px;
@@ -216,7 +189,15 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     background: #ededed;
     color: #1b1c1c;
     transition: all .15s linear;
+} */
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
 }
+
 body {
     width: 100%;
     height: 100%;
@@ -240,14 +221,18 @@ body {
     overflow-x: hidden;
     transition: right .5s cubic-bezier(.25,.46,.45,.94);
 }
-body, code {
+/* body, code {
     font: 0.75em 'DIN-2014','roboto','NanumBarunGothic',sans-serif;
     color: #353535;
     background: #fff;
-}
+} */
 table {
     width: 100%;
     border: 0;
     border-spacing: 0;
     border-collapse: collapse;
+}
+.search-button {
+    top: 15px;
+    
 }

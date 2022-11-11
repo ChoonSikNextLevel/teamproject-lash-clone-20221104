@@ -160,3 +160,11 @@ div.ec-base-help ol li {
 div.ec-base-help li {
     color: #707070;
 }
+.btnType-1 {
+    position: relative;
+    z-index: 100;
+    padding: 3px 15px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    color: #777;
+}
