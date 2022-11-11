@@ -7,61 +7,103 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/static/css/page_campaign/lookbook.css">
-    <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    <link rel="stylesheet" href="/static/css/page_main/header.css">
+    <link rel="stylesheet" href="/static/css/page_campaign/lookbook.css">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">     
+    
+    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     
     <title>2019 COLLECTION 'LASH, Special Moments' | 래쉬 안경테</title>
 </head>
 <body>
-    
-    <!--=============================== header================================= -->
+    <!--============================== header 공통부 ==============================-->
+    <div class="overlay"></div>
     <header id="header">
         <div class="header-container">
             <div class="header-flex">
                 <div class="header-left-container">
                     <div class="menu-container">
                         <div class="site-nav-menu">
-                            <a href="" class="site-nav-parent">PRODUCT</a>
+                            <div class="site-nav-parent">
+                                <a href="" class="menu-product">제품</a>
+                            </div>
                             <nav class="nav-invisible">
                                 <div class="site-nav-mega">
-                                    <a href="">All</a>
-                                    <a href="">Metal</a>
-                                    <a href="">Acetate</a>
-                                    <a href="">Combination</a>
+                                    <a href="/templates/page_product/product_all.html">전체</a>
+                                    <a href=""><span class="metal-button">메탈</span>
+                                        <img src="/static/images/Logo_img/catemetal.jpg"
+                                            class="metal-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acetate-button">아세테이트</span>
+                                        <img src="/static/images/Logo_img/cateacetate.jpg"
+                                            class="acetate-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="combination-button">콤비네이션</span>
+                                        <img src="/static/images/Logo_img/cateCombination.jpg"
+                                            class="combination-image image-display" alt="">
+                                    </a>
                                 </div>
                                 <div class="site-nav-mega site-nav-mega2">
-                                    <a href="">Refined</a>
-                                    <a href="">Vintage</a>
-                                    <a href="">Sunglasses</a>
-                                    <a href="">Acc</a>
+                                    <a href=""><span class="refined-button">리파인드</span>
+                                        <img src="/static/images/Logo_img/cateRefined.jpg"
+                                            class="refined-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="vintage-button">빈티지</span>
+                                        <img src="/static/images/Logo_img/cateVintage.jpg"
+                                            class="vintage-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="sunglasses-button">선글라스</span>
+                                        <img src="/static/images/Logo_img/cateSunglasses.jpg"
+                                            class="sunglasses-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acc-button">Acc</span>
+                                        <img src="/static/images/Logo_img/cateAcc.jpg" class="acc-image image-display"
+                                            alt="">
+                                    </a>
                                 </div>
                             </nav>
-                            <a href="" class="">CAMPAIGN</a>
-                            <a href="" class="">JOURNAL</a>
-                            <a href="/templates/brand.html" class="">BRAND</a>
+                            <div><a href="/templates/page_campaign/campaign.html" class="">캠페인</a></div>
+                            <div><a href="/templates/journal_html/journal.html" class="">저널</a></div>
+                            <div><a href="/templates/page_brand/brand-CB.html" class="">브랜드</a></div>
                         </div>
                     </div>
                 </div>
+                <!-- 로고 -->
                 <div class="logo-container">
-                    <img src="/static/images/Logo_img/lash_logo.png" alt="">
+                    <a href="/templates/page_main/index.html"><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
                 </div>
                 <div class="header-right-container">
-                    <button class="site-header-button">SEARCH</button>
-                    <button class="site-header-button">My page</button>
-                    <button class="site-header-button">Log in</button>
-                    <button class="site-header-button basket-button">My Shopping Basket
+                    <!-- search -->
+                    <div class="search-box">
+                        <form action="." method="get">
+                            <input class="search-text search-display" type="text" placeholder="">
+                            <span class="search-button" type="submit">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </form>
+                    </div>
+                    <button class="site-header-button">
+                        <a href="/templates/mypage/Myshop.html">My page</a> 
+                    </button>
+                    <button class="site-header-button"><a href="/templates/login/login.html">Log in</a></button>
+                    <button class="site-header-button basket-button"><a
+                            href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
                         <span class="basket-count">0</span>
                     </button>
                 </div>
             </div>
         </div>
     </header>
-    <!--===================================================================================-->
-
+    <!--============================== header 공통부 ==============================-->
+    
     <div class="lookbook-detail-top">
         <img src="/static/images/Campaign_img/Campaign10_img/Campaign10_1.jpg">
         <div class="lookbook-top-title">2019 COLLECTION 'LASH, Special Moments'</div>

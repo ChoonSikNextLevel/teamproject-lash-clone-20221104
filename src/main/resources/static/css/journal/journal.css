@@ -393,6 +393,13 @@ header.site-header div.site-nav-container {
 .journal-item p {margin-bottom:3rem; font-size:0.9rem;}
 .journal-item .description > a {display:block; margin-bottom:6rem; font-weight:400; font-family:"Nimbus Sans Cond L", "Nimbus Sans L"; letter-spacing:-1px;}
 
+.journal-masonry {
+    position: relative;
+     height: 921.1px; 
+     opacity: 1; 
+     margin-top: 0px; 
+     margin-bottom: 0px;
+}
 .journal-item xans-record-1 {
     position: absolute;
      left: 8px;
@@ -400,12 +407,12 @@ header.site-header div.site-nav-container {
 }
 .journal-item xans-record-2 {
     position: absolute;
-     left: 341.25x;
+     left: 383.8px;
       top: 0px;
 }
 .journal-item xans-record-3 {
     position: absolute;
-     left: 951.5px;
+     left: 759.6px;
       top: 0px;
 }
 
