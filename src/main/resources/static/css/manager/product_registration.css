@@ -1,3 +1,12 @@
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
 section {
     width: 100%;
     height: 100%;
@@ -55,12 +64,304 @@ section {
 .sideMenu a {float:none;}
 .sideMenu a:hover {text-decoration:underline}
 }
+
+/* .login-title {
+    text-align: center;
+    height: 30px;
+
+    margin: 130px 0px 30px 0px;
+
+    font-family: 'Roboto Condensed';
+    letter-spacing: 0px;
+    font-size: 14px;
+    font-weight: 400;
+}
 .registration {
+    text-align: center;
     width: 1000px;
     margin: 0 auto;
     
 }
 .registration .memberMent {
+    width: 300px;
+    float: center;
+}
+.memberMent {
+    
+    display: block;
+
+    width: 300px;
+    margin: 0px auto;
+
+}
+.product-input {
+    
+    width: 300px;
+    height: 33px;
+    
+    padding: 2px 2px 2px 14px;
+    margin-top: 18px;
+
+    border-bottom: solid 1px #ccc;
+
+    font-size: 12px;
+}
+
+.product-input:focus {
+    background: #f7f7f7;
+
+    transition: all 0.5s;
+}
+.ex-input {
+    
+    width: 700px;
+    height: 300px;
+    
+    padding: 2px 2px 2px 14px;
+    margin-top: 18px;
+
+    border-bottom: solid 1px #ccc;
+
+    font-size: 12px;
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    color: #1b1c1c;
+    font-family: sans-serif;
+    
+    font-weight: 200;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+    line-height: 1.7;
+}
+
+
+.registration-title {
+    margin: 60px 0 20px 0;
+    text-align: center;
+
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}
+
+
+/* 상품등록 폼 */
+
+.registration-area {
+    position: static;
+    display: block;
+
+    width: 600px;
+    margin: 0px auto;
+    
+    font-size: 12px;
+}
+
+
+.registration-container {
+    position: relative;
+    display: block;
+    float: left;
+
+    width: 540px;
+    
+    border: 1px solid #999;
+    border-radius: 5px;
+
+    padding: 30px;
+}
+
+.registration-required {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    margin-bottom: 24px;
+    font-size: 15px;
+}
+
+.registration-required p {
+    margin: 0px;
+}
+
+th {
+    font-weight: 400;
+}
+
+.registration-table tbody th {
+    padding-top: 10px;
     width: 100%;
     float: left;
+    text-align: left;
+
+    font-size: 14px;
 }
+
+.registration-table td {
+    padding: 10px 0 20px 0;
+    width: 100%;
+    float: left;
+
+    font-size: 14px;
+    color: #353535;
+}
+
+.registration-table input {
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    padding: 0 1% 0 1%;
+
+    outline-style: none;
+
+    vertical-align: middle;
+    outline: none;
+
+    background-color: #ededed;
+}
+
+.registration-table input:focus {
+    background: #f7f7f7;
+
+    transition: all 0.3s;
+}
+
+.registration-table select {
+    margin-right: 4px;
+    width: 150px;
+    height: 32px;
+
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    padding: 0 5px 2px 5px;
+    background-color: #fff;
+
+    font-size: 100%;
+}
+
+
+
+
+a {
+    text-decoration: none;
+}
+
+/* 등록버튼 */
+.registration-button {
+    width: 100%;
+    height: 43.8px;
+
+    padding: 10px 0;
+    margin-top: 30px;
+
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    background-color: #222;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    float: left;
+}
+
+.registration-button:hover {
+    color: #0f0f0f;
+}
+
+.product-features-table tbody th {
+    padding-top: 10px;
+    width: 100%;
+    float: left;
+    text-align: left;
+
+    font-size: 14px;
+}
+/* ======상품 상세설명====== */
+.product-features-table td {
+    padding: 10px 0 20px 0;
+    width: 100%;
+    float: left;
+    display: block;
+    font-size: 14px;
+    color: #353535;
+}
+
+.product-features-table input {
+    width: 100%;
+    height: 500px;
+    
+    word-wrap:break-word;
+    word-break: break-all;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    padding: 0 1% 0 1%;
+
+    outline-style: none;
+
+    vertical-align: middle;
+    outline: none;
+
+    background-color: #ededed;
+}
+.product-features-ex {
+    width: 450px;
+    height: 300px;
+}
+
+.product-features-table input:focus {
+    background: #f7f7f7;
+
+    transition: all 0.3s;
+}
+
+.product-features-table select {
+    margin-right: 4px;
+    width: 150px;
+    height: 32px;
+
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    padding: 0 5px 2px 5px;
+    background-color: #fff;
+
+    font-size: 100%;
+}
+/* ======이미지 저장버튼====== */
+.imgs-button {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    cursor: pointer;
+    font-size: 5em;
+}
+
+/* 못생긴 기존 input 숨기기 */
+/* #chooseFile {
+    visibility: hidden;
+} */

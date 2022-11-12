@@ -21,12 +21,93 @@
             <li><a href="">게시물관리</a></li>
             <li><a href="">배송현황관리</a></li>
         </ul>
-        <div class="registration">
-            <div class="manger-asyncbenefit">
-                <div class="memberMent">
-                    
-                
+        <div class="registration-area">
+            <div class="registration-container">
+                <div class="registration-required">
+                    <p><img src="/static/images/lash_btn/ico_required.png"> 상품등록</p>
                 </div>
+    
+                <form class="registration-form" action="" method="post">
+                    <div class="registration-table">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        name 
+                                        <img src="/static/images/lash_btn/ico_required.png">
+                                    </th>
+                                    <td>
+                                        <input type="text" class="input-name">
+                                    </td>    
+                                </tr>
+                                <tr>
+                                    <th>
+                                        color-code 
+                                        <img src="/static/images/lash_btn/ico_required.png">
+                                    </th>
+                                    <td>
+                                        <input type="text" class="input-colorcode">
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        price 
+                                        <img src="/static/images/lash_btn/ico_required.png">
+                                    </th>
+                                    <td>
+                                        <input type="text" class="input-price">
+                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>  
+                    </div>
+                    <div class="product-features-table">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        product_features 
+                                        <img src="/static/images/lash_btn/ico_required.png">
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="상세설명"></textarea>
+                                    </td>    
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        description
+                                        <img src="/static/images/lash_btn/ico_required.png">
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="상세설명"></textarea>
+                                    </td>    
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        return-policy
+                                        <img src="/static/images/lash_btn/ico_required.png">
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="상세설명"></textarea>
+                                    </td>    
+                                </tr>
+                                
+                            </tbody>
+                            
+                        </table>
+                        <!-- <a href="#none" class="join-button">등록</a> -->
+
+                    </div>
+                    <div class="imgs-button">
+                        <label for="chooseFile">
+                            👉 사진추가 👈
+                        </label>
+                    </div>
+                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)" name='' multiple/>
+                    <a href="#none" class="registration-button">등록</a>
+                </form>
             </div>
         </div>
     </div>
