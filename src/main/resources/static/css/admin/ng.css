@@ -1,6 +1,3 @@
-
-
-
 p {
     display: block;
     margin-block-start: 1em;
@@ -8,10 +5,11 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
 li {
     text-align: -webkit-match-parent;
-    
 }
+
 h2 {
     display: block;
     font-size: 1.5em;
@@ -77,14 +75,6 @@ input, select, textarea {
     vertical-align: middle;
     outline: none;
 }
-.xans-member-edit #addr1, .xans-member-edit #addr2 {
-    width: 280px;
-    margin: 5px 0 0;
-}
-.xans-member-edit #phone2, .xans-member-edit #phone3, .xans-member-edit #mobile2, .xans-member-edit #mobile3 {
-    width: 50px;
-    margin: 0 4px;
-}
 
 option {
     font-weight: normal;
@@ -100,6 +90,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
 }
+
 body {
     font-family: Cabin,sans-serif;
     font-weight: 400;
