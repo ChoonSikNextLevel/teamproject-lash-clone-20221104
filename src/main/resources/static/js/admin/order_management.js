@@ -1,5 +1,5 @@
 
-/* date picker */
+/*----------- date picker ---------------*/
 
 $(document).ready(function(){               
     $.datepicker.setDefaults({
@@ -63,8 +63,9 @@ $(function() {
 
 
 
-/* paging */
+/*----------- paging --------------*/
 
+ 
 let nowPageUrl = window.location.href;
 
 let nowPage = 1; // 현재 페이지
@@ -107,4 +108,6 @@ window.onload = () => {
     createNumButtons(1, 106);
     //createNumButtons($('#now-page'), 106);
     
-}
+} 
+
+/**-----------------------------------------*/
