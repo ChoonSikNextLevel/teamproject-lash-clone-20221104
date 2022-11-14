@@ -22,15 +22,14 @@ registrationBtn.onclick = () => {
 	// const productInputs = document.querySelectorAll(".product-input");
 	
 	let productForm = new FormData();
-	let all = "test data";
 	
-	productForm.append("category", all);
-	// productForm.append("category", "all");
-	// productForm.append("category", "all");
-	// productForm.append("category", "all");
+	productForm.append("category", "COMBINATION");
+	productForm.append("name", "HUNTER");
+	productForm.append("colorCode", "C2"); // color_code 로 쓰면 못 알아 봄 !!
+	productForm.append("color", "BROWN");
+    productForm.append("price", 245000);
 
-
-
+    console.log(productForm);
 	
 	addProduct(productForm);
 }
