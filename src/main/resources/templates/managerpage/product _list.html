@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product_list</title>
+    <link rel="stylesheet" href="/static/css/manager/product _list.css">
+    <link rel="stylesheet" href="/static/css/manager/style.css">
+</head>
+<body>
+    <div class="contents">
+        <div class="titleArea">
+            <h2>product_list</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2 style="margin-top:0px;">Account</h2>
+            <li><a href="">상품등록</a></li>
+            <li><a href="">상품목록리스트</a></li>
+            <li><a href="">상품수정</a></li>
+            <li><a href="">주문페이지</a></li>
+            <li><a href="">게시물관리</a></li>
+            <li><a href="">배송현황관리</a></li>
+        </ul>
+        <div class="registration-area">
+            <div class="registration-container">
+                <div class="ec-base-table typeList">
+                    <a href="#none" class="registration-button">등록</a>
+                    <form class="registration-form" action="" method="post">
+                        <input id="__product_id" name="__product_id" value="" type="hidden">
+                        <input id="__product_img" name="__product_img" value="" type="hidden">
+                        <input id="__product_name" name="__product_name" value="" type="hidden">
+                        <input id="__product_code" name="__product_code" value="" type="hidden">
+                        <input id="__product_price" name="__product_price" value="F" type="hidden">
+                        <div class="product-list-table">
+                            <table border="1" summary>
+                                <colgroup>
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:50px">
+                                    <col style="width:50px">
+                                </colgroup>
+                                <thead class="col-th">
+                                    <tr>
+                                        <th scope="col">product_Id</th>
+                                        <th scope="col">product_Img</th>
+                                        <th scope="col">product_Name</th>
+                                        <th scope="col">Product_Code</th>
+                                        <th scope="col">Product_Price</th>
+                                        <th scope="col">수정</th>
+                                        <th scope="col">삭제</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="center">
+                                    <tr class="xans-record-">
+                                        <td>
+                                            <span>031</span>
+                                        </td>
+                                        <td>
+                                            <a href="${path}/shop/product/detail/${row.productId}">
+                                                <img src="${path}/images/${row.productUrl}">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <span>Name</span>
+                                        </td>
+                                        <td>
+                                            <span>code</span>
+                                        </td>
+                                        <td>
+                                            <span>price</span>
+                                        </td>
+                                        <td>
+                                            <a href="modify.html?ma_idx=717" class="btnType-1">수정</a>
+                                        </td>
+                                        <td>
+                                            <a href="modify.html?ma_idx=717" class="btnType-1">삭제</a>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <tr>
+    <th>상품ID</th>
+    <th>상품이미지</th>
+    <th>상품명</th>
+    <th>상품코드</th>
+    <th>가격</th>
+</tr>
+<c:forEach var="row" items="${list}">
+    <tr>
+        <td>
+            ${row.productId}
+        </td>
+        <td>
+            <a href="${path}/shop/product/detail/${row.productId}">
+                <img src="${path}/images/${row.productUrl}"width="120px" height="110px"></a>
+        </td>
+        <td align="center">
+            <a href=""></a><br>
+            <c:if test="${sessionScope.adminId != null}">
+                <a href="${path}/shop/product/edit/${row.productID}">[상품편집]</a>
+            </c:if>
+        </td>
+        <td>
+            <fmt:formatNumber value="${row.productPrice}" pattern="###,###,###"/></fmt:formatNumber>
+        </td>
+    </tr>
+</c:forEach> -->
