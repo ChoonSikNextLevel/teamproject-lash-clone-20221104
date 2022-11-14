@@ -1,5 +1,6 @@
 package com.lash.lashClone.controller.admin.api;
 
+import com.lash.lashClone.dto.CMRespDto;
 import com.lash.lashClone.dto.admin.ProductRegistReqDto;
 import com.lash.lashClone.service.admin.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/api/admim/product")
+@RequestMapping("/api/admin/product")
 @RestController
 @RequiredArgsConstructor
 public class ProductApi {
@@ -23,7 +24,7 @@ public class ProductApi {
 
         return ResponseEntity
                 .created(null)
-                .body("hello");
+                .body(new CMRespDto<>(1, "success", productService.addProduct(productRegistReqDto)));
 
     }
 }

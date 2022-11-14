@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lash.lashClone.repository.admin.ProductRepository">
+
+    <resultMap id="product_imgs" type="com.lash.lashClone.domain.ProductImg">
+        <result property="id" column="img_id"></result>
+        <result property="product_id" column="product_id"></result>
+        <result property="origin_name" column="origin_name"></result>
+        <result property="temp_name" column="temp_name"></result>
+    </resultMap>
+
+    <resultMap id="product" type="com.lash.lashClone.domain.Product">
+
+        <result property="product_id" column="product_id"></result>
+        <result property="category" column="category"></result>
+        <result property="name" column="name"></result>
+        <result property="color_code" column="color_code"></result>
+        <result property="color" column="color"></result>
+        <result property="price" column="price"></result>
+        <result property="product_features" column="product_features"></result>
+        <result property="description" column="description"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+
+        <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>
+
+<!--        <result property="product_total_count" column="product_total_count"></result>-->
+    </resultMap>
+
+    <insert
+            id="saveProduct"
+            parameterType="com.lash.lashClone.domain.Product"
+            useGeneratedKeys="true"
+            keyProperty="product_id"
+    >
+
+        INSERT into
+            product_mst
+                (
+                    product_id,
+                    category,
+                    name,
+                    color_code,
+                    color,
+                    price,
+                    product_features,
+                    description,
+                    create_date,
+                    update_date
+                )
+        values
+            (
+                0,
+                #{category},
+                #{name},
+                #{color_code},
+                #{color},
+                #{price},
+                #{product_features},
+                #{description},
+                NOW(),
+                NOW()
+            );
+    </insert>
+
+    <insert id="saveImgs" parameterType="java.util.List">
+        insert into
+            product_img
+        values
+        <foreach item="file" collection="list" separator=",">
+            (
+            0,
+            #{file.product_id},
+            #{file.origin_name},
+            #{file.temp_name},
+            now(),
+            now()
+            )
+        </foreach>
+    </insert>
+</mapper>
