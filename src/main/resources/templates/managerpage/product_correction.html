@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product_registration</title>
-    <link rel="stylesheet" href="/static/css/manager/product_change_storage.css">
+    <title>product_correction</title>
+    <link rel="stylesheet"correction href="/static/css/manager/product_change_storage.css">
     <link rel="stylesheet" href="/static/css/manager/style.css">
 </head>
 <body>
     <div class="contents">
         <div class="titleArea">
-            <h2>product_registration</h2>
+            <h2>product_correction</h2>
         </div>
         <ul class="sideMenu">
             <h2 style="margin-top:0px;">Account</h2>
@@ -25,7 +25,7 @@
         <div class="registration-area">
             <div class="registration-container">
                 <div class="registration-required">
-                    <p> 상품등록</p>
+                    <p> 상품수정</p>
                 </div>
     
                 <form class="registration-form" action="" method="post">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="imgs-button">
                         <label for="chooseFile">
-                            (  ˵•́ ᴗ •̀˵)사진추가(˵•́ᴗ •̀˵  )
+                            (  ˵•́ ᴗ •̀˵)사진수정(˵•́ᴗ •̀˵  )
                         </label>
                     </div>
                     <input type="file" id="chooseFile" class="real-upload" accept="image/*" required multiple/>
@@ -149,6 +149,7 @@
                         realUpload.addEventListener('change', getImageFiles);
                     </script>
                     <a href="#none" class="registration-button">등록</a>
+                    <a href="#none" class="registration-button">삭제</a>
                 </form>
             </div>
         </div>
