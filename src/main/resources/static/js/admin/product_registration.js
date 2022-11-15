@@ -2,9 +2,11 @@ const registButton = document.querySelector(".registration-button");
 const nameUl = document.querySelector(".uploaded_files_name");
 const fileUl = document.querySelector(".cvf_uploaded_files");
 
-let productImgsArray;
+let productImgsArray = new Array();
 
 registButton.onclick = () => {
+
+    const formData = new FormData(document.querySelector("form"));
 
     let productForm = new FormData();
     let productImgs = document.getElementById("product-imgs");
@@ -14,17 +16,25 @@ registButton.onclick = () => {
 	productForm.append("colorCode", "C2"); // color_code 로 쓰면 못 알아 봄 !! dto에 있는 이름 대로 . . 
 	productForm.append("color", "BROWN");
     productForm.append("price", 245000);
-	productForm.append("productImgs", productImgsArray);
 
-    console.log(productForm);
-
-
+	
     let files = productImgs.files;
     let file;
 
+    console.log(files);
+
     //console.log(files);
-    productImgsArray = Array.from(files);
+    // productImgsArray = Array.from(files);
     //console.log(productImgsArray);
+
+
+    for(let i = 0; i < files.length; i++) {
+        productForm.append("productImgs", productImgs.files[i]);
+        console.log(productImgs.files[i]);
+    }
+    
+    
+    // console.log(productImgsArray);
 
     nameUl.innerHTML = ``;
     fileUl.innerHTML = ``;
@@ -32,6 +42,8 @@ registButton.onclick = () => {
     for(let i = 0; i < files.length; i++) {
 
         file = files[i];
+        // productForm.append("productImgs", file);
+        
         
         // nameUl.innerHTML += `
         //         <li style="background-color: #b7d5bb; border: 1px solid gray; margin: 2px 0; border-radius: 2px; width: 50%;">
@@ -50,8 +62,8 @@ registButton.onclick = () => {
 
         setTimeout(() => {reader.readAsDataURL(file)}, i * 100);
 
-        console.log(file.name);
-        console.log(productImgsArray[i]);
+        // console.log(file.name);
+        // console.log(productImgsArray[i]);
 
     }
 

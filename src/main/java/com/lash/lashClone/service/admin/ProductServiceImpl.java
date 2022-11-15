@@ -5,9 +5,15 @@ import com.lash.lashClone.domain.ProductImg;
 import com.lash.lashClone.dto.admin.ProductRegistReqDto;
 import com.lash.lashClone.repository.admin.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +21,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
+    @Value("${file.path}")
+    private String filePath;
     private final ProductRepository productRepository;
 
     @Override
@@ -22,15 +30,18 @@ public class ProductServiceImpl implements ProductService {
 
         int result = 0;
 
-        List<MultipartFile> files = productRegistReqDto.getFiles();
+        List<MultipartFile> files = productRegistReqDto.getProductImgs();
         List<ProductImg> productImgs = null;
+
 
         Product product = productRegistReqDto.toProduct();
         result = productRepository.saveProduct(product);
 
+
         if(files != null) {
             int productId = product.getProduct_id();
             productImgs = getProductImgs(files, productId);
+            productRepository.saveImgs(productImgs);
         }
 
         if(result == 0) {
@@ -44,9 +55,30 @@ public class ProductServiceImpl implements ProductService {
         List<ProductImg> productImgs = new ArrayList<ProductImg>();
 
         files.forEach(file -> {
-            String origin_name
-        });
+            String originName = file.getOriginalFilename();
+//            String extension = originName.substring(originName.lastIndexOf("."));
 
+            Path uploadPath = Paths.get(filePath + "/product/" + originName);
+
+            File f = new File(filePath + "/product");
+            if(!f.exists()) {
+                f.mkdirs();
+            }
+
+            try {
+                Files.write(uploadPath, file.getBytes());
+            }catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            ProductImg productImg = ProductImg.builder()
+                    .product_id(productId)
+                    .img_name(originName)
+                    .build();
+
+            productImgs.add(productImg);
+
+        });
 
         return productImgs;
     }

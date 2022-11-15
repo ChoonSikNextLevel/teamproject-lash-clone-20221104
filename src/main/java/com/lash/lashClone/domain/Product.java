@@ -1,12 +1,15 @@
 package com.lash.lashClone.domain;
 
 
+import com.lash.lashClone.dto.admin.ProductListRespDto;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @Data
@@ -19,9 +22,23 @@ public class Product {
     private String color_code;
     private String color;
     private int price;
+
     private String product_features;
     private String description;
+
+    private List<MultipartFile> product_imgs;
+
     private LocalDateTime create_date;
     private LocalDateTime update_date;
+
+//    private int product_total_count;
+
+//    public ProductListRespDto toListRespDto() {
+//        return ProductListRespDto.builder()
+//                .productId(product_id)
+//
+//                .build();
+
+//    }
 
 }

@@ -71,12 +71,11 @@
         values
         <foreach item="file" collection="list" separator=",">
             (
-            0,
-            #{file.product_id},
-            #{file.origin_name},
-            #{file.temp_name},
-            now(),
-            now()
+                0,
+                #{file.product_id},
+                #{file.img_name},
+                now(),
+                now()
             )
         </foreach>
     </insert>
