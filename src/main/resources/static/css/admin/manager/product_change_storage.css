@@ -74,13 +74,15 @@ table {
 /* 기본 화면 선 */
 .ec-base-table-black table {
     position: relative;
-    border: 1px solid #333;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
     color: #fff;
     line-height: 1.5;
 }
 /* 테이블안에 기본선 */
 .ec-base-table-black td {
     padding: 11px 10px 10px;
+    border-bottom: 1px solid #333;
     border-top: 1px solid #333;
     color: #353535;
     vertical-align: middle;
@@ -89,19 +91,17 @@ table {
 /* 모든 테이블안 이름 */
 .ec-base-table-black tbody th {
     padding: 11px 0 10px 18px;
-    border: 1px solid #333;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    /* border: 1px solid #333; */
+    
     color: #353535;
     text-align: left;
     font-weight: normal;
     font-size: 15px;
 }
-/* 첫번째 테이블안 tr th td */
-.ec-base-table-black.typeWrite tr {
-    border-right:1px solid #fff;
-}
+/* 첫번째 테이블안 넓이 */
 .ec-base-table-black.typeWrite th {
-    border-right: solid 1px #fff;
-    border-left: 1px solid #fff;
     padding: 20px 15px 20px;
 }
 .ec-base-table-black.typeWrite td {
@@ -175,7 +175,7 @@ textarea::placeholder {
 
 /* ================이미지 업로드================= */
 ul.cvf_uploaded_files {list-style-type: none; margin: 20px 0 0 0; padding: 0;}
-ul.cvf_uploaded_files li {background-color: #fff; border: 1px solid #ccc; border-radius: 5px; float: left; margin: 20px 20px 0 0; padding: 2px; width: 150px; height: 150px; line-height: 150px; position: relative;}
+ul.cvf_uploaded_files li {background-color: #fff; border-radius: 5px; float: left; margin: 20px 20px 0 0; padding: 2px; width: 150px; height: 150px; line-height: 150px; position: relative;}
 ul.cvf_uploaded_files li img.img-thumb {width: 150px; height: 150px;}
 ul.cvf_uploaded_files .ui-selected {background: red;}
 ul.cvf_uploaded_files .highlight {border: 1px dashed #000; width: 150px; background-color: #ccc; border-radius: 5px;}
