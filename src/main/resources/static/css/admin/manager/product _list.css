@@ -31,6 +31,7 @@ section {
     width: 100%;
     height: 100%;
     min-height: 800px;
+    margin-top: 60px;
     padding-bottom: 0px;
 
 }
@@ -45,7 +46,7 @@ section {
 
 .titleArea h2 {  
     
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 20px;
@@ -67,6 +68,8 @@ section {
 .sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
 .sideMenu a {float:none;}
 .sideMenu a:hover {text-decoration:underline}
+
+
 }
 body {
     color: #1b1c1c;
@@ -106,11 +109,12 @@ body {
 
     float: left;
 }
-/* --------상품목록 리스트----------- */
 
 .registration-button:hover {
     color: #0f0f0f;
 }
+/* --------상품목록 리스트----------- */
+
 .col-th {
     
     margin-top: 30px;
@@ -234,4 +238,57 @@ product-list-table {
 
     margin: auto;
 }
-
+/* =======================search============================= */
+.search-area{
+    width: 90%;
+    margin: 10px auto;
+}
+.search-box3{
+background: #ECDFBF;
+overflow: hidden;
+padding: 20px;
+text-align: center;
+}
+.search-box3 h1{
+text-transform: uppercase;
+color: white;
+margin: 0;
+margin-bottom: 8px;
+}
+#value{
+border: none;
+background: #E0D3B6;
+padding: 6px;
+font-size: 18px;
+width: 80%;
+border-radius: 6px;
+color: white;
+}
+#value:focus{
+outline: none;
+}
+.search-box2 container{
+background: #FFFFF5;
+padding: 1%;
+}
+.search-box2 item{
+margin: 3% 0px;
+display: flex;
+align-items: center;
+}
+.search-box2 icon{
+width: 25px;
+height: 25px;
+background: #E0D3B6;
+color: white;
+font-size: 15px;
+text-align: center;
+line-height: 25px;
+border-radius: 50%;
+margin-right: 8px;
+}
+.name{
+font-size: 17px;
+font-weight: 470;
+color: #333;
+}
