@@ -25,9 +25,10 @@ registrationBtn.onclick = () => {
 	
 	productForm.append("category", "COMBINATION");
 	productForm.append("name", "HUNTER");
-	productForm.append("colorCode", "C2"); // color_code 로 쓰면 못 알아 봄 !!
+	productForm.append("colorCode", "C2"); // color_code 로 쓰면 못 알아 봄 !! dto에 있는 이름 대로 . . 
 	productForm.append("color", "BROWN");
     productForm.append("price", 245000);
+	productForm.append("productImgs", productImgsArray);
 
     console.log(productForm);
 	
