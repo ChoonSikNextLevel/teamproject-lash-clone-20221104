@@ -1,5 +1,4 @@
-jQuery(document).ready(function() {        
-            
+jQuery(document).ready(function() {             
     var storedFiles = [];      
     //$('.cvf_order').hide();
     

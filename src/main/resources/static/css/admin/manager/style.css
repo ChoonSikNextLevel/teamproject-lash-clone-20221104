@@ -32,7 +32,13 @@ html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form
 *, input, :before, :after {
     box-sizing: border-box;
 }
-
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+a {
+    text-decoration: none;
+}
 html {
     display: block;
 }
@@ -116,6 +122,21 @@ option {
     min-height: 1.2em;
     padding: 0px 2px 1px;
 }
+body {
+    color: #1b1c1c;
+    font-family: sans-serif;
+    
+    font-weight: 200;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+    line-height: 1.7;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
 
 body {
     width: 100%;
@@ -142,4 +163,8 @@ body {
 }
 ul{
     list-style:none;
+}
+section {
+    width: 100%;
+    height: 100%;
 }

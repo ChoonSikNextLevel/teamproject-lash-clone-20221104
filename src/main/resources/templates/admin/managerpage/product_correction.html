@@ -102,8 +102,8 @@
         </div>
         <ul class="sideMenu">
             <h2 style="margin-top:0px;">Account</h2>
-            <li><a href="/templates/admin/managerpage/product_registration.html">상품등록</a></li>
-            <li><a href="/templates/admin/managerpage/product _list.html">상품관리</a></li>
+            <li><a href="">상품등록</a></li>
+            <li><a href="">상품관리</a></li>
             <li><a href="">주문배송</a></li>
         </ul>
         <div class="registration-area">
@@ -121,7 +121,7 @@
                                     </th>
                                     <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
                                         <select id="phone1">
-                                            <option value="choose">선택</option
+                                            <option value="choose">선택</option>
                                             <option value="metal">Metal</option>
                                             <option value="acetate">Acetate</option>
                                             <option value="combination">Combination</option>
@@ -133,33 +133,38 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">name
+                                    <th scope="row" >name
                                     </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id" type="text">
+                                    <td>
+                                        <input id="member_name"  class="inputTypeText" type="text">
                                     </td>
+                                    <th scope="row">price
+                                    </th>
+                                    <td>
+                                        <input id="member_price" class="inputTypeText" type="text">
+                                    </td>
+                                    
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">color_code
+                                    <th scope="row">color_code
                                     </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id"type="text">
+                                    <td>
+                                        <input id="member_color_code" class="inputTypeText" "type="text">
+                                    </td>
+                                    <th>color
+                                    </th>
+                                    <td>
+                                        <input id="member_color"class="inputTypeText" value="" type="text">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">color
-                                    </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id"fw-label="아이디" fw-msg="" class="inputTypeText" placeholder=""  value="" type="text">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">price
-                                    </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id" fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity" fw-label="아이디" fw-msg="" class="inputTypeText" placeholder=""value="" type="text">
-                                    </td>
-                                </tr>
+                            </tbody>
+                        </table>
+                        <table border="1" summary>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
                                 <tr>
                                     <th scope="row">
                                         product_features 
@@ -175,7 +180,7 @@
                                     <td>
                                         <textarea class="product-features-ex" placeholder="상세설명"></textarea>
                                     </td>    
-                                </tr>  
+                                </tr>
                                 <tr>
                                     <th scope="row">
                                         return policy
@@ -188,7 +193,7 @@
 4) 해외 배송 기간 : 결제일 기준 4~10일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
                                         </textarea>
                                     </td>    
-                                </tr>
+                                </tr>   
                             </tbody>
                             
                         </table>
@@ -217,7 +222,10 @@
                             </div>
                         </div>
                     </div>
-                    <button class="registration-button">등록</button> 
+                    <div class="correction-button-area">
+                        <button class="registration-button">등록</button>
+                        <button class="registration-button">삭제</button>  
+                    </div>
                 </form>
             </div>
         </div>
