@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product_correction</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">   
+    <link rel="stylesheet" href="/static/css/admin/manager/product_change_storage.css">
+    <link rel="stylesheet" href="/static/css/admin/manager/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/page_main/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <div class="overlay"></div>
+    <header id="header">
+        <div class="header-container">
+            <div class="header-flex">
+                <div class="header-left-container">
+                    <div class="menu-container">
+                        <div class="site-nav-menu">
+                            <div class="site-nav-parent">
+                                <a href="" class="menu-product">제품</a>
+                            </div>
+                            <nav class="nav-invisible">
+                                <div class="site-nav-mega">
+                                    <a href="/templates/page_product/product_all.html">전체</a>
+                                    <a href=""><span class="metal-button">메탈</span>
+                                        <img src="/static/images/Logo_img/catemetal.jpg"
+                                            class="metal-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acetate-button">아세테이트</span>
+                                        <img src="/static/images/Logo_img/cateacetate.jpg"
+                                            class="acetate-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="combination-button">콤비네이션</span>
+                                        <img src="/static/images/Logo_img/cateCombination.jpg"
+                                            class="combination-image image-display" alt="">
+                                    </a>
+                                </div>
+                                <div class="site-nav-mega site-nav-mega2">
+                                    <a href=""><span class="refined-button">리파인드</span>
+                                        <img src="/static/images/Logo_img/cateRefined.jpg"
+                                            class="refined-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="vintage-button">빈티지</span>
+                                        <img src="/static/images/Logo_img/cateVintage.jpg"
+                                            class="vintage-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="sunglasses-button">선글라스</span>
+                                        <img src="/static/images/Logo_img/cateSunglasses.jpg"
+                                            class="sunglasses-image image-display" alt="">
+                                    </a>
+                                    <a href=""><span class="acc-button">Acc</span>
+                                        <img src="/static/images/Logo_img/cateAcc.jpg" class="acc-image image-display"
+                                            alt="">
+                                    </a>
+                                </div>
+                            </nav>
+                            <div><a href="/templates/page_campaign/campaign.html" class="">캠페인</a></div>
+                            <div><a href="/templates/journal_html/journal.html" class="">저널</a></div>
+                            <div><a href="/templates/page_brand/brand-CB.html" class="">브랜드</a></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 로고 -->
+                <div class="logo-container">
+                    <a href="/templates/page_main/index.html"><img src="/static/images/Logo_img/lash_logo.png" alt=""></a>
+                </div>
+                <div class="header-right-container">
+                    <!-- search -->
+                    <div class="search-box">
+                        <form action="." method="get">
+                            <input class="search-text search-display" type="text" placeholder="">
+                            <span class="search-button" type="submit">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </form>
+                    </div>
+                    <button class="site-header-button">
+                        <a href="/templates/mypage/Myshop.html">My page</a> 
+                    </button>
+                    <button class="site-header-button"><a href="/templates/login/login.html">Log in</a></button>
+                    <button class="site-header-button basket-button"><a
+                            href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
+                        <span class="basket-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="contents">
+        <div class="titleArea">
+            <h2>product_correction</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2 style="margin-top:0px;">Account</h2>
+            <li><a href="/templates/admin/managerpage/product_registration.html">상품등록</a></li>
+            <li><a href="/templates/admin/managerpage/product _list.html">상품관리</a></li>
+            <li><a href="">주문배송</a></li>
+        </ul>
+        <div class="registration-area">
+            <div class="registration-container">
+                <form class="registration-form" action="" method="post">
+                    <div class="ec-base-table-black typeWrite">
+                        <table border="1" summary>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">category
+                                    </th>
+                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                        <select id="phone1">
+                                            <option value="choose">선택</option
+                                            <option value="metal">Metal</option>
+                                            <option value="acetate">Acetate</option>
+                                            <option value="combination">Combination</option>
+                                            <option value="refined">Refined</option>
+                                            <option value="vintage">Vintage</option>
+                                            <option value="sunglasses">Sunglasses</option>
+                                            <option value="acc">Acc</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">name
+                                    </th>
+                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                        <input id="member_id" name="member_id" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">color_code
+                                    </th>
+                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                        <input id="member_id" name="member_id"type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">color
+                                    </th>
+                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                        <input id="member_id" name="member_id"fw-label="아이디" fw-msg="" class="inputTypeText" placeholder=""  value="" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">price
+                                    </th>
+                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                        <input id="member_id" name="member_id" fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity" fw-label="아이디" fw-msg="" class="inputTypeText" placeholder=""value="" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        product_features 
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="상세설명"></textarea>
+                                    </td>    
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        description
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="상세설명"></textarea>
+                                    </td>    
+                                </tr>  
+                                <tr>
+                                    <th scope="row">
+                                        return policy
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="고정">
+1) 배송 지역 : 전국 (도서산간지역 포함)
+2) 배송 운임 : 기본 무료 배송 (도서산간지역의 경우 추가 배송비가 부과됩니다.)
+3) 배송 기간 : 결제일 기준 2~4일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
+4) 해외 배송 기간 : 결제일 기준 4~10일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
+                                        </textarea>
+                                    </td>    
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                        <div class = "container-fluid">
+                            <!-- <h3>Sort Files before upload</h3> -->
+                            <br />
+                            <div class = "col-md-6">
+                               
+                                <div class = "form-group">
+                                    <label for="upload">
+                                        (  ˵•́ ᴗ •̀˵)사진수정(˵•́ᴗ •̀˵  )
+                                    </label>
+                                </div>
+                                <input type = "file" name = "upload" multiple = "multiple" class = "form-control user_picked_files" />                 
+                                                     
+                               
+                                <!-- <div class = "form-group cvf_order">                           
+                                    <label>Order</label>                               
+                                    <input type = "text" class = "form-control cvf_hidden_field" value = "" disabled = "disabled" />   
+                                </div>                      -->
+                               
+                                <!-- <input type = "submit" class = "cvf_upload_btn btn btn-primary" value = "Upload" /> -->
+                               
+                                <ul class = "cvf_uploaded_files"></ul>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <button class="registration-button">등록</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/header.js"></script>
+    <script src="/static/js/admin/product_change_storage.js"></script>
+</body>
+</html>
