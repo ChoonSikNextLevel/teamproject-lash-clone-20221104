@@ -2,6 +2,10 @@ package com.lash.lashClone.dto.admin;
 
 import com.lash.lashClone.domain.Product;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import java.util.List;
 
 @Data
 public class ProductRegistReqDto {
@@ -13,6 +17,8 @@ public class ProductRegistReqDto {
     private int price;
     private String productFeatures;
     private String description;
+
+    private List<MultipartFile> files;
 
     public Product toProduct() {
         return Product.builder()
@@ -26,5 +32,3 @@ public class ProductRegistReqDto {
                 .build();
     }
 }
-
-
