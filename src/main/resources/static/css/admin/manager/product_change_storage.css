@@ -40,11 +40,11 @@
 
 
 /*---------------------------사이드바--------------------------------------------------------------------*/
-.sideMenu {position:fixed; top:135px; left:5%; width:10%; float:Left; background:none; }
-.sideMenu h2 {font-size:19px; font-weight:500; margin-bottom:20px;}
+.sideMenu {position:fixed; top:135px; left:2.5%; width:10%; float:Left; background:none; }
+.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
 .sideMenu ul {width:100%; float:left; }
 .sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
-.sideMenu a {width:100%; float:left; font-size:17px; font-weight:400; letter-spacing:-0.01px }
+.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
 .sideMenu a:hover {text-decoration:underline}
     
 @media screen and (max-width: 1280px) {

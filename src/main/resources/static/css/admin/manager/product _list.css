@@ -25,7 +25,7 @@
     text-transform: uppercase;
     line-height: 20px;
 }
-/* 상품등록 폼 */
+/* 상품등록 크기및 설정 */
 
 .list-area {
     width: 1000px;
@@ -49,11 +49,11 @@
 
 
 /*---------------------------사이드바--------------------------------------------------------------------*/
-.sideMenu {position:fixed; top:135px; left:5%; width:10%; float:Left; background:none; }
-.sideMenu h2 {font-size:19px; font-weight:500; margin-bottom:20px;margin-top:0px;}
+.sideMenu {position:fixed; top:135px; left:2.5%; width:10%; float:Left; background:none; }
+.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
 .sideMenu ul {width:100%; float:left; }
 .sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
-.sideMenu a {width:100%; float:left; font-size:17px; font-weight:400; letter-spacing:-0.01px }
+.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
 .sideMenu a:hover {text-decoration:underline}
     
 @media screen and (max-width: 1280px) {
@@ -61,7 +61,7 @@
 .sideMenu ul {text-align:center;}
 .sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
 .sideMenu a {float:none;}
-.sideMenu a:hover {text-decoration:underline;}
+.sideMenu a:hover {text-decoration:underline}
 }
 /* --------상품목록 리스트----------- */
 /* 테이블 기본 설정 */
@@ -122,8 +122,7 @@ img {
     font-weight: normal;
     font-size: 15px;
 }
-/* 목록 정보들 */
-
+/* 목록 정보설정 */
 .ec-base-table.typeList table {
     border-top-color: #d7d5d5;
 }

@@ -48,3 +48,32 @@ checkAll.addEventListener('click', (e) => {
     }
 
 }); 
+// 회원가입
+const joinInputs = document.querySelectorAll(".join-input");
+const joinButtons = document.querySelector(".join-button");
+
+joinButtons.onclick =() => {
+    let joinInfo = {
+        username: joinInputs[0].value,
+        password: joinInputs[1].value,
+        name: joinInputs[2].value,
+        firstPhone: joinInputs[3].value,
+        lastPhone: joinInputs[4].value,
+        email: joinInputs[5].value
+    }
+
+    $.ajax ({
+        async: false,
+        type:"post",
+        url:"/api/accout/join",
+        contentType:"application/json",
+        data: JSON.stringify(joinInfo),
+        dataType: "json",
+        success: (response) => {
+            location.replace("/account/login");
+        },
+        error: (error) => {
+            console.log(err);
+        }
+    });
+}

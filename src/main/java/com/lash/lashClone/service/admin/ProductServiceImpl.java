@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
         List<ProductImg> productImgs = new ArrayList<ProductImg>();
 
         files.forEach(file -> {
-            String origin_name
+            String origin_name;
         });
 
 
