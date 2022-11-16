@@ -16,7 +16,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +28,7 @@ public class ProductServiceImpl implements ProductService {
     private String filePath;
     private final ProductRepository productRepository;
 
+    // 상품 등록
     @Override
     public boolean addProduct(ProductRegistReqDto productRegistReqDto) throws Exception {
 
@@ -34,10 +37,8 @@ public class ProductServiceImpl implements ProductService {
         List<MultipartFile> files = productRegistReqDto.getProductImgs();
         List<ProductImg> productImgs = null;
 
-
         Product product = productRegistReqDto.toProduct();
         result = productRepository.saveProduct(product);
-
 
         if(files != null) {
             int productId = product.getProduct_id();
@@ -52,6 +53,8 @@ public class ProductServiceImpl implements ProductService {
         return true;
     }
 
+
+    // 상품 이미지 등록
     private List<ProductImg> getProductImgs(List<MultipartFile> files, int productId)throws Exception {
         List<ProductImg> productImgs = new ArrayList<ProductImg>();
 
@@ -90,11 +93,27 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
-    @Override
-    public List<ProductListRespDto> getProductList() throws Exception {
-        return null;
-    }
+        // 등록된 상품(리스트) 불러오기
+        @Override
+        public List<ProductListRespDto> productList() throws Exception {
+            Map<String, Object> paramsMap = new HashMap<String, Object>();
+
+
+
+
+            List<ProductListRespDto> list = new ArrayList<ProductListRespDto>();
+
+            productRepository.productList(paramsMap).forEach(product -> {
+                list.add(product.productListRespDto());
+            });
+
+            return list;
+        }
+
+
 }
+
+
 
 
 
