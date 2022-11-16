@@ -179,7 +179,7 @@ ul.cvf_uploaded_files li {background-color: #fff; border-radius: 5px; float: lef
 ul.cvf_uploaded_files li img.img-thumb {width: 150px; height: 150px;}
 ul.cvf_uploaded_files .ui-selected {background: red;}
 ul.cvf_uploaded_files .highlight {border: 1px dashed #000; width: 150px; background-color: #ccc; border-radius: 5px;}
-ul.cvf_uploaded_files .delete-btn {width: 24px; border: 0; position: absolute; top: -12px; right: -14px;}
+ul.cvf_uploaded_files .delete-btn {width: 24px; border: 0; position: absolute; top: 6px; right: 2px; color: rgb(255, 36, 36);}
 .bg-success {padding: 7px;}
 
 /* 파입업로드 사진 클릭 버튼 */
@@ -188,11 +188,10 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     font-weight: 400;
     font-style: normal;
     font-size: .9375rem;
-    padding: 0 20px;
+    padding: 4px 20px;
     margin: 0;
     display: inline-block;
     border-radius: 0;
-    -webkit-appearance: none;
     background: #ededed;
     color: #1b1c1c;
     transition: all .15s linear;
