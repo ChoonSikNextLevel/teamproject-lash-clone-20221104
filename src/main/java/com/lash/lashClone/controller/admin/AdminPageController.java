@@ -11,7 +11,7 @@ public class AdminPageController {
 
     @GetMapping("/product/registration")
     public String registration() {
-        return "admin/managerpage/product_registration copy";
+        return "admin/managerpage/product_registration";
     }
 
     @GetMapping("/products")

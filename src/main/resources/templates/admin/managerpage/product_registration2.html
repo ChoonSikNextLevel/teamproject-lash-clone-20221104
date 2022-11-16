@@ -102,15 +102,13 @@
         </div>
         <ul class="sideMenu">
             <h2 style="margin-top:0px;">Account</h2>
-            <li><a href="/templates/admin/managerpage/product_registration.html">상품등록</a></li>
-            <li><a href="/templates/admin/managerpage/product _list.html">상품관리</a></li>
+            <li><a href="">상품등록</a></li>
+            <li><a href="">상품관리</a></li>
             <li><a href="">주문배송</a></li>
         </ul>
         <div class="registration-area">
             <div class="registration-container">
-
-
-                <div class="registration-form">
+                <form class="registration-form" action="" method="post">
                     <div class="ec-base-table-black typeWrite">
                         <table border="1" summary>
                             <colgroup>
@@ -119,9 +117,9 @@
                             </colgroup>
                             <tbody>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">category
+                                    <th scope="row">category
                                     </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                    <td>
                                         <select id="phone1">
                                             <option value="choose">선택</option>
                                             <option value="metal">Metal</option>
@@ -135,33 +133,40 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">name
+                                    <th scope="row" >name
                                     </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id" type="text">
+                                    <td>
+                                        <input id="member_name"  class="inputTypeText" type="text">
                                     </td>
+                                    <th scope="row">price
+                                    </th>
+                                    <td>
+                                        <input id="member_price" class="inputTypeText" type="text">
+                                    </td>
+                                    
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">color_code
+                                    <th scope="row">color_code
                                     </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id"type="text">
+                                    <td>
+                                        <input id="member_color_code" class="inputTypeText" "type="text">
+                                    </td>
+                                    <th>color
+                                    </th>
+                                    <td>
+                                        <input id="member_color"class="inputTypeText" value="" type="text">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">color
-                                    </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id"fw-label="아이디" fw-msg="" class="inputTypeText" placeholder=""  value="" type="text">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">price
-                                    </th>
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" name="member_id" fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity" fw-label="아이디" fw-msg="" class="inputTypeText" placeholder=""value="" type="text">
-                                    </td>
-                                </tr>
+                                
+                            </tbody>
+                            
+                        </table>
+                        <table border="1" summary>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
                                 <tr>
                                     <th scope="row">
                                         product_features 
@@ -198,38 +203,36 @@
                             <!-- <h3>Sort Files before upload</h3> -->
                             <br />
                             <div class = "col-md-6">
-                                <form enctype="multipart/form-data">
-                                    <input type = "file" name = "upload" multiple = "multiple" id="product-imgs">                 
-                                    <!-- <input type = "file" name = "upload" multiple = "multiple" class = "form-control user_picked_files" />                  -->
-                                                         
-                                   
-                                    <!-- <div class = "form-group cvf_order">                           
-                                        <label>Order</label>                               
-                                        <input type = "text" class = "form-control cvf_hidden_field" value = "" disabled = "disabled" />   
-                                    </div>                      -->
-                                   
-                                    <!-- <input type = "submit" class = "cvf_upload_btn btn btn-primary" value = "Upload" /> -->
-
-                                </form>
                                
-                                <ul class="uploaded_files_name">
-                                    
-                                </ul>
-                                <ul class = "cvf_uploaded_files">
-
-                                </ul>
+                                <div class = "form-group">
+                                    <label for="upload">
+                                        (  ˵•́ ᴗ •̀˵)사진추가(˵•́ᴗ •̀˵  )
+                                    </label>
+                                </div>
+                                <input type = "file" name = "upload" multiple = "multiple" class = "form-control user_picked_files" />                 
+                                                     
+                               
+                                <!-- <div class = "form-group cvf_order">                           
+                                    <label>Order</label>                               
+                                    <input type = "text" class = "form-control cvf_hidden_field" value = "" disabled = "disabled" />   
+                                </div>                      -->
+                               
+                                <!-- <input type = "submit" class = "cvf_upload_btn btn btn-primary" value = "Upload" /> -->
+                               
+                                <ul class = "cvf_uploaded_files"></ul>
                                
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="registration-button">등록</button>  
-                </div>
-            </div>
+                    <div class="registration-button-area">
+                        <button class="registration-button">등록</button> 
+                    </div>
+
+                </form>
+                
         </div>
     </div>
     <script src="/static/js/header.js"></script>
-    <!-- <script src="/static/js/admin/product_change_storage.js"></script> -->
-    <script src="/static/js/admin/product_registration.js"></script>
-
+    <script src="/static/js/admin/product_change_storage.js"></script>
 </body>
 </html>
