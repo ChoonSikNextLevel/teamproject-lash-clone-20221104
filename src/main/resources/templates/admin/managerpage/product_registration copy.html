@@ -108,7 +108,9 @@
         </ul>
         <div class="registration-area">
             <div class="registration-container">
-                <form class="registration-form" action="" method="post">
+
+
+                <div class="registration-form">
                     <div class="ec-base-table-black typeWrite">
                         <table border="1" summary>
                             <colgroup>
@@ -196,30 +198,32 @@
                             <!-- <h3>Sort Files before upload</h3> -->
                             <br />
                             <div class = "col-md-6">
+                                <form enctype="multipart/form-data">
+                                    <input type = "file" name = "upload" multiple = "multiple" id="product-imgs">                 
+                                    <!-- <input type = "file" name = "upload" multiple = "multiple" class = "form-control user_picked_files" />                  -->
+                                                         
+                                   
+                                    <!-- <div class = "form-group cvf_order">                           
+                                        <label>Order</label>                               
+                                        <input type = "text" class = "form-control cvf_hidden_field" value = "" disabled = "disabled" />   
+                                    </div>                      -->
+                                   
+                                    <!-- <input type = "submit" class = "cvf_upload_btn btn btn-primary" value = "Upload" /> -->
+
+                                </form>
                                
-                                <div class = "form-group">
-                                    <label for="upload">
-                                        (  ˵•́ ᴗ •̀˵)사진추가(˵•́ᴗ •̀˵  )
-                                    </label>
-                                </div>
-                                <input type = "file" name = "upload" multiple = "multiple" id="product-imgs">                 
-                                <!-- <input type = "file" name = "upload" multiple = "multiple" class = "form-control user_picked_files" />                  -->
-                                                     
-                               
-                                <!-- <div class = "form-group cvf_order">                           
-                                    <label>Order</label>                               
-                                    <input type = "text" class = "form-control cvf_hidden_field" value = "" disabled = "disabled" />   
-                                </div>                      -->
-                               
-                                <!-- <input type = "submit" class = "cvf_upload_btn btn btn-primary" value = "Upload" /> -->
-                               
-                                <ul class = "cvf_uploaded_files"></ul>
+                                <ul class="uploaded_files_name">
+                                    
+                                </ul>
+                                <ul class = "cvf_uploaded_files">
+
+                                </ul>
                                
                             </div>
                         </div>
                     </div>
                     <button type="button" class="registration-button">등록</button>  
-                </form>
+                </div>
             </div>
         </div>
     </div>

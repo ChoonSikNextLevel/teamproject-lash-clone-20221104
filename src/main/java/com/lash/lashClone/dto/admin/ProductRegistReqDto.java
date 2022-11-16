@@ -18,7 +18,7 @@ public class ProductRegistReqDto {
     private String productFeatures;
     private String description;
 
-    private List<MultipartFile> files;
+    private List<MultipartFile> productImgs;
 
     public Product toProduct() {
         return Product.builder()
@@ -29,6 +29,7 @@ public class ProductRegistReqDto {
                 .price(price)
                 .product_features(productFeatures)
                 .description(description)
+                .product_imgs(productImgs)
                 .build();
     }
 }

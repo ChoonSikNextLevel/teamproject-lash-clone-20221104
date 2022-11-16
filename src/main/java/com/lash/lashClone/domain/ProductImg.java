@@ -14,8 +14,10 @@ import java.time.LocalDateTime;
 public class ProductImg {
     private int id;
     private int product_id;
-    private String origin_name;
-    private String temp_name;
+    private String img_name;
     private LocalDateTime create_date;
     private LocalDateTime update_date;
+
+
+
 }
