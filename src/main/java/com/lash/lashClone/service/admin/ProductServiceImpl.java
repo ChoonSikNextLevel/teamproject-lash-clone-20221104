@@ -59,12 +59,7 @@ public class ProductServiceImpl implements ProductService {
         List<ProductImg> productImgs = new ArrayList<ProductImg>();
 
         files.forEach(file -> {
-<<<<<<< HEAD
-            String origin_name;
-        });
-=======
             String originName = file.getOriginalFilename();
-//            String extension = originName.substring(originName.lastIndexOf("."));
 
             Path uploadPath = Paths.get(filePath + "/product/" + originName);
 
@@ -72,7 +67,6 @@ public class ProductServiceImpl implements ProductService {
             if(!f.exists()) {
                 f.mkdirs();
             }
->>>>>>> 10904056e35394b499acdfd1e0ccb50c7be22f6c
 
             try {
                 Files.write(uploadPath, file.getBytes());

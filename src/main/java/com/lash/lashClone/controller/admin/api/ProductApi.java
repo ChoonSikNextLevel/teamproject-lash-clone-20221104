@@ -32,7 +32,7 @@ public class ProductApi {
     @GetMapping("/products")
     public ResponseEntity<?> productList() throws Exception {
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.productList());
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.productList()));
 
     }
 
