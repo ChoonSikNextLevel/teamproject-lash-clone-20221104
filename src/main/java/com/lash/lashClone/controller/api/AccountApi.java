@@ -20,15 +20,15 @@ public class AccountApi {
     @PostMapping("/join")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterReqDto registerReqDto, BindingResult bindingResult) throws Exception {
 
-        if(bindingResult.hasErrors()){
-            log.error("유효성 검사 오류 발생");
+//        if(bindingResult.hasErrors()){
+//            log.error("유효성 검사 오류 발생");
+//
+//            bindingResult.getFieldErrors().forEach(error -> {
+//                log.info("Error: 필드명({}), 메시지({})", error.getField(), error.getDefaultMessage());
+//            });
+//        }
 
-            bindingResult.getFieldErrors().forEach(error -> {
-                log.info("Error: 필드명({}), 메시지({})", error.getField(), error.getDefaultMessage());
-            });
-        }
-
-        log.info("{}", registerReqDto);
+//        log.info("{}", registerReqDto);
 
         return ResponseEntity.ok(null);
 
