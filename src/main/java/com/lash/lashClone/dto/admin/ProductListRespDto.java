@@ -22,6 +22,6 @@ public class ProductListRespDto {
 
     private List<MultipartFile> productImgs;
 
-    private int productTotalCount;
+//    private int productTotalCount;
 
 }

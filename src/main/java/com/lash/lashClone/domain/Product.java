@@ -43,7 +43,7 @@ public class Product {
                 .price(price)
                 .productFeatures(product_features)
                 .description(description)
-                .productImgs(product_imgs)
+//                .productImgs(product_imgs)
 //                .productTotalCount(product_total_count)
                 .build();
 

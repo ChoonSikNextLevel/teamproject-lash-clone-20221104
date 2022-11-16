@@ -89,9 +89,9 @@ public class ProductServiceImpl implements ProductService {
 
         // 등록된 상품(리스트) 불러오기
         @Override
-        public List<ProductListRespDto> productList() throws Exception {
+        public List<ProductListRespDto> productList(int page) throws Exception {
             Map<String, Object> paramsMap = new HashMap<String, Object>();
-
+            paramsMap.put("page", page);
 
 
 

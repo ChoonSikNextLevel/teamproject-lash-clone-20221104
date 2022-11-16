@@ -11,7 +11,8 @@ public interface ProductService {
     public boolean addProduct(ProductRegistReqDto productRegistReqDto) throws Exception;
 
     // 상품 조회(리스트)
-    public List<ProductListRespDto> productList() throws Exception;
+    public List<ProductListRespDto> productList(int page) throws Exception;
+
 
 
 //    // 상품 수정
