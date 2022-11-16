@@ -33,12 +33,20 @@ public class Product {
 
 //    private int product_total_count;
 
-//    public ProductListRespDto toListRespDto() {
-//        return ProductListRespDto.builder()
-//                .productId(product_id)
-//
-//                .build();
+    public ProductListRespDto productListRespDto() {
+        return ProductListRespDto.builder()
+                .productId(product_id)
+                .category(category)
+                .name(name)
+                .colorCode(color_code)
+                .color(color)
+                .price(price)
+                .productFeatures(product_features)
+                .description(description)
+                .productImgs(product_imgs)
+//                .productTotalCount(product_total_count)
+                .build();
 
-//    }
+    }
 
 }

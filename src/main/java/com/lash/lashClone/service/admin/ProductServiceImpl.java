@@ -2,6 +2,7 @@ package com.lash.lashClone.service.admin;
 
 import com.lash.lashClone.domain.Product;
 import com.lash.lashClone.domain.ProductImg;
+import com.lash.lashClone.dto.admin.ProductListRespDto;
 import com.lash.lashClone.dto.admin.ProductRegistReqDto;
 import com.lash.lashClone.repository.admin.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -82,4 +83,34 @@ public class ProductServiceImpl implements ProductService {
 
         return productImgs;
     }
+
+
+    @Override
+    public List<ProductListRespDto> getProductList() throws Exception {
+        return null;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

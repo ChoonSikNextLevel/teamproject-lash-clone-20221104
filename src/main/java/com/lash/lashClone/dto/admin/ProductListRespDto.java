@@ -3,6 +3,7 @@ package com.lash.lashClone.dto.admin;
 import com.lash.lashClone.domain.ProductImg;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ProductListRespDto {
     private String productFeatures;
     private String description;
 
-//    private List<ProductImg> productImgs;
+    private List<MultipartFile> productImgs;
 
 //    private int productTotalCount;
 
