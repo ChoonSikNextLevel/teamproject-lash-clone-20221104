@@ -7,10 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/admin")
 @RestController
@@ -35,7 +32,8 @@ public class ProductApi {
     @GetMapping("/products")
     public ResponseEntity<?> productList() throws Exception {
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.getProductList()));
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.productList());
+
     }
 
     // 상품 정보 수정
