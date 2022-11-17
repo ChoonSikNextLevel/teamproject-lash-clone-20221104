@@ -1,6 +1,6 @@
 const registButton = document.querySelector(".registration-button");
-const productInput = document.querySelectorAll(".product-input");
 const productImgInput = document.querySelector("#product-imgs");
+const productInput = document.querySelectorAll(".product-input");
 
 const nameUl = document.querySelector(".uploaded_files_name");
 const fileUl = document.querySelector(".cvf_uploaded_files");
@@ -13,15 +13,15 @@ function imgReader() {
   const productImgs = document.getElementById("product-imgs");
   const files = productImgs.files;
 
-  nameUl.innerHTML = ``;
+  // nameUl.innerHTML = ``;
   fileUl.innerHTML = ``;
 
   for (let i = 0; i < files.length; i++) {
-    nameUl.innerHTML += `
-                    <li style="background-color: #b7d5bb; border: 1px solid gray; margin: 2px 0; border-radius: 2px; width: 50%;">
-                        선택된 파일[${i}]: ${files[i].name}
-                    </li>
-            `;
+    // nameUl.innerHTML += `
+    //                 <li style="background-color: #b7d5bb; border: 1px solid gray; margin: 2px 0; border-radius: 2px; width: 50%; font-size: 12px;">
+    //                     선택된 파일[${i}]: ${files[i].name}
+    //                 </li>
+    //         `;
 
     /* img 불러오기 */
     const reader = new FileReader();
@@ -47,8 +47,6 @@ function deleteImg(files) {
   let imgArray = Array.from(files);
   const deleteBtns = document.querySelectorAll(".delete-btn");
   const dataTransfer = new DataTransfer();
-  console.log("deleteBtns?");
-  console.log(deleteBtns);
 
   deleteBtns.forEach((deleteBtn, index) => {
     deleteBtn.onclick = () => {
@@ -89,7 +87,6 @@ registButton.onclick = () => {
   }
 
   addProduct(productForm);
-  alert("동작완료");
 };
 
 function addProduct(productForm) {

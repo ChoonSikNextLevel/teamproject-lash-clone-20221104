@@ -42,7 +42,7 @@ function loadList(responseData) {
                 ${product.productId}
             </td>
             <td>
-                <img src="/static/images/Logo_img/lash_logo.png">
+                <img src="/static/images/product_img/${product.productImgs[0]}">
             </td>
             <td>
                 ${product.name}
