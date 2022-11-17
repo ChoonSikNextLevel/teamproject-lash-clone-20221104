@@ -26,12 +26,12 @@ public class Product {
     private String product_features;
     private String description;
 
-    private List<MultipartFile> product_imgs;
+    private List<ProductImg> product_imgs;
 
     private LocalDateTime create_date;
     private LocalDateTime update_date;
 
-//    private int product_total_count;
+    private int product_total_count;
 
     public ProductListRespDto productListRespDto() {
         return ProductListRespDto.builder()
@@ -43,8 +43,8 @@ public class Product {
                 .price(price)
                 .productFeatures(product_features)
                 .description(description)
-//                .productImgs(product_imgs)
-//                .productTotalCount(product_total_count)
+                .productImgs(product_imgs)
+                .productTotalCount(product_total_count)
                 .build();
 
     }

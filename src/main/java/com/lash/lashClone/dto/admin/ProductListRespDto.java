@@ -20,8 +20,8 @@ public class ProductListRespDto {
     private String productFeatures;
     private String description;
 
-    private List<MultipartFile> productImgs;
+    private List<ProductImg> productImgs;
 
-//    private int productTotalCount;
+    private int productTotalCount;
 
 }

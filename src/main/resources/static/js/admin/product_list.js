@@ -34,7 +34,7 @@ function loadList(responseData) {
 
     loadBody.innerHTML = "";
 
-    responseData.forEach((product) => {
+    responseData.forEach((product, index) => {
 
         loadBody.innerHTML += `
         <tr class="xans-record-">
@@ -42,7 +42,7 @@ function loadList(responseData) {
                 ${product.productId}
             </td>
             <td>
-                <img src="/static/images/product_img/${product.productImgs[0]}">
+                <img src="/static/images/product_img/${product.productId}">
             </td>
             <td>
                 ${product.name}

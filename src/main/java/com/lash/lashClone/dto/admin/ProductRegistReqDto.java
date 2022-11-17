@@ -29,7 +29,7 @@ public class ProductRegistReqDto {
                 .price(price)
                 .product_features(productFeatures)
                 .description(description)
-                .product_imgs(productImgs)
+                //.product_imgs(productImgs)
                 .build();
     }
 }
