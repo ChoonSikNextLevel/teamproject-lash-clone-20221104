@@ -7,22 +7,25 @@ function productList() {
         async: false,
         type: "get",
         url: "/api/admin/products",
-
-        // data에 들어갈 항목은?
         data: param,
         dataType: "json",
         success: (response) => {
-            alert("상품 리스트 불러오기 성공")
             responseData = response.data;
             console.log(responseData);
             loadList(responseData);
+            console.log(JSON.stringify(responseData));
         },
         error: (error) => {
             alert("상품 리스트 불러오기 실패")
             console.log(error);
         }
     });
+    
 }
+
+
+
+
 
 function loadList(responseData) {
     
@@ -50,18 +53,37 @@ function loadList(responseData) {
                 ${product.price}
             </td>
             <td>
-                <a href="modify.html?ma_idx=717" class="btnType-1">수정</a>
+                <a href="" class="update-button">수정</a>
             </td>
             <td>
                 <a href="modify.html?ma_idx=717" class="btnType-1">삭제</a>
             </td>
         </tr>
-
         `;
+
     });
+    
+    setListValues(responseData);
 }
 
+function setListValues(data) {
+    const updateButton = document.querySelectorAll(".btnType-1");
 
+    updateButton.forEach((button, index) => {
+        button.onclick = () => {
+            alert("클릭");
+            localStorage.setItem("product", responseData[index]);
+            console.log(responseData[index]);
+        }
+        
+            // for(let i = 0; i < updateButton.length; i++) {
+            //     updateButton[i].onclick = () => {
+            //         alert("클릭했네");
+            //         location
+            //     }
+            // }
+    });
+}
 
 window.onload = () => {
     productList();

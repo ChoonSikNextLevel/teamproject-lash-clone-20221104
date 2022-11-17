@@ -97,6 +97,11 @@
         LEFT OUTER JOIN product_img pim ON (pim.product_id = pm.product_id);
     </select>
 
+    <update id="updateProduct" parameterType="com.lash.lashClone.domain.Product">
+
+
+
+    </update>
 
 
 </mapper>
