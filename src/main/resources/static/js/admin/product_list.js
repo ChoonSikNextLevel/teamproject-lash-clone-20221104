@@ -13,14 +13,15 @@ function productList() {
             responseData = response.data;
             console.log(responseData);
             loadList(responseData);
-            console.log(JSON.stringify(responseData));
+
+            // responseData를 JSON 형식으로 보여주기
+            // console.log(JSON.stringify(responseData[]));
         },
         error: (error) => {
             alert("상품 리스트 불러오기 실패")
             console.log(error);
         }
     });
-    
 }
 
 
@@ -53,10 +54,10 @@ function loadList(responseData) {
                 ${product.price}
             </td>
             <td>
-                <a href="" class="update-button">수정</a>
+                <a class="btnType-1 update-button">수정</a>
             </td>
             <td>
-                <a href="modify.html?ma_idx=717" class="btnType-1">삭제</a>
+                <a href="modify.html?ma_idx=717" class="btnType-1 delete-button">삭제</a>
             </td>
         </tr>
         `;
@@ -67,13 +68,13 @@ function loadList(responseData) {
 }
 
 function setListValues(data) {
-    const updateButton = document.querySelectorAll(".btnType-1");
+    const updateButton = document.querySelectorAll(".update-button");
 
     updateButton.forEach((button, index) => {
         button.onclick = () => {
             alert("클릭");
-            localStorage.setItem("product", responseData[index]);
-            console.log(responseData[index]);
+            localStorage.setItem("product", JSON.stringify(responseData[index]));
+            location.href = "/admin/product/update";
         }
         
             // for(let i = 0; i < updateButton.length; i++) {
