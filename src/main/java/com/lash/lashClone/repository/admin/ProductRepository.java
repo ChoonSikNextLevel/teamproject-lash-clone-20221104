@@ -15,5 +15,7 @@ public interface ProductRepository {
 
     public List<Product> productList(Map<String, Object> map) throws Exception;
 
+    public int updateProduct(Product product) throws Exception;
+
 
 }

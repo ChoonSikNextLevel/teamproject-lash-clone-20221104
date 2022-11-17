@@ -2,6 +2,7 @@ package com.lash.lashClone.controller.admin.api;
 
 import com.lash.lashClone.dto.CMRespDto;
 import com.lash.lashClone.dto.admin.ProductRegistReqDto;
+import com.lash.lashClone.dto.admin.ProductUpdateReqDto;
 import com.lash.lashClone.service.admin.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,11 @@ public class ProductApi {
     }
 
     // 상품 정보 수정
+    @PostMapping("/product/update")
+    public ResponseEntity<?> updateProduct(ProductUpdateReqDto productUpdateReqDto) throws Exception {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.updateProduct(productUpdateReqDto)));
+    }
 
 
     // 상품 삭제
