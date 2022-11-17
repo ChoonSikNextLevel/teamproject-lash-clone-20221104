@@ -2,6 +2,7 @@ package com.lash.lashClone.config;
 
 
 //import com.lash.lashClone.handler.auth.AuthFailureHandler;
+import com.lash.lashClone.handler.auth.AuthFailureHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,17 +34,53 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.httpBasic().disable();
         http.authorizeRequests()
-                .antMatchers("/test/**","/index")
-                .authenticated()
-                .anyRequest()
+                /*<<<<<<<<<<<<<<<<<< Page >>>>>>>>>>>>>>>>*/
+                .antMatchers("/admin/**", "/api/admin/**")
+                .access("hasRole('ADMIN') or hasRole('MANAGER')")
+                .antMatchers("/account", "/order/**") //해당 요청 주소들은
+                .access("hasRole('USER') or hasRole('ADMIN') or hasRole('MANAGER')")
+
+                .antMatchers("/", "/index", "/product_all/**")
                 .permitAll()
+                .antMatchers("/account/login", "/account/join")
+                .permitAll()
+
+                /*<<<<<<<<<<<<<<<<<< Resource >>>>>>>>>>>>>>>>*/
+                .antMatchers("/static/**")
+                .permitAll() //모두 접근 권한을 허용해라.
+
+                /*<<<<<<<<<<<<<<<<<< API >>>>>>>>>>>>>>>>*/
+                .antMatchers("/api/account/join", "/api/product_all/**")
+                .permitAll()
+
+                .anyRequest() //antMatchers 외에 다른 모든 요청들은
+                .permitAll()
+//                .denyAll() //모든 접근을 차단해라.
+
                 .and()
-                .formLogin()
+                .formLogin() //폼로그인 방식으로 인증을 해라
                 .usernameParameter("email")
-                .loginPage("/account/login")
-                .loginProcessingUrl("/account/login")
-//                .failureHandler(new AuthFailureHandler())
+                .loginPage("/account/login") //우리가 만든 로그인 페이지를 사용해라. GET 요청
+                .loginProcessingUrl("/account/login")   // 로그인 로직(PrincipalDetailsService) POST 요청
+                .failureHandler(new AuthFailureHandler())
+
                 .defaultSuccessUrl("/index");
+//                .oauth2Login()
+//                .userInfoEndpoint()
+//                /*
+//                 * 1. google, naver, kakao 로그인 요청 -> 코드를 발급(토큰)
+//                 * 2. 발급받은 코드로 에세스토큰을 발급요청 -> 에세스토큰 발급
+//                 * 3. 발급받은 에세스토큰으로 스코프에 등록된 프로필 정보를 요청할 수 있게된다.
+//                 * 4. 해당 정보를 response또는 Attributes로 전달 받음
+//                 */
+////                .userService(principalOauth2Service)
+//
+//                .and()
+
+
+    }
+
+}
 //                .antMatchers("/account/login" ,"/account/join")
 //                .permitAll()
 //
@@ -63,8 +100,4 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 ////                .failureHandler(loginFailureHandler())//로그인 실패 후 핸들러 (해당 핸들러를 생성하여 핸들링 해준다.)
 //                .permitAll(); //사용자 정의 로그인 페이지 접근 권한 승인
 
-
-
-    }
-}
 

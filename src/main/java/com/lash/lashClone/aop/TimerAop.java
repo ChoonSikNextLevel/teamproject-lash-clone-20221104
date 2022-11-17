@@ -20,7 +20,7 @@ import org.springframework.util.StopWatch;
 @Component
 public class TimerAop {
 
-    @Pointcut("execution(*com.lash.lashClone.controller..*.*(..))")
+    @Pointcut("execution(* com.lash.lashClone.controller..*.*(..))")
     private void executionPointCut(){}
 
     @Around("executionPointCut()")
