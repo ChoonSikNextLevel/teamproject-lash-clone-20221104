@@ -19,4 +19,10 @@ public class AdminPageController {
         return "admin/managerpage/product_list";
     }
 
+    @GetMapping("/product/update")
+    public String productUpdate() {
+        return "admin/managerpage/product_update";
+
+    }
+
 }

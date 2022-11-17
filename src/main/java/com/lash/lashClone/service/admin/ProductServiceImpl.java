@@ -4,6 +4,7 @@ import com.lash.lashClone.domain.Product;
 import com.lash.lashClone.domain.ProductImg;
 import com.lash.lashClone.dto.admin.ProductListRespDto;
 import com.lash.lashClone.dto.admin.ProductRegistReqDto;
+import com.lash.lashClone.dto.admin.ProductUpdateReqDto;
 import com.lash.lashClone.repository.admin.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -103,6 +104,11 @@ public class ProductServiceImpl implements ProductService {
 
             return list;
         }
+
+    @Override
+    public boolean updateProduct(ProductUpdateReqDto productUpdateReqDto) throws Exception {
+        return false;
+    }
 
 
 }
