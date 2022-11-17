@@ -36,6 +36,7 @@ joinButtons.onclick =() => {
         success: (response) => {
             console.log(response)
             location.replace("/account/login");
+            alert("회원가입 완료~!");
         },
         error: (error) => {
             console.log(error);

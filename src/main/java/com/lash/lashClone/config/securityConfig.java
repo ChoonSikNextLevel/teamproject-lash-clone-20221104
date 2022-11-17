@@ -3,6 +3,7 @@ package com.lash.lashClone.config;
 
 //import com.lash.lashClone.handler.auth.AuthFailureHandler;
 import com.lash.lashClone.handler.auth.AuthFailureHandler;
+import com.lash.lashClone.service.auth.PrincipalOauth2Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class securityConfig extends WebSecurityConfigurerAdapter {
 
+    private final PrincipalOauth2Service principalOauth2Service;
     @Bean
     public BCryptPasswordEncoder passwordEnoder() {
         return new BCryptPasswordEncoder();
@@ -65,19 +67,20 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/account/login") //우리가 만든 로그인 페이지를 사용해라. GET 요청
                 .loginProcessingUrl("/account/login")   // 로그인 로직(PrincipalDetailsService) POST 요청
                 .failureHandler(new AuthFailureHandler())
+                .and()
 
+                .oauth2Login()
+                .userInfoEndpoint()
+                /*
+                 * 1. google, naver, kakao 로그인 요청 -> 코드를 발급(토큰)
+                 * 2. 발급받은 코드로 에세스토큰을 발급요청 -> 에세스토큰 발급
+                 * 3. 발급받은 에세스토큰으로 스코프에 등록된 프로필 정보를 요청할 수 있게된다.
+                 * 4. 해당 정보를 response또는 Attributes로 전달 받음
+                 */
+                .userService(principalOauth2Service)
+                .and()
                 .defaultSuccessUrl("/index");
-//                .oauth2Login()
-//                .userInfoEndpoint()
-//                /*
-//                 * 1. google, naver, kakao 로그인 요청 -> 코드를 발급(토큰)
-//                 * 2. 발급받은 코드로 에세스토큰을 발급요청 -> 에세스토큰 발급
-//                 * 3. 발급받은 에세스토큰으로 스코프에 등록된 프로필 정보를 요청할 수 있게된다.
-//                 * 4. 해당 정보를 response또는 Attributes로 전달 받음
-//                 */
-////                .userService(principalOauth2Service)
-//
-//                .and()
+
 
 
     }
