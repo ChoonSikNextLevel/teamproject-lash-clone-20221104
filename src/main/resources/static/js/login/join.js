@@ -1,3 +1,64 @@
+// 회원가입
+const joinInputs = document.querySelectorAll(".join-input");
+const joinButtons = document.querySelector(".join-button");
+
+for(let i = 0; i < joinInputs.length; i++) {
+    joinInputs[i].onkeyup = () => {
+        if(window.event.keyCode == 13){
+            if(i != 3) {
+                joinInputs[i + 1].focus();
+            }else {
+                joinButton.click();
+            }
+        }
+    }
+}
+
+joinButtons.onclick =() => {
+    
+
+    let joinInfo = {
+        username: joinInputs[0].value,
+        password: joinInputs[1].value,
+        name: joinInputs[2].value,
+        firstPhone: joinInputs[3].value,
+        lastPhone: joinInputs[4].value,
+        email: joinInputs[5].value
+    }
+
+    $.ajax ({
+        async: false,
+        type:"post",
+        url:"/api/account/join",
+        contentType:"application/json",
+        data: JSON.stringify(joinInfo),
+        dataType: "json",
+        success: (response) => {
+            console.log(response)
+            // location.replace("/account/login");
+        },
+        error: (error) => {
+            console.log(error);
+        }
+    });
+}
+function validationError(error) {
+    const accountErrors = document.querySelector(".account-errors");
+    const accountErrorList = accountErrors.querySelector("ul");
+
+    const errorValues = Object.values(error);
+
+    accountErrorList.innerHTML = "";
+
+    errorValues.forEach((value) => {
+        accountErrorList.innerHTML += `
+            <li>${value}</li>
+        `;
+    });
+
+    accountErrors.classList.remove("errors-invisible");
+}
+
 /* 상세 약관 */
 
 const terms1 = document.getElementById("terms1");
@@ -48,32 +109,4 @@ checkAll.addEventListener('click', (e) => {
     }
 
 }); 
-// 회원가입
-const joinInputs = document.querySelectorAll(".join-input");
-const joinButtons = document.querySelector(".join-button");
 
-joinButtons.onclick =() => {
-    let joinInfo = {
-        username: joinInputs[0].value,
-        password: joinInputs[1].value,
-        name: joinInputs[2].value,
-        firstPhone: joinInputs[3].value,
-        lastPhone: joinInputs[4].value,
-        email: joinInputs[5].value
-    }
-
-    $.ajax ({
-        async: false,
-        type:"post",
-        url:"/api/accout/join",
-        contentType:"application/json",
-        data: JSON.stringify(joinInfo),
-        dataType: "json",
-        success: (response) => {
-            location.replace("/account/login");
-        },
-        error: (error) => {
-            console.log(err);
-        }
-    });
-}

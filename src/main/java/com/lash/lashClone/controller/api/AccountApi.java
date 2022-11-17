@@ -1,7 +1,13 @@
 package com.lash.lashClone.controller.api;
 
 
+import com.lash.lashClone.aop.annotation.LogAspect;
+import com.lash.lashClone.aop.annotation.ValidAspect;
+import com.lash.lashClone.dto.CMRespDto;
 import com.lash.lashClone.dto.account.RegisterReqDto;
+import com.lash.lashClone.dto.validation.ValidationSequence;
+import com.lash.lashClone.service.AccountService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -15,22 +21,20 @@ import javax.validation.Valid;
 
 @Slf4j
 @RequestMapping("/api/account")
+@RestController
+@RequiredArgsConstructor
 public class AccountApi {
+    private final AccountService accountService;
 
+    @LogAspect
+    @ValidAspect
     @PostMapping("/join")
-    public ResponseEntity<?> register(@Valid @RequestBody RegisterReqDto registerReqDto, BindingResult bindingResult) throws Exception {
+    public ResponseEntity<?> register(@Validated(ValidationSequence.class) @RequestBody RegisterReqDto registerReqDto, BindingResult bindingResult) throws Exception {
 
-//        if(bindingResult.hasErrors()){
-//            log.error("유효성 검사 오류 발생");
-//
-//            bindingResult.getFieldErrors().forEach(error -> {
-//                log.info("Error: 필드명({}), 메시지({})", error.getField(), error.getDefaultMessage());
-//            });
-//        }
+        accountService.checkDuplicateEmail(registerReqDto.getEmail());
+        accountService.join(registerReqDto);
 
-//        log.info("{}", registerReqDto);
-
-        return ResponseEntity.ok(null);
-
+        return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully join", registerReqDto));
     }
+
 }

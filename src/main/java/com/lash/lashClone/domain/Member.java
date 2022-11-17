@@ -19,8 +19,8 @@ public class Member {
     private String oauth_username;
     private String password;
     private String name;
-    private String phone;
     private String email;
+    private String phone;
     private String provider;
     private int role_id;
     private Role role;

@@ -107,8 +107,8 @@
     <div class="login-container">
         
         <form action="/account/login" method="post">
-            <input type="text" class="login-input" placeholder="아이디" required>
-            <input type="password" class="login-input" placeholder="비밀번호" required>
+            <input type="email" class="login-input" name="email" placeholder="아이디" required>
+            <input type="password" class="login-input" name="password" placeholder="비밀번호" required>
 
 
             <div class="find-member">
@@ -117,9 +117,11 @@
             </div>
 
 
-            <button type="submit" class="login-button registration-button">로그인</button>
+            <button type="submit" class=" registration-button login-button">로그인</button>
+            
         </form>
-        <a href="/account/join" class="join-button">회원가입</a>
+        <button type="submit" class="join-button login-button">회원가입</button>
+        <!-- <a href="/account/join" class="join-button">회원가입</a> -->
         <!-- <button type="button" class="join-button">회원가입</button> -->
         <button type="button" class="kakao-login-button"><img src="/static/images/lash_btn/social-kakao.png" style="width: 11px; height: 11px;"> 카카오 로그인/회원가입</button>
 
@@ -154,5 +156,6 @@
     
     <script src="/static/js/header.js"></script>
     <script src="/static/js/test.js"></script>
+    <script src="/static/js/login/login.js"></script>
 </body>
 </html>

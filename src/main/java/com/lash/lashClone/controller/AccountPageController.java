@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // 로그인, 회원가입
 // login, join
 
-@Controller
+
 @RequestMapping("/account")
+@Controller
 public class AccountPageController {
 
 
