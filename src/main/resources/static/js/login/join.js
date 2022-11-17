@@ -2,17 +2,17 @@
 const joinInputs = document.querySelectorAll(".join-input");
 const joinButtons = document.querySelector(".join-button");
 
-for(let i = 0; i < joinInputs.length; i++) {
-    joinInputs[i].onkeyup = () => {
-        if(window.event.keyCode == 13){
-            if(i != 3) {
-                joinInputs[i + 1].focus();
-            }else {
-                joinButton.click();
-            }
-        }
-    }
-}
+// for(let i = 0; i < joinInputs.length; i++) {
+//     joinInputs[i].onkeyup = () => {
+//         if(window.event.keyCode == 13){
+//             if(i != 3) {
+//                 joinInputs[i + 1].focus();
+//             }else {
+//                 joinButtons.click();
+//             }
+//         }
+//     }
+// }
 
 joinButtons.onclick =() => {
     
@@ -26,7 +26,7 @@ joinButtons.onclick =() => {
         email: joinInputs[5].value
     }
 
-    $.ajax ({
+    $.ajax({
         async: false,
         type:"post",
         url:"/api/account/join",
@@ -35,29 +35,30 @@ joinButtons.onclick =() => {
         dataType: "json",
         success: (response) => {
             console.log(response)
-            // location.replace("/account/login");
+            location.replace("/account/login");
         },
         error: (error) => {
             console.log(error);
+            // validationError(error.responseJSON.data)
         }
     });
 }
-function validationError(error) {
-    const accountErrors = document.querySelector(".account-errors");
-    const accountErrorList = accountErrors.querySelector("ul");
+// function validationError(error) {
+//     const accountErrors = document.querySelector(".account-errors");
+//     const accountErrorList = accountErrors.querySelector("ul");
 
-    const errorValues = Object.values(error);
+//     const errorValues = Object.values(error);
 
-    accountErrorList.innerHTML = "";
+//     accountErrorList.innerHTML = "";
 
-    errorValues.forEach((value) => {
-        accountErrorList.innerHTML += `
-            <li>${value}</li>
-        `;
-    });
+//     errorValues.forEach((value) => {
+//         accountErrorList.innerHTML += `
+//             <li>${value}</li>
+//         `;
+//     });
 
-    accountErrors.classList.remove("errors-invisible");
-}
+//     accountErrors.classList.remove("errors-invisible");
+// }
 
 /* 상세 약관 */
 
