@@ -3,9 +3,24 @@ let productId = product.productId;
 
 const productImgInput = document.querySelector("#product-imgs");
 const fileUl = document.querySelector(".cvf_uploaded_files");
+const inFileUl = document.querySelector(".update-files");
+
+let inputFlag = true;
+let deleteFlag = false;
+
+let productImgs = document.getElementById("product-imgs");
+let addFiles = productImgs.files;
+
+let addImgFiles = new Array();
+let deleteImgFiles = new Array();
 
 productImgInput.onchange = () => {
-  addImg();
+  if (inputFlag) {
+    imgReader();
+  } else {
+    addImg();
+  }
+  
 };
 
 // 항목별로 등록되어 있는 value 값 불러오기
@@ -73,57 +88,120 @@ function deleteOriginImg(imgArray) {
   deleteBtns.forEach((deleteBtn, index) => {
     deleteBtn.onclick = () => {
       console.log(imgArray[index].img_name);
+      deleteImgFiles.push(imgArray[index].img_name);
+      console.log(deleteImgFiles);
 
       imgArray.splice(index, 1);
 
       loadImg(imgArray);
     };
   });
+
 }
 
-function addImg() {
-  const productImgs = document.getElementById("product-imgs");
-  const addFiles = productImgs.files;
 
+
+function imgReader() {
+
+  let productImgs = document.getElementById("product-imgs");
+  let addFiles = productImgs.files;
+
+  if(!deleteFlag) {
+    let imgArray = Array.from(addFiles);
+    console.log("얘는?1");
+    console.log(imgArray);
+
+    addImgFiles = addImgFiles.concat(imgArray);
+    console.log("합쳐졌엉?1");
+    console.log(addImgFiles);
+  }
+  
+
+  inFileUl.innerHTML = ``;
+ 
   for (let i = 0; i < addFiles.length; i++) {
     const reader = new FileReader();
 
     reader.onload = (e) => {
-      fileUl.innerHTML += `
-                    <li>
+      inFileUl.innerHTML += `
+                    <li class = "new-img">
                         <img class="product-img" src="${e.target.result}" style="width: 140px; height: 140px;">
-                        <i class="fa-solid fa-circle-minus delete-btn"></i>
+                        <i class="fa-solid fa-circle-minus delete-btn2"></i>
                     </li>
                 `;
 
-      deleteImg(addFiles);
+      deleteImg(addImgFiles);
     };
 
     setTimeout(() => {
       reader.readAsDataURL(addFiles[i]);
     }, i * 100);
   }
+
+  inputFlag = false;
 }
 
-function deleteImg(files) {
-  let imgArray = Array.from(files);
+function deleteImg(imgArray) {
+  //let imgArray = Array.from(files);
+  console.log("삭제할때..");
+  console.log(imgArray);
 
-  const deleteBtns = document.querySelectorAll(".delete-btn");
+  const deleteBtns = document.querySelectorAll(".delete-btn2");
   const dataTransfer = new DataTransfer();
 
   deleteBtns.forEach((deleteBtn, index) => {
+
     deleteBtn.onclick = () => {
       imgArray.splice(index, 1);
 
-      imgArray.forEach((file) => {
+      imgArray.forEach((file) => {       
         dataTransfer.items.add(file);
       });
 
-      document.querySelector("#product-imgs").files = dataTransfer.files;
+      document.getElementById("product-imgs").files = dataTransfer.files;
 
-      addImg();
+      addImgFiles = imgArray;
+      imgReader();
     };
+    
   });
+
+  deleteFlag = true;
+  
+}
+
+function addImg() {
+  const productImgs = document.getElementById("product-imgs");
+  const addFiles = productImgs.files;
+
+  let imgArray = Array.from(addFiles);
+  console.log("얘는?2");
+  console.log(imgArray);
+
+  addImgFiles = addImgFiles.concat(imgArray);
+  console.log("합쳐졌엉?2");
+  console.log(addImgFiles);
+
+  for (let i = 0; i < addFiles.length; i++) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      inFileUl.innerHTML += `
+                    <li class="added-img">
+                        <img class="product-img" src="${e.target.result}" style="width: 140px; height: 140px;">
+                        <i class="fa-solid fa-circle-minus delete-btn2"></i>
+                    </li>
+                `;
+
+      deleteImg(addImgFiles);
+    };
+
+    setTimeout(() => {
+      reader.readAsDataURL(addFiles[i]);
+    }, i * 100);
+
+  }
+
 }
 
 // 수정 후 등록 시 아래 데이터 전송(post)
@@ -148,7 +226,8 @@ function updateProduct() {
   productForm.append("price", productInput[4].value);
   productForm.append("productFeatures", productInput[5].value);
   productForm.append("description", productInput[6].value);
-  //productForm.append("",);
+  productForm.append("deleteImgFiles",deleteImgFiles);
+  productForm.append("addImgFiles", addImgFiles);
 
   $.ajax({
     async: false,
