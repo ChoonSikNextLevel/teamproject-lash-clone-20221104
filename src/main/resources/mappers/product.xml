@@ -8,12 +8,11 @@
         <result property="id" column="img_id"></result>
         <result property="product_id" column="product_id"></result>
         <result property="img_name" column="img_name"></result>
-        <result property="create_date" column="create_date"></result>
-        <result property="update_date" column="update_date"></result>
+<!--        <result property="create_date" column="create_date"></result>-->
+<!--        <result property="update_date" column="update_date"></result>-->
     </resultMap>
 
     <resultMap id="product" type="com.lash.lashClone.domain.Product">
-
         <result property="product_id" column="product_id"></result>
         <result property="category" column="category"></result>
         <result property="name" column="name"></result>
@@ -24,7 +23,6 @@
         <result property="description" column="description"></result>
         <result property="create_date" column="create_date"></result>
         <result property="update_date" column="update_date"></result>
-
         <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>
 
 <!--        <result property="product_total_count" column="product_total_count"></result>-->
@@ -107,8 +105,6 @@
     </select>
 
 
-
-
     <update id="updateProduct" parameterType="com.lash.lashClone.domain.Product">
         update
             product_mst
@@ -133,9 +129,32 @@
             product_id = #{product_id}
         and origin_name in
         <foreach collection="deleteImgFiles" item="origin_name" open="(" separator="," close=")">
-                #{origin_name}
+            #{img_name}
         </foreach>
     </delete>
+
+
+    <select id="getProductImgList" parameterType="Integer" resultMap="product_imgs">
+        select
+            id,
+            product_id,
+            img_name
+        from
+            product_img
+        where
+            product_id = #{product_id}
+
+    </select>
+
+    <delete id="deleteProduct" parameterType="Integer">
+        delete
+        from
+            product_mst
+        where
+            product_id = #{product_id}
+    </delete>
+
+
 
 
 </mapper>

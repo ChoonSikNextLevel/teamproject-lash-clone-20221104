@@ -42,8 +42,13 @@ public class ProductApi {
         return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.updateProduct(productUpdateReqDto)));
     }
 
-
     // 상품 삭제
+    @DeleteMapping("/product/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable int productId) throws Exception {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.deleteProduct(productId)));
+
+    }
 
 
 

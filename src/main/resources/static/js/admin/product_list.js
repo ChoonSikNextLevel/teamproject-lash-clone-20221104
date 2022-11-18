@@ -2,6 +2,7 @@ const param = {
   page: 1,
 };
 
+
 function productList() {
   $.ajax({
     async: false,
@@ -23,6 +24,7 @@ function productList() {
     },
   });
 }
+
 
 function loadList(responseData) {
   const loadBody = document.querySelector(".center");
@@ -54,31 +56,73 @@ function loadList(responseData) {
                 <a class="btnType-1 update-button">수정</a>
             </td>
             <td>
-                <a href="modify.html?ma_idx=717" class="btnType-1 delete-button">삭제</a>
+                <a class="btnType-1 delete-button">삭제</a>
             </td>
         </tr>
         `;
   });
 
   setListValues(responseData);
+  productDelete()
 }
 
-function setListValues(data) {
+// 수정 버튼 눌렀을 때 해당 상품 수정 페이지로 이동(기존 값 그대로)
+function setListValues() {
   const updateButton = document.querySelectorAll(".update-button");
 
-  updateButton.forEach((button, index) => {
-    button.onclick = () => {
-      alert("클릭");
+  updateButton.forEach((updateBtn, index) => {
+    updateBtn.onclick = () => {
+      alert("수정 페이지로 이동합니다.");
       localStorage.setItem("product", JSON.stringify(responseData[index]));
       location.href = "/admin/product/update";
     };
+  });
+}
 
-    // for(let i = 0; i < updateButton.length; i++) {
-    //     updateButton[i].onclick = () => {
-    //         alert("클릭했네");
-    //         location
-    //     }
-    // }
+
+
+function productDelete() {
+
+  const deleteButton = document.querySelectorAll(".delete-button");
+
+  deleteButton.forEach((deleteBtn, index) => {
+    deleteBtn.onclick = () => {
+      alert("삭제버튼 클릭")
+      localStorage.setItem("product", JSON.stringify(responseData[index]));
+
+      console.log(responseData[index]);
+
+      let id = localStorage.getItem("productId");
+      console.log(id);
+
+
+      // if(localStorage.getItem("productId")) {
+      //   id = localStorage.getItem("productId");
+      // }
+
+
+
+      // if (confirm("삭제?")) {
+
+      //   $.ajax({
+      //     async: false,
+      //     type: "delete",
+      //     url: "/api/admin/product/" + productId,
+      //     dataType: "json",
+      //     success: (response) => {
+      //         alert("상품 삭제 했다!");
+      //         location.reload();
+      //     },
+      //     error: (error) => {
+      //         alert("상품 삭제 못했다!");
+      //         console.log(error);
+      //     }
+      //   });
+      // }
+
+
+
+    }
   });
 }
 
