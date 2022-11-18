@@ -136,8 +136,7 @@ public class ProductServiceImpl implements ProductService {
         return status;
     }
 
-
-        private boolean addProductImg(List<MultipartFile> files, int productId) throws Exception {
+    private boolean addProductImg(List<MultipartFile> files, int productId) throws Exception {
             boolean status = false;
             List<ProductImg> productImgs = getProductImgs(files, productId);
             return productRepository.saveImgs(productImgs) > 0;
@@ -165,6 +164,28 @@ public class ProductServiceImpl implements ProductService {
             }
             return status;
         }
+
+    @Override
+    public boolean deleteProduct(int productId) throws Exception {
+
+        List<ProductImg> productImgs = productRepository.getProductImgList(productId);
+
+        if(productRepository.deleteProduct(productId) > 0) {
+            productImgs.forEach(productImg -> {
+                Path uploadPath = Paths.get(filePath + "/product/" + productImg.getImg_name());
+
+                File file = new File(uploadPath.toUri());
+                if(file.exists()) {
+                    file.delete();
+                }
+            });
+            return true;
+        }
+        return false;
+    }
+
+
+
 }
 
 
