@@ -113,6 +113,7 @@ public class ProductServiceImpl implements ProductService {
         int result = productRepository.updateProduct(productUpdateReqDto.productEntity());
 
         if(result != 0) {
+            status = true;
             boolean addStatus = true;
             boolean deleteStatus = true;
 
