@@ -211,12 +211,12 @@ textarea::placeholder {
 }
 
 /* ================이미지 업로드================= */
-ul.cvf_uploaded_files {
+ul.cvf_uploaded_files, ul.update-files {
   list-style-type: none;
   margin: 20px 0 0 0;
   padding: 0;
 }
-ul.cvf_uploaded_files li {
+ul.cvf_uploaded_files li, ul.update-files li {
   background-color: #fff;
   border-radius: 5px;
   float: left;
@@ -240,7 +240,7 @@ ul.cvf_uploaded_files .highlight {
   background-color: #ccc;
   border-radius: 5px;
 }
-ul.cvf_uploaded_files .delete-btn {
+ul.cvf_uploaded_files .delete-btn, ul.update-files .delete-btn2 {
   width: 24px;
   border: 0;
   position: absolute;
