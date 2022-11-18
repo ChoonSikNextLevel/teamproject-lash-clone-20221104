@@ -63,7 +63,7 @@ function loadList(responseData) {
   });
 
   setListValues(responseData);
-  productDelete()
+  deleteProduct();
 }
 
 // 수정 버튼 눌렀을 때 해당 상품 수정 페이지로 이동(기존 값 그대로)
@@ -72,7 +72,7 @@ function setListValues() {
 
   updateButton.forEach((updateBtn, index) => {
     updateBtn.onclick = () => {
-      alert("수정 페이지로 이동합니다.");
+      alert("제품 정보 수정 페이지로 이동합니다.");
       localStorage.setItem("product", JSON.stringify(responseData[index]));
       location.href = "/admin/product/update";
     };
@@ -80,45 +80,41 @@ function setListValues() {
 }
 
 
-
-function productDelete() {
+// 제품 삭제 기능
+function deleteProduct() {
 
   const deleteButton = document.querySelectorAll(".delete-button");
 
   deleteButton.forEach((deleteBtn, index) => {
     deleteBtn.onclick = () => {
-      alert("삭제버튼 클릭")
+      alert("삭제버튼 클릭");
+
       localStorage.setItem("product", JSON.stringify(responseData[index]));
+            
+      // localStorage로 저장된 배열 중 productId만 들고오기
+      const product = JSON.parse(localStorage.getItem("product"));
+      console.log("전체 : ", product);  // 제품 정보 배열 전체
 
-      console.log(responseData[index]);
+      const productId = product.productId;
+      console.log("번호만 : ", productId);  // 등록된 순번 가져오기
 
-      let id = localStorage.getItem("productId");
-      console.log(id);
+      if (confirm("삭제? 두 번 안물어봄")) {
 
-
-      // if(localStorage.getItem("productId")) {
-      //   id = localStorage.getItem("productId");
-      // }
-
-
-
-      // if (confirm("삭제?")) {
-
-      //   $.ajax({
-      //     async: false,
-      //     type: "delete",
-      //     url: "/api/admin/product/" + productId,
-      //     dataType: "json",
-      //     success: (response) => {
-      //         alert("상품 삭제 했다!");
-      //         location.reload();
-      //     },
-      //     error: (error) => {
-      //         alert("상품 삭제 못했다!");
-      //         console.log(error);
-      //     }
-      //   });
-      // }
+        $.ajax({
+          async: false,
+          type: "delete",
+          url: "/api/admin/product/" + productId,
+          dataType: "json",
+          success: (response) => {
+              alert("상품 삭제 했다!");
+              location.reload();
+          },
+          error: (error) => {
+              alert("상품 삭제 못했다!");
+              console.log(error);
+          }
+        });
+      }
 
 
 
