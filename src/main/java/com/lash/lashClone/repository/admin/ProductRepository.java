@@ -17,5 +17,7 @@ public interface ProductRepository {
 
     public int updateProduct(Product product) throws Exception;
 
+    public int deleteImgFiles(Map<String, Object> map) throws Exception;
+
 
 }

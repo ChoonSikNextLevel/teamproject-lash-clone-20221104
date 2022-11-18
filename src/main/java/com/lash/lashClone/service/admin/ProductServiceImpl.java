@@ -5,6 +5,7 @@ import com.lash.lashClone.domain.ProductImg;
 import com.lash.lashClone.dto.admin.ProductListRespDto;
 import com.lash.lashClone.dto.admin.ProductRegistReqDto;
 import com.lash.lashClone.dto.admin.ProductUpdateReqDto;
+import com.lash.lashClone.exception.CustomInternalServerErrorException;
 import com.lash.lashClone.repository.admin.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -107,10 +108,62 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean updateProduct(ProductUpdateReqDto productUpdateReqDto) throws Exception {
-        return false;
+        boolean status = false;
+
+        int result = productRepository.updateProduct(productUpdateReqDto.productEntity());
+
+        if(result != 0) {
+            boolean addStatus = true;
+            boolean deleteStatus = true;
+
+            if(productUpdateReqDto.getAddImgFiles() != null) {
+                addStatus = addProductImg(productUpdateReqDto.getAddImgFiles(), productUpdateReqDto.getProductId());
+            }
+
+            if(productUpdateReqDto.getDeleteImgFiles() != null) {
+                deleteStatus = deleteProductImg(productUpdateReqDto.getDeleteImgFiles(), productUpdateReqDto.getProductId());
+            }
+
+            status = status && addStatus && deleteStatus;
+
+            if(status == false) {
+                throw new CustomInternalServerErrorException("수정 오류 발생!");
+            }
+
+        }
+
+        return status;
     }
 
 
+        private boolean addProductImg(List<MultipartFile> files, int productId) throws Exception {
+            boolean status = false;
+            List<ProductImg> productImgs = getProductImgs(files, productId);
+            return productRepository.saveImgs(productImgs) > 0;
+        }
+
+        private boolean deleteProductImg(List<String> deleteImgFiles, int productId) throws Exception {
+            boolean status = false;
+
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("productId", productId);
+            map.put("deleteImgFiles", deleteImgFiles);
+
+            int result = productRepository.deleteImgFiles(map);
+
+            if(result != 0) {
+                deleteImgFiles.forEach(origin_name -> {
+                    Path uploadPath = Paths.get(filePath + "/product/" + origin_name);
+
+                    File file = new File(uploadPath.toUri());
+                    if(file.exists()) {
+                        file.delete();
+                    }
+                });
+                status = true;
+            }
+            return status;
+        }
 }
 
 

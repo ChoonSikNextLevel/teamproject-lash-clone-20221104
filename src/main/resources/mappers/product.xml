@@ -106,11 +106,36 @@
                                 1 = 1) pc ON (1 = 1);
     </select>
 
+
+
+
     <update id="updateProduct" parameterType="com.lash.lashClone.domain.Product">
-
-
-
+        update
+            product_mst
+        set
+            category = #{category},
+            name = #{name},
+            color_code = #{color_code},
+            color = #{color},
+            price = #{price},
+            product_features = #{product_features},
+            discription = #{discription},
+            update_date = #{update_date}
+        where
+            product_id = #{product_id}
     </update>
+
+    <delete id="deleteImgFiles" parameterType="hashmap">
+        delete
+        from
+            product_img
+        where
+            product_id = #{product_id}
+        and origin_name in
+        <foreach collection="deleteImgFiles" item="origin_name" open="(" separator="," close=")">
+                #{origin_name}
+        </foreach>
+    </delete>
 
 
 </mapper>
