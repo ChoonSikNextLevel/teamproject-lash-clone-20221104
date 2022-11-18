@@ -103,6 +103,7 @@ function addProduct(productForm) {
     dataType: "json",
     success: (response) => {
       alert("상품 등록 완료");
+      location.reload();
     },
     error: (error) => {
       alert("상품 등록 실패");
