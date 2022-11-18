@@ -1,12 +1,10 @@
 package com.lash.lashClone.domain;
 
-
 import com.lash.lashClone.dto.admin.ProductListRespDto;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;

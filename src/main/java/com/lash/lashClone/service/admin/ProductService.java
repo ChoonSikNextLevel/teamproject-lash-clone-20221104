@@ -19,5 +19,5 @@ public interface ProductService {
 
 
 //    // 상품 삭제
-//    public boolean deleteProduct() throws Exception;
+//    public boolean deleteProduct(int productId) throws Exception;
 }

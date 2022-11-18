@@ -1,28 +1,5 @@
 
-function updateProduct(formData) {
-
-    // 수정 후 등록 시 아래 데이터 전송(post)
-    $.ajax({
-        async: false,
-        type: "post",
-        url: "/api/admin/product/update",
-        enctype: "multipart/form-data",
-        contentType: false,
-        processData: false,
-        data: formData,
-        dataType: "json",
-        success: (response) => {
-            alert("상품 수정 완료");
-            location.reload();
-        },
-        error: (error) => {
-            alert("상품 수정 실패");
-            console.log(error);
-        }
-    });
-}
-
-
+// 항목별로 등록되어 있는 value 값 불러오기
 function getOriginValues(product) {
     const updateInput = document.querySelectorAll(".update-input");
     
@@ -31,6 +8,7 @@ function getOriginValues(product) {
     const selectLength = updateSelect.options.length;
     let optionValue = product.category;
 
+    // 기존 select 값과 일치하는 value에 seleted 옵션을 줘라
     for(let i = 0; i < selectLength; i++) {
         if(updateSelect.options[i].value == optionValue) {
             updateSelect.options[i].selected = true;
@@ -62,11 +40,38 @@ function getOriginValues(product) {
     `;
 }
 
+// 수정 후 등록 시 아래 데이터 전송(post)
+function updateProduct(formData) {
+
+    const updateButton = document.querySelector(".registration-button");
+
+    updateButton.onclick = () => {
+        $.ajax({
+            async: false,
+            type: "post",
+            url: "/api/admin/product/update",
+            enctype: "multipart/form-data",
+            contentType: false,
+            processData: false,
+            data: formData,
+            dataType: "json",
+            success: (response) => {
+                alert("상품 수정 완료");
+                location.reload();
+            },
+            error: (error) => {
+                alert("상품 수정 실패");
+                console.log(error);
+            }
+        });
+    }
+}
+
 
 
 window.onload = () => {
     let product = JSON.parse(localStorage.getItem("product"));
     console.log(product);
     getOriginValues(product);
-    // productList();
+    updateProduct(formData);
 }

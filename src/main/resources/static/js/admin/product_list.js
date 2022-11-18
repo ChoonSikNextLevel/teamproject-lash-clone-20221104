@@ -25,9 +25,6 @@ function productList() {
 }
 
 
-
-
-
 function loadList(responseData) {
     
     const loadBody = document.querySelector(".center");
@@ -72,17 +69,10 @@ function setListValues(data) {
 
     updateButton.forEach((button, index) => {
         button.onclick = () => {
-            alert("클릭");
+            alert("클릭했냐");
             localStorage.setItem("product", JSON.stringify(responseData[index]));
             location.href = "/admin/product/update";
         }
-        
-            // for(let i = 0; i < updateButton.length; i++) {
-            //     updateButton[i].onclick = () => {
-            //         alert("클릭했네");
-            //         location
-            //     }
-            // }
     });
 }
 
