@@ -1,48 +1,45 @@
 const param = {
-    page: 1
-}
+  page: 1,
+};
 
 function productList() {
-    $.ajax({
-        async: false,
-        type: "get",
-        url: "/api/admin/products",
-        data: param,
-        dataType: "json",
-        success: (response) => {
-            responseData = response.data;
-            console.log(responseData);
-            loadList(responseData);
+  $.ajax({
+    async: false,
+    type: "get",
+    url: "/api/admin/products",
+    data: param,
+    dataType: "json",
+    success: (response) => {
+      responseData = response.data;
+      console.log(responseData);
+      loadList(responseData);
 
-            // responseData를 JSON 형식으로 보여주기
-            // console.log(JSON.stringify(responseData[]));
-        },
-        error: (error) => {
-            alert("상품 리스트 불러오기 실패")
-            console.log(error);
-        }
-    });
+      // responseData를 JSON 형식으로 보여주기
+      // console.log(JSON.stringify(responseData[]));
+    },
+    error: (error) => {
+      alert("상품 리스트 불러오기 실패");
+      console.log(error);
+    },
+  });
 }
 
-
-
-
-
 function loadList(responseData) {
-    
-    const loadBody = document.querySelector(".center");
+  const loadBody = document.querySelector(".center");
 
-    loadBody.innerHTML = "";
+  loadBody.innerHTML = "";
 
-    responseData.forEach((product, index) => {
+  responseData.forEach((product, index) => {
+    const productImgsArray = product.productImgs;
+    console.log(product.productImgs);
 
-        loadBody.innerHTML += `
+    loadBody.innerHTML += `
         <tr class="xans-record-">
             <td>
                 ${product.productId}
             </td>
             <td>
-                <img src="/static/images/product_img/${product.productId}">
+                <img src="/image/product/${productImgsArray[0].img_name}">      
             </td>
             <td>
                 ${product.name}
@@ -61,31 +58,30 @@ function loadList(responseData) {
             </td>
         </tr>
         `;
+  });
 
-    });
-    
-    setListValues(responseData);
+  setListValues(responseData);
 }
 
 function setListValues(data) {
-    const updateButton = document.querySelectorAll(".update-button");
+  const updateButton = document.querySelectorAll(".update-button");
 
-    updateButton.forEach((button, index) => {
-        button.onclick = () => {
-            alert("클릭");
-            localStorage.setItem("product", JSON.stringify(responseData[index]));
-            location.href = "/admin/product/update";
-        }
-        
-            // for(let i = 0; i < updateButton.length; i++) {
-            //     updateButton[i].onclick = () => {
-            //         alert("클릭했네");
-            //         location
-            //     }
-            // }
-    });
+  updateButton.forEach((button, index) => {
+    button.onclick = () => {
+      alert("클릭");
+      localStorage.setItem("product", JSON.stringify(responseData[index]));
+      location.href = "/admin/product/update";
+    };
+
+    // for(let i = 0; i < updateButton.length; i++) {
+    //     updateButton[i].onclick = () => {
+    //         alert("클릭했네");
+    //         location
+    //     }
+    // }
+  });
 }
 
 window.onload = () => {
-    productList();
-}
+  productList();
+};
