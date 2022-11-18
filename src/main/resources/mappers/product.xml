@@ -119,8 +119,8 @@
             color = #{color},
             price = #{price},
             product_features = #{product_features},
-            discription = #{discription},
-            update_date = #{update_date}
+            description = #{description},
+            update_date = now()
         where
             product_id = #{product_id}
     </update>
