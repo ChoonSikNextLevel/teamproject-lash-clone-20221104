@@ -108,20 +108,23 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean updateProduct(ProductUpdateReqDto productUpdateReqDto) throws Exception {
+        System.out.println(productUpdateReqDto);
         boolean status = false;
 
         int result = productRepository.updateProduct(productUpdateReqDto.productEntity());
 
-        if(result != 0) {
+        if(productUpdateReqDto.getAddImgFiles() != null | productUpdateReqDto.getDeleteImgFiles() != null) {
             status = true;
             boolean addStatus = true;
             boolean deleteStatus = true;
 
             if(productUpdateReqDto.getAddImgFiles() != null) {
+                System.out.println("addImg");
                 addStatus = addProductImg(productUpdateReqDto.getAddImgFiles(), productUpdateReqDto.getProductId());
             }
 
             if(productUpdateReqDto.getDeleteImgFiles() != null) {
+                System.out.println("deleteImg");
                 deleteStatus = deleteProductImg(productUpdateReqDto.getDeleteImgFiles(), productUpdateReqDto.getProductId());
             }
 
@@ -152,8 +155,8 @@ public class ProductServiceImpl implements ProductService {
             int result = productRepository.deleteImgFiles(map);
 
             if(result != 0) {
-                deleteImgFiles.forEach(origin_name -> {
-                    Path uploadPath = Paths.get(filePath + "/product/" + origin_name);
+                deleteImgFiles.forEach(img_name -> {
+                    Path uploadPath = Paths.get(filePath + "/product/" + img_name);
 
                     File file = new File(uploadPath.toUri());
                     if(file.exists()) {

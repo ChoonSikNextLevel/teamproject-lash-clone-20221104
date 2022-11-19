@@ -87,9 +87,9 @@ function deleteOriginImg(imgArray) {
 
   deleteBtns.forEach((deleteBtn, index) => {
     deleteBtn.onclick = () => {
-      console.log(imgArray[index].img_name);
+      //console.log(imgArray[index].img_name);
       deleteImgFiles.push(imgArray[index].img_name);
-      console.log(deleteImgFiles);
+      //console.log(deleteImgFiles);
 
       imgArray.splice(index, 1);
 
@@ -108,11 +108,9 @@ function imgReader() {
 
   if(!deleteFlag) {
     let imgArray = Array.from(addFiles);
-    console.log("얘는?1");
-    console.log(imgArray);
+    //console.log(imgArray);
 
     addImgFiles = addImgFiles.concat(imgArray);
-    console.log("합쳐졌엉?1");
     console.log(addImgFiles);
   }
   
@@ -139,12 +137,13 @@ function imgReader() {
   }
 
   inputFlag = false;
+  console.log(addImgFiles);
 }
 
 function deleteImg(imgArray) {
   //let imgArray = Array.from(files);
-  console.log("삭제할때..");
-  console.log(imgArray);
+  //console.log("삭제할때..");
+  //console.log(imgArray);
 
   const deleteBtns = document.querySelectorAll(".delete-btn2");
   const dataTransfer = new DataTransfer();
@@ -160,14 +159,14 @@ function deleteImg(imgArray) {
 
       document.getElementById("product-imgs").files = dataTransfer.files;
 
-      addImgFiles = imgArray;
       imgReader();
     };
     
   });
 
   deleteFlag = true;
-  
+  addImgFiles = imgArray;
+  //console.log(addImgFiles);
 }
 
 function addImg() {
@@ -175,11 +174,9 @@ function addImg() {
   const addFiles = productImgs.files;
 
   let imgArray = Array.from(addFiles);
-  console.log("얘는?2");
-  console.log(imgArray);
+  //console.log(imgArray);
 
   addImgFiles = addImgFiles.concat(imgArray);
-  console.log("합쳐졌엉?2");
   console.log(addImgFiles);
 
   for (let i = 0; i < addFiles.length; i++) {
@@ -208,14 +205,14 @@ function addImg() {
 
 const updateButton = document.querySelector(".registration-button");
 
+
 updateButton.onclick = () => {
   updateProduct();
 };
 
 function updateProduct() {
   const productInput = document.querySelectorAll(".product-input");
-
-  let productForm = new FormData();
+  const productForm = new FormData();
   // let productImgs = document.getElementById("product-imgs");
 
   productForm.append("productId", productId);
@@ -226,8 +223,35 @@ function updateProduct() {
   productForm.append("price", productInput[4].value);
   productForm.append("productFeatures", productInput[5].value);
   productForm.append("description", productInput[6].value);
-  productForm.append("deleteImgFiles",deleteImgFiles);
-  productForm.append("addImgFiles", addImgFiles);
+
+  console.log(deleteImgFiles);
+  console.log(addImgFiles);
+
+  // deleteImgFiles.forEach((dimg, index) => {
+  //   productForm.append("deleteImgFiles",dimg[index]);
+  // })
+
+  for(let i = 0; i < deleteImgFiles.length; i++) {
+    productForm.append("deleteImgFiles",deleteImgFiles[i]);
+  }
+
+  const dataTransfer = new DataTransfer();
+
+  addImgFiles.forEach((file) => {       
+    dataTransfer.items.add(file);
+  });
+
+  const addImgFiles0 = dataTransfer.files;
+
+  // addImgFiles0.forEach((aimg, index) => {
+  //   productForm.append("addImgFiles",aimg[index]);
+  // })
+
+  for(let i = 0; i < addImgFiles0.length; i++) {
+    productForm.append("addImgFiles", addImgFiles0[i]);
+  }
+
+
 
   $.ajax({
     async: false,
@@ -240,13 +264,14 @@ function updateProduct() {
     dataType: "json",
     success: (response) => {
       alert("상품 수정 완료");
-      location.reload();
+      history.back();
     },
     error: (error) => {
       alert("상품 수정 실패");
       console.log(error);
     },
   });
+
 }
 
 window.onload = () => {
