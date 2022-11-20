@@ -49,3 +49,10 @@ $(function(){
 });
 
 
+/* ------------- get product by ajax -------------------- */
+
+const param = {
+	productName: "HUNTER",
+	colorCode: "C1"
+  };
+

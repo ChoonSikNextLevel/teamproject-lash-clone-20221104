@@ -17,7 +17,4 @@ public class ProductImg {
     private String img_name;
     private LocalDateTime create_date;
     private LocalDateTime update_date;
-
-
-
 }

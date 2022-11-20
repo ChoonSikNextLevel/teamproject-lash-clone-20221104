@@ -2,6 +2,7 @@ package com.lash.lashClone.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 // 제품 전체, 디테일 페이지 로딩
@@ -17,8 +18,8 @@ public class ProductPageController {
     }
 
     // 제품코드 뒤에 /detail로 넘어가야함
-    @GetMapping("/detail")
-    public String loadProductDetailPage() {
+    @GetMapping("/product/{name}/{colorCode}/{productId}")
+    public String loadProductDetailPage(@PathVariable int productId, @PathVariable String name, @PathVariable String colorCode) {
         return "page_product/product_detail";
     }
 }
