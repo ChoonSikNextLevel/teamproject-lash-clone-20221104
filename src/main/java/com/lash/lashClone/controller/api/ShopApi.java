@@ -16,11 +16,16 @@ public class ShopApi {
 
     private final ShopServiceImpl shopService;
 
+    @GetMapping("/collection/{category}")
+    public ResponseEntity<?> loadProductCollection(@PathVariable String category) throws Exception {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "get collection", shopService.getProductCollection(category)));
+    }
+
+
     @GetMapping("/product/{name}/{colorCode}")
     public ResponseEntity<?> loadProductDetail(@PathVariable String name, @PathVariable String colorCode) throws Exception {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "get product", shopService.getProductDetail(name, colorCode)));
     }
-
-
 }
