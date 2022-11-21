@@ -100,9 +100,9 @@
             <h2>product_list</h2>
         </div>
         <ul class="sideMenu">
-            <h2>Account</h2>
-            <li><a href="/templates/admin/managerpage/product_registration.html">상품등록</a></li>
-            <li><a href="/templates/admin/managerpage/product _list.html">상품관리</a></li>
+            <h2>ADMIN MENU</h2>
+            <li><a href="/admin/product/registration">상품등록</a></li>
+            <li><a href="/admin/products">상품관리</a></li>
             <li><a href="">주문배송</a></li>
         </ul>
         <div class="list-area">
@@ -170,9 +170,8 @@
                                             <span>031</span>
                                         </td>
                                         <td>
-                                            <a href="${path}/shop/product/detail/${row.productId}">
-                                                <img src="/static/images/Logo_img/lash_logo.png">
-                                            </a>
+                                            <img src="/static/images/product_img/${product.productId}">
+                                            <img src="/images/product_img/${img.origin_name}">
                                         </td>
                                         <td>
                                             <span>Name</span>

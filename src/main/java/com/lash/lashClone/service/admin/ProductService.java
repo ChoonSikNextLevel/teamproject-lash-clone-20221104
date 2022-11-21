@@ -17,7 +17,6 @@ public interface ProductService {
     // 상품 수정
     public boolean updateProduct(ProductUpdateReqDto productUpdateReqDto) throws Exception;
 
-
-//    // 상품 삭제
-//    public boolean deleteProduct() throws Exception;
+    // 상품 삭제
+    public boolean deleteProduct(int productId) throws Exception;
 }

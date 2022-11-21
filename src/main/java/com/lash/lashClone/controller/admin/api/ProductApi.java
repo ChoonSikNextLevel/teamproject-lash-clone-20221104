@@ -6,8 +6,6 @@ import com.lash.lashClone.dto.admin.ProductUpdateReqDto;
 import com.lash.lashClone.service.admin.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/admin")
@@ -44,8 +42,13 @@ public class ProductApi {
         return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.updateProduct(productUpdateReqDto)));
     }
 
-
     // 상품 삭제
+    @DeleteMapping("/product/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable int productId) throws Exception {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.deleteProduct(productId)));
+
+    }
 
 
 

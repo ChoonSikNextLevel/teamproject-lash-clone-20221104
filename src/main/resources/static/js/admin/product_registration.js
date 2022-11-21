@@ -5,8 +5,16 @@ const productInput = document.querySelectorAll(".product-input");
 const nameUl = document.querySelector(".uploaded_files_name");
 const fileUl = document.querySelector(".cvf_uploaded_files");
 
+const addFile = document.querySelector(".col-md-6");
+
+let inputFlag = true;
+
 productImgInput.onchange = () => {
-  imgReader();
+  if (inputFlag) {
+    imgReader();
+  } else {
+    addImg();
+  }
 };
 
 function imgReader() {
@@ -41,6 +49,8 @@ function imgReader() {
       reader.readAsDataURL(files[i]);
     }, i * 100);
   }
+
+  inputFlag = false;
 }
 
 function deleteImg(files) {
@@ -61,6 +71,30 @@ function deleteImg(files) {
       imgReader();
     };
   });
+}
+
+function addImg() {
+  const productImgs = document.getElementById("product-imgs");
+  const addFiles = productImgs.files;
+
+  for (let i = 0; i < addFiles.length; i++) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      fileUl.innerHTML += `
+                    <li>
+                        <img class="product-img" src="${e.target.result}" style="width: 140px; height: 140px;">
+                        <i class="fa-solid fa-circle-minus delete-btn"></i>
+                    </li>
+                `;
+
+      deleteImg(addFiles);
+    };
+
+    setTimeout(() => {
+      reader.readAsDataURL(addFiles[i]);
+    }, i * 100);
+  }
 }
 
 registButton.onclick = () => {
@@ -103,6 +137,7 @@ function addProduct(productForm) {
     dataType: "json",
     success: (response) => {
       alert("상품 등록 완료");
+      location.reload();
     },
     error: (error) => {
       alert("상품 등록 실패");

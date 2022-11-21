@@ -38,11 +38,11 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 /*<<<<<<<<<<<<<<<<<< Page >>>>>>>>>>>>>>>>*/
                 .antMatchers("/admin/**", "/api/admin/**")
-                .permitAll()
-//                .access("hasRole('ADMIN') or hasRole('MANAGER')")
+//                .permitAll()
+                .access("hasRole('ADMIN') or hasRole('MANAGER')")
                 .antMatchers("/account", "/order/**") //해당 요청 주소들은
-//                .access("hasRole('USER') or hasRole('ADMIN') or hasRole('MANAGER')")
-                .permitAll()
+                .access("hasRole('USER') or hasRole('ADMIN') or hasRole('MANAGER')")
+//                .permitAll()
 
                 .antMatchers("/", "/index", "/product_all/**")
                 .permitAll()

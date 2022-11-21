@@ -3,7 +3,6 @@ package com.lash.lashClone.dto.admin;
 import com.lash.lashClone.domain.Product;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class ProductRegistReqDto {
                 .price(price)
                 .product_features(productFeatures)
                 .description(description)
-                //.product_imgs(productImgs)
+//                .product_imgs(productImgs)
                 .build();
     }
 }

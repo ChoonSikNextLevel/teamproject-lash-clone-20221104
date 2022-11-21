@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
     <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
-    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">   
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
     <link rel="stylesheet" href="/static/css/admin/manager/product_change_storage.css">
     <link rel="stylesheet" href="/static/css/admin/manager/style.css">
     <link rel="stylesheet" href="/static/css/style.css">
@@ -16,8 +17,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
 </head>
+
 <body>
     <div class="overlay"></div>
     <header id="header">
@@ -85,11 +87,10 @@
                         </form>
                     </div>
                     <button class="site-header-button">
-                        <a href="/account/mypage">My page</a> 
+                        <a href="/account/mypage">My page</a>
                     </button>
                     <button class="site-header-button"><a href="/account/login">Log in</a></button>
-                    <button class="site-header-button basket-button"><a
-                            href="/shopping-basket">My Shopping Basket</a>
+                    <button class="site-header-button basket-button"><a href="/shopping-basket">My Shopping Basket</a>
                         <span class="basket-count">0</span>
                     </button>
                 </div>
@@ -102,8 +103,8 @@
         </div>
         <ul class="sideMenu">
             <h2 style="margin-top:0px;">Account</h2>
-            <li><a href="/templates/admin/managerpage/product_registration.html">상품등록</a></li>
-            <li><a href="/templates/admin/managerpage/product_list.html">상품관리</a></li>
+            <li><a href="/admin/product/registration">상품등록</a></li>
+            <li><a href="/admin/products">상품관리</a></li>
             <li><a href="">주문배송</a></li>
         </ul>
         <div class="registration-area">
@@ -119,9 +120,11 @@
                             </colgroup>
                             <tbody>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">category
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        category
                                     </th>
-                                    <td class="update-input" style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                    <td class="update-input"
+                                        style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
                                         <select id="update-select" class="product-input">
                                             <option value="choose">선택</option>
                                             <option value="metal">Metal</option>
@@ -135,48 +138,55 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">제품명
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        제품명
                                     </th>
-                                    <td class="update-input" style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                    <td class="update-input"
+                                        style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
                                         <!-- <input id="member_id" class="product-input" name="member_id" type="text"> -->
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">색상코드
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        색상코드
                                     </th>
-                                    <td class="update-input" style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                    <td class="update-input"
+                                        style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
                                         <!-- <input id="member_id" class="product-input" name="member_id" type="text"> -->
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">색상
                                     </th>
-                                    <td class="update-input" style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                    <td class="update-input"
+                                        style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
                                         <!-- <input id="member_id" class="product-input" name="member_id" type="text"> -->
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">가격
                                     </th>
-                                    <td class="update-input" style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                    <td class="update-input"
+                                        style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
                                         <!-- <input id="member_id" class="product-input" name="member_id" type="text"> -->
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">
-                                        product_features 
+                                        product_features
                                     </th>
                                     <td class="update-input">
                                         <textarea class="product-features-ex product-input" placeholder=""></textarea>
-                                    </td>    
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">
                                         description
                                     </th>
-                                    <td class="update-input" >
-                                        <textarea class="product-features-ex product-input" placeholder="상세설명"></textarea>
-                                    </td>    
+                                    <td class="update-input">
+                                        <textarea class="product-features-ex product-input"
+                                            placeholder="상세설명"></textarea>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">
@@ -189,40 +199,43 @@
 3) 배송 기간 : 결제일 기준 2~4일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
 4) 해외 배송 기간 : 결제일 기준 4~10일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
                                         </textarea>
-                                    </td>    
-                                </tr>   
+                                    </td>
+                                </tr>
                             </tbody>
-                            
+
                         </table>
-                        <div class = "container-fluid">
+                        <div class="container-fluid">
                             <!-- <h3>Sort Files before upload</h3> -->
                             <br />
-                            <div class = "col-md-6">
+                            <div class="col-md-6">
                                 <form enctype="multipart/form-data">
-                                    <input type = "file" name = "upload" multiple = "multiple" id="product-imgs">                 
+                                    <input type="file" name="upload" multiple="multiple" id="product-imgs">
                                     <!-- <input type = "file" name = "upload" multiple = "multiple" class = "form-control user_picked_files" />                  -->
-                                                         
-                                   
+
+
                                     <!-- <div class = "form-group cvf_order">                           
                                         <label>Order</label>                               
                                         <input type = "text" class = "form-control cvf_hidden_field" value = "" disabled = "disabled" />   
                                     </div>                      -->
-                                   
+
                                     <!-- <input type = "submit" class = "cvf_upload_btn btn btn-primary" value = "Upload" /> -->
 
                                 </form>
-                               
+
                                 <ul class="uploaded_files_name">
-                                    
-                                </ul>
-                                <ul class = "cvf_uploaded_files">
 
                                 </ul>
-                               
+                                <ul class="cvf_uploaded_files">
+                                    
+                                </ul>
+                                <ul class="update-files">
+
+                                </ul>
+
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="registration-button">등록</button>  
+                    <button type="button" class="registration-button">업데이트</button>
                 </div>
             </div>
         </div>
@@ -231,4 +244,5 @@
     <script src="/static/js/admin/product_update.js"></script>
 
 </body>
+
 </html>
