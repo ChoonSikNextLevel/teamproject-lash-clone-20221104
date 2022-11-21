@@ -17,8 +17,8 @@ public class PrincipalDetailsService implements UserDetailsService {
     private final AccountRepository accountRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Member member = accountRepository.findUserByEmail(email);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Member member = accountRepository.findUserByUsername(username);
 
         if(member == null) {
             log.error("아이디를 찾지 못함");

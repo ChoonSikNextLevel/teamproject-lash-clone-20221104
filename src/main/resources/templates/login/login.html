@@ -108,7 +108,7 @@
     <div class="login-container">
         
         <form action="/account/login" method="post">
-            <input type="email" class="login-input" name="email" placeholder="아이디" required>
+            <input type="text" class="login-input" name="username" placeholder="아이디" required>
             <input type="password" class="login-input" name="password" placeholder="비밀번호" required>
 
 
@@ -121,7 +121,7 @@
             <button type="submit" class=" registration-button login-button">로그인</button>
             
         </form>
-        <button type="submit" class="join-button login-button">회원가입</button>
+        <button type="button" class="join-button login-button">회원가입</button>
         <!-- <a href="/account/join" class="join-button">회원가입</a> -->
         <!-- <button type="button" class="join-button">회원가입</button> -->
         <button type="button" class="kakao-login-button" onclick="location.href='/oauth2/authorization/kakao'"><img src="/static/images/lash_btn/social-kakao.png" style="width: 11px; height: 11px;"> 카카오 로그인/회원가입</button>

@@ -17,9 +17,9 @@ public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
 
     @Override
-    public boolean checkDuplicateEmail(String email) {
+    public boolean checkDuplicateEmail(String username) {
 
-        Member member = accountRepository.findUserByEmail(email);
+        Member member = accountRepository.findUserByUsername(username);
         if(member != null) {
             Map<String, String> errorMap = new HashMap<String, String>();
             errorMap.put("duplicateFlag", "이미 가입된 이메일입니다");

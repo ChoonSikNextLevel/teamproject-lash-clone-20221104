@@ -50,7 +50,7 @@
         member_id = #{member_id}
 
     </update>
-    <select id="findUserByEmail" parameterType="String" resultMap="member">
+    <select id="findUserByUsername" parameterType="String" resultMap="member">
         select
         um.member_id,
         um.username,
@@ -71,6 +71,6 @@
         member_mst um
         left outer join role_mst rm on (rm.role_id = um.role_id)
         where
-        email = #{email}
+        username = #{username}
     </select>
 </mapper>

@@ -50,25 +50,9 @@ public class AccountPageController {
 
         return "login/login";
     }
-    @PostMapping("/login")
-    public String login(@ModelAttribute @Validated Model model,
-                        BindingResult bindingResult,
-                        @RequestParam(defaultValue = "/") String redirectURL) {
-
-        if (bindingResult.hasErrors()) {
-            return "login/loginForm";
-        }
-
-        Member member = AccountServiceImpl.checkDuplicateEmail
-
-        if (member == null) {
-            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
-            return "login/loginForm";
-        }
 
     @GetMapping("/join")
     public String loadJoinPage() {
         return "login/join";
     }
-
 }

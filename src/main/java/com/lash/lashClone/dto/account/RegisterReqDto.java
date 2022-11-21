@@ -49,7 +49,7 @@ public class RegisterReqDto {
 
     public Member toUserEntity() {
         return Member.builder()
-                .username(email)
+                .username(username)
                 .password(new BCryptPasswordEncoder().encode(password))
                 .name(name)
                 .phone(firstPhone + lastPhone)
