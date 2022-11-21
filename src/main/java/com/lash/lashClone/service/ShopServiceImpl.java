@@ -1,11 +1,15 @@
 package com.lash.lashClone.service;
 
 import com.lash.lashClone.domain.ProductDetail;
+import com.lash.lashClone.dto.shop.ProductCollectionRespDto;
 import com.lash.lashClone.repository.shop.ShopRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -14,18 +18,20 @@ public class ShopServiceImpl implements ShopService {
     private final ShopRepository shopRepository;
 
 
+    @Override
+    public List<ProductCollectionRespDto> getProductCollection(String category) throws Exception {
 
+        List<ProductCollectionRespDto> collection = new ArrayList<ProductCollectionRespDto>();
 
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("category", category);
 
+        shopRepository.getProductCollection(map).forEach(productCollection -> {
+            collection.add(productCollection.collectionRespDto());
+        });
 
-
-
-
-
-
-
-
-
+        return collection;
+    }
 
 
 
