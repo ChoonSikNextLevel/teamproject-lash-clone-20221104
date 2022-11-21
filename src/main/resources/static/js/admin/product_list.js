@@ -98,7 +98,7 @@ function deleteProduct() {
       const productId = product.productId;
       console.log("번호만 : ", productId);  // 등록된 순번 가져오기
 
-      if (confirm("삭제? 두 번 안물어봄")) {
+      if (confirm("삭제?")) {
 
         $.ajax({
           async: false,

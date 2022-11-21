@@ -22,12 +22,15 @@
     </resultMap>
 
     <select id="getProductCollection"
-            parameterType="hashmap"
+            parameterType="string"
             resultType="com.lash.lashClone.domain.ProductCollection">
 
         SELECT
+            pm.product_id,
+            pm.category,
             pm.name,
             pm.color_code,
+            pm.color,
             pm.price,
             pimg.img_name,
             pimg.id
@@ -37,7 +40,7 @@
         WHERE
             1 = 1
             <if test='category != "all"'>
-                pm.category = #{category}
+                and pm.category = #{category}
             </if>
             GROUP BY
                 pm.name, pm.color_code
