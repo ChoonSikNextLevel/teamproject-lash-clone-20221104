@@ -90,7 +90,7 @@ function loadProduct(data) {
     console.log("실행되고 있나");
     console.log(product);
 
-    if (product.color_code == param.colorCode) {
+    if (product.color_code == productInfo.colorCode) {
       product.product_imgs.forEach((img) => {
         imgSection.innerHTML += `
 								<img src="/image/product/${img.img_name}">
