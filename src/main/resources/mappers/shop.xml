@@ -28,8 +28,8 @@
             pm.price,
             pm.product_features,
             pm.description,
-            img.img_name,
-            img.id
+            pimg.img_name,
+            pimg.id
         FROM
             product_mst pm
         LEFT OUTER JOIN product_img pimg ON(pimg.product_id = pm.product_id)

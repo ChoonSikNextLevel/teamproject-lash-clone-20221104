@@ -18,8 +18,8 @@ public class ProductPageController {
     }
 
     // 제품코드 뒤에 /detail로 넘어가야함
-    @GetMapping("/product/{name}/{colorCode}/{productId}")
-    public String loadProductDetailPage(@PathVariable int productId, @PathVariable String name, @PathVariable String colorCode) {
+    @GetMapping("/product/{name}/{colorCode}")
+    public String loadProductDetailPage(@PathVariable String name, @PathVariable String colorCode) {
         return "page_product/product_detail";
     }
 }

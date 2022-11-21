@@ -16,10 +16,10 @@ public class ShopApi {
 
     private final ShopServiceImpl shopService;
 
-    @GetMapping("/product/{name}/{colorCode}/{productId}")
-    public ResponseEntity<?> loadProductDetail(@PathVariable int productId, @PathVariable String name, @PathVariable String colorCode) throws Exception {
+    @GetMapping("/product/{name}/{colorCode}")
+    public ResponseEntity<?> loadProductDetail(@PathVariable String name, @PathVariable String colorCode) throws Exception {
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "get product", shopService.getProductDetail(productId, name, colorCode)));
+        return ResponseEntity.ok(new CMRespDto<>(1, "get product", shopService.getProductDetail(name, colorCode)));
     }
 
 

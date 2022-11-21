@@ -30,12 +30,15 @@ public class ShopServiceImpl implements ShopService {
 
 
     @Override
-    public List<ProductDetail> getProductDetail(int productId, String name, String colorCode) throws Exception {
+    public List<ProductDetail> getProductDetail(String name, String colorCode) throws Exception {
 
 
         return shopRepository.getProduct(name);
     }
 
+
+
+    
     @Override
     public List<ProductDetail> otherColor(List<ProductDetail> productDetailList, String colorCode) throws Exception {
 

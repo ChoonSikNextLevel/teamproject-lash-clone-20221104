@@ -58,8 +58,8 @@ function loadProduct() {
   $.ajax({
     async: false,
     type: "get",
-    url: "/product/" + param.name + "/" + param.colorCode + "/" + param.productId,
-    data: param,
+    url: "/api/product/" + param.name + "/" + param.colorCode + "/" + param.productId,
+    data: null,
     dataType: "json",
     success: (response) => {
       alert("성공");
