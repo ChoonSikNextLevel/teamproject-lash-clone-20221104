@@ -48,22 +48,29 @@ $(function () {
 
 /* ------------- get product by ajax -------------------- */
 
-const param = {
-  name: "Hunter",
-  colorCode: "C1",
-  productId: "1",
+const pageUrl = window.location.href;
+// console.log(pageUrl);
+let result = pageUrl.split("/");
+
+// result.forEach((r) => {
+//   console.log(r);
+// });
+
+const productInfo = {
+  name: result[5],
+  colorCode: result[6],
 };
 
-function loadProduct() {
+function getProductData() {
   $.ajax({
     async: false,
     type: "get",
-    url: "/api/product/" + param.name + "/" + param.colorCode + "/" + param.productId,
-    data: null,
+    url: "/api/product/" + productInfo.name + "/" + productInfo.colorCode,
     dataType: "json",
     success: (response) => {
       alert("성공");
       console.log(response.data);
+      loadProduct(response.data);
     },
     error: (error) => {
       alert("실패");
@@ -72,6 +79,39 @@ function loadProduct() {
   });
 }
 
+const imgSection = document.querySelector(".img-scroll");
+const pdName = document.querySelector(".pd-name");
+const pdPrice = document.querySelector(".pd-price");
+
+const moreColor = document.querySelector(".more-color");
+
+function loadProduct(data) {
+  data.forEach((product) => {
+    console.log("실행되고 있나");
+    console.log(product);
+
+    if (product.color_code == param.colorCode) {
+      product.product_imgs.forEach((img) => {
+        imgSection.innerHTML += `
+								<img src="/image/product/${img.img_name}">
+							`;
+        console.log(img.img_name);
+      });
+
+      pdName.innerHTML = `${product.name} ${product.color_code}`;
+      pdPrice.innerHTML = `KRW ${product.price}`;
+      ex1.innerHTML = `${product.product_features}`;
+      ex2.innerHTML = `${product.description}`;
+    } else {
+      moreColor.innerHTML += `
+									<a href="/products/product/${product.name}/${product.color_code}"><img src="/image/product/${product.product_imgs[0].img_name}"></a>
+								`;
+    }
+  });
+
+  console.log("끝");
+}
+
 window.onload = () => {
-  loadProduct();
+  getProductData();
 };

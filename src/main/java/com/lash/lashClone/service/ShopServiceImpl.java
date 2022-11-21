@@ -32,7 +32,7 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public List<ProductDetail> getProductDetail(String name, String colorCode) throws Exception {
 
-
+        System.out.println("밍");
         return shopRepository.getProduct(name);
     }
 
