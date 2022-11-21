@@ -14,6 +14,6 @@ public class ProductCollectionRespDto {
     private String color;
     private int price;
     private String imgName;
-    private int productTotalCount;
+//    private int productTotalCount;
 
 }

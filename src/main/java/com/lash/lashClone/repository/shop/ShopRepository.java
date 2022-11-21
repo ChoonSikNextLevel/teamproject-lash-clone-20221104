@@ -10,7 +10,7 @@ import java.util.Map;
 @Mapper
 public interface ShopRepository {
 
-    public List<ProductCollection> getProductCollection(Map<String, Object> map) throws Exception;
+    public List<ProductCollection> getProductCollection(String category) throws Exception;
 
     public List<ProductDetail> getProduct(String name) throws Exception;
 }

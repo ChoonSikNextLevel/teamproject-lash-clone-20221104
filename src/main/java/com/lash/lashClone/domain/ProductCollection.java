@@ -17,7 +17,7 @@ public class ProductCollection {
     private String color;
     private int price;
     private String img_name;
-    private int product_total_count;
+//    private int product_total_count;
 
     public ProductCollectionRespDto collectionRespDto() {
         return  ProductCollectionRespDto.builder()
@@ -28,7 +28,7 @@ public class ProductCollection {
                 .color(color)
                 .price(price)
                 .imgName(img_name)
-                .productTotalCount(product_total_count)
+//                .productTotalCount(product_total_count)
                 .build();
 
     }
