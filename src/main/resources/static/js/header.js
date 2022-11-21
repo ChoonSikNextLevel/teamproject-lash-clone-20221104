@@ -122,18 +122,46 @@ const searchText = document.querySelector(".search-text")
 searchButton.onmousedown = () => {
     searchText.classList.remove("search-display")
 }
-// 화면
 
-createProductMst(responseData) {
-    const goodbutton = document.querySelector(".good-button");
+class PrincipalApi {
+    static #instance = null;
 
-    listBody.innerHTML = "";
+    static getInstance() {
+        if (this.#instance == null) {
+            this.#instance = new PrincipalApi();
+        }
+        return this.#instance;
+    }
 
-    responseData.forEach((product) => {
-        goodbutton.innerHTML += `
-        <button class="site-header-button good-button"><a href="account/login">Log out</a></button>
-        `;
-    });
+    getPrincipal() {
+        let responseData = null;
 
-    this.addProductMstEvent(responseData);
+        $.ajax({
+            async: false,
+            type: "GET",
+            url: "/api/account/principal/member",
+            dataType: "json",
+            success: (response) => {
+                responseData = response.data;
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+
+        return responseData;
+    }
 }
+
+
+function loadHeader() {
+    const accountButton = document.querySelector(".account-button");
+
+    if(PrincipalApi.getInstance().getPrincipal() == "") {
+        accountButton.innerHTML = `<a href="/account/login">Log in</a>`;
+    } else {
+        accountButton.innerHTML = `<a href="/logout">Log out</a>`;
+    }
+}
+
+loadHeader();

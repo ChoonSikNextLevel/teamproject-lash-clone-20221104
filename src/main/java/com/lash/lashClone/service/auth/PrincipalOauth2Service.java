@@ -62,16 +62,15 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
         }
 
         oauth2_id = provider + "_" + id;
-        email = (String) response.get("email");
 
-        member = accountRepository.findUserByEmail(email);
+        member = accountRepository.findUserByUsername(oauth2_id);
         if(member == null) {
             member = member.builder()
-                    .username(email)
+                    .username(oauth2_id)
                     .oauth_username(oauth2_id)
                     .password(new BCryptPasswordEncoder().encode(UUID.randomUUID().toString().replaceAll("-", "")))
                     .name((String) response.get("name"))
-                    .email(email)
+                    .email((String) response.get("email"))
                     .phone(phone)
                     .role_id(1)
                     .provider(provider)
@@ -79,11 +78,12 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
 
             accountRepository.save(member);
 
-        }else if(member.getOauth_username()== null) {
-            member.setOauth_username(oauth2_id);
-            member.setProvider(provider);
-            accountRepository.updateMemberOauth2(member);
         }
+//        else if(member.getOauth_username()== null) {
+//            member.setOauth_username(oauth2_id);
+//            member.setProvider(provider);
+//            accountRepository.updateMemberOauth2(member);
+//        }
 
         return member;
 

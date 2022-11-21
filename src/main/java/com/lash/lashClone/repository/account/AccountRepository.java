@@ -9,5 +9,5 @@ public interface AccountRepository {
     public int save(Member member);
 
     public int updateMemberOauth2(Member member);
-    public  Member findUserByEmail(String Email);
+    public  Member findUserByUsername(String username);
 }

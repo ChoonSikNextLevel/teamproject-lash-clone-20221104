@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <SCRIPT src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
     <SCRIPT src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/page_main/index.css">
@@ -92,16 +91,7 @@
                     <button class="site-header-button">
                         <a href="/templates/mypage/Myshop.html">My page</a> 
                     </button>
-                    <!--로그인 전 화면  -->
-                    <%if (member == 0) {%>
-                        <button class="site-header-button good-button"><a href="account/login">Log in</a></button>
-                    
-                    <!--로그인 후 화면  -->
-                    <%} else if (member > 0) {%>
-                        <button class="site-header-button good-button"><a href="account/login">Log out</a></button>
-                    <%};%>
-                    <!-- <button class="site-header-button good-button"><a href="account/login">Log in</a></button> -->
-                    <button class="site-header-button good-button"></button>
+                    <button class="site-header-button account-button"></button>
                     <button class="site-header-button basket-button"><a
                             href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
                         <span class="basket-count">0</span>
@@ -230,7 +220,6 @@
             </div>
         </div>
     </footer>
-    <script src="/static/js/header.js"></script>
     <script src="/static/js/header.js"></script>
 </body>
 
