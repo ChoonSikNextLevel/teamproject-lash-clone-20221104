@@ -42,17 +42,21 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
         String oauth2_id =null;
         String id = null;
         String email = null;
+        String phone = null;
+
 
         Member member = null;
 
         Map<String, Object> response = null;
 
-        if(provider.equalsIgnoreCase("googole")) {
-            response = attributes;
-            id = (String)response.get("sub");
+        if(provider.equalsIgnoreCase("KaKao")) {
+            Map<String, Object>account = (Map<String, Object>) attributes.get("kakao_account");
+            Map<String, Object>profile = (Map<String, Object>) attributes.get("profile");
         }else if(provider.equalsIgnoreCase("naver")) {
             response = (Map<String, Object>) attributes.get("response");
             id = (String) response.get("id");
+        }if(provider.equalsIgnoreCase("facebook")) {
+            id = (String)response.get("sub");
         }
 
         oauth2_id = provider + "_" + id;
@@ -66,6 +70,7 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
                     .password(new BCryptPasswordEncoder().encode(UUID.randomUUID().toString().replaceAll("-", "")))
                     .name((String) response.get("name"))
                     .email(email)
+                    .phone(phone)
                     .role_id(1)
                     .provider(provider)
                     .build();
@@ -75,7 +80,7 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
         }else if(member.getOauth_username()== null) {
             member.setOauth_username(oauth2_id);
             member.setProvider(provider);
-            accountRepository.updateUserOauth2(member);
+            accountRepository.updateMemberOauth2(member);
         }
 
         return member;

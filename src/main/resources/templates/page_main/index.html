@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/page_main/index.css">
     <link rel="stylesheet" href="/static/css/page_main/header.css">
+    <link rel="stylesheet" href="/static/css/page_main/fragment/aside.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -88,11 +89,10 @@
                             </span>
                         </form>
                     </div>
-                    <aside th:replace="~{page_main/aside :: aside}"></aside>
                     <button class="site-header-button">
                         <a href="/templates/mypage/Myshop.html">My page</a> 
                     </button>
-                    <button class="site-header-button"><a href="/login">Log in</a></button>
+                    <button class="site-header-button" th:insert="page_main/fragment/aside.html :: button"><a href="account/login">Log out</a></button>
                     <button class="site-header-button basket-button"><a
                             href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
                         <span class="basket-count">0</span>
