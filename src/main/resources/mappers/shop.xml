@@ -21,6 +21,15 @@
         <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>
     </resultMap>
 
+    <select id="getProductCollection"
+            parameterType="hashmap"
+            resultType="com.lash.lashClone.domain.ProductCollection">
+
+
+
+
+    </select>
+
     <select id="getProduct" resultMap="product_details" parameterType="string">
         SELECT
             pm.name,
@@ -36,5 +45,6 @@
         WHERE
             pm.name = #{name}
     </select>
+
 
 </mapper>
