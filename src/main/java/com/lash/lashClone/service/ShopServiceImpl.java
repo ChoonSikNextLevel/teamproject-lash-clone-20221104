@@ -13,12 +13,43 @@ public class ShopServiceImpl implements ShopService {
 
     private final ShopRepository shopRepository;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Override
     public List<ProductDetail> getProductDetail(int productId, String name, String colorCode) throws Exception {
 
-        shopRepository.getProduct(name);
 
+        return shopRepository.getProduct(name);
+    }
+
+    @Override
+    public List<ProductDetail> otherColor(List<ProductDetail> productDetailList, String colorCode) throws Exception {
+
+        for(int i = 0; i < productDetailList.size(); i++) {
+            ProductDetail productDetail = productDetailList.get(i);
+
+            if(productDetail.getColor_code() != colorCode) {
+
+
+            }
+        }
 
         return null;
     }
+
+
 }
