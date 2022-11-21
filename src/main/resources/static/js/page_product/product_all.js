@@ -13,3 +13,44 @@ $(function() {
         $('.product-list-img .product-hunter').eq(i).show();
     });
 });
+
+
+
+function getCollections() {
+
+    const uri = location.href;
+    const category = uri.substring(uri.lastIndexOf("/") + 1);
+    let responseData = null;
+
+    $.ajax({
+        async: false,
+        type: "get",
+        url: "/api/collection" + category,
+
+        // data에 들어갈 값은?
+        data: ,
+        dataType: "json",
+        success: (response) => {
+            responseData = response.data;
+            console.log(responseData);
+        },
+        error: (error) => {
+            alert("상품 리스트 불러오기 실패");
+            console.log(error);
+        },
+    });
+
+}
+
+function loadCollection() {
+    const products = document.querySelector(".product-list")
+}
+
+
+
+
+
+
+window.onload = () => {
+
+}
