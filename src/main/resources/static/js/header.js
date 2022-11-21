@@ -122,3 +122,18 @@ const searchText = document.querySelector(".search-text")
 searchButton.onmousedown = () => {
     searchText.classList.remove("search-display")
 }
+// 화면
+
+createProductMst(responseData) {
+    const goodbutton = document.querySelector(".good-button");
+
+    listBody.innerHTML = "";
+
+    responseData.forEach((product) => {
+        goodbutton.innerHTML += `
+        <button class="site-header-button good-button"><a href="account/login">Log out</a></button>
+        `;
+    });
+
+    this.addProductMstEvent(responseData);
+}

@@ -92,7 +92,16 @@
                     <button class="site-header-button">
                         <a href="/templates/mypage/Myshop.html">My page</a> 
                     </button>
-                    <button class="site-header-button" th:insert="page_main/fragment/aside.html :: button"><a href="account/login">Log out</a></button>
+                    <!--로그인 전 화면  -->
+                    <%if (member == 0) {%>
+                        <button class="site-header-button good-button"><a href="account/login">Log in</a></button>
+                    
+                    <!--로그인 후 화면  -->
+                    <%} else if (member > 0) {%>
+                        <button class="site-header-button good-button"><a href="account/login">Log out</a></button>
+                    <%};%>
+                    <!-- <button class="site-header-button good-button"><a href="account/login">Log in</a></button> -->
+                    <button class="site-header-button good-button"></button>
                     <button class="site-header-button basket-button"><a
                             href="/templates/shop_basket/MyShoppingBasket.html">My Shopping Basket</a>
                         <span class="basket-count">0</span>
@@ -222,30 +231,7 @@
         </div>
     </footer>
     <script src="/static/js/header.js"></script>
-    <script type="text/javascript">
-        $(document).ready(
-
-            function () {
-                $(".slide-container").niceScroll({
-                    cursorcolor: "rgb(83, 82, 82)",
-                    cursorwidth: 0,
-                    cursoropacitymin: 0,
-                    scrollspeed: 100,
-                    cursorborderradius: '0',
-                    mousescrollstep: 40,
-                    horizrailenabled: true,
-                    cursoropacitymin: 0,
-                    cursoropacitymax: 0,
-                    background: "#eee",
-                    cursorborder: "none",
-                    autohidemode: true,
-                    boxzoom: false,
-                    zindex: 99999
-
-                });
-            }
-        );
-    </script>
+    <script src="/static/js/header.js"></script>
 </body>
 
 </html>

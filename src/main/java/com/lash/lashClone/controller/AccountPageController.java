@@ -1,11 +1,14 @@
 package com.lash.lashClone.controller;
 
+import com.lash.lashClone.domain.Member;
+import com.lash.lashClone.service.AccountService;
+import com.lash.lashClone.service.AccountServiceImpl;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 // 마이쇼핑, 주문내역조회, 회원정보관리, 배송주소록
 // myshop, order, user-info, ship-address
@@ -44,8 +47,24 @@ public class AccountPageController {
         if(error != null){
             model.addAttribute("error", error.equals("auth") ? "이메일 또는 비밀번호가 잘못되었습니다." : "");
         }
+
         return "login/login";
     }
+    @PostMapping("/login")
+    public String login(@ModelAttribute @Validated Model model,
+                        BindingResult bindingResult,
+                        @RequestParam(defaultValue = "/") String redirectURL) {
+
+        if (bindingResult.hasErrors()) {
+            return "login/loginForm";
+        }
+
+        Member member = AccountServiceImpl.checkDuplicateEmail
+
+        if (member == null) {
+            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            return "login/loginForm";
+        }
 
     @GetMapping("/join")
     public String loadJoinPage() {
