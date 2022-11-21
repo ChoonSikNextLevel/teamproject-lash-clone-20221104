@@ -113,3 +113,15 @@ accButton.onmouseover = () => {
 accImage.onmouseout = () => {
     accImage.classList.add("image-display");
 }
+// $(function () {
+//     $(".good-button").mouseout(function () {
+//         <!--로그인 전 화면  -->
+//         <%if (member == 0) {%>
+//             <button class="site-header-button good-button"><a href="account/login">Log in</a></button>
+        
+//         <!--로그인 후 화면  -->
+//         <%} else if (member > 0) {%>
+//             <button class="site-header-button good-button"><a href="account/login">Log out</a></button>
+//         <%};%>
+//     });
+// });
