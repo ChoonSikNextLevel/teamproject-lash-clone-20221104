@@ -21,16 +21,9 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public List<ProductCollectionRespDto> getProductCollection(String category) throws Exception {
 
-        List<ProductCollectionRespDto> collection = new ArrayList<ProductCollectionRespDto>();
+//        List<ProductCollectionRespDto> collection = new ArrayList<ProductCollectionRespDto>();
 
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("category", category);
-
-        shopRepository.getProductCollection(map).forEach(productCollection -> {
-            collection.add(productCollection.collectionRespDto());
-        });
-
-        return collection;
+        return shopRepository.getProductCollection(category);
     }
 
 

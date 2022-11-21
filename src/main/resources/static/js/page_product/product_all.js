@@ -14,36 +14,44 @@ $(function() {
     });
 });
 
+// ============================================================================
 
+const uri = location.href;
+const category = uri.substring(uri.lastIndexOf("/") + 1);
+let responseData = null;
 
-function getCollections() {
-
-    const uri = location.href;
-    const category = uri.substring(uri.lastIndexOf("/") + 1);
-    let responseData = null;
+function getCollection() {
 
     $.ajax({
         async: false,
         type: "get",
-        url: "/api/collection" + category,
-
-        // data에 들어갈 값은?
-        data: ,
+        url: "/api/collection/" + category,
         dataType: "json",
         success: (response) => {
+            alert("COLLECTION 불러오기 성공");
             responseData = response.data;
             console.log(responseData);
         },
         error: (error) => {
-            alert("상품 리스트 불러오기 실패");
+            alert("COLLECTION 불러오기 실패");
             console.log(error);
         },
     });
-
 }
 
+
+const productImg = document.querySelector(".product-list-img");
+const productName = document.querySelector(".product-name");
+const productPrice = document.querySelector(".product-price");
+
 function loadCollection() {
-    const products = document.querySelector(".product-list")
+    
+
+    
+
+
+
+
 }
 
 
@@ -52,5 +60,5 @@ function loadCollection() {
 
 
 window.onload = () => {
-
+    getCollection();
 }
