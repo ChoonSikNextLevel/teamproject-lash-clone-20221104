@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -26,8 +27,7 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
     private final AccountRepository accountRepository;
 
     @Override
-    public OAuth2User
-     loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+    public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         String priovider = userRequest.getClientRegistration().getClientName();
         OAuth2User oAuth2User = super.loadUser(userRequest);
 
@@ -52,17 +52,21 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
         Map<String, Object> response = null;
 
         if(provider.equalsIgnoreCase("KaKao")) {
-            Map<String, Object>account = (Map<String, Object>) attributes.get("kakao_account");
-            Map<String, Object>profile = (Map<String, Object>) attributes.get("profile");
+            id = Long.toString((Long) attributes.get("id"));
+            response = new HashMap<String, Object>();
+            Map<String, Object>kakao_account = (Map<String, Object>) attributes.get("kakao_account");
+            response.put("email", kakao_account.get("email"));
+            Map<String, Object>properties = (Map<String, Object>) attributes.get("properties");
+            response.put("name", properties.get("nickname"));
         }else if(provider.equalsIgnoreCase("naver")) {
             response = (Map<String, Object>) attributes.get("response");
             id = (String) response.get("id");
         }if(provider.equalsIgnoreCase("facebook")) {
-            id = (String)response.get("sub");
+            response = attributes;
+            id = (String)response.get("id");
         }
 
         oauth2_id = provider + "_" + id;
-
         member = accountRepository.findUserByUsername(oauth2_id);
         if(member == null) {
             member = member.builder()
