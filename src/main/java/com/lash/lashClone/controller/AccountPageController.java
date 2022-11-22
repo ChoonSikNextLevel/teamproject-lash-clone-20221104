@@ -39,8 +39,11 @@ public class AccountPageController {
 
     @GetMapping("/shipping-address")
     public String loadShippingAddressPage() {
-        return "mypage/shipping_adress_book";
+        return "mypage/shipping_address_book";
     }
+
+    @GetMapping("/shipping-address-registration")
+    public String loadShippingAddressRegistrationPage(){ return "mypage/shipping_address_registration";}
 
     @GetMapping("/login")
     public String login(Model model, @RequestParam @Nullable String error) {

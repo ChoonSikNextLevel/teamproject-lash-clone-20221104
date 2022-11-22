@@ -44,22 +44,6 @@ joinButtons.onclick =() => {
         }
     });
 }
-// function validationError(error) {
-//     const accountErrors = document.querySelector(".account-errors");
-//     const accountErrorList = accountErrors.querySelector("ul");
-
-//     const errorValues = Object.values(error);
-
-//     accountErrorList.innerHTML = "";
-
-//     errorValues.forEach((value) => {
-//         accountErrorList.innerHTML += `
-//             <li>${value}</li>
-//         `;
-//     });
-
-//     accountErrors.classList.remove("errors-invisible");
-// }
 
 /* 상세 약관 */
 
