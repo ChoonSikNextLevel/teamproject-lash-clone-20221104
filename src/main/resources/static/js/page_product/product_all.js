@@ -1,16 +1,17 @@
 // 상품 리스트에서 아래 color spec 마우스 오버 시 해당 상품 보여주기
 
-$(function () {
-  $(".hunter-color > p").mouseover(function () {
-    let i = $(this).index();
+// $(function () {
+//   $(".hunter-color > p").mouseover(function () {
+//     let i = $(this).index();
 
-    // $('.product-info-color > img').mouseover(function(){
-    //     let i = $(this).index();
+//     // $('.product-info-color > img').mouseover(function(){
+//     //     let i = $(this).index();
 
-    $(".product-list-img .product-hunter").hide();
-    $(".product-list-img .product-hunter").eq(i).show();
-  });
-});
+//     $(".product-list-img .product-hunter").hide();
+//     $(".product-list-img .product-hunter").eq(i).show();
+//   });
+// });
+
 
 //=========== collection 불러오기 =============//
 
@@ -57,42 +58,42 @@ function groupByName(responseData) {
 
 const productContainer = document.querySelector(".product-container");
 
-function loadCollection(collection) {
-  console.log("컬렉션 : ", collection);
+// function loadCollection(collection) {
+//   console.log("컬렉션 : ", collection);
 
-  collection.forEach((product) => {
-    const productName = product.name;
+//   collection.forEach((product) => {
+//     const productName = product.name;
 
-    console.log("이름 : ", productName);
-    console.log("제품 : ", product);
-    console.log("카테고리 : ", product.category);
-    console.log("이미지 : ", product.img_name);
+//     console.log("이름 : ", productName);
+//     console.log("제품 : ", product);
+//     console.log("카테고리 : ", product.category);
+//     console.log("이미지 : ", product.img_name);
 
-    productContainer.innerHTML += `
-                <div class="product-list">
-                    <div class="product-list-img">
-                        <div class="product-hunter hunter-c1">
-                            <a href="/products/product/${product.name}/${product.color_code}">  
-                                <img src="/image/product/${product.img_name}">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-info-box">
-                        <div class="product-info-text">
-                            <p class="product-name">${product.name}</p>
-                            <p class="product-price">KRW ${product.price}</p>
-                        </div>
-                        <div class="product-info-color hunter-color">
-                            <img src="/static/images/product_img/product_color_img/HUNTER_c1.jpg">
-                            <img src="/static/images/product_img/product_color_img/HUNTER_c2.jpg">
-                            <img src="/static/images/product_img/product_color_img/HUNTER_c3.jpg">
-                            <img src="/static/images/product_img/product_color_img/HUNTER_c4.jpg">
-                        </div>
-                    </div>
-                </div>
-            `;
-  });
-}
+//     productContainer.innerHTML += `
+//                 <div class="product-list">
+//                     <div class="product-list-img">
+//                         <div class="product-hunter hunter-c1">
+//                             <a href="/products/product/${product.name}/${product.color_code}">  
+//                                 <img src="/image/product/${product.img_name}">
+//                             </a>
+//                         </div>
+//                     </div>
+//                     <div class="product-info-box">
+//                         <div class="product-info-text">
+//                             <p class="product-name">${product.name}</p>
+//                             <p class="product-price">KRW ${product.price}</p>
+//                         </div>
+//                         <div class="product-info-color hunter-color">
+//                             <img src="/static/images/product_img/product_color_img/HUNTER_c1.jpg">
+//                             <img src="/static/images/product_img/product_color_img/HUNTER_c2.jpg">
+//                             <img src="/static/images/product_img/product_color_img/HUNTER_c3.jpg">
+//                             <img src="/static/images/product_img/product_color_img/HUNTER_c4.jpg">
+//                         </div>
+//                     </div>
+//                 </div>
+//             `;
+//   });
+// }
 
 function loadCollectionByName(data) {
   for (var productbyname in data) {
@@ -109,7 +110,7 @@ function loadCollectionByName(data) {
       if (index == 0) {
         productContainer.innerHTML += `
                     <div class="product-list">
-                        <div class="product-list-img" style="position: relative;">
+                        <div class="product-list-img ${product.name}" style="position: relative;">
 
                         </div>
                         <div class="product-info-box">
@@ -117,7 +118,7 @@ function loadCollectionByName(data) {
                                 <p class="product-name">${product.name}</p>
                                 <p class="product-price">KRW ${product.price}</p>
                             </div>
-                            <div class="product-info-color hunter-color">
+                            <div class="product-info-color hunter-color ${product.name}-p">
 
                             </div>
                         </div>
@@ -127,6 +128,7 @@ function loadCollectionByName(data) {
 
       const productHunter = document.querySelectorAll(".product-list-img");
       const productInfoColor = document.querySelectorAll(".product-info-color");
+      let num = index + 1;
 
       if (index == 0) {
         productHunter[productHunter.length - 1].innerHTML = ``;
@@ -137,6 +139,11 @@ function loadCollectionByName(data) {
                 </a>
             </div>
             `;
+          
+        productInfoColor[productInfoColor.length - 1].innerHTML += `
+            <p class="other-color" style="margin-right:7px"> C${num}</p>
+        `;
+
       } else {
         // productHunter[productHunter.length - 1].innerHTML = ``;
         productHunter[productHunter.length - 1].innerHTML += `
@@ -147,12 +154,55 @@ function loadCollectionByName(data) {
             </div>
          `;
 
-        let num = index + 1;
+        // let num = index + 1;
         productInfoColor[productInfoColor.length - 1].innerHTML += `
-            <p class="other-color">C${num}</p>
+            <p class="other-color" style="margin-right:7px"> C${num}</p>
         `;
       }
-    });
+
+
+
+
+
+
+    //   const selectColor = document.querySelectorAll(".other-color");
+    //   const changeImg = document.querySelectorAll(".product-hunter");
+
+    //   let imgArray = Array.from(changeImg);
+    //   console.log(imgArray);
+      
+    //   console.log(selectColor);
+    //   console.log(changeImg);
+
+    //   selectColor.forEach((color, i) => {
+    //     color.onmouseover = () => {
+
+    //         changeImg[i].style.display = "block";
+                
+
+    //         let others = imgArray.splice(i, 1);
+
+    //         others.forEach(img => {
+    //             img.style.display = "none";
+    //         });
+            
+    //     }
+        
+    //   });
+
+    // });
+
+
+
+    // $(function () {
+    //     $(".hunter-color > p").mouseover(function () {
+    //       let i = $(this).index();
+      
+    //       $(".product-list-img .product-hunter").hide();
+    //       $(".product-list-img .product-hunter").eq(i).show();
+    //     });
+    //   });
+
   }
 }
 
