@@ -123,6 +123,7 @@ searchButton.onmousedown = () => {
     searchText.classList.remove("search-display")
 }
 
+// session 
 class PrincipalApi {
     static #instance = null;
 

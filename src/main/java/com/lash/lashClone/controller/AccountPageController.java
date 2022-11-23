@@ -1,9 +1,13 @@
 package com.lash.lashClone.controller;
 
+import com.lash.lashClone.domain.Address;
 import com.lash.lashClone.domain.Member;
+import com.lash.lashClone.dto.account.AddressReqDto;
 import com.lash.lashClone.service.AccountService;
 import com.lash.lashClone.service.AccountServiceImpl;
+import com.lash.lashClone.service.auth.PrincipalDetails;
 import org.springframework.lang.Nullable;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -43,7 +47,11 @@ public class AccountPageController {
     }
 
     @GetMapping("/shipping-address-registration")
-    public String loadShippingAddressRegistrationPage(){ return "mypage/shipping_address_registration";}
+    public String loadShippingAddressRegistrationPage(Model model, AddressReqDto addressReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails){
+        model.addAttribute("address", addressReqDto);
+        model.addAttribute("principalmember", principalDetails.getMember());
+        return "mypage/shipping_address_registration";
+    }
 
     @GetMapping("/login")
     public String login(Model model, @RequestParam @Nullable String error) {
