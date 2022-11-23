@@ -13,13 +13,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
-
+    private int address_id;
+    private int member_id;
     private String address_name;
     private String recipient;
     private String land_phone;
     private String mobile_phone;
-    private String Address;
-    private String Address_detail;
+    private String address_number;
+    private String address;
+    private String address_detail;
     private LocalDateTime create_date;
     private LocalDateTime update_date;
 

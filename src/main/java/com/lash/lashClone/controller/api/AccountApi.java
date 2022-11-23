@@ -4,9 +4,12 @@ package com.lash.lashClone.controller.api;
 import com.lash.lashClone.aop.annotation.LogAspect;
 import com.lash.lashClone.aop.annotation.ValidAspect;
 import com.lash.lashClone.dto.CMRespDto;
+import com.lash.lashClone.dto.account.AddressReqDto;
 import com.lash.lashClone.dto.account.RegisterReqDto;
+import com.lash.lashClone.dto.admin.ProductRegistReqDto;
 import com.lash.lashClone.dto.validation.ValidationSequence;
 import com.lash.lashClone.service.AccountService;
+import com.lash.lashClone.service.AddressService;
 import com.lash.lashClone.service.auth.PrincipalDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,14 +19,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-
 @Slf4j
 @RequestMapping("/api/account")
 @RestController
 @RequiredArgsConstructor
 public class AccountApi {
     private final AccountService accountService;
+    private final AddressService addressService;
 
     @LogAspect
     @ValidAspect
@@ -35,11 +37,21 @@ public class AccountApi {
 
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully join", registerReqDto));
     }
+    @PostMapping("/shippingAddressRegistration")
+    public ResponseEntity<?> addAddress(AddressReqDto addressReqDto) throws Exception {
+        return ResponseEntity.created(null)
+                .body(new CMRespDto<>(1, "success", addressService.Addaddress(addressReqDto)));
+
+    }
 
     @GetMapping("/principal/member")
     public ResponseEntity<?> getPrincipalMember(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully get principal", principalDetails == null ? "" : principalDetails));
     }
+//    @GetMapping("/principal/Address")
+//    public ResponseEntity<?> getPrincipalAddress(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+//        return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully get principal", principalDetails == null ? "" : principalDetails));
+//    }
 
 
 }

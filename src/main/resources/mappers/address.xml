@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lash.lashClone.repository.account.AddressRepository">
+    <resultMap id="member" type="com.lash.lashClone.domain.Address">
+        <result property="address_id" column="address_id"></result>
+        <result property="member_id" column="member_id"></result>
+        <result property="address_name" column="address_name"></result>
+        <result property="recipient" column="recipient"></result>
+        <result property="address_number" column="address_number"></result>
+        <result property="address" column="address"></result>
+        <result property="address_detail" column="address_detail"></result>
+        <result property="land_phone" column="land_phone"></result>
+        <result property="mobile_phone" column="mobile_phone"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+    </resultMap>
+    <insert id="save" parameterType="com.lash.lashClone.domain.Address">
+        INSERT into
+            address_mst
+        values(
+            0,
+            0,
+            #{address_name},
+            #{recipient},
+            #{address_number},
+            #{address},
+            #{address_detail},
+            #{land_phone},
+            #{mobile_phone},
+            now(),
+            now()
+        )
+    </insert>
+</mapper>
+<!--    <update id="updateMemberOauth2" parameterType="com.lash.lashClone.domain.Member">-->
+<!--        update-->
+<!--        member_mst-->
+<!--        set-->
+<!--        oauth_username = #{oauth_username},-->
+<!--        provider = #{provider},-->
+<!--        update_date = now()-->
+<!--        where-->
+<!--        member_id = #{member_id}-->
+
+<!--    </update>-->
+<!--    <select id="findUserByUsername" parameterType="String" resultMap="member">-->
+<!--        select-->
+<!--        um.member_id,-->
+<!--        um.username,-->
+<!--        um.oauth_username,-->
+<!--        um.password,-->
+<!--        um.name,-->
+<!--        um.email,-->
+<!--        um.phone,-->
+<!--        um.provider,-->
+<!--        um.role_id,-->
+
+<!--        rm.role,-->
+<!--        rm.role_name,-->
+
+<!--        um.create_date,-->
+<!--        um.update_date-->
+<!--        from-->
+<!--        member_mst um-->
+<!--        left outer join role_mst rm on (rm.role_id = um.role_id)-->
+<!--        where-->
+<!--        username = #{username}-->
+<!--    </select>-->
