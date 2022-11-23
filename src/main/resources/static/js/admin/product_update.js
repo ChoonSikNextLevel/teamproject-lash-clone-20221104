@@ -1,4 +1,5 @@
 let product = JSON.parse(localStorage.getItem("product"));
+localStorage.clear();
 let productId = product.productId;
 
 const productImgInput = document.querySelector("#product-imgs");
@@ -20,7 +21,6 @@ productImgInput.onchange = () => {
   } else {
     addImg();
   }
-  
 };
 
 // 항목별로 등록되어 있는 value 값 불러오기
@@ -96,27 +96,22 @@ function deleteOriginImg(imgArray) {
       loadImg(imgArray);
     };
   });
-
 }
 
-
-
 function imgReader() {
-
   let productImgs = document.getElementById("product-imgs");
   let addFiles = productImgs.files;
 
-  if(!deleteFlag) {
+  if (!deleteFlag) {
     let imgArray = Array.from(addFiles);
     //console.log(imgArray);
 
     addImgFiles = addImgFiles.concat(imgArray);
     console.log(addImgFiles);
   }
-  
 
   inFileUl.innerHTML = ``;
- 
+
   for (let i = 0; i < addFiles.length; i++) {
     const reader = new FileReader();
 
@@ -149,11 +144,10 @@ function deleteImg(imgArray) {
   const dataTransfer = new DataTransfer();
 
   deleteBtns.forEach((deleteBtn, index) => {
-
     deleteBtn.onclick = () => {
       imgArray.splice(index, 1);
 
-      imgArray.forEach((file) => {       
+      imgArray.forEach((file) => {
         dataTransfer.items.add(file);
       });
 
@@ -161,7 +155,6 @@ function deleteImg(imgArray) {
 
       imgReader();
     };
-    
   });
 
   deleteFlag = true;
@@ -196,15 +189,12 @@ function addImg() {
     setTimeout(() => {
       reader.readAsDataURL(addFiles[i]);
     }, i * 100);
-
   }
-
 }
 
 // 수정 후 등록 시 아래 데이터 전송(post)
 
 const updateButton = document.querySelector(".registration-button");
-
 
 updateButton.onclick = () => {
   updateProduct();
@@ -231,13 +221,13 @@ function updateProduct() {
   //   productForm.append("deleteImgFiles",dimg[index]);
   // })
 
-  for(let i = 0; i < deleteImgFiles.length; i++) {
-    productForm.append("deleteImgFiles",deleteImgFiles[i]);
+  for (let i = 0; i < deleteImgFiles.length; i++) {
+    productForm.append("deleteImgFiles", deleteImgFiles[i]);
   }
 
   const dataTransfer = new DataTransfer();
 
-  addImgFiles.forEach((file) => {       
+  addImgFiles.forEach((file) => {
     dataTransfer.items.add(file);
   });
 
@@ -247,11 +237,9 @@ function updateProduct() {
   //   productForm.append("addImgFiles",aimg[index]);
   // })
 
-  for(let i = 0; i < addImgFiles0.length; i++) {
+  for (let i = 0; i < addImgFiles0.length; i++) {
     productForm.append("addImgFiles", addImgFiles0[i]);
   }
-
-
 
   $.ajax({
     async: false,
@@ -271,7 +259,6 @@ function updateProduct() {
       console.log(error);
     },
   });
-
 }
 
 window.onload = () => {

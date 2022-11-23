@@ -102,6 +102,8 @@ function loadProduct(data) {
       pdPrice.innerHTML = `KRW ${product.price}`;
       ex1.innerHTML = `${product.product_features}`;
       ex2.innerHTML = `${product.description}`;
+
+      localStorage.setItem("buy-now-product", JSON.stringify(product));
     } else {
       moreColor.innerHTML += `
 									<a href="/products/product/${product.name}/${product.color_code}"><img src="/image/product/${product.product_imgs[0].img_name}"></a>
@@ -114,4 +116,10 @@ function loadProduct(data) {
 
 window.onload = () => {
   getProductData();
+};
+
+const buyBtn = document.querySelector(".buy-now-button");
+
+buyBtn.onclick = () => {
+  location.href = "/payment";
 };

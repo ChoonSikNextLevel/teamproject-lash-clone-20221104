@@ -13,4 +13,9 @@ public class PaymentPageController {
     public String loadShoppingBasketPage() {
         return "shop_basket/MyShoppingBasket";
     }
+
+    @GetMapping("/payment")
+    public String loadPaymentPage() {
+        return "shop_basket/pay";
+    }
 }
