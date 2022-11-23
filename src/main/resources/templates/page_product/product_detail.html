@@ -205,12 +205,31 @@
 
         // 결제 성공시, db에 주문 정보 보냄
 
+        
+        function getMemberInfo(responseData) {
+
+            $.ajax({
+                async: false,
+                type: "get",
+                url: "",
+                dataType: "json",
+                success: (response) => {
+                    alert("회원 정보 로딩 성공");
+
+                },
+                error: (error) => {
+                    alert("회원 정보 로딩 실패 ㅜㅜ");
+                }
+            });
+        }
+
+
         kbtn.onclick = () => {
             // 함수1 실행됨
             IMP.request_pay({
                 pg: 'kakaopay.TC0ONETIME',   //테스트인경우 kcp.T000
                 pay_method: 'card',
-                merchant_uid: "order_no_0001", //상점에서 생성한 고유 주문번호
+                merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
                 name: '주문명:결제테스트',
                 amount: 1,
                 company: 'lash',//해당 파라미터 설정시 통합결제창에 해당 상호명이 노출됩니다.
