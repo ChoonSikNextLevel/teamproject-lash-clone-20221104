@@ -145,7 +145,7 @@ function loadCollectionByName(data) {
       } else {
         // productHunter[productHunter.length - 1].innerHTML = ``;
         productHunter[productHunter.length - 1].innerHTML += `
-            <div class="product-hunter hunter-c1" style="z-index: 100 - ${index};">
+            <div class="product-hunter hunter-c1" style="z-index: (100 - ${index});">
                 <a href="/products/product/${product.name}/${product.color_code}">
                                  <img src="/image/product/${product.img_name}">
                 </a>
