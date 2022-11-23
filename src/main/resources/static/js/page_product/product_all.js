@@ -161,10 +161,6 @@ function loadCollectionByName(data) {
       }
 
 
-
-
-
-
     //   const selectColor = document.querySelectorAll(".other-color");
     //   const changeImg = document.querySelectorAll(".product-hunter");
 
@@ -190,7 +186,7 @@ function loadCollectionByName(data) {
         
     //   });
 
-    // });
+    });
 
 
 
