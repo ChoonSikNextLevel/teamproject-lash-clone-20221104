@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +25,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
+
 <body>
 
     <div class="overlay"></div>
@@ -92,11 +94,10 @@
                         </form>
                     </div>
                     <button class="site-header-button">
-                        <a href="/account/mypage">My page</a> 
+                        <a href="/account/mypage">My page</a>
                     </button>
                     <button class="site-header-button"><a href="/account/login">Log in</a></button>
-                    <button class="site-header-button basket-button"><a
-                            href="/shopping-basket">My Shopping Basket</a>
+                    <button class="site-header-button basket-button"><a href="/shopping-basket">My Shopping Basket</a>
                         <span class="basket-count">0</span>
                     </button>
                 </div>
@@ -114,9 +115,9 @@
             <li><a href="">상품등록</a></li>
             <li><a href="">상품관리</a></li>
             <li><a href="">주문배송</a></li>
-        </ul>     
-        
-       <div class="main-content">
+        </ul>
+
+        <div class="main-content">
             <div class="orders">
                 <ul class="menu">
                     <li class="order-all selected">
@@ -128,7 +129,7 @@
                 </ul>
             </div>
 
-            <form  action="http://127.0.0.1:5500/templates/admin/order_management.html?" method="GET">
+            <form action="" method="GET">
                 <div class="order-history-head order-search-control">
 
                     <fieldset class="date-select-box">
@@ -143,7 +144,7 @@
                         </div>
 
                         <span class="period">
-                            <a href="#none" class="btnNormal1" days="00" >
+                            <a href="#none" class="btnNormal1" days="00">
                                 <img src="/static/images/btn_img/btn_date1.gif" alt="오늘">
                             </a>
                             <a href="#none" class="btnNormal2" days="07">
@@ -160,12 +161,15 @@
                             </a>
                         </span>
 
-                        <input id="history_start_date" name="history-start-date" class="history-date date-picker" readonly="readonly" size="10" value="" type="text">
-                         ~ 
-                        <input id="history_end_date" name="history-end-date" class="history-date date-picker" readonly="readonly" size="10" value="" type="text">
-                        
+                        <input id="history_start_date" name="history-start-date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
+                        ~
+                        <input id="history_end_date" name="history-end-date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
 
-                        <input alt="조회" id="order-search-btn" type="image" src="/static/images/lash_btn/btn_search.gif" onclick="this.form.submit(); return false">
+
+                        <input alt="조회" id="order-search-btn" type="image" src="/static/images/lash_btn/btn_search.gif"
+                            onclick="this.form.submit(); return false">
                     </fieldset>
 
                     <ul>
@@ -182,7 +186,7 @@
                     <h3>주문 및 배송 관리</h3>
                 </div>
                 <table border="1" summary>
-                    
+
                     <colgroup>
                         <col style="width:100px;">
                         <col style="width:200px;">
@@ -271,14 +275,15 @@
                         <a href="?page=1" class="this">1</a>
                     </li> -->
                 </ol>
-                
+
                 <a href="#" class="next" id="next">next</a>
                 <a href="#" class="last">last</a>
             </div>
         </div>
     </div>
-    
+
     <script src="/static/js/admin/order_management.js"></script>
     <script src="/static/js/header.js"></script>
 </body>
+
 </html>
