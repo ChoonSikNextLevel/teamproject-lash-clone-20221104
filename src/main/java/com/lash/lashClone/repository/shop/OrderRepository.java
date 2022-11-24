@@ -3,9 +3,11 @@ package com.lash.lashClone.repository.shop;
 import com.lash.lashClone.domain.IMPInfo;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface OrderRepository {
 
-        public IMPInfo getOrderUser(String username);
+        public List<IMPInfo> getOrderUser(String username);
 
 }

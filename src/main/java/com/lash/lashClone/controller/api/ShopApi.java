@@ -1,6 +1,8 @@
 package com.lash.lashClone.controller.api;
 
 import com.lash.lashClone.dto.CMRespDto;
+import com.lash.lashClone.service.OrderService;
+import com.lash.lashClone.service.OrderServiceImpl;
 import com.lash.lashClone.service.ShopServiceImpl;
 import com.lash.lashClone.service.auth.PrincipalDetails;
 import lombok.RequiredArgsConstructor;
@@ -11,12 +13,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
 public class ShopApi {
 
     private final ShopServiceImpl shopService;
+    private final OrderServiceImpl orderService;
 
     @GetMapping("/collection/{category}")
     public ResponseEntity<?> loadProductCollection(@PathVariable String category) throws Exception {
@@ -32,8 +37,10 @@ public class ShopApi {
     }
 
     @GetMapping("/order/member/info")
-    public ResponseEntity<?> loadOrderMemberInfo(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+    public ResponseEntity<?> loadOrderMemberInfo(Principal principalDetails) {
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "user information", null));
+        System.out.println("이름:" + principalDetails.getName());
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "user information", orderService.getOrderUser(principalDetails.getName())));
     }
 }

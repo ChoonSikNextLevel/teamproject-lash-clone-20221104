@@ -1,7 +1,6 @@
 package com.lash.lashClone.domain;
 
 import com.lash.lashClone.dto.shop.IMPInfoRespDto;
-import com.lash.lashClone.dto.shop.ProductCollectionRespDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
