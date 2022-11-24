@@ -120,6 +120,7 @@ function buynowOrder() {
 window.onload = () => {
     if (localStorage.getItem("buy-now-product")) {
         buynowOrder();
+        localStorage.clear();
     } else {
     
         // 쇼핑 카트에서 결제 페이지로 넘어왔을 때
