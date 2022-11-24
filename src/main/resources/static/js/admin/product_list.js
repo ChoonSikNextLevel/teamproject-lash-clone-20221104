@@ -9,7 +9,7 @@ function productList() {
     type: "get",
     url: "/api/admin/products",
     data: param,
-    dataType: "json",
+    dataType: "JSON.stringify(responseData[])",
     success: (response) => {
       responseData = response.data;
       console.log(responseData);
@@ -30,7 +30,7 @@ function loadList(responseData) {
   const loadBody = document.querySelector(".center");
 
   loadBody.innerHTML = "";
-
+  console.log(responseData)
   responseData.forEach((product, index) => {
     const productImgsArray = product.productImgs;
     console.log(product.productImgs);

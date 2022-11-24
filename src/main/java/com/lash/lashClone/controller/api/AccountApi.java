@@ -41,6 +41,11 @@ public class AccountApi {
     public ResponseEntity<?> addAddress(AddressReqDto addressReqDto) throws Exception {
         return ResponseEntity.created(null)
                 .body(new CMRespDto<>(1, "success", addressService.Addaddress(addressReqDto)));
+    }
+    @GetMapping("/shippingAddress")
+    public ResponseEntity<?> addressList(int page) throws Exception {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addrssList(page)));
 
     }
 
