@@ -2,8 +2,10 @@ package com.lash.lashClone.controller.api;
 
 import com.lash.lashClone.dto.CMRespDto;
 import com.lash.lashClone.service.ShopServiceImpl;
+import com.lash.lashClone.service.auth.PrincipalDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,5 +29,11 @@ public class ShopApi {
     public ResponseEntity<?> loadProductDetail(@PathVariable String name, @PathVariable String colorCode) throws Exception {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "get product", shopService.getProductDetail(name, colorCode)));
+    }
+
+    @GetMapping("/order/member/info")
+    public ResponseEntity<?> loadOrderMemberInfo(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "user information", null));
     }
 }
