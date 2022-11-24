@@ -110,7 +110,11 @@ img {
   align-items: center;
 }
 
-.product-info-color img {
+.product-info-color p {
+  cursor: pointer;
+}
+
+/* .product-info-color img {
   width: 5%;
   max-width: 13px;
   min-width: 5px;
@@ -118,4 +122,8 @@ img {
   margin: 0 5px 0 1px;
   border: 1px solid rgb(233, 233, 233);
   border-radius: 50%;
+} */
+
+.invisible {
+  display: block;
 }
