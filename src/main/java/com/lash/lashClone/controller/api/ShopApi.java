@@ -37,10 +37,10 @@ public class ShopApi {
     }
 
     @GetMapping("/order/member/info")
-    public ResponseEntity<?> loadOrderMemberInfo(Principal principalDetails) {
+    public ResponseEntity<?> loadOrderMemberInfo(@AuthenticationPrincipal PrincipalDetails principalDetails) {
 
-        System.out.println("이름:" + principalDetails.getName());
+        System.out.println("아이디 : " + principalDetails.getMember().getUsername());
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "user information", orderService.getOrderUser(principalDetails.getName())));
+        return ResponseEntity.ok(new CMRespDto<>(1, "user information", null));
     }
 }
