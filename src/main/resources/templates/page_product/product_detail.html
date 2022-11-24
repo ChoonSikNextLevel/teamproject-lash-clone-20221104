@@ -208,14 +208,17 @@
         
         function getMemberInfo(responseData) {
 
+            var responseData = null;
+
             $.ajax({
                 async: false,
                 type: "get",
                 url: "",
+                // data : (로그인이 되어 있으면 컨트롤러에서 principal 객체를 파라미터로 받아올 수 있음)
                 dataType: "json",
-                success: (response) => {
+                success: (response) => { // response data 에 principal 객체에서 필요한 정보를 담아 서버에서 보내주게 됨
                     alert("회원 정보 로딩 성공");
-
+                    responseData = response.data;
                 },
                 error: (error) => {
                     alert("회원 정보 로딩 실패 ㅜㅜ");

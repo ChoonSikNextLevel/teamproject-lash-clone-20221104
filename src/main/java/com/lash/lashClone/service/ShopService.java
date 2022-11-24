@@ -10,6 +10,5 @@ public interface ShopService {
     public List<ProductCollection> getProductCollection(String category) throws Exception;
 
     public List<ProductDetail> getProductDetail(String name, String colorCode) throws Exception;
-    public List<ProductDetail> otherColor(List<ProductDetail> productDetailList, String colorCode) throws Exception;
 
 }
