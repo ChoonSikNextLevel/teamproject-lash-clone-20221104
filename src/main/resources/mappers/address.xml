@@ -33,6 +33,26 @@
             now()
         )
     </insert>
+    <insert id="addressList" parameterType="java.util.HashMap">
+        SELECT
+        SELECT
+        pm.address_id,
+        pm.member_id,
+        pm.address_name,
+        pm.recipient,
+        pm.land_phone,
+        pm.mobile_phone,
+        pm.address_number,
+        pm.address,
+        pim.address_detail
+        FROM
+        address_mst pm
+        LEFT OUTER JOIN address_name pim ON (pim.address_id = pm.address_id)
+        FROM
+        address_mst
+        where
+        1 = 1) pc ON (1 = 1);
+    </insert>
 </mapper>
 <!--    <update id="updateMemberOauth2" parameterType="com.lash.lashClone.domain.Member">-->
 <!--        update-->

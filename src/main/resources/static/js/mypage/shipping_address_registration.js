@@ -29,7 +29,7 @@ function addAddress(addInfo) {
         dataType: "json",
         success: (response) => {
           alert("배송지 등록 완료");
-          location.reload();
+          location.replace("/account/shipping-address");
         },
         error: (error) => {
           alert("배송지 등록 실패");
@@ -76,5 +76,3 @@ function addAddress(addInfo) {
 //         return this.#instance;
 //     }
 // }
-
-
