@@ -1,7 +1,7 @@
 package com.lash.lashClone.domain;
 
 
-import com.lash.lashClone.dto.shop.ProductCollectionRespDto;
+//import com.lash.lashClone.dto.shop.ProductCollectionRespDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,19 +19,19 @@ public class ProductCollection {
     private String img_name;
 //    private int product_total_count;
 
-    public ProductCollectionRespDto collectionRespDto() {
-        return  ProductCollectionRespDto.builder()
-                .productId(product_id)
-                .category(category)
-                .name(name)
-                .colorCode(color_code)
-                .color(color)
-                .price(price)
-                .imgName(img_name)
-//                .productTotalCount(product_total_count)
-                .build();
-
-    }
+//    public ProductCollectionRespDto collectionRespDto() {
+//        return  ProductCollectionRespDto.builder()
+//                .productId(product_id)
+//                .category(category)
+//                .name(name)
+//                .colorCode(color_code)
+//                .color(color)
+//                .price(price)
+//                .imgName(img_name)
+////                .productTotalCount(product_total_count)
+//                .build();
+//
+//    }
 
 
 }

@@ -25,7 +25,7 @@ function getCollection() {
     url: "/api/collection/" + category,
     dataType: "json",
     success: (response) => {
-      alert("COLLECTION 불러오기 성공");
+      // alert("COLLECTION 불러오기 성공");
       console.log("응답 : ", response.data);
       // loadCollection(response.data);
 
@@ -145,7 +145,7 @@ function loadCollectionByName(data) {
       } else {
         // productHunter[productHunter.length - 1].innerHTML = ``;
         productHunter[productHunter.length - 1].innerHTML += `
-            <div class="product-hunter hunter-c1" style="z-index: (100 - ${index});">
+            <div class="product-hunter hunter-c1" style="display: none; z-index: 100;">
                 <a href="/products/product/${product.name}/${product.color_code}">
                                  <img src="/image/product/${product.img_name}">
                 </a>
@@ -158,31 +158,21 @@ function loadCollectionByName(data) {
         `;
       }
 
-      //   const selectColor = document.querySelectorAll(".other-color");
-      //   const changeImg = document.querySelectorAll(".product-hunter");
+        const selectColor = document.querySelectorAll(".other-color");
+        const imgList = document.querySelectorAll(".product-hunter");
 
-      //   let imgArray = Array.from(changeImg);
-      //   console.log(imgArray);
+        selectColor.forEach((color, index) => {
+          color.onclick = () => {
+            imgList[index].classList.add("img-invisible");
+          
+          
+            // forEach(img => {
+            //   img.classList.add("img-invisible");
+            // });
+          }
+        });
 
-      //   console.log(selectColor);
-      //   console.log(changeImg);
-
-      //   selectColor.forEach((color, i) => {
-      //     color.onmouseover = () => {
-
-      //         changeImg[i].style.display = "block";
-
-      //         let others = imgArray.splice(i, 1);
-
-      //         others.forEach(img => {
-      //             img.style.display = "none";
-      //         });
-
-      //     }
-
-      //   });
-
-      // });
+    
 
       // $(function () {
       //     $(".hunter-color > p").mouseover(function () {

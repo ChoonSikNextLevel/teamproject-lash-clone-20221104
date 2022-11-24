@@ -61,27 +61,10 @@ img {
   object-fit: cover;
 }
 
-.product-hunter {
+/* .product-hunter {
   display: none;
-}
-
-/*
-.hunter-c1 {
-    z-index: 400;
-    display: block;
-}
-.hunter-c2 {
-    z-index: 300;
-
-}
-.hunter-c3 {
-    z-index: 200;
-
-}
-.hunter-c4 {
-    z-index: 100;
-
 } */
+
 
 .product-info-box {
   width: 98%;
@@ -124,6 +107,7 @@ img {
   border-radius: 50%;
 } */
 
-.invisible {
-  display: block;
+.img-invisible {
+  display: none;
 }
+

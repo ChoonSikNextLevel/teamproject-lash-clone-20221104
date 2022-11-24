@@ -87,7 +87,7 @@ function deleteProduct() {
 
   deleteButton.forEach((deleteBtn, index) => {
     deleteBtn.onclick = () => {
-      alert("삭제버튼 클릭");
+      // alert("삭제버튼 클릭");
 
       localStorage.setItem("product", JSON.stringify(responseData[index]));
             
@@ -98,7 +98,7 @@ function deleteProduct() {
       const productId = product.productId;
       console.log("번호만 : ", productId);  // 등록된 순번 가져오기
 
-      if (confirm("삭제?")) {
+      if (confirm("삭제 하시겠습니까?")) {
 
         $.ajax({
           async: false,
@@ -106,18 +106,15 @@ function deleteProduct() {
           url: "/api/admin/product/" + productId,
           dataType: "json",
           success: (response) => {
-              alert("상품 삭제 했다!");
+              alert("상품 삭제 완료");
               location.reload();
           },
           error: (error) => {
-              alert("상품 삭제 못했다!");
+              alert("상품 삭제 실패");
               console.log(error);
           }
         });
       }
-
-
-
     }
   });
 }
