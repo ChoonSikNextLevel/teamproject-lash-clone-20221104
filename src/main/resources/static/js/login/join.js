@@ -40,7 +40,7 @@ joinButtons.onclick =() => {
         },
         error: (error) => {
             console.log(error);
-            // validationError(error.responseJSON.data)
+            validationError(error.responseJSON.data)
         }
     });
 }
@@ -96,3 +96,19 @@ checkAll.addEventListener('click', (e) => {
 
 }); 
 
+function validationError(error) {
+    const accountErrors = document.querySelector(".account-errors");
+    const accountErrorList = accountErrors.querySelector("ul");
+
+    const errorValues = Object.values(error);
+
+    accountErrorList.innerHTML = "";
+
+    errorValues.forEach((value) => {
+        accountErrorList.innerHTML += `
+            <li>${value}</li>
+        `;
+    });
+
+    accountErrors.classList.remove("errors-invisible");
+}

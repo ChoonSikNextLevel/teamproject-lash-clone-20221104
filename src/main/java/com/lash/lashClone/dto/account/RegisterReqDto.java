@@ -17,34 +17,34 @@ public class RegisterReqDto {
     @NotBlank(message= "아이디를 비워 둘 수 없습니다.",groups = ValidationGroups.NotBlankGroup.class )
     private String username;
 
-    @NotBlank(message= "비번를 비워 둘 수 없습니다.", groups = ValidationGroups.NotBlankGroup.class)
-    @Size(min=8, max=16, message = "8~16자 사이", groups = ValidationGroups.SizeCheckGroup.class)
+    @NotBlank(message= "비밀번호를 비워 둘 수 없습니다.", groups = ValidationGroups.NotBlankGroup.class)
+    @Size(min=8, max=16, message = "비밀번호는 8~16자만 가능합니다.", groups = ValidationGroups.SizeCheckGroup.class)
     @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[~!@#$%^&*_])[a-zA-Z\\d-~!@#$%^&*_]*$",
                 message = "비밀번호는 숫자, 영문, 특수기호를 하나 이상 포함하여 작성해야합니다",
                 groups = ValidationGroups.PatternCheckGroup.class)
     private String password;
 
-    @NotBlank(message= "이름를 비워 둘 수 없습니다.",groups = ValidationGroups.NotBlankGroup.class)
-    @Size(min=2,max=3, message = "2~3자 사이", groups = ValidationGroups.SizeCheckGroup.class)
-    @Pattern(regexp = "^([가-힇])*$", message = "한글만 가능합니다.",groups = ValidationGroups.PatternCheckGroup.class)
+    @NotBlank(message= "이름을 비워 둘 수 없습니다.",groups = ValidationGroups.NotBlankGroup.class)
+    @Size(min=2,max=3, message = "이름은 2~3자만 가능합니다.", groups = ValidationGroups.SizeCheckGroup.class)
+    @Pattern(regexp = "^([가-힇])*$", message = "이름은 한글만 가능합니다.",groups = ValidationGroups.PatternCheckGroup.class)
     private String name;
 
-    @NotBlank(message= "첫번를 비워 둘 수 없습니다.",groups = ValidationGroups.NotBlankGroup.class)
-    @Size(min=2, max=4, message = "4자리 만", groups = ValidationGroups.SizeCheckGroup.class)
+    @NotBlank(message= "중간 4자리를 비워 둘 수 없습니다.",groups = ValidationGroups.NotBlankGroup.class)
+    @Size(min=2, max=4, message = "중간 번호는 4자리만 가능합니다.", groups = ValidationGroups.SizeCheckGroup.class)
     @Pattern(regexp = "^([0-9])*$",
-            message = "첫번째 번호숫자만 4자리 가능",
+            message = "중간 번호는 숫자만 가능합니다.",
             groups = ValidationGroups.PatternCheckGroup.class)
     private String firstPhone;
 
-    @NotBlank(message= "뒷번를 비워 둘 수 없습니다.",groups = ValidationGroups.NotBlankGroup.class)
-    @Size(min=2, max=4, message = "4자리 만", groups = ValidationGroups.SizeCheckGroup.class)
+    @NotBlank(message= "마지막 4자리를 비워 둘 수 없습니다.",groups = ValidationGroups.NotBlankGroup.class)
+    @Size(min=2, max=4, message = "마지막 번호는 4자리만 가능합니다.", groups = ValidationGroups.SizeCheckGroup.class)
     @Pattern(regexp = "^([0-9])*$",
-            message = "마지막 번호 숫자만 4자리 가능",
+            message = "마지막 번호는 숫자만 가능합니다.",
             groups = ValidationGroups.PatternCheckGroup.class)
     private String lastPhone;
 
     @Email
-    @NotBlank(message= "잘못를 비워 둘 수 없습니다.")
+    @NotBlank(message= "Email를 비워 둘 수 없습니다.")
     private String email;
 
     public Member toUserEntity() {
