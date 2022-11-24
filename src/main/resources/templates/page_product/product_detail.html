@@ -17,6 +17,8 @@
         type="text/css" />
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>  -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
     <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/page_main/header.css">
@@ -50,7 +52,8 @@
                                         <img src="/static/images/Logo_img/cateacetate.jpg"
                                             class="acetate-image image-display" alt="">
                                     </a>
-                                    <a href="/products/collection/combination"><span class="combination-button">콤비네이션</span>
+                                    <a href="/products/collection/combination"><span
+                                            class="combination-button">콤비네이션</span>
                                         <img src="/static/images/Logo_img/cateCombination.jpg"
                                             class="combination-image image-display" alt="">
                                     </a>
@@ -64,7 +67,8 @@
                                         <img src="/static/images/Logo_img/cateVintage.jpg"
                                             class="vintage-image image-display" alt="">
                                     </a>
-                                    <a href="/products/collection/sunglasses"><span class="sunglasses-button">선글라스</span>
+                                    <a href="/products/collection/sunglasses"><span
+                                            class="sunglasses-button">선글라스</span>
                                         <img src="/static/images/Logo_img/cateSunglasses.jpg"
                                             class="sunglasses-image image-display" alt="">
                                     </a>
@@ -99,8 +103,7 @@
                     </button>
 
                     <button class="site-header-button account-button"></button>
-                    <button class="site-header-button basket-button"><a
-                            href="/shopping-basket">My Shopping Basket</a>
+                    <button class="site-header-button basket-button"><a href="/shopping-basket">My Shopping Basket</a>
 
                         <span class="basket-count">0</span>
                     </button>
@@ -132,7 +135,7 @@
                 <div style="width: 100%; height:1.5vh;"></div>
                 <div class="btn-area1">
                     <button type="button" class="add-button">ADD TO BAG</button>
-                    <button type="button" class="npay-button">N Pay 구매</button>
+                    <button type="button" class="npay-button"><img src="/static/images/lash_btn/payment_icon_yellow_medium.png"></button>
                 </div>
 
                 <button type="button" class="buy-now-button">BUY NOW</button>
@@ -188,6 +191,47 @@
 
     <script src="/static/js/header.js"></script>
     <script src="/static/js/page_product/product_detail.js"></script>
+
+    <script>
+        const kbtn = document.querySelector(".npay-button");
+        var IMP = window.IMP;
+        IMP.init("imp75586747");
+
+        // 함수1. ajax 로 로그인한 유저 정보를 가져온다 . 
+        // 근데 배송지 없으면 주문 할 수 없음 . 
+        // 정보 성공적으로 가져오면 IMP.request_pay() 실행되도록 //
+
+        // 결제가 실행되면 , 주문번호를 데이터베이스에서 가져와야함. or 날짜 + 고유한 주문번호를 생성해주기
+
+        // 결제 성공시, db에 주문 정보 보냄
+
+        kbtn.onclick = () => {
+            // 함수1 실행됨
+            IMP.request_pay({
+                pg: 'kakaopay.TC0ONETIME',   //테스트인경우 kcp.T000
+                pay_method: 'card',
+                merchant_uid: "order_no_0001", //상점에서 생성한 고유 주문번호
+                name: '주문명:결제테스트',
+                amount: 1,
+                company: 'lash',//해당 파라미터 설정시 통합결제창에 해당 상호명이 노출됩니다.
+                buyer_email: 'address002@naver.com',
+                buyer_name: '나갱',
+                buyer_tel: '010-9044-2249',
+                buyer_addr: '서울특별시 강남구 삼성동',
+                buyer_postcode: '123-456',
+                language: 'ko', // en 설정시 영문으로 출력되면 해당 파라미터 생략시 한국어 default
+                m_redirect_url: '{모바일에서 결제 완료 후 리디렉션 될 URL}'
+            }, function (rsp) { // callback 로직
+                if (rsp.success) {
+                    alert("결제 성공!");
+                } else {
+                    alert("결제 실패!");
+                }
+            });
+        }
+
+
+    </script>
 </body>
 
 </html>

@@ -12,7 +12,6 @@
 //   });
 // });
 
-
 //=========== collection 불러오기 =============//
 
 const uri = location.href;
@@ -73,7 +72,7 @@ const productContainer = document.querySelector(".product-container");
 //                 <div class="product-list">
 //                     <div class="product-list-img">
 //                         <div class="product-hunter hunter-c1">
-//                             <a href="/products/product/${product.name}/${product.color_code}">  
+//                             <a href="/products/product/${product.name}/${product.color_code}">
 //                                 <img src="/image/product/${product.img_name}">
 //                             </a>
 //                         </div>
@@ -139,11 +138,10 @@ function loadCollectionByName(data) {
                 </a>
             </div>
             `;
-          
+
         productInfoColor[productInfoColor.length - 1].innerHTML += `
             <p class="other-color" style="margin-right:7px"> C${num}</p>
         `;
-
       } else {
         // productHunter[productHunter.length - 1].innerHTML = ``;
         productHunter[productHunter.length - 1].innerHTML += `
@@ -160,45 +158,41 @@ function loadCollectionByName(data) {
         `;
       }
 
+      //   const selectColor = document.querySelectorAll(".other-color");
+      //   const changeImg = document.querySelectorAll(".product-hunter");
 
-    //   const selectColor = document.querySelectorAll(".other-color");
-    //   const changeImg = document.querySelectorAll(".product-hunter");
+      //   let imgArray = Array.from(changeImg);
+      //   console.log(imgArray);
 
-    //   let imgArray = Array.from(changeImg);
-    //   console.log(imgArray);
-      
-    //   console.log(selectColor);
-    //   console.log(changeImg);
+      //   console.log(selectColor);
+      //   console.log(changeImg);
 
-    //   selectColor.forEach((color, i) => {
-    //     color.onmouseover = () => {
+      //   selectColor.forEach((color, i) => {
+      //     color.onmouseover = () => {
 
-    //         changeImg[i].style.display = "block";
-                
+      //         changeImg[i].style.display = "block";
 
-    //         let others = imgArray.splice(i, 1);
+      //         let others = imgArray.splice(i, 1);
 
-    //         others.forEach(img => {
-    //             img.style.display = "none";
-    //         });
-            
-    //     }
-        
-    //   });
+      //         others.forEach(img => {
+      //             img.style.display = "none";
+      //         });
 
+      //     }
+
+      //   });
+
+      // });
+
+      // $(function () {
+      //     $(".hunter-color > p").mouseover(function () {
+      //       let i = $(this).index();
+
+      //       $(".product-list-img .product-hunter").hide();
+      //       $(".product-list-img .product-hunter").eq(i).show();
+      //     });
+      //   });
     });
-
-
-
-    // $(function () {
-    //     $(".hunter-color > p").mouseover(function () {
-    //       let i = $(this).index();
-      
-    //       $(".product-list-img .product-hunter").hide();
-    //       $(".product-list-img .product-hunter").eq(i).show();
-    //     });
-    //   });
-
   }
 }
 

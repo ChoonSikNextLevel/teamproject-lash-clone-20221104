@@ -25,4 +25,9 @@ public class AdminPageController {
 
     }
 
+    @GetMapping("/order/managerpage")
+    public String orderManagerPage() {
+        return "admin/order_management";
+    }
+
 }

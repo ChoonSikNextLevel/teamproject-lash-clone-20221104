@@ -132,8 +132,8 @@ html {
 
     text-align: center;
 
-    background-color: #00c73c;
-    border: 1px solid #00bd39;
+    background-color: #FFEB00;
+    border: 1px solid #FFEB00;
     background-position: 50% -35px;
     color: white;
     font-weight: 500;
@@ -141,6 +141,11 @@ html {
     cursor: pointer;
 }
 
+.npay-button > img {
+    height: 40%; 
+    vertical-align: -80%; 
+    border: none;
+}
 
 .buy-now-button {
     width: 100%;
