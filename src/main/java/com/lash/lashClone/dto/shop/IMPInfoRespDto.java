@@ -10,6 +10,7 @@ public class IMPInfoRespDto {
     private int memberId;
     private String email;
     private String name;
+    private String phone;
     private String address;
     private String addressNumber; // 우편번호
 
