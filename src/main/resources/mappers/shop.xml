@@ -73,7 +73,14 @@
                             from
                                 cart_mst cm
                             where
-                                cm.member_id = #{username}
+                                cm.member_id = (
+                                                SELECT
+                                                    mm.member_id
+                                                FROM
+                                                    member_mst mm
+                                                WHERE
+                                                    mm.username = #{username}
+                                                )
                             ),
                             (
                             select
@@ -102,7 +109,14 @@
                         from
                             cart_mst cm
                         where
-                            cm.member_id = #{username}
+                            cm.member_id = (
+                                            SELECT
+                                                mm.member_id
+                                            FROM
+                                                member_mst mm
+                                            WHERE
+                                                mm.username = #{username}
+                                            )
                         and
                             product_id = (
                                             select
