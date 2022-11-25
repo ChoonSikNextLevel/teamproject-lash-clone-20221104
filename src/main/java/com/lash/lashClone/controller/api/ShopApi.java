@@ -8,10 +8,7 @@ import com.lash.lashClone.service.auth.PrincipalDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -37,10 +34,19 @@ public class ShopApi {
     }
 
     @GetMapping("/order/member/info")
-    public ResponseEntity<?> loadOrderMemberInfo(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+    public ResponseEntity<?> loadOrderMemberInfo(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception{
 
         System.out.println("아이디 : " + principalDetails.getMember().getUsername());
 
         return ResponseEntity.ok(new CMRespDto<>(1, "user information", null));
+    }
+
+    @PostMapping("/shoppingBasket")
+    public ResponseEntity<?> loadCartPage(@AuthenticationPrincipal PrincipalDetails principalDetails, String name, String colorCode) throws Exception {
+
+        String username = principalDetails.getMember().getUsername();
+
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "success",shopService.addToBag(username, name, colorCode)));
     }
 }
