@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -16,13 +17,11 @@ public class OrderServiceImpl implements OrderService{
     private final OrderRepository orderRepository;
 
     @Override
-    public List<IMPInfoRespDto> getOrderUser(String username) {
-        List<IMPInfoRespDto> list = new ArrayList<>();
+    public Map<String, Object> getOrderUser(String username) {
 
-        orderRepository.getOrderUser(username).forEach(i ->
-                list.add(i.toImpInfoRespDto()));
+        System.out.println(orderRepository.getOrderUser(username));
 
-        return list;
+        return orderRepository.getOrderUser(username);
     }
 
 
