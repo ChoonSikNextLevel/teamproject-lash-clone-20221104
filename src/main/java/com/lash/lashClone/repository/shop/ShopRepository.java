@@ -13,4 +13,8 @@ public interface ShopRepository {
     public List<ProductCollection> getProductCollection(String category) throws Exception;
 
     public List<ProductDetail> getProduct(String name) throws Exception;
+
+    public int addToBag(Map<String, String> map) throws Exception;
+
+    public int updateCount(Map<String, String> map) throws  Exception;
 }

@@ -63,5 +63,56 @@
             pm.name = #{name}
     </select>
 
+    <insert id="addToBag" parameterType="hashmap">
+        insert
+            into cart_items
+                values (
+                            (
+                            select
+                                cm.cart_id
+                            from
+                                cart_mst cm
+                            where
+                                cm.member_id = #{username}
+                            ),
+                            (
+                            select
+                                pm.product_id
+                            from
+                                product_mst pm
+                            where
+                                pm.name = #{name}
+                            and
+                                pm.color_code = #{colorCode}
+                            ),
+                            1
+                        );
 
+    </insert>
+
+    <update id="updateCount" parameterType="hashmap">
+        update
+            cart_items
+        set
+            product_count = product_count + 1
+        where
+            cart_id = (
+                        select
+                            cm.cart_id
+                        from
+                            cart_mst cm
+                        where
+                            cm.member_id = #{username}
+                        and
+                            product_id = (
+                                            select
+                                                pm.product_id
+                                            from
+                                                product_mst pm
+                                            where
+                                                pm.name = #{name}
+                                            and
+                                                pm.color_code = #{colorCode}
+                        );
+    </update>
 </mapper>

@@ -123,3 +123,27 @@ const buyBtn = document.querySelector(".buy-now-button");
 buyBtn.onclick = () => {
   location.href = "/payment";
 };
+
+
+
+const addButton = document.querySelector(".add-button");
+
+addButton.onclick = () => {
+
+  $.ajax({
+    async: false,
+    type: "post",
+    url: "/api/shoppingBasket",
+    data: productInfo,
+    dataType: "json",
+    success: (response) => {
+      console.log(response.data);
+    },
+    error: (error) => {
+      console.log(error);
+    }
+  })
+
+
+}
+
