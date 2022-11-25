@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.*;
 // login, join
 
 
-@RequestMapping("/account")
+@RequestMapping("/account/mypage")
 @Controller
 public class AccountPageController {
 
 
-    @GetMapping("/mypage")
+    @GetMapping("")
     public String loadMyPage() {
         return "mypage/myshop";
     }
@@ -36,17 +36,17 @@ public class AccountPageController {
         return "mypage/order";
     }
 
-    @GetMapping("/user-info")
+    @GetMapping("/user")
     public String loadUserInfoPage() {
         return "mypage/user_info_editor";
     }
 
-    @GetMapping("/shipping-address")
+    @GetMapping("/address")
     public String loadShippingAddressPage() {
         return "mypage/shipping_address_book";
     }
 
-    @GetMapping("/shipping-address-registration")
+    @GetMapping("/address/registration")
     public String loadShippingAddressRegistrationPage(Model model, AddressReqDto addressReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails){
         model.addAttribute("address", addressReqDto);
         model.addAttribute("principalmember", principalDetails.getMember());

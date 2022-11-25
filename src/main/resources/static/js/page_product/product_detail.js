@@ -68,7 +68,6 @@ function getProductData() {
     url: "/api/product/" + productInfo.name + "/" + productInfo.colorCode,
     dataType: "json",
     success: (response) => {
-      alert("성공");
       console.log(response.data);
       loadProduct(response.data);
     },
@@ -87,7 +86,6 @@ const moreColor = document.querySelector(".more-color");
 
 function loadProduct(data) {
   data.forEach((product) => {
-    console.log("실행되고 있나");
     console.log(product);
 
     if (product.color_code == productInfo.colorCode) {
