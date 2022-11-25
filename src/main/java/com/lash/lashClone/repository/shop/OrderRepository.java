@@ -1,13 +1,12 @@
 package com.lash.lashClone.repository.shop;
 
-import com.lash.lashClone.domain.IMPInfo;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface OrderRepository {
 
-        public List<IMPInfo> getOrderUser(String username);
+        public Map<String, Object> getOrderUser(String username);
 
 }

@@ -2,14 +2,13 @@ const param = {
   page: 1,
 };
 
-
 function productList() {
   $.ajax({
     async: false,
     type: "get",
     url: "/api/admin/products",
     data: param,
-    dataType: "JSON.stringify(responseData[])",
+    dataType: "json",
     success: (response) => {
       responseData = response.data;
       console.log(responseData);
@@ -25,12 +24,11 @@ function productList() {
   });
 }
 
-
 function loadList(responseData) {
   const loadBody = document.querySelector(".center");
 
   loadBody.innerHTML = "";
-  console.log(responseData)
+  console.log(responseData);
   responseData.forEach((product, index) => {
     const productImgsArray = product.productImgs;
     console.log(product.productImgs);
@@ -79,10 +77,8 @@ function setListValues() {
   });
 }
 
-
 // 제품 삭제 기능
 function deleteProduct() {
-
   const deleteButton = document.querySelectorAll(".delete-button");
 
   deleteButton.forEach((deleteBtn, index) => {
@@ -90,32 +86,31 @@ function deleteProduct() {
       // alert("삭제버튼 클릭");
 
       localStorage.setItem("product", JSON.stringify(responseData[index]));
-            
+
       // localStorage로 저장된 배열 중 productId만 들고오기
       const product = JSON.parse(localStorage.getItem("product"));
-      console.log("전체 : ", product);  // 제품 정보 배열 전체
+      console.log("전체 : ", product); // 제품 정보 배열 전체
 
       const productId = product.productId;
-      console.log("번호만 : ", productId);  // 등록된 순번 가져오기
+      console.log("번호만 : ", productId); // 등록된 순번 가져오기
 
       if (confirm("삭제 하시겠습니까?")) {
-
         $.ajax({
           async: false,
           type: "delete",
           url: "/api/admin/product/" + productId,
           dataType: "json",
           success: (response) => {
-              alert("상품 삭제 완료");
-              location.reload();
+            alert("상품 삭제 완료");
+            location.reload();
           },
           error: (error) => {
-              alert("상품 삭제 실패");
-              console.log(error);
-          }
+            alert("상품 삭제 실패");
+            console.log(error);
+          },
         });
       }
-    }
+    };
   });
 }
 

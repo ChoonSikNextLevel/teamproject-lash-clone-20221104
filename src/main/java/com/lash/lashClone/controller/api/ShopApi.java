@@ -38,7 +38,7 @@ public class ShopApi {
 
         System.out.println("아이디 : " + principalDetails.getMember().getUsername());
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "user information", null));
+        return ResponseEntity.ok(new CMRespDto<>(1, "user information", orderService.getOrderUser(principalDetails.getMember().getUsername())));
     }
 
     @PostMapping("/shoppingBasket")

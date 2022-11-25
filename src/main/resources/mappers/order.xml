@@ -43,7 +43,7 @@
     </resultMap>
 
 
-    <select id="getOrderUser" resultMap="member" parameterType="string">
+    <select id="getOrderUser" parameterType="string" resultType="java.util.Map">
         SELECT
             mm.member_id,
             mm.email,
