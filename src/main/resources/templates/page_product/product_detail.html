@@ -214,12 +214,11 @@
                 // data : (로그인이 되어 있으면 컨트롤러에서 principal 객체를 파라미터로 받아올 수 있음)
                 dataType: "json",
                 success: (response) => { // response data 에 principal 객체에서 필요한 정보를 담아 서버에서 보내주게 됨
-                    alert("회원 정보 로딩 성공");
                     impData(response.data);
                     console.log(impData(response.data));
                 },
                 error: (error) => {
-                    alert("회원 정보 로딩 실패 ㅜㅜ");
+                    alert("회원 로그인 후 구매하실 수 있습니다.");
                 }
             });
 
@@ -244,6 +243,9 @@
             // 함수1 실행됨
             getMemberInfo();
 
+            // 배송지 정보가 없을 시 결제 되면 안됨. 
+            console.log(impData.buyer_addr);
+
             IMP.request_pay({
                 pg: 'kakaopay.TC0ONETIME',   //테스트인경우 kcp.T000
                 pay_method: 'card',
@@ -260,13 +262,15 @@
                 m_redirect_url: '{모바일에서 결제 완료 후 리디렉션 될 URL}'
             }, function (rsp) { // callback 로직
                 if (rsp.success) {
-                    alert("결제 성공!");
+                    alert("구매되었습니다. 감사합니다.");
                 } else {
-                    alert("결제 실패!");
+                    alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
                 }
             });
-        }
 
+
+
+        }
 
     </script>
 </body>
