@@ -20,9 +20,14 @@ public class PageController {
         return "page_campaign/campaign";
     }
 
-    @GetMapping("/campaign/1")
-    public String loadLookBookPage() {
+    @GetMapping("/campaign/lookbook/10")
+    public String loadLookBookPage1() {
         return "page_campaign/campaign_lookbook10";
+    }
+
+    @GetMapping("/campaign/lookbook/1")
+    public String loadLookBookPage10() {
+        return "page_campaign/campaign_lookbook1";
     }
 
     @GetMapping("/journal")
