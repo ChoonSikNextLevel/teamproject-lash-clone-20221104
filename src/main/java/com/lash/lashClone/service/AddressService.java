@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface AddressService {
     // 배송지 등록 등록
-    public boolean Addaddress(AddressReqDto addressReqDto) throws Exception;
+    public boolean addAddress(AddressReqDto addressReqDto, String username) throws Exception;
 
     // 상품 삭제
-    public List<AddressListRespDto> addrssList(int page) throws Exception;
+    public List<AddressListRespDto> addressList(int page) throws Exception;
 }
 

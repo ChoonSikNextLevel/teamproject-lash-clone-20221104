@@ -38,14 +38,17 @@ public class AccountApi {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully join", registerReqDto));
     }
     @PostMapping("/shippingAddressRegistration")
-    public ResponseEntity<?> addAddress(AddressReqDto addressReqDto) throws Exception {
+    public ResponseEntity<?> addAddress(AddressReqDto addressReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+        String username = principalDetails.getMember().getUsername();
+
         return ResponseEntity.created(null)
-                .body(new CMRespDto<>(1, "success", addressService.Addaddress(addressReqDto)));
+                .body(new CMRespDto<>(1, "success", addressService.addAddress(addressReqDto, username)));
     }
+
     @GetMapping("/shippingAddress")
     public ResponseEntity<?> addressList(int page) throws Exception {
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addrssList(page)));
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addressList(page)));
 
     }
 

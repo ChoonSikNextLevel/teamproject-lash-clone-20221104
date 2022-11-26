@@ -21,7 +21,7 @@
             address_mst
         values(
             0,
-            0,
+            #{member_id},
             #{address_name},
             #{recipient},
             #{address_number},
@@ -34,7 +34,6 @@
         )
     </insert>
     <insert id="addressList" parameterType="java.util.HashMap">
-        SELECT
         SELECT
         pm.address_id,
         pm.member_id,
@@ -53,38 +52,14 @@
         where
         1 = 1) pc ON (1 = 1);
     </insert>
+
+    <select id="getMemberId" resultType="java.util.Map" parameterType="string">
+        select
+            mm.member_id
+        from
+            member_mst mm
+        where
+            mm.username = #{username}
+    </select>
+
 </mapper>
-<!--    <update id="updateMemberOauth2" parameterType="com.lash.lashClone.domain.Member">-->
-<!--        update-->
-<!--        member_mst-->
-<!--        set-->
-<!--        oauth_username = #{oauth_username},-->
-<!--        provider = #{provider},-->
-<!--        update_date = now()-->
-<!--        where-->
-<!--        member_id = #{member_id}-->
-
-<!--    </update>-->
-<!--    <select id="findUserByUsername" parameterType="String" resultMap="member">-->
-<!--        select-->
-<!--        um.member_id,-->
-<!--        um.username,-->
-<!--        um.oauth_username,-->
-<!--        um.password,-->
-<!--        um.name,-->
-<!--        um.email,-->
-<!--        um.phone,-->
-<!--        um.provider,-->
-<!--        um.role_id,-->
-
-<!--        rm.role,-->
-<!--        rm.role_name,-->
-
-<!--        um.create_date,-->
-<!--        um.update_date-->
-<!--        from-->
-<!--        member_mst um-->
-<!--        left outer join role_mst rm on (rm.role_id = um.role_id)-->
-<!--        where-->
-<!--        username = #{username}-->
-<!--    </select>-->

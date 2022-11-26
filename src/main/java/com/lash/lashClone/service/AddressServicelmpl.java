@@ -21,10 +21,13 @@ public class AddressServicelmpl implements AddressService {
 
     //상품등록
     @Override
-    public boolean Addaddress(AddressReqDto addressReqDto) throws Exception {
+    public boolean addAddress(AddressReqDto addressReqDto, String username) throws Exception {
         int result = 0;
-        System.out.println( addressReqDto);
+        System.out.println(addressReqDto);
         Address address = addressReqDto.toAddress();
+        System.out.println(Integer.valueOf(addressRepository.getMemberId(username).get("member_id").toString()));
+
+        address.setMember_id(Integer.valueOf(addressRepository.getMemberId(username).get("member_id").toString()));
         System.out.println(address);
         result = addressRepository.save(address);
 
@@ -35,7 +38,7 @@ public class AddressServicelmpl implements AddressService {
     }
 
     @Override
-    public List<AddressListRespDto> addrssList(int page) throws Exception {
+    public List<AddressListRespDto> addressList(int page) throws Exception {
         Map<String, Object> paramsMap = new HashMap<String, Object>();
         paramsMap.put("page",page);
 
