@@ -1,36 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <!-- ==========================  header 적용부 ===========================================-->
-
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
-    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/page_main/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
-
-    <!-- ==========================  header 적용부 ===========================================-->
-
-
-    <title>LASH 래쉬 | 안경태</title>
-
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
     <!-- 여기서부터 카피 -->
     <div class="overlay"></div>
-    <header id="header">
+
+    <header th:fragment="header">
+    <!-- <header> -->
         <div class="header-container">
             <div class="header-flex">
                 <div class="header-left-container">
@@ -106,8 +89,8 @@
                 </div>
             </div>
         </div>
+        <script src="/static/js/header.js"></script>
     </header>
-    <script src="/static/js/header.js"></script>
-</body>
 
+</body>
 </html>
