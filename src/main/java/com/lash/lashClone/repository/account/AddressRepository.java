@@ -14,5 +14,5 @@ public interface AddressRepository {
         public int save(Address address);
         @MapKey("member_id")
         public Map<String, Object> getMemberId(String username);
-        public List<Address> addressList(Map<String, Object> map) throws Exception;
+        public List<Address> addressList(String username) throws Exception;
 }

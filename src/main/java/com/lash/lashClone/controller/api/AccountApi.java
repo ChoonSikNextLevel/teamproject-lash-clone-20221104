@@ -46,9 +46,9 @@ public class AccountApi {
     }
 
     @GetMapping("/shippingAddress")
-    public ResponseEntity<?> addressList(int page) throws Exception {
+    public ResponseEntity<?> addressList(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addressList(page)));
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addressList(principalDetails.getMember().getUsername())));
 
     }
 

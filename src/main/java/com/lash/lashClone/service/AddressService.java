@@ -1,6 +1,7 @@
 package com.lash.lashClone.service;
 
 
+import com.lash.lashClone.domain.Address;
 import com.lash.lashClone.dto.account.AddressListRespDto;
 import com.lash.lashClone.dto.account.AddressReqDto;
 
@@ -11,7 +12,7 @@ public interface AddressService {
     // 배송지 등록 등록
     public boolean addAddress(AddressReqDto addressReqDto, String username) throws Exception;
 
-    // 상품 삭제
-    public List<AddressListRespDto> addressList(int page) throws Exception;
+    // 상품 리스트 조회
+    public List<Address> addressList(String username) throws Exception;
 }
 

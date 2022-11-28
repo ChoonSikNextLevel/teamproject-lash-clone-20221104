@@ -7,6 +7,8 @@ import lombok.Data;
 @Builder
 @Data
 public class AddressListRespDto {
+    private String username;
+
     private int addressId;
     private int memberId;
     private String addressName;

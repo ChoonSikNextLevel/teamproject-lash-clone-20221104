@@ -16,6 +16,20 @@
         <result property="create_date" column="create_date"></result>
         <result property="update_date" column="update_date"></result>
     </resultMap>
+    <resultMap id="address" type="com.lash.lashClone.domain.Address">
+        <result property="address_id" column="address_id"></result>
+        <result property="member_id" column="member_id"></result>
+        <result property="address_name" column="address_name"></result>
+        <result property="recipient" column="recipient"></result>
+        <result property="address_number" column="address_number"></result>
+        <result property="address" column="address"></result>
+        <result property="address_detail" column="address_detail"></result>
+        <result property="land_phone" column="land_phone"></result>
+        <result property="mobile_phone" column="mobile_phone"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+        <collection property="member_id" javaType="list" resultMap="member"></collection>
+    </resultMap>
     <insert id="save" parameterType="com.lash.lashClone.domain.Address">
         INSERT into
             address_mst
@@ -33,26 +47,26 @@
             now()
         )
     </insert>
-    <insert id="addressList" parameterType="java.util.HashMap">
-        SELECT
-        pm.address_id,
-        pm.member_id,
-        pm.address_name,
-        pm.recipient,
-        pm.land_phone,
-        pm.mobile_phone,
-        pm.address_number,
-        pm.address,
-        pim.address_detail
-        FROM
-        address_mst pm
-        LEFT OUTER JOIN address_name pim ON (pim.address_id = pm.address_id)
-        FROM
-        address_mst
-        where
-        1 = 1) pc ON (1 = 1);
-    </insert>
+    <select id="addressList" parameterType="string" resultType="com.lash.lashClone.domain.Address">
+    SELECT
+        mm.username,
+        mm.member_id,
 
+        am.address_id,
+        am.address_name,
+        am.recipient,
+        am.address_number,
+        am.address,
+        am.address_detail,
+        am.land_phone,
+        am.mobile_phone
+    FROM
+        member_mst mm
+        LEFT OUTER JOIN address_mst am
+            ON(am.member_id = mm.member_id)
+    WHERE
+        mm.username = #{username};
+    </select>
     <select id="getMemberId" resultType="java.util.Map" parameterType="string">
         select
             mm.member_id

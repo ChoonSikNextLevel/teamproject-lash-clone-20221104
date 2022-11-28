@@ -38,16 +38,8 @@ public class AddressServicelmpl implements AddressService {
     }
 
     @Override
-    public List<AddressListRespDto> addressList(int page) throws Exception {
-        Map<String, Object> paramsMap = new HashMap<String, Object>();
-        paramsMap.put("page",page);
-
-        List<AddressListRespDto> list = new ArrayList<AddressListRespDto>();
-
-        addressRepository.addressList(paramsMap).forEach(address -> {
-            list.add(address.addressListRespDto());
-        });
-        return list;
+    public List<Address> addressList(String username) throws Exception {
+        return addressRepository.addressList(username);
     }
 
     // 주소 삭제

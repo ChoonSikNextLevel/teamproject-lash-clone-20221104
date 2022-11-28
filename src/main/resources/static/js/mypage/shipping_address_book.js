@@ -1,13 +1,8 @@
-const param = {
-    page: 1,
-  };
-  
-  function addressList() {
+function addressList() {
     $.ajax({
       async: false,
       type: "get",
       url: "/api/account/shippingAddress",
-      data: param,
       dataType: "json",
       success: (response) => {
         responseData = response.data;
@@ -18,33 +13,20 @@ const param = {
         // console.log(JSON.stringify(responseData[]));
       },
       error: (error) => {
-        alert("상품 리스트 불러오기 실패");
+        alert("배송지 리스트 불러오기 실패");
         console.log(error);
       },
     });
 }
 
-function addressList(responseData) {
+function loadList(responseData) {
     const addressBody = document.querySelector(".center");
-
+    console.log(addressBody);
     addressBody.innerHTML="";
-
     responseData.forEach((address, index) => {
-
-        address.innerHTML +=`
+        addressBody.innerHTML +=`
         <tr class="xans-record-">
             <td>
-                <input name="ma_idx[]" value="717" type="checkbox">
-            </td>
-            <td>
-                <a href="/exec/front/Myshop/Addr/?mode=Fix&amp;ma_idx=717&amp;ma_fixed_flag=F&amp;return_url=%2Fmyshop%2Faddr%2Flist.html">
-                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_clear.gif" class="" alt="해제">
-                    // <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_fix.gif" class="displaynone" alt="고정">
-                </a>
-                <span class="displaynone">-</span>
-            </td>
-            <td>
-                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/ico_addr_default.gif" class="displaynone" alt="기본">
                 <span>
                     ${address.address_name}
                 </span>
@@ -57,8 +39,8 @@ function addressList(responseData) {
             <td><span>${address.land_phone}</span></td>
             <td><span>${address.mobile_phone}</span></td>
             <td class="left">
-                (<span>48744</span>)<span>${address.address}</span>
-                <span>(<span>${address.address_number}</span>)${address.address_edtail}</span>
+                (<span>${address.address_number}</span>)<span>${address.address}</span>
+                <span>${address.address_detail}</span>
             </td>
             <td>
                 <a href="modify.html?ma_idx=717" class="btnType-1">삭제</a>
@@ -66,7 +48,7 @@ function addressList(responseData) {
         </tr>   
          `;
     });
-    deleteAddress();
+    // deleteAddress();
 }
 
 function deleteAddress() {
@@ -88,7 +70,7 @@ function deleteAddress() {
                 $.ajax({
                     async: false,
                     type: "delete",
-                    url: "/api/admin/product/" +addrssId,
+                    url: "/api/account/shippingAddress" +addrssId,
                     dataType: "json",
                     success: (response) => {
                         alert("주소 삭제 했다!");
