@@ -32,24 +32,24 @@
     </resultMap>
     <insert id="save" parameterType="com.lash.lashClone.domain.Address">
         INSERT into
-            address_mst
+        address_mst
         values(
-            0,
-            #{member_id},
-            #{address_name},
-            #{recipient},
-            #{address_number},
-            #{address},
-            #{address_detail},
-            #{land_phone},
-            #{mobile_phone},
-            now(),
-            now()
+        0,
+        #{member_id},
+        #{address_name},
+        #{recipient},
+        #{address_number},
+        #{address},
+        #{address_detail},
+        #{land_phone},
+        #{mobile_phone},
+        now(),
+        now()
         )
     </insert>
 
     <select id="addressList" parameterType="string" resultType="com.lash.lashClone.domain.Address">
-    SELECT
+        SELECT
         mm.username,
         mm.member_id,
 
@@ -61,27 +61,27 @@
         am.address_detail,
         am.land_phone,
         am.mobile_phone
-    FROM
+        FROM
         member_mst mm
         LEFT OUTER JOIN address_mst am
-            ON(am.member_id = mm.member_id)
-    WHERE
+        ON(am.member_id = mm.member_id)
+        WHERE
         mm.username = #{username};
     </select>
     <select id="getMemberId" resultType="java.util.Map" parameterType="string">
         select
-            mm.member_id
+        mm.member_id
         from
-            member_mst mm
+        member_mst mm
         where
-            mm.username = #{username}
+        mm.username = #{username}
     </select>
     <delete id="deleteAddress" parameterType = "Integer">
         delete
-            from
-                address_mst
-            where
-                address_id = #{address_id}
+        from
+        address_mst
+        where
+        address_id = #{address_id}
     </delete>
 
 </mapper>

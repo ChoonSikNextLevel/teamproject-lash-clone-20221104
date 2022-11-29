@@ -45,7 +45,7 @@ function loadList(responseData) {
             <td>
                 <input type="hidden" value="${address.address_id}" class="address-id">
                 <button type="button" class="btnType-1">삭제</button>
-            </td>
+            </tdshssss>
         </tr>   
          `;
     });
@@ -95,6 +95,6 @@ function deleteAddress() {
 window.onload = () => {
     addressList();
     // console.log(localStorage.getItem("address"))
-  };
+};
   
   

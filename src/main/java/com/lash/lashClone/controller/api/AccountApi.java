@@ -6,10 +6,10 @@ import com.lash.lashClone.aop.annotation.ValidAspect;
 import com.lash.lashClone.dto.CMRespDto;
 import com.lash.lashClone.dto.account.AddressReqDto;
 import com.lash.lashClone.dto.account.RegisterReqDto;
-import com.lash.lashClone.dto.admin.ProductRegistReqDto;
 import com.lash.lashClone.dto.validation.ValidationSequence;
 import com.lash.lashClone.service.AccountService;
 import com.lash.lashClone.service.AddressService;
+import com.lash.lashClone.service.MyPageService;
 import com.lash.lashClone.service.auth.PrincipalDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 public class AccountApi {
     private final AccountService accountService;
     private final AddressService addressService;
+    private final MyPageService myPageService;
 
     @LogAspect
     @ValidAspect
@@ -44,21 +45,28 @@ public class AccountApi {
         return ResponseEntity.created(null)
                 .body(new CMRespDto<>(1, "success", addressService.addAddress(addressReqDto, username)));
     }
+    // 마이페이지
+    @GetMapping("/mypage")
+    public ResponseEntity<?> myPage(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageService.memberList(principalDetails.getMember().getUsername())));
+    }
 
+    // --------배송지 화면-----------
     @GetMapping("/shippingAddress")
     public ResponseEntity<?> addressList(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addressList(principalDetails.getMember().getUsername())));
 
 
-        }
+    }
+    // --------배송지 삭제-----------
     @DeleteMapping("/shippingAddress/{addressId}")
     public ResponseEntity<?> deleteProduct(@PathVariable int addressId) throws Exception {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.deleteAddress(addressId)));
     }
 
-        @GetMapping("/principal/member")
+    @GetMapping("/principal/member")
     public ResponseEntity<?> getPrincipalMember(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully get principal", principalDetails == null ? "" : principalDetails));
     }

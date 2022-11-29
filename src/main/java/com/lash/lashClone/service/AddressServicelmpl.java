@@ -4,6 +4,7 @@ import com.lash.lashClone.domain.Address;
 import com.lash.lashClone.dto.account.AddressListRespDto;
 import com.lash.lashClone.dto.account.AddressReqDto;
 import com.lash.lashClone.repository.account.AddressRepository;
+//import com.lash.lashClone.repository.account.MyPageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.util.Map;
 public class AddressServicelmpl implements AddressService {
 
     private final AddressRepository addressRepository;
+//    private final MyPageRepository myPageRepository;
 
 
     //상품등록
