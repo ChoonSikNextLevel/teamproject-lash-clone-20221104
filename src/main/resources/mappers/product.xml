@@ -96,12 +96,22 @@
         FROM
             product_mst pm
             LEFT OUTER JOIN product_img pim ON (pim.product_id = pm.product_id)
-            LEFT OUTER JOIN (select
+            LEFT OUTER JOIN (
+                            select
                                 count(*) as product_total_count
                             FROM
                                 product_mst
                             where
-                                1 = 1) pc ON (1 = 1);
+                                1 = 1
+
+<!--                            <if test='category != "ALL"'>-->
+<!--                                and category = #{category}-->
+<!--                            </if>-->
+
+                            ) pc ON (1 = 1);
+
+
+
     </select>
 
 

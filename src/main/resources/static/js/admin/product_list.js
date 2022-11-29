@@ -1,5 +1,7 @@
-const param = {
+let param = {
   page: 1,
+  category: "all",
+  searchText: null
 };
 
 function productList() {
@@ -13,6 +15,7 @@ function productList() {
       responseData = response.data;
       console.log(responseData);
       loadList(responseData);
+      categoryList(responseData);
 
       // responseData를 JSON 형식으로 보여주기
       // console.log(JSON.stringify(responseData[]));
@@ -28,10 +31,10 @@ function loadList(responseData) {
   const loadBody = document.querySelector(".center");
 
   loadBody.innerHTML = "";
-  console.log(responseData);
+  
   responseData.forEach((product, index) => {
     const productImgsArray = product.productImgs;
-    console.log(product.productImgs);
+    // console.log(product.productImgs);
 
     loadBody.innerHTML += `
         <tr class="xans-record-">
@@ -63,6 +66,33 @@ function loadList(responseData) {
   setListValues(responseData);
   deleteProduct();
 }
+
+function categoryList(responseData) {
+  const categorySelect = document.querySelector(".category-select");
+  const categorySelectLength = categorySelect.options.length;
+
+  console.log("카테고리 몇개 : ", categorySelectLength);
+  console.log("카테고리 : ", categorySelect.value);
+  console.log("전체 상품 리스트 : ", responseData);
+
+  categorySelect.onchange = () => {
+    
+    console.log("상품 카테고리 리스트 : ", categorySelect.value.selected);
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 // 수정 버튼 눌렀을 때 해당 상품 수정 페이지로 이동(기존 값 그대로)
 function setListValues() {
