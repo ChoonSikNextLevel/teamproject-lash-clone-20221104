@@ -47,6 +47,7 @@
             now()
         )
     </insert>
+
     <select id="addressList" parameterType="string" resultType="com.lash.lashClone.domain.Address">
     SELECT
         mm.username,
@@ -75,5 +76,12 @@
         where
             mm.username = #{username}
     </select>
+    <delete id="deleteAddress" parameterType = "Integer">
+        delete
+            from
+                address_mst
+            where
+                address_id = #{address_id}
+    </delete>
 
 </mapper>

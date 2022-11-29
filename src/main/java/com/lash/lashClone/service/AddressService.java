@@ -14,5 +14,7 @@ public interface AddressService {
 
     // 상품 리스트 조회
     public List<Address> addressList(String username) throws Exception;
+
+    public boolean deleteAddress(int addressId) throws Exception;
 }
 

@@ -42,6 +42,12 @@ public class AddressServicelmpl implements AddressService {
         return addressRepository.addressList(username);
     }
 
+    @Override
+    public boolean deleteAddress(int addressId) throws Exception {
+
+        return addressRepository.deleteAddress(addressId) > 0;
+    }
+
     // 주소 삭제
 //    @Override
 //    public boolean deleteAddress(int addressId) throws Exception {
