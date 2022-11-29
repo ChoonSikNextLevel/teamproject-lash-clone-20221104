@@ -43,12 +43,13 @@ function loadList(responseData) {
                 <span>${address.address_detail}</span>
             </td>
             <td>
-                <a href="modify.html?ma_idx=717" class="btnType-1">삭제</a>
+                <input type="hidden" value="${address.address_id}" class="address-id">
+                <button type="button" class="btnType-1">삭제</button>
             </td>
         </tr>   
          `;
     });
-    // deleteAddress();
+    deleteAddress();
 }
 
 function deleteAddress() {
@@ -56,21 +57,22 @@ function deleteAddress() {
 
     deleteButton.forEach((deleteBtn, index) =>{
         deleteBtn.onclick = () => {
+            const id = document.querySelectorAll(".address-id");
+            const id2 = id[index].value;
+            // console.log(id[index].value)
             alert("삭제버튼 클릭");
 
-            localStorage.setItem("address", JSON.stringify(responseData[index]));
-
-            console.log("전체 : ", address);  // 제품 정보 배열 전체
-
-            const addrssId = product.address_Id;
-            console.log("번호만 : ", addrssId);  // 등록된 순번 가져오기
+            // localStorage.setItem("address", JSON.stringify(responseData[index]));
+            // console.log("전체 : ", address);  // 제품 정보 배열 전체
+            // const addrssId = address.address_Id;
+            // console.log("번호만 : ", addrssId);  // 등록된 순번 가져오기
 
             if (confirm("삭제?")) {
 
                 $.ajax({
                     async: false,
                     type: "delete",
-                    url: "/api/account/shippingAddress" +addrssId,
+                    url: "/api/account/shippingAddress/" +id2,
                     dataType: "json",
                     success: (response) => {
                         alert("주소 삭제 했다!");
@@ -85,8 +87,14 @@ function deleteAddress() {
         }
     });
 }
+
+// $(".btnType-1").on("click", function(e){
+// 	e.preventDefault();
+// 	const cartId = $(this).data("cartid");
+// });
 window.onload = () => {
     addressList();
+    // console.log(localStorage.getItem("address"))
   };
   
   

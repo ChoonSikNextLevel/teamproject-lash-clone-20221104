@@ -62,6 +62,7 @@ public class AccountPageController {
         return "login/login";
     }
 
+
     @GetMapping("/join")
     public String loadJoinPage() {
         return "login/join";

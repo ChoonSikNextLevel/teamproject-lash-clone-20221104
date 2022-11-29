@@ -50,9 +50,15 @@ public class AccountApi {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addressList(principalDetails.getMember().getUsername())));
 
+
+        }
+    @DeleteMapping("/shippingAddress/{addressId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable int addressId) throws Exception {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.deleteAddress(addressId)));
     }
 
-    @GetMapping("/principal/member")
+        @GetMapping("/principal/member")
     public ResponseEntity<?> getPrincipalMember(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully get principal", principalDetails == null ? "" : principalDetails));
     }
