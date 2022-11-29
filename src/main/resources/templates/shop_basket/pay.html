@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/header.css">
@@ -80,7 +81,7 @@
                             <img src="/static/images/btn_img/ico_required.png" alt="">
                         </th>
                         <td>
-                            <input class="input-name" value="문창배" type="text" spellcheck="false">
+                            <input class="input-name" value="" type="text" spellcheck="false">
                         </td>
                     </tr>
                     <tr class="tr-order-address">
@@ -167,7 +168,7 @@
                             <img src="/static/images/btn_img/ico_required.png" alt="필수">
                         </th>
                         <td style="border-bottom: 1px solid #333;">
-                            <input type="text" value="buzz9248">
+                            <input type="text" value="">
                             @
                             <input type="text">
                             <select class="select-email" aria-valuetext="naver.com">
@@ -224,7 +225,7 @@
                             <img src="/static/images/btn_img/ico_required.png" alt="">
                         </th>
                         <td>
-                            <input class="receiver-name-input" value="문창배" type="text" spellcheck="false">
+                            <input class="receiver-name-input" value="" type="text" spellcheck="false">
                         </td>
                     </tr>
                     <tr class="tr-receiver-address">
@@ -324,16 +325,16 @@
                         <tr>
                             <th>
                                 <strong>총 주문 금액</strong>
-                                <a href="">
+                                <!-- <a href="">
                                     <img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_list.gif" alt="">
-                                </a>
+                                </a> -->
                             </th>
                             <th>
                                 <strong>총</strong>
                                 <strong>할인</strong>
-                                <strong>+</strong>
+                                <!-- <strong>+</strong>
                                 <strong>부가결제</strong>
-                                <strong>금액</strong>
+                                <strong>금액</strong> -->
                             </th>
                             <th>
                                 <strong>총 결제예정 금액</strong>
@@ -380,7 +381,7 @@
                                 <strong>0</strong>
                             </td>
                         </tr>
-                        <tr class="coupon-discount">
+                        <!-- <tr class="coupon-discount">
                             <th>쿠폰할인</th>
                             <td>
                                 <a href="">
@@ -388,7 +389,7 @@
                                         alt="">
                                 </a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -396,13 +397,13 @@
             <div>
                 <table class="additional-payment-table">
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <th>총 부가결제금액</th>
                             <td>
                                 KRW
                                 <strong>0</strong>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -425,8 +426,8 @@
                                 style="height: 20px; vertical-align: -30%;"></label>
                     </span>
                     <span>
-                        <input id="pay-method-naver" type="radio" name="pay-method">
-                        <label class="pay-method-naver" for="pay-method-naver"><img
+                        <input id="pay-method-toss" type="radio" name="pay-method">
+                        <label class="pay-method-toss" for="pay-method-naver"><img
                                 src="/static/images/lash_btn/logo-toss-pay.png"
                                 style="height: 18px; vertical-align: text-bottom;"></label>
                     </span>
@@ -434,21 +435,24 @@
 
                 <div class="pay-method-detail-box" style=" height:260px">
                     <!-- 텍스트 추가 -->
+                    <div class="detail-box-normal none">일반결제</div>
+                    <div class="detail-box-kakao none">카카오결제</div>
+                    <div class="detail-box-toss none">토스결제</div>
                 </div>
             </div>
             <div class="pay-method-box-right-container">
                 <div class="pay-method-box-right pay-method-box-right-normal">
                     <h4>
-                        <span>일반결제 최종결제 금액</span>
+                        <span>최종 결제금액</span>
                     </h4>
                     <p>
                         <span>KRW <br></span>
                         <input size="10" readonly="1" value="" type="text" class="payment-total">
                     </p>
                     <div class="pay-button-container">
-                        <a href="#none" class="pay-button">결제하기</a>
+                        <a class="pay-button">결제하기</a>
                     </div>
-                    <div class="total-reserves">
+                    <!-- <div class="total-reserves">
                         <div class="total-reserves-top">
                             <div class="total-reserves-top-left">
                                 <strong>총 적립예정금액</strong>
@@ -463,7 +467,7 @@
                             <div class="total-reserves-bottom-left">쿠폰 적립금</div>
                             <div class="total-reserves-bottom-right">0원</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="pay-method-box-right pay-method-box-right-kakao none">
                     <h4>
@@ -471,12 +475,12 @@
                     </h4>
                     <p>
                         <span>KRW <br></span>
-                        <input size="10" readonly="1" value="1,225,000" type="text">
+                        <input size="10" readonly="1" value="" type="text">
                     </p>
                     <div class="pay-button-container">
-                        <a href="#none" class="pay-button">결제하기</a>
+                        <a class="pay-button">결제하기</a>
                     </div>
-                    <div class="total-reserves">
+                    <!-- <div class="total-reserves">
                         <div class="total-reserves-top">
                             <div class="total-reserves-top-left">
                                 <strong>총 적립예정금액</strong>
@@ -492,19 +496,19 @@
                             <div class="total-reserves-bottom-right">0원</div>
                         </div>
                     </div>
-                </div>
-                <div class="pay-method-box-right pay-method-box-right-naver none">
-                    <h4>
-                        <span>네이버 최종결제 금액</span>
-                    </h4>
-                    <p>
-                        <span>KRW <br></span>
-                        <input size="10" readonly="1" value="1,225,000" type="text">
-                    </p>
-                    <div class="pay-button-container">
-                        <a href="#none" class="pay-button">결제하기</a>
-                    </div>
-                    <div class="total-reserves">
+                </div> -->
+                    <div class="pay-method-box-right pay-method-box-right-toss none">
+                        <h4>
+                            <span>토스 최종결제 금액</span>
+                        </h4>
+                        <p>
+                            <span>KRW <br></span>
+                            <input size="10" readonly="1" value="" type="text">
+                        </p>
+                        <div class="pay-button-container">
+                            <a class="pay-button">결제하기</a>
+                        </div>
+                        <!-- <div class="total-reserves">
                         <div class="total-reserves-top">
                             <div class="total-reserves-top-left">
                                 <strong>총 적립예정금액</strong>
@@ -519,19 +523,19 @@
                             <div class="total-reserves-bottom-left">쿠폰 적립금</div>
                             <div class="total-reserves-bottom-right">0원</div>
                         </div>
+                    </div> -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="top" id="top">
-        <a href="#top" style="padding: 15px 5px 15px 5px; border-radius: 5px;">
-            TOP
-        </a>
-    </div>
+        <div class="top" id="top">
+            <a href="#top" style="padding: 15px 5px 15px 5px; border-radius: 5px;">
+                TOP
+            </a>
+        </div>
 
-    <script src="/static/js/shop_basket/pay.js"></script>
+        <script src="/static/js/shop_basket/pay.js"></script>
 </body>
 
 </html>

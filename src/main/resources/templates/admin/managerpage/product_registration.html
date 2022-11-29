@@ -23,7 +23,7 @@
 <body>
     <div class="overlay"></div>
 
-    <header th:replace="~{fragment/header :: header}"></header>
+    <header th:fragment="header"></header>
 
     <div class="contents">
         <div class="titleArea">
@@ -85,8 +85,8 @@
                                         color
                                     </th>
                                     <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" class="product-input" name="member_id" fw-label="아이디"
-                                            fw-msg="" class="inputTypeText" placeholder="" value="" type="text">
+                                        <input id="member_id" class="product-input inputTypeText" name="member_id"
+                                            fw-label="아이디" fw-msg="" placeholder="" value="" type="text">
                                     </td>
                                 </tr>
                                 <tr>
@@ -94,10 +94,9 @@
                                         price
                                     </th>
                                     <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" class="product-input" name="member_id"
+                                        <input id="member_id" class="product-input inputTypeText" name="member_id"
                                             fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity"
-                                            fw-label="아이디" fw-msg="" class="inputTypeText" placeholder="" value=""
-                                            type="text">
+                                            fw-label="아이디" fw-msg="" placeholder="" value="" type="text">
                                     </td>
                                 </tr>
                                 <tr>
