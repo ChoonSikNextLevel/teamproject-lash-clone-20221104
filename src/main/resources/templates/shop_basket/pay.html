@@ -416,17 +416,17 @@
             <div class="pay-method-box-left">
                 <div class="pay-method-select-box">
                     <span>
-                        <input id="pay-method-normal" type="radio" name="pay-method" checked>
+                        <input id="pay-method-normal" type="radio" name="pay-method" onclick="payMethod(this)" checked>
                         <label class="pay-method-normal" for="pay-method-normal">일반 결제</label>
                     </span>
                     <span>
-                        <input id="pay-method-kakao" type="radio" name="pay-method">
+                        <input id="pay-method-kakao" type="radio" name="pay-method" onclick="payMethod(this)">
                         <label class="pay-method-kakao" for="pay-method-kakao"><img
                                 src="/static/images/lash_btn/payment_icon_yellow_small.png"
                                 style="height: 20px; vertical-align: -30%;"></label>
                     </span>
                     <span>
-                        <input id="pay-method-toss" type="radio" name="pay-method">
+                        <input id="pay-method-toss" type="radio" name="pay-method" onclick="payMethod(this)">
                         <label class="pay-method-toss" for="pay-method-naver"><img
                                 src="/static/images/lash_btn/logo-toss-pay.png"
                                 style="height: 18px; vertical-align: text-bottom;"></label>
@@ -435,9 +435,9 @@
 
                 <div class="pay-method-detail-box" style=" height:260px">
                     <!-- 텍스트 추가 -->
-                    <div class="detail-box-normal none">일반결제</div>
-                    <div class="detail-box-kakao none">카카오결제</div>
-                    <div class="detail-box-toss none">토스결제</div>
+                    <div class="pay-method-normal none" name="pay-detail">일반결제</div>
+                    <div class="pay-method-kakao none" name="pay-detail">카카오결제</div>
+                    <div class="pay-method-toss none" name="pay-detail">토스결제</div>
                 </div>
             </div>
             <div class="pay-method-box-right-container">
