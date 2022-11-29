@@ -5,7 +5,7 @@ import com.lash.lashClone.domain.Member;
 import com.lash.lashClone.domain.Product;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.tomcat.jni.Address;
+//import org.apache.tomcat.jni.Address;
 
 import java.util.List;
 import java.util.Map;
