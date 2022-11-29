@@ -9,12 +9,15 @@ function selectAll(selectAll) {
 // 결제수단 선택시 각각 다른 div 보이게하기
 function payMethod(element) {
   let de = document.getElementsByName("pay-detail");
+  let fi = document.getElementsByClassName("pay-method-box-right");
 
   for(var i = 0; i < de.length; i++) {
     if(de[i].classList.contains(element.id)){
       de[i].classList.remove("none");
+      fi[i].classList.remove("none");
     }else {
       de[i].classList.add("none");
+      fi[i].classList.add("none");
     }
   }
 }
