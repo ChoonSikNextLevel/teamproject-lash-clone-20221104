@@ -5,39 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>product_registration</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <!-- <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT> -->
-    <!-- <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT> -->
+    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    <link rel="stylesheet" href="/static/css/admin/manager/product_change_storage.css">
+    <link rel="stylesheet" href="/static/css/admin/manager/style.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/admin/manager/style.css">
-    <link rel="stylesheet" href="/static/css/admin/manager/product_change_storage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-        
-    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
-
-    <title>product_registration</title>
 </head>
 
 <body>
-
     <div class="overlay"></div>
 
-    <header th:replace="~{fragment/header :: header}"></header>
+    <header th:fragment="header"></header>
 
     <div class="contents">
         <div class="titleArea">
             <h2>product_registration</h2>
         </div>
         <ul class="sideMenu">
-            <h2>ADMIN MENU</h2>
+            <h2>Admin</h2>
             <li><a href="/admin/product/registration">상품등록</a></li>
             <li><a href="/admin/products">상품관리</a></li>
-            <li><a href="">주문배송</a></li>
+            <li><a href="/admin/order/managerpage">주문배송</a></li>
         </ul>
         <div class="registration-area">
             <div class="registration-container">
@@ -89,8 +85,8 @@
                                         color
                                     </th>
                                     <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <input id="member_id" class="product-input inputTypeText" name="member_id" fw-label="아이디"
-                                            fw-msg="" placeholder="" value="" type="text">
+                                        <input id="member_id" class="product-input inputTypeText" name="member_id"
+                                            fw-label="아이디" fw-msg="" placeholder="" value="" type="text">
                                     </td>
                                 </tr>
                                 <tr>
@@ -100,8 +96,7 @@
                                     <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
                                         <input id="member_id" class="product-input inputTypeText" name="member_id"
                                             fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity"
-                                            fw-label="아이디" fw-msg="" placeholder="" value=""
-                                            type="text">
+                                            fw-label="아이디" fw-msg="" placeholder="" value="" type="text">
                                     </td>
                                 </tr>
                                 <tr>
@@ -170,7 +165,7 @@
             </div>
         </div>
     </div>
-
+    <!-- <script src="/static/js/header.js"></script> -->
     <!-- <script src="/static/js/admin/product_change_storage.js"></script> -->
     <script src="/static/js/admin/product_registration.js"></script>
 
