@@ -91,9 +91,10 @@ public class ProductServiceImpl implements ProductService {
 
         // 등록된 상품(리스트) 불러오기
         @Override
-        public List<ProductListRespDto> productList(int page, String category, String searchText) throws Exception {
+        public List<ProductListRespDto> productList(String category, String searchText) throws Exception {
             Map<String, Object> paramsMap = new HashMap<String, Object>();
-            paramsMap.put("page", page);
+            paramsMap.put("category", category);
+            paramsMap.put("searchText", searchText);
 
 
 
@@ -113,7 +114,7 @@ public class ProductServiceImpl implements ProductService {
 
         int result = productRepository.updateProduct(productUpdateReqDto.productEntity());
 
-        if(productUpdateReqDto.getAddImgFiles() != null | productUpdateReqDto.getDeleteImgFiles() != null) {
+        if(productUpdateReqDto.getAddImgFiles() != null || productUpdateReqDto.getDeleteImgFiles() != null) {
             status = true;
             boolean addStatus = true;
             boolean deleteStatus = true;

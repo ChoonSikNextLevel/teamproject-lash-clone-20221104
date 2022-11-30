@@ -12,7 +12,7 @@ public interface ProductService {
     public boolean addProduct(ProductRegistReqDto productRegistReqDto) throws Exception;
 
     // 상품 조회(리스트)
-    public List<ProductListRespDto> productList(int page, String category, String searchText) throws Exception;
+    public List<ProductListRespDto> productList(String category, String searchText) throws Exception;
 
     // 상품 수정
     public boolean updateProduct(ProductUpdateReqDto productUpdateReqDto) throws Exception;
