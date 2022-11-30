@@ -239,24 +239,3 @@ kbtn.onclick = () => {
 };
 
 
-const addButton = document.querySelector(".add-button");
-
-addButton.onclick = () => {
-  $.ajax({
-    async: false,
-    type: "post",
-    url: "/api/shoppingBasket",
-    data: productInfo,
-    dataType: "json",
-    success: (response) => {
-      console.log(response.data);
-      alert("추가되었습니다.");
-    },
-    error: (error) => {
-      console.log(error);
-    }
-  })
-
-}
-
-
