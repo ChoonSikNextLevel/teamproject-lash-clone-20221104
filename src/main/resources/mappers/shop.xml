@@ -65,68 +65,94 @@
 
     <insert id="addToBag" parameterType="hashmap">
         insert
-            into cart_items
-                values (
-                            (
-                            select
-                                cm.cart_id
-                            from
-                                cart_mst cm
-                            where
-                                cm.member_id = (
-                                                SELECT
-                                                    mm.member_id
-                                                FROM
-                                                    member_mst mm
-                                                WHERE
-                                                    mm.username = #{username}
-                                                )
-                            ),
-                            (
-                            select
-                                pm.product_id
-                            from
-                                product_mst pm
-                            where
-                                pm.name = #{name}
-                            and
-                                pm.color_code = #{colorCode}
-                            ),
-                            1
-                        );
+        into cart_items
+        values (
+        (
+        select
+        cm.cart_id
+        from
+        cart_mst cm
+        where
+        cm.member_id = (
+        SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        )
+        ),
+        (
+        select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        ),
+        1
+        );
 
     </insert>
 
     <update id="updateCount" parameterType="hashmap">
         update
-            cart_items
+        cart_items
         set
-            product_count = product_count + 1
+        product_count = product_count + 1
         where
-            cart_id = (
-                        select
-                            cm.cart_id
-                        from
-                            cart_mst cm
-                        where
-                            cm.member_id = (
-                                            SELECT
-                                                mm.member_id
-                                            FROM
-                                                member_mst mm
-                                            WHERE
-                                                mm.username = #{username}
-                                            )
-                        and
-                            product_id = (
-                                            select
-                                                pm.product_id
-                                            from
-                                                product_mst pm
-                                            where
-                                                pm.name = #{name}
-                                            and
-                                                pm.color_code = #{colorCode}
-                        );
+        cart_id = (
+        select
+        cm.cart_id
+        from
+        cart_mst cm
+        where
+        cm.member_id = (
+        SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        )
+        and
+        product_id = (
+        select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        ));
     </update>
+
+    <select id="checkCart" resultType="java.util.Map">
+        SELECT
+        ci.cart_id,
+        ci.product_id
+        FROM
+        cart_items ci
+        WHERE ci.cart_id = ( SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        ) and
+        ci.product_id = (select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        )
+
+    </select>
+
 </mapper>

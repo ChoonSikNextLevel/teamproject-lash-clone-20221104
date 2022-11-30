@@ -67,4 +67,4 @@ mybatis:
     - /mappers/*.xml
 
 file:
-  path: C:/TeamProjectLash/web/springboot/teamproject-lash-clone-20221104/upload/
+  path: oC:/TeamProjectLash/web/springboot/teamproject-lash-clne-20221104/upload/

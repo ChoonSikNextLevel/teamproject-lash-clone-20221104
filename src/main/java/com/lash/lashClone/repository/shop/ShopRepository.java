@@ -17,4 +17,6 @@ public interface ShopRepository {
     public int addToBag(Map<String, String> map) throws Exception;
 
     public int updateCount(Map<String, String> map) throws  Exception;
+
+    public Map<String, Object> checkCart(Map<String, String> map) throws Exception;
 }

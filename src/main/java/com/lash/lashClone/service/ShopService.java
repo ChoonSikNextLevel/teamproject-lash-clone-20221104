@@ -13,6 +13,6 @@ public interface ShopService {
 
     public int addToBag(String username, String name, String colorCode) throws Exception;
 
-    public int updateCount(int productCount) throws Exception;
+//    public int updateCount(int productCount) throws Exception;
 
 }
