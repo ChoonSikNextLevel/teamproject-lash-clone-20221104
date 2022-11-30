@@ -1,6 +1,6 @@
-const param = {
+let param = {
   category: "all",
-  searchv: ""
+  searchText: ""
 };
 
 function productList() {
@@ -65,6 +65,19 @@ function loadList(responseData) {
   deleteProduct();
 }
 
+
+// 카테고리로 제품 리스트 불러오기
+function loadingByCategory() {
+  const categorySelect = document.querySelector(".category-select");
+  
+  categorySelect.onchange = () => {
+    param.category = categorySelect.value;
+    console.log("카테고리 : ", param.category);
+    productList();
+  }
+}
+
+
 // 수정 버튼 눌렀을 때 해당 상품 수정 페이지로 이동(기존 값 그대로)
 function setListValues() {
   const updateButton = document.querySelectorAll(".update-button");
@@ -117,4 +130,5 @@ function deleteProduct() {
 
 window.onload = () => {
   productList();
+  loadingByCategory();
 };

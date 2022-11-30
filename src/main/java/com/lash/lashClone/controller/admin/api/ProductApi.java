@@ -30,11 +30,10 @@ public class ProductApi {
 
     // 상품 조회(리스트)
     @GetMapping("/products")
-    public ResponseEntity<?> productList(@RequestParam int page,
-                                         @RequestParam @Nullable String category,
+    public ResponseEntity<?> productList(@RequestParam @Nullable String category,
                                          @RequestParam @Nullable String searchText) throws Exception {
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.productList(page, category, searchText)));
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", productService.productList(category, searchText)));
 
     }
 
