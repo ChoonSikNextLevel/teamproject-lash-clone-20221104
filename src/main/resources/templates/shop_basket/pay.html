@@ -89,15 +89,16 @@
                             <img src="/static/images/btn_img/ico_required.png" alt="">
                         </th>
                         <td>
-                            <input class="input-address1" placeholder size="6" maxlength="6" type="text">
+                            <input class="input-address1" size="6" maxlength="6" type="text">
                             <a href="#none" class="search-postal-code">
-                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif" alt="">
+                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif"
+                                    onclick=" sample6_execDaumPostcode(this)" name="address1">
                             </a><br>
-                            <input class="input-address2" type="text" placeholder size="40"> <span>기본주소</span>
-                            <input class="input-address2" type="text" placeholder size="40"> <span>나머지주소</span>
+                            <input class="input-address2" type="text" size="40"> <span>기본주소</span>
+                            <input class="input-address3" type="text" size="40"> <span>나머지주소</span>
                         </td>
                     </tr>
-                    <tr class="tr-order-phone">
+                    <!-- <tr class="tr-order-phone">
                         <th>
                             일반전화
                         </th>
@@ -140,7 +141,7 @@
                             -
                             <input type="text" class="input-phone3" maxlength="4">
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr class="tr-order-phone">
                         <th>
                             휴대전화
@@ -168,7 +169,7 @@
                             <img src="/static/images/btn_img/ico_required.png" alt="필수">
                         </th>
                         <td style="border-bottom: 1px solid #333;">
-                            <input type="text" value="">
+                            <input type="text" value="" class="input-email">
                             @
                             <input type="text">
                             <select class="select-email" aria-valuetext="naver.com">
@@ -230,18 +231,21 @@
                     </tr>
                     <tr class="tr-receiver-address">
                         <th>주소
-                            <img src="/static/images/btn_img/ico_required.png" alt="">
+                            <img src="/static/images/btn_img/ico_required.png">
                         </th>
                         <td>
                             <input class="receiver-address1" placeholder size="6" maxlength="6" type="text">
-                            <a href="#none" class="search-postal-code" style="">
-                                우편번호
-                            </a><br>
+
+
+                            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif"
+                                class="search-postal-code" onclick=" sample6_execDaumPostcode(this)" name="address2">
+                            <br>
+
                             <input class="receiver-address2" type="text" placeholder size="40"> <span>기본주소</span>
-                            <input class="receiver-address2" type="text" placeholder size="40"> <span>나머지주소</span>
+                            <input class="receiver-address3" type="text" placeholder size="40"> <span>나머지주소</span>
                         </td>
                     </tr>
-                    <tr class="tr-receiver-phone">
+                    <!-- <tr class="tr-receiver-phone">
                         <th>
                             일반전화
                         </th>
@@ -284,7 +288,7 @@
                             -
                             <input type="text" class="input-receiver-phone3" maxlength="4">
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr class="tr-receiver-phone">
                         <th>
                             휴대전화
@@ -423,11 +427,11 @@
                         <input id="pay-method-kakao" type="radio" name="pay-method" onclick="payMethod(this)">
                         <label class="pay-method-kakao" for="pay-method-kakao"><img
                                 src="/static/images/lash_btn/payment_icon_yellow_small.png"
-                                style="height: 20px; vertical-align: -30%;"></label>
+                                style="height: 20px; vertical-align: -25%;"></label>
                     </span>
                     <span>
                         <input id="pay-method-toss" type="radio" name="pay-method" onclick="payMethod(this)">
-                        <label class="pay-method-toss" for="pay-method-naver"><img
+                        <label class="pay-method-toss" for="pay-method-toss"><img
                                 src="/static/images/lash_btn/logo-toss-pay.png"
                                 style="height: 18px; vertical-align: text-bottom;"></label>
                     </span>
@@ -475,7 +479,7 @@
                     </h4>
                     <p>
                         <span>KRW <br></span>
-                        <input size="10" readonly="1" value="" type="text">
+                        <input size="10" readonly="1" value="" type="text" class="payment-total">
                     </p>
                     <div class="pay-button-container">
                         <a class="pay-button">결제하기</a>
@@ -497,18 +501,18 @@
                         </div>
                     </div> -->
                 </div>
-                    <div class="pay-method-box-right pay-method-box-right-toss none">
-                        <h4>
-                            <span>토스 최종 결제금액</span>
-                        </h4>
-                        <p>
-                            <span>KRW <br></span>
-                            <input size="10" readonly="1" value="" type="text">
-                        </p>
-                        <div class="pay-button-container">
-                            <a class="pay-button">결제하기</a>
-                        </div>
-                        <!-- <div class="total-reserves">
+                <div class="pay-method-box-right pay-method-box-right-toss none">
+                    <h4>
+                        <span>토스 최종 결제금액</span>
+                    </h4>
+                    <p>
+                        <span>KRW <br></span>
+                        <input size="10" readonly="1" value="" type="text" class="payment-total">
+                    </p>
+                    <div class="pay-button-container">
+                        <a class="pay-button">결제하기</a>
+                    </div>
+                    <!-- <div class="total-reserves">
                         <div class="total-reserves-top">
                             <div class="total-reserves-top-left">
                                 <strong>총 적립예정금액</strong>
@@ -524,18 +528,60 @@
                             <div class="total-reserves-bottom-right">0원</div>
                         </div>
                     </div> -->
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="top" id="top">
-            <a href="#top" style="padding: 15px 5px 15px 5px; border-radius: 5px;">
-                TOP
-            </a>
-        </div>
+    <div class="top" id="top">
+        <a href="#top" style="padding: 15px 5px 15px 5px; border-radius: 5px;">
+            TOP
+        </a>
+    </div>
 
-        <script src="/static/js/shop_basket/pay.js"></script>
+    <script src="/static/js/shop_basket/pay.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function sample6_execDaumPostcode(inputBox) {
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    var addr = '';
+                    var extraAddr = '';
+
+                    if (data.userSelectedType === 'R') {
+                        addr = data.roadAddress;
+                    } else {
+                        addr = data.jibunAddress;
+                    }
+
+                    if (data.userSelectedType === 'R') {
+                        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddr += data.bname;
+                        }
+                        if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        if (extraAddr !== '') {
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                    } else {
+                    }
+
+                    if (inputBox.name == 'address1') {
+                        document.querySelector('.input-address1').value = data.zonecode;
+                        document.querySelector(".input-address2").value = addr;
+                        document.querySelector(".input-address3").focus();
+                    } else if (inputBox.name == 'address2') {
+                        document.querySelector('.receiver-address1').value = data.zonecode;
+                        document.querySelector(".receiver-address2").value = addr;
+                        document.querySelector(".receiver-address3").focus();
+                    }
+
+                }
+            }).open();
+
+        }
+    </script>
 </body>
 
 </html>

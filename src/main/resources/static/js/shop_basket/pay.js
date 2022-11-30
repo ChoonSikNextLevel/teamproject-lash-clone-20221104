@@ -11,11 +11,11 @@ function payMethod(element) {
   let de = document.getElementsByName("pay-detail");
   let fi = document.getElementsByClassName("pay-method-box-right");
 
-  for(var i = 0; i < de.length; i++) {
-    if(de[i].classList.contains(element.id)){
+  for (var i = 0; i < de.length; i++) {
+    if (de[i].classList.contains(element.id)) {
       de[i].classList.remove("none");
       fi[i].classList.remove("none");
-    }else {
+    } else {
       de[i].classList.add("none");
       fi[i].classList.add("none");
     }
@@ -54,13 +54,15 @@ const productListBody = document.querySelector(".product-list-tbody");
 const productListFoot = document.querySelector("tfoot");
 const paymentTotalPrice = document.querySelector(".payment-total-price");
 const afterDiscount = document.querySelector(".after-discount");
-const paymentTotal = document.querySelector(".payment-total");
+const paymentTotal = document.querySelectorAll(".payment-total");
 
-function buynowOrder() {
-  let product = JSON.parse(localStorage.getItem("buy-now-product"));
+let cartList = [];
+let productTotalPrice = 0;
 
-  productListBody.innerHTML = ``;
-  productListBody.innerHTML = `
+function buynowOrder(cartList) {
+  cartList.forEach((product, index) => {
+    productListBody.innerHTML = ``;
+    productListBody.innerHTML = `
                     <tr style="height: 112px;">
                         <td class="product-list-table-input">
                             <input type="checkbox" name="product-list-select">
@@ -99,31 +101,34 @@ function buynowOrder() {
                     </tr>
     `;
 
-  productListFoot.innerHTML = `
+    productTotalPrice += product.price;
+
+    productListFoot.innerHTML = `
                     <tr>
                         <td class="product-list-table-input"></td>
                         <td colspan="8">
                             <span>[기본배송]</span>
                             상품구매금액
                             <strong>
-                            ${product.price}
+                            ${productTotalPrice}
                             </strong>
                             + 배송비
                             <span>0 (무료)</span>
                             = 합계 :
                             <strong>
                                 KRW
-                                <span>${product.price}</span>
+                                <span>${productTotalPrice}</span>
                             </strong>
                         </td>
                     </tr>
     `;
 
-  paymentTotalPrice.innerHTML = `${product.price}`;
-  afterDiscount.innerHTML = `${product.price}`;
-  paymentTotal.value = product.price;
+    paymentTotalPrice.innerHTML = `${productTotalPrice}`;
+    afterDiscount.innerHTML = `${productTotalPrice}`;
+    paymentTotal.value = productTotalPrice;
 
-  orderData(product);
+    orderData(product);
+  });
 }
 
 /** 결제할 상품, 수량, 가격 */
@@ -154,10 +159,9 @@ function getTotalPrice(items) {
 }
 
 /** 결제 */
+
 var IMP = window.IMP;
 IMP.init("imp75586747");
-
-let impData = null;
 
 function getMemberInfo() {
   $.ajax({
@@ -166,9 +170,8 @@ function getMemberInfo() {
     url: "/api/order/member/info",
     dataType: "json",
     success: (response) => {
-      getImpData(response.data);
-      console.log(response.data);
-      console.log(impData);
+      let buyer_id = responseData.member_id;
+      console.log(buyer_id);
     },
     error: (error) => {
       alert("회원 로그인 후 구매하실 수 있습니다.");
@@ -177,17 +180,58 @@ function getMemberInfo() {
   });
 }
 
-function getImpData(responseData) {
-  impData = {
-    buyer_id: responseData.member_id,
-    buyer_email: responseData.email,
-    buyer_name: responseData.name,
-    buyer_tel: responseData.mobile_phone,
-    buyer_addr: responseData.address + " " + responseData.address_detail,
-    buyer_postcode: responseData.address_number,
+/** 주문자 정보 */
+function orderer() {
+  const bname = document.querySelector(".input-name").value;
+
+  const btel1 = document.querySelector(".select-phone").value;
+  const btel2 = document.querySelector(".input-phone2").value;
+  const btel3 = document.querySelector(".input-phone3").value;
+
+  const badd1 = document.querySelector(".input-address1").value; // postcode
+
+  const badd2 = document.querySelector(".input-address2").value;
+  const badd3 = document.querySelector(".input-address3").value;
+
+  const bmail = document.querySelector(".input-email").value;
+  const bmails = document.querySelector(".select-email").value;
+
+  const orderer = {
+    buyer_name: bname,
+    buyer_tel: btel1 + btel2 + btel3,
+    buyer_addr: badd2 + " " + badd3,
+    buyer_postcode: badd1,
+    buyer_email: bmail + "@" + bmails,
   };
 
-  return impData;
+  return orderer;
+}
+
+/** 배송자 정보 */
+function recipient() {
+  const rname = document.querySelector(".input-name").value;
+
+  const rtel1 = document.querySelector(".select-phone").value;
+  const rtel2 = document.querySelector(".input-phone2").value;
+  const rtel3 = document.querySelector(".input-phone3").value;
+
+  const radd1 = document.querySelector(".input-address1").value; // postcode
+
+  const radd2 = document.querySelector(".input-address2").value;
+  const radd3 = document.querySelector(".input-address3").value;
+
+  const rmail = document.querySelector(".input-email").value;
+  const rmails = document.querySelector(".select-email").value;
+
+  const recipient = {
+    r_name: bname,
+    r_tel: btel1 + btel2 + btel3,
+    r_addr: badd2 + " " + badd3,
+    r_postcode: badd1,
+    r_email: bmail + "@" + bmails,
+  };
+
+  return orderer;
 }
 
 const payMethodN = document.getElementById("pay-method-normal");
@@ -196,6 +240,8 @@ const payMethodT = document.getElementById("pay-method-toss");
 const payBtn = document.querySelector(".pay-button");
 
 payBtn.onclick = () => {
+  orderer();
+
   if (payMethodN.checked) {
     alert("일반결제");
 
@@ -204,13 +250,13 @@ payBtn.onclick = () => {
         pg: "html5_inicis.INIpayTest", //테스트 시 html5_inicis.INIpayTest 기재
         pay_method: "card",
         merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
-        name: "주문명:KG이니시스 결제테스트",
+        name: "주문명:" + new Date().getTime(),
         amount: getTotalPrice(orderItems),
-        buyer_email: "iamport@siot.do",
-        buyer_name: "구매자이름",
-        buyer_tel: "010-1234-5678", //필수 파라미터 입니다.
-        buyer_addr: "서울특별시 강남구 삼성동",
-        buyer_postcode: "123-456",
+        buyer_email: orderer.buyer_email,
+        buyer_name: orderer.buyer_name,
+        buyer_tel: orderer.buyer_tel,
+        buyer_addr: orderer.buyer_addr,
+        buyer_postcode: orderer.buyer_postcode,
         m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
         escrow: true, //에스크로 결제인 경우 설
         bypass: {
@@ -241,14 +287,14 @@ payBtn.onclick = () => {
         pg: "kakaopay.TC0ONETIME", //테스트인경우 kcp.T000
         pay_method: "card",
         merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
-        name: "주문명:카카오페이 결제테스트",
+        name: "주문명:" + new Date().getTime(),
         amount: getTotalPrice(orderItems),
         company: "lash", //해당 파라미터 설정시 통합결제창에 해당 상호명이 노출됩니다.
-        buyer_email: "address002@naver.com",
-        buyer_name: "나갱",
-        buyer_tel: "010-9044-2249",
-        buyer_addr: "서울특별시 강남구 삼성동",
-        buyer_postcode: "123-456",
+        buyer_email: orderer.buyer_email,
+        buyer_name: orderer.buyer_name,
+        buyer_tel: orderer.buyer_tel,
+        buyer_addr: orderer.buyer_addr,
+        buyer_postcode: orderer.buyer_postcode,
         language: "ko", // en 설정시 영문으로 출력되면 해당 파라미터 생략시 한국어 default
         m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
       },
@@ -269,13 +315,13 @@ payBtn.onclick = () => {
         pg: "uplus.tosstest",
         pay_method: "card",
         merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
-        name: "주문명:토스페이 결제테스트",
+        name: "주문명:" + new Date().getTime(),
         amount: getTotalPrice(orderItems),
-        buyer_email: "iamport@siot.do",
-        buyer_name: "구매자이름",
-        buyer_tel: "010-1234-5678",
-        buyer_addr: "서울특별시 강남구 삼성동",
-        buyer_postcode: "123-456",
+        buyer_email: orderer.buyer_email,
+        buyer_name: orderer.buyer_name,
+        buyer_tel: orderer.buyer_tel,
+        buyer_addr: orderer.buyer_addr,
+        buyer_postcode: orderer.buyer_postcode,
         m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
         appCard: true, // 설정시 신용카드 결제모듈에서 앱카드 결제만 활성화됩니다.
       },
@@ -293,7 +339,9 @@ payBtn.onclick = () => {
 
 window.onload = () => {
   if (localStorage.getItem("buy-now-product")) {
-    buynowOrder();
+    let product = JSON.parse(localStorage.getItem("buy-now-product"));
+    cartList.push(product);
+    buynowOrder(cartList);
     localStorage.clear();
     // 결제
   } else {
@@ -307,7 +355,7 @@ let orderInfo = {
   name: "",
   color_code: "",
   qty: "",
-  member_id: impData["buyer_id"],
+  member_id: "", // impData["buyer_id"]
 
   orderer: "",
   or_address_number: "",

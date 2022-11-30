@@ -1,5 +1,6 @@
 const param = {
-  page: 1,
+  category: "all",
+  searchv: ""
 };
 
 function productList() {
