@@ -37,20 +37,34 @@ public class ShopServiceImpl implements ShopService {
         Map<String, String> map = new HashMap<String, String>();
 
         map.put("username", username);
-        map.put("name",name);
-        map.put("colorCode",colorCode);
+        map.put("name", name);
+        map.put("colorCode", colorCode);
 
-        if(shopRepository.addToBag(map) == 1) {
-            return 1;
+        if (shopRepository.checkCart(map) == null) {
+
+            if (shopRepository.addToBag(map) == 1) {
+                return 1;
+            }
+            return 0;
+
+        }else{
+
+            if(shopRepository.updateCount(map) == 1) {
+
+                return 1;
+            }
+
+            return 0;
         }
-        return 0;
     }
 
-    @Override
-    public int updateCount(int productCount) throws Exception {
 
-        return 0;
-    }
+
+//    @Override
+//    public int updateCount(int productCount) throws Exception {
+//
+//        return 0;
+//    }
 
 
 

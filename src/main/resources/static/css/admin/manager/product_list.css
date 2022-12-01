@@ -145,20 +145,31 @@ img {
 }
 
 /* =======================search============================= */
-.search-area{
-    width: 90%;
+.search-area .search-box2{
+    width: 100%;
     margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
 }
 
-#value{
+.search-input{
 border: none;
-background: #E0D3B6;
+background: #e4ccb1;
 padding: 6px;
-font-size: 18px;
-width: 80%;
-border-radius: 6px;
-color: white;
+font-size: 15px;
+font-weight: 700;
+width: 60%;
+border-radius: 3px;
+color: rgb(0, 0, 0);
 }
-#value:focus{
-outline: none;
+
+.search-input, .category-select:focus{
+border: 1px solid rgb(158, 158, 158);
 }
+
+.category-select {
+    width: 15%;
+    height: 30px;
+    font-size: 15px;
+}
+

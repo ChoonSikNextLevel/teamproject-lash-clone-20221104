@@ -100,15 +100,29 @@
                             select
                                 count(*) as product_total_count
                             FROM
-                                product_mst
+                                product_mst pm
                             where
                                 1 = 1
+                                <if test='category != "all"'>
+                                    and pm.category = #{category}
+                                </if>
 
-<!--                            <if test='category != "ALL"'>-->
-<!--                                and category = #{category}-->
-<!--                            </if>-->
+                                <if test='searchValue != null || searchValue != ""'>
+                                    AND (pm.name like CONCAT('%', #{searchValue}, '%')
+                                    or pm.color_code like CONCAT('%', #{searchValue}, '%'))
+                                </if>
+                            )
+                            pc ON (1 = 1)
+        where
+        1 = 1
+        <if test='category != "all"'>
+            and pm.category = #{category}
+        </if>
 
-                            ) pc ON (1 = 1);
+        <if test='searchValue != null || searchValue != ""'>
+            AND (pm.name like CONCAT('%', #{searchValue}, '%')
+            or pm.color_code like CONCAT('%', #{searchValue}, '%'))
+        </if>
 
 
 
