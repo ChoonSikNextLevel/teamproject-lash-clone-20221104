@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/shop_basket/MyShoppingBasket.css">
-    
+
     <title>My Shopping Basket</title>
 </head>
 
 <body>
     <div class="overlay"></div>
-    
+
     <header th:replace="~{fragment/header :: header}"></header>
 
     <!-- contents -->
@@ -97,7 +97,7 @@
                 <div class="total-price"></div>
             </div>
             <div class="checkout-box">
-                <a href="/templates/shop_basket/pay.html" class="checkout-button">CHECK&nbsp;OUT</a>
+                <a href="/payment" class="checkout-button">CHECK&nbsp;OUT</a>
             </div>
         </div>
     </div>

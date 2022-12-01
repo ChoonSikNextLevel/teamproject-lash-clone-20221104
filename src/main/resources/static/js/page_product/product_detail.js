@@ -87,6 +87,7 @@ const moreColor = document.querySelector(".more-color");
 function loadProduct(data) {
   data.forEach((product) => {
     console.log(product);
+    product["product_count"] = 1;
 
     if (product.color_code == productInfo.colorCode) {
       product.product_imgs.forEach((img) => {
@@ -237,5 +238,3 @@ kbtn.onclick = () => {
     );
   }
 };
-
-

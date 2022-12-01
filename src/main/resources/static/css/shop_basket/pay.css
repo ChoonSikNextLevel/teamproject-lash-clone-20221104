@@ -165,6 +165,7 @@ body {
 }
 
 .delete-button:hover {
+  cursor: pointer;
   color: #0f0f0f;
   transition: all 0.7s;
 }
