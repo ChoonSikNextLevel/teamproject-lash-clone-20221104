@@ -106,6 +106,11 @@
                                 <if test='category != "all"'>
                                     and pm.category = #{category}
                                 </if>
+
+                                <if test='searchValue != null || searchValue != ""'>
+                                    AND (pm.name like CONCAT('%', #{searchValue}, '%')
+                                    or pm.color_code like CONCAT('%', #{searchValue}, '%'))
+                                </if>
                             )
                             pc ON (1 = 1)
         where
@@ -113,6 +118,13 @@
         <if test='category != "all"'>
             and pm.category = #{category}
         </if>
+
+        <if test='searchValue != null || searchValue != ""'>
+            AND (pm.name like CONCAT('%', #{searchValue}, '%')
+            or pm.color_code like CONCAT('%', #{searchValue}, '%'))
+        </if>
+
+
 
     </select>
 

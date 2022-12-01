@@ -38,25 +38,23 @@
                     <!-- search -->
                     <section class="search-list">
                         <div class="search-area">
-                            <form action="." method="get">
+                            <!-- <form action="" method="get"> -->
                                 <div class="search-box2">
-                                    <h1>Search</h1>
-                                    <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
-                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
-                                        <select class="category-select">
-                                            <!-- <option value="choose">▼선택</option> -->
-                                            <option value="all">ALL</option>
-                                            <option value="metal">METAL</option>
-                                            <option value="acetate">ACETATE</option>
-                                            <option value="combination">COMBINATION</option>
-                                            <option value="refined">REFINED</option>
-                                            <option value="vintage">VINTAGE</option>
-                                            <option value="sunglasses">SUNGLASSES</option>
-                                            <option value="acc">ACC</option>
-                                        </select>
-                                    </td>
+                                    <input type="text" class="search-input" placeholder='"제품명 또는 컬러코드 입력 후 ENTER"'>
+                                    <!-- <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;"> -->
+                                    <select class="category-select">
+                                        <option value="all">ALL</option>
+                                        <option value="metal">METAL</option>
+                                        <option value="acetate">ACETATE</option>
+                                        <option value="combination">COMBINATION</option>
+                                        <option value="refined">REFINED</option>
+                                        <option value="vintage">VINTAGE</option>
+                                        <option value="sunglasses">SUNGLASSES</option>
+                                        <option value="acc">ACC</option>
+                                    </select>
+                                    <!-- </td> -->
                                 </div>
-                            </form>
+                            <!-- </form> -->
                         </div>
                     </section>
                     <form class="list-form" action="" method="post">
@@ -81,7 +79,7 @@
                                         <th scope="col">Product_Id</th>
                                         <th scope="col">Product_Img</th>
                                         <th scope="col">Product_Name</th>
-                                        <th scope="col">Product_Code</th>
+                                        <th scope="col">Color_Code</th>
                                         <th scope="col">Product_Price</th>
                                         <th scope="col">수정</th>
                                         <th scope="col">삭제</th>

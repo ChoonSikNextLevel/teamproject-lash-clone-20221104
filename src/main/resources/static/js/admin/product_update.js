@@ -1,5 +1,5 @@
 let product = JSON.parse(localStorage.getItem("product"));
-localStorage.clear();
+localStorage.removeItem("product")
 let productId = product.productId;
 
 const productImgInput = document.querySelector("#product-imgs");

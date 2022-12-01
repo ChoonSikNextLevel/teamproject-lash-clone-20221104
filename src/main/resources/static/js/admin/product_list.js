@@ -1,7 +1,9 @@
 let param = {
   category: "all",
-  searchText: ""
+  searchValue: ""
 };
+
+
 
 function productList() {
   $.ajax({
@@ -29,10 +31,10 @@ function loadList(responseData) {
   const loadBody = document.querySelector(".center");
 
   loadBody.innerHTML = "";
-  console.log(responseData);
+  // console.log(responseData);
   responseData.forEach((product, index) => {
     const productImgsArray = product.productImgs;
-    console.log(product.productImgs);
+    // console.log(product.productImgs);
 
     loadBody.innerHTML += `
         <tr class="xans-record-">
@@ -74,6 +76,26 @@ function loadingByCategory() {
     param.category = categorySelect.value;
     console.log("카테고리 : ", param.category);
     productList();
+    
+    // 카테고리 선택값 lacalStrorage에 저장
+    localStorage.setItem("categoryValue", JSON.stringify(param.category));
+  }
+}
+
+
+// 검색어로 제품 리스트 불러오기
+function loadingBySearchText() {
+  const searchInput = document.querySelector(".search-input");
+
+  searchInput.onkeyup = () => {
+    if(window.event.keyCode == 13) {
+        param.searchValue = searchInput.value;
+        console.log("검색어 : ", param.searchValue);
+        productList();
+
+        // 검색어 lacalStrorage에 저장
+        localStorage.setItem("searchValue", JSON.stringify(param.searchValue));
+    }
   }
 }
 
@@ -87,9 +109,12 @@ function setListValues() {
       alert("제품 정보 수정 페이지로 이동합니다.");
       localStorage.setItem("product", JSON.stringify(responseData[index]));
       location.href = "/admin/product/update";
+
+
     };
   });
 }
+
 
 // 제품 삭제 기능
 function deleteProduct() {
@@ -128,7 +153,31 @@ function deleteProduct() {
   });
 }
 
+// function getPageHistory() {
+//   if(localStorage.getItem("categoryValue")) {
+//     let categorySelect = JSON.parse(localStorage.getItem("categoryValue"));
+//     localStorage.clear();
+//   }
+
+//   if(localStorage.getItem("searchValue")) {
+//     let categorySelect = JSON.parse(localStorage.getItem("searchValue"));
+//     localStorage.clear();
+//   }
+// }
+
+
 window.onload = () => {
+
+  if(localStorage.getItem("categoryValue")) {
+    param.category = JSON.parse(localStorage.getItem("categoryValue"));
+  }
+
+  if(localStorage.getItem("searchValue")) {
+    param.searchValue = JSON.parse(localStorage.getItem("searchValue"));
+  }
+
   productList();
+  localStorage.clear();
   loadingByCategory();
+  loadingBySearchText();
 };
