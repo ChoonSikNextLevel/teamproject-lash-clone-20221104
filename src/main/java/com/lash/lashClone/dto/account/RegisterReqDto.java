@@ -52,7 +52,7 @@ public class RegisterReqDto {
                 .username(username)
                 .password(new BCryptPasswordEncoder().encode(password))
                 .name(name)
-                .phone(firstPhone + lastPhone)
+                .phone("010" + firstPhone + lastPhone)
                 .email(email)
                 .role_id(1)
                 .build();

@@ -1,12 +1,10 @@
-package com.lash.lashClone.service;
+package com.lash.lashClone.service.mypage;
 
 import com.lash.lashClone.domain.Member;
 
 import com.lash.lashClone.repository.account.MyPageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

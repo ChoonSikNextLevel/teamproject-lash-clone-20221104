@@ -1,4 +1,4 @@
-package com.lash.lashClone.service;
+package com.lash.lashClone.service.mypage;
 
 
 import com.lash.lashClone.domain.Address;

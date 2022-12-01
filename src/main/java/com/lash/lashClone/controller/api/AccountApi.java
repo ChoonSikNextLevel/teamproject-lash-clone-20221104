@@ -6,11 +6,15 @@ import com.lash.lashClone.aop.annotation.ValidAspect;
 import com.lash.lashClone.dto.CMRespDto;
 import com.lash.lashClone.dto.account.AddressReqDto;
 import com.lash.lashClone.dto.account.RegisterReqDto;
+import com.lash.lashClone.dto.account.UserUpdateReqDto;
 import com.lash.lashClone.dto.validation.ValidationSequence;
 import com.lash.lashClone.service.AccountService;
-import com.lash.lashClone.service.AddressService;
-import com.lash.lashClone.service.MyPageService;
+import com.lash.lashClone.service.mypage.AddressService;
+import com.lash.lashClone.service.mypage.MyPageService;
+
 import com.lash.lashClone.service.auth.PrincipalDetails;
+import com.lash.lashClone.service.mypage.UserService;
+import com.lash.lashClone.service.mypage.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +31,8 @@ public class AccountApi {
     private final AccountService accountService;
     private final AddressService addressService;
     private final MyPageService myPageService;
+    private final UserService userService;
+
 
     @LogAspect
     @ValidAspect
@@ -45,7 +51,20 @@ public class AccountApi {
         return ResponseEntity.created(null)
                 .body(new CMRespDto<>(1, "success", addressService.addAddress(addressReqDto, username)));
     }
-    // 마이페이지
+    // ----------유저 정보 수정-------
+    @PutMapping("/user/update")
+    public ResponseEntity<?> updateUser(UserUpdateReqDto userUpdateReqDto) throws Exception {
+
+        return ResponseEntity.ok().body(new CMRespDto<>(1, "success", userService.updateUser(userUpdateReqDto)));
+    }
+//    //-------유저 페이지-----
+    @GetMapping("/user")
+    public ResponseEntity<?> getuser(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+        System.out.println(principalDetails.getMember().getUsername());
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", userService.getUser(principalDetails.getMember().getUsername())));
+    }
+
+    // ----------마이페이지-------
     @GetMapping("/mypage")
     public ResponseEntity<?> myPage(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
         return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageService.memberList(principalDetails.getMember().getUsername())));

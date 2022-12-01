@@ -284,3 +284,8 @@ a {
     display: none;
 }
 
+.join-table .phoneone {
+    margin: 0 4px;
+    width: 150px;
+    height: 32px;
+}

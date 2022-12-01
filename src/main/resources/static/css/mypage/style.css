@@ -153,7 +153,7 @@ input, select, textarea {
     margin: 5px 0 0;
 }
 .xans-member-edit #phone2, .xans-member-edit #phone3, .xans-member-edit #mobile2, .xans-member-edit #mobile3 {
-    width: 50px;
+    width: 80px;
     margin: 0 4px;
 }
 

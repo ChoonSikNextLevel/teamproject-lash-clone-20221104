@@ -1,17 +1,13 @@
-package com.lash.lashClone.service;
+package com.lash.lashClone.service.mypage;
 
 import com.lash.lashClone.domain.Address;
-import com.lash.lashClone.dto.account.AddressListRespDto;
 import com.lash.lashClone.dto.account.AddressReqDto;
 import com.lash.lashClone.repository.account.AddressRepository;
 //import com.lash.lashClone.repository.account.MyPageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor

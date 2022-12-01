@@ -229,6 +229,7 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     z-index: 100;
     padding: 5px 40px;
     margin: 5px auto 0;
+    margin-bottom: 10px;
     line-height: 23px;
     display: inline-block;
     border: 1px solid #333;
