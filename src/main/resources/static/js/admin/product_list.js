@@ -3,8 +3,6 @@ let param = {
   searchValue: ""
 };
 
-
-
 function productList() {
   $.ajax({
     async: false,
@@ -109,8 +107,6 @@ function setListValues() {
       alert("제품 정보 수정 페이지로 이동합니다.");
       localStorage.setItem("product", JSON.stringify(responseData[index]));
       location.href = "/admin/product/update";
-
-
     };
   });
 }
@@ -152,19 +148,6 @@ function deleteProduct() {
     };
   });
 }
-
-// function getPageHistory() {
-//   if(localStorage.getItem("categoryValue")) {
-//     let categorySelect = JSON.parse(localStorage.getItem("categoryValue"));
-//     localStorage.clear();
-//   }
-
-//   if(localStorage.getItem("searchValue")) {
-//     let categorySelect = JSON.parse(localStorage.getItem("searchValue"));
-//     localStorage.clear();
-//   }
-// }
-
 
 window.onload = () => {
 

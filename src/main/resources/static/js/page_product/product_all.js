@@ -57,43 +57,6 @@ function groupByName(responseData) {
 
 const productContainer = document.querySelector(".product-container");
 
-// function loadCollection(collection) {
-//   console.log("컬렉션 : ", collection);
-
-//   collection.forEach((product) => {
-//     const productName = product.name;
-
-//     console.log("이름 : ", productName);
-//     console.log("제품 : ", product);
-//     console.log("카테고리 : ", product.category);
-//     console.log("이미지 : ", product.img_name);
-
-//     productContainer.innerHTML += `
-//                 <div class="product-list">
-//                     <div class="product-list-img">
-//                         <div class="product-hunter hunter-c1">
-//                             <a href="/products/product/${product.name}/${product.color_code}">
-//                                 <img src="/image/product/${product.img_name}">
-//                             </a>
-//                         </div>
-//                     </div>
-//                     <div class="product-info-box">
-//                         <div class="product-info-text">
-//                             <p class="product-name">${product.name}</p>
-//                             <p class="product-price">KRW ${product.price}</p>
-//                         </div>
-//                         <div class="product-info-color hunter-color">
-//                             <img src="/static/images/product_img/product_color_img/HUNTER_c1.jpg">
-//                             <img src="/static/images/product_img/product_color_img/HUNTER_c2.jpg">
-//                             <img src="/static/images/product_img/product_color_img/HUNTER_c3.jpg">
-//                             <img src="/static/images/product_img/product_color_img/HUNTER_c4.jpg">
-//                         </div>
-//                     </div>
-//                 </div>
-//             `;
-//   });
-// }
-
 function loadCollectionByName(data) {
   for (var productbyname in data) {
     console.log("object => ", productbyname, "value => ", data[productbyname]);
@@ -140,7 +103,7 @@ function loadCollectionByName(data) {
             `;
 
         productInfoColor[productInfoColor.length - 1].innerHTML += `
-            <p class="other-color" style="margin-right:7px"> C${num}</p>
+            <p class="other-color" style="margin-right:6px"> ■ </p>
         `;
       } else {
         // productHunter[productHunter.length - 1].innerHTML = ``;
@@ -154,7 +117,7 @@ function loadCollectionByName(data) {
 
         // let num = index + 1;
         productInfoColor[productInfoColor.length - 1].innerHTML += `
-            <p class="other-color" style="margin-right:7px"> C${num}</p>
+            <p class="other-color" style="margin-right:6px"> ■ </p>
         `;
       }
 
@@ -188,5 +151,4 @@ function loadCollectionByName(data) {
 
 window.onload = () => {
   getCollection();
-  // groupByName();
 };
