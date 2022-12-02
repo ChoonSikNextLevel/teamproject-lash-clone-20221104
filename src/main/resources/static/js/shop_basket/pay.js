@@ -60,17 +60,16 @@ let cartList = [];
 let productTotalPrice = 0;
 
 function buynowOrder(cartList) {
+  productListBody.innerHTML = ``;
+
   cartList.forEach((product, index) => {
-    productListBody.innerHTML = ``;
-    productListBody.innerHTML = `
+    productListBody.innerHTML += `
                     <tr style="height: 112px;">
                         <td class="product-list-table-input">
-                            <input type="checkbox" name="product-list-select">
+                            <input type="checkbox" name="product-list-select" class="check-boxes">
                         </td>
-                        <td class="product-list-table-image">
-                            <a href="/products/product/${product.name}/${product.color_code}">
-                                <img src="/image/product/${product.product_imgs[0].img_name}">
-                            </a>
+                        <td class="product-list-table-image inner-img">
+
                         </td>
                         <td class="product-list-table-product-info">
                             <a href="/products/product/${product.name}/${product.color_code}">
@@ -84,7 +83,7 @@ function buynowOrder(cartList) {
                                 <strong>KRW ${product.price}</strong>
                             </div>
                         </td>
-                        <td class="product-list-table-count">1</td>
+                        <td class="product-list-table-count"> ${product.product_count}</td>
                         <td class="product-list-table-reserves">
                             <span class="product-list-table-reserves-text">-</span>
                         </td>
@@ -100,6 +99,8 @@ function buynowOrder(cartList) {
                         </td>
                     </tr>
     `;
+
+    imgLoad(product);
 
     productTotalPrice += product.price;
 
@@ -131,6 +132,25 @@ function buynowOrder(cartList) {
   });
 }
 
+/** 상품 이미지 삽입 */
+function imgLoad(product) {
+  const tableImgs = document.querySelectorAll(".inner-img");
+
+  if (localStorage.getItem("buy-now-product")) {
+    tableImgs[tableImgs.length - 1].innerHTML = `
+          <a href="/products/product/${product.name}/${product.color_code}">
+            <img src="/image/product/${product.product_imgs[0].img_name}">
+          </a>
+        `;
+  } else {
+    tableImgs[tableImgs.length - 1].innerHTML = `
+        <a href="/products/product/${product.name}/${product.color_code}">
+          <img src="/image/product/${product.img_name}">
+        </a>
+      `;
+  }
+}
+
 /** 결제할 상품, 수량, 가격 */
 let orderItems = [];
 
@@ -156,6 +176,44 @@ function getTotalPrice(items) {
 
   console.log(totalPrice);
   return totalPrice;
+}
+
+let deleteItems = [];
+
+/**  삭제하기 -> 쇼핑카트에서도 지워짐 */
+function deleteCartItem(data) {
+  console.log(data);
+  const deleteBtn = document.querySelector(".delete-button");
+
+  deleteBtn.onclick = () => {
+    const checkboxes = document.querySelectorAll(".check-boxes");
+
+    deleteItems = [];
+    checkboxes.forEach((checkbox, index) => {
+      if (checkbox.checked) {
+        console.log(data[index]);
+        deleteItems.push(data[index]);
+      }
+    });
+
+    console.log(deleteItems);
+
+    deleteItems.forEach((item) => {
+      $.ajax({
+        async: false,
+        type: "delete",
+        url: "/api/shopping-basket/delete/" + item.name + "/" + item.color_code,
+        dataType: "json",
+        success: (response) => {
+          console.log(response);
+          location.reload();
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    });
+  };
 }
 
 /** 결제 */
@@ -197,11 +255,12 @@ function orderer() {
   const bmails = document.querySelector(".select-email").value;
 
   const orderer = {
-    buyer_name: bname,
-    buyer_tel: btel1 + btel2 + btel3,
-    buyer_addr: badd2 + " " + badd3,
-    buyer_postcode: badd1,
-    buyer_email: bmail + "@" + bmails,
+    orderer: bname,
+    or_mobile_phone: btel1 + btel2 + btel3,
+    or_address: badd2,
+    or_address_detail: badd3,
+    or_address_number: badd1,
+    or_email: bmail + "@" + bmails,
   };
 
   return orderer;
@@ -209,7 +268,7 @@ function orderer() {
 
 /** 배송자 정보 */
 function recipient() {
-  const rname = document.querySelector(".input-name").value;
+  const rname = document.querySelector(".receiver-name-input").value;
 
   const rtel1 = document.querySelector(".select-phone").value;
   const rtel2 = document.querySelector(".input-phone2").value;
@@ -220,18 +279,18 @@ function recipient() {
   const radd2 = document.querySelector(".input-address2").value;
   const radd3 = document.querySelector(".input-address3").value;
 
-  const rmail = document.querySelector(".input-email").value;
-  const rmails = document.querySelector(".select-email").value;
+  const shipping_msg = document.querySelector(".input-email").value;
 
   const recipient = {
-    r_name: bname,
-    r_tel: btel1 + btel2 + btel3,
-    r_addr: badd2 + " " + badd3,
-    r_postcode: badd1,
-    r_email: bmail + "@" + bmails,
+    recipient: rname,
+    re_mobile_phone: rtel1 + rtel2 + rtel3,
+    re_address: radd2,
+    re_address_detail: radd3,
+    re_address_number: radd1,
+    message: shipping_msg,
   };
 
-  return orderer;
+  return recipient;
 }
 
 const payMethodN = document.getElementById("pay-method-normal");
@@ -241,6 +300,7 @@ const payBtn = document.querySelector(".pay-button");
 
 payBtn.onclick = () => {
   orderer();
+  let uid = new Date().getTime();
 
   if (payMethodN.checked) {
     alert("일반결제");
@@ -249,14 +309,14 @@ payBtn.onclick = () => {
       {
         pg: "html5_inicis.INIpayTest", //테스트 시 html5_inicis.INIpayTest 기재
         pay_method: "card",
-        merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
-        name: "주문명:" + new Date().getTime(),
+        merchant_uid: uid, //상점에서 생성한 고유 주문번호
+        name: "주문명:" + uid,
         amount: getTotalPrice(orderItems),
-        buyer_email: orderer.buyer_email,
-        buyer_name: orderer.buyer_name,
-        buyer_tel: orderer.buyer_tel,
-        buyer_addr: orderer.buyer_addr,
-        buyer_postcode: orderer.buyer_postcode,
+        buyer_email: orderer.or_email,
+        buyer_name: orderer.orderer,
+        buyer_tel: orderer.or_mobile_phone,
+        buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
+        buyer_postcode: orderer.or_address_number,
         m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
         escrow: true, //에스크로 결제인 경우 설
         bypass: {
@@ -286,15 +346,15 @@ payBtn.onclick = () => {
       {
         pg: "kakaopay.TC0ONETIME", //테스트인경우 kcp.T000
         pay_method: "card",
-        merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
-        name: "주문명:" + new Date().getTime(),
+        merchant_uid: uid, //상점에서 생성한 고유 주문번호
+        name: "주문명:" + uid,
         amount: getTotalPrice(orderItems),
         company: "lash", //해당 파라미터 설정시 통합결제창에 해당 상호명이 노출됩니다.
-        buyer_email: orderer.buyer_email,
-        buyer_name: orderer.buyer_name,
-        buyer_tel: orderer.buyer_tel,
-        buyer_addr: orderer.buyer_addr,
-        buyer_postcode: orderer.buyer_postcode,
+        buyer_email: orderer.or_email,
+        buyer_name: orderer.orderer,
+        buyer_tel: orderer.or_mobile_phone,
+        buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
+        buyer_postcode: orderer.or_address_number,
         language: "ko", // en 설정시 영문으로 출력되면 해당 파라미터 생략시 한국어 default
         m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
       },
@@ -314,14 +374,14 @@ payBtn.onclick = () => {
       {
         pg: "uplus.tosstest",
         pay_method: "card",
-        merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
-        name: "주문명:" + new Date().getTime(),
+        merchant_uid: uid, //상점에서 생성한 고유 주문번호
+        name: "주문명:" + uid,
         amount: getTotalPrice(orderItems),
-        buyer_email: orderer.buyer_email,
-        buyer_name: orderer.buyer_name,
-        buyer_tel: orderer.buyer_tel,
-        buyer_addr: orderer.buyer_addr,
-        buyer_postcode: orderer.buyer_postcode,
+        buyer_email: orderer.or_email,
+        buyer_name: orderer.orderer,
+        buyer_tel: orderer.or_mobile_phone,
+        buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
+        buyer_postcode: orderer.or_address_number,
         m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
         appCard: true, // 설정시 신용카드 결제모듈에서 앱카드 결제만 활성화됩니다.
       },
@@ -329,8 +389,9 @@ payBtn.onclick = () => {
         // callback 로직
         if (rsp.success) {
           alert("구매되었습니다. 감사합니다.");
+          // db insert
         } else {
-          alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
+          alert("결제 실패하였습니다. 다시 한 번 시도해 주세요.");
         }
       },
     );
@@ -342,32 +403,51 @@ window.onload = () => {
     let product = JSON.parse(localStorage.getItem("buy-now-product"));
     cartList.push(product);
     buynowOrder(cartList);
+    deleteCartItem(cartList);
     localStorage.clear();
     // 결제
   } else {
     // 쇼핑 카트에서 결제 페이지로 넘어왔을 때
+    getCartItems();
+    if (cartList[0].name != null) {
+      buynowOrder(cartList);
+      deleteCartItem(cartList);
+    } else {
+      alert("장바구니가 비어 있습니다.");
+      location.href = "/index";
+    }
   }
 };
 
+// cart_mst 가져오기
+function getCartItems() {
+  $.ajax({
+    async: false,
+    type: "get",
+    url: "/api/shopping-basket",
+    dataType: "json",
+    success: (response) => {
+      console.log(response.data);
+      response.data.forEach((item) => {
+        cartList.push(item);
+      });
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
+}
+
 // 성공시 주문정보 db insert
 
-let orderInfo = {
-  name: "",
-  color_code: "",
-  qty: "",
-  member_id: "", // impData["buyer_id"]
+function orderProductInfo() {
+  let orderProductInfo = {
+    order_id: uid,
+  };
 
-  orderer: "",
-  or_address_number: "",
-  or_address: "",
-  or_address_detail: "",
-  or_mobile_phone: "",
-  or_land_phone: "",
+  return orderProductInfo;
+}
 
-  recipient: "",
-  re_address_number: "",
-  re_address: "",
-  re_address_detail: "",
-  re_mobile_phone: "",
-  re_land_phone: "",
-};
+function paySuccess() {}
+
+// order_id, orderItems(name, color_code, product_count, member_id) , orderer , recipient, message

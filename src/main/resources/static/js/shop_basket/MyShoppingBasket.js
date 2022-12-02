@@ -1,42 +1,39 @@
 let data = null;
 
 function getCart() {
-    $.ajax({
-        async: false,
-        type: "get",
-        url: "/api/shopping-basket/test",
-        dataType: "json",
-        success: (response) => {
-            // alert("성공");
-            responseData = response.data;
-            console.log(responseData);
-            loadCart(responseData);
-            data = responseData;
-        },
-        error: (error) => {
-            console.log(error);
-            // alert("실패");
-        }
-    });
+  $.ajax({
+    async: false,
+    type: "get",
+    url: "/api/shopping-basket",
+    dataType: "json",
+    success: (response) => {
+      // alert("성공");
+      responseData = response.data;
+      console.log(responseData);
+      loadCart(responseData);
+      data = responseData;
+    },
+    error: (error) => {
+      console.log(error);
+      // alert("실패");
+    },
+  });
 }
 let addtotalPrice = 0;
 
 function loadCart(responseData) {
-    const productTableTbody = document.querySelector(".product-table-tbody");
-    const totalPrice = document.querySelector(".total-price");
+  const productTableTbody = document.querySelector(".product-table-tbody");
+  const totalPrice = document.querySelector(".total-price");
 
-    // console.log(productTableTbody);
-    productTableTbody.innerHTML = "";
-    responseData.forEach((cart, index) => {
+  // console.log(productTableTbody);
+  productTableTbody.innerHTML = "";
+  responseData.forEach((cart, index) => {
+    console.log(index);
 
-        console.log(index);
+    addtotalPrice += cart.price * cart.product_count;
 
-
-
-        addtotalPrice += cart.price;
-
-
-        productTableTbody.innerHTML += `
+    if (cart.product_id != 0) {
+      productTableTbody.innerHTML += `
         <tr>
                             <th class="none"></th>
                             <td class="cart-image">
@@ -81,169 +78,100 @@ function loadCart(responseData) {
                         </tr>
         
         `;
-
-
-    });
-    totalPrice.innerHTML = `
+    } else {
+      productTableTbody.innerHTML = `
+                <tr>
+                    <td>장바구니가 비어있음</td>
+                </tr>
+        `;
+    }
+  });
+  totalPrice.innerHTML = `
         KRW <span>${addtotalPrice}</span>
         `;
-    console.log("총 금액" + addtotalPrice);
+  console.log("총 금액" + addtotalPrice);
 
-    deleteCartItem(responseData);
-    updateCount(responseData);
+  deleteCartItem(responseData);
+  updateCount(responseData);
 }
-
-
-// -
-// function minusCount() {
-
-//     const minusButton = document.getElementsByClassName("minus-button");
-
-//     for (var i = 0; i < minusButton.length; i++) {
-
-//         const countInput = document.querySelector(".product-count-input-" + i);
-
-//         minusButton[i].addEventListener('click', function () {
-
-//             if (countInput.value > 1) {
-//                 countInput.value = countInput.value - 1;
-
-
-//             }
-//         })
-
-
-//     };
-
-// }
-
-
-// +
-// function plusCount() {
-
-//     const plusButton = document.getElementsByClassName("plus-button");
-
-//     for (var i = 0; i < plusButton.length; i++) {
-
-//         const countInput = document.querySelector(".product-count-input-" + i);
-
-//         plusButton[i].addEventListener('click', function () {
-
-//             countInput.value = parseInt(countInput.value) + 1;
-
-//         })
-//     }
-
-// }
 
 // 카트 업데이트
 function updateCount(data) {
+  const plusButton = document.querySelectorAll(".plus-button");
+  const minusButton = document.querySelectorAll(".minus-button");
 
-    const plusButton = document.querySelectorAll(".plus-button");
-    const minusButton = document.querySelectorAll(".minus-button");
+  plusButton.forEach((plusBtn, index) => {
+    plusBtn.onclick = () => {
+      $.ajax({
+        async: false,
+        type: "post",
+        url: "/api/shopping-basket/plus/" + data[index].name + "/" + data[index].color_code + "/" + data[index].product_count,
+        data: data[index],
+        dataType: "json",
+        success: (response) => {
+          alert("성공");
+          console.log(response.data);
+          location.reload();
+        },
+        error: (error) => {
+          alert("실패");
+          console.log(error);
+        },
+      });
+    };
+  });
 
-    plusButton.forEach((plusBtn, index) => {
-        plusBtn.onclick = () => {
-            $.ajax({
-                async: false,
-                type: "post",
-                url: "/api/shopping-basket/plus/" + data[index].name + "/" + data[index].color_code + "/" + data[index].product_count,
-                data: data[index],
-                dataType: "json",
-                success: (response) => {
-                    alert("성공");
-                    console.log(response.data);
-                    location.reload();
-                },
-                error: (error) => {
-                    alert("실패");
-                    console.log(error);
-                }
-            })
-        }
-    })
-
-
-    minusButton.forEach((minusBtn, index) => {
-        if (data[index].product_count > 1) {
-            minusBtn.onclick = () => {
-
-                $.ajax({
-                    async: false,
-                    type: "post",
-                    url: "/api/shopping-basket/minus/" + data[index].name + "/" + data[index].color_code + "/" + data[index].product_count,
-                    data: data[index],
-                    dataType: "json",
-                    success: (response) => {
-                        alert("성공");
-                        console.log(response.data);
-                        location.reload();
-                    },
-                    error: (error) => {
-                        alert("실패");
-                        console.log(error);
-                    }
-                })
-            }
-        }
-
-    })
-
-
-
+  minusButton.forEach((minusBtn, index) => {
+    if (data[index].product_count > 1) {
+      minusBtn.onclick = () => {
+        $.ajax({
+          async: false,
+          type: "post",
+          url: "/api/shopping-basket/minus/" + data[index].name + "/" + data[index].color_code + "/" + data[index].product_count,
+          data: data[index],
+          dataType: "json",
+          success: (response) => {
+            alert("성공");
+            console.log(response.data);
+            location.reload();
+          },
+          error: (error) => {
+            alert("실패");
+            console.log(error);
+          },
+        });
+      };
+    }
+  });
 }
-
-
-
-
-
-
-
-
 
 // 삭제
 function deleteCartItem(data) {
-    const deleteButton = document.querySelectorAll('.delete-button');
+  const deleteButton = document.querySelectorAll(".delete-button");
 
-    deleteButton.forEach((deleteBtn, index) => {
+  deleteButton.forEach((deleteBtn, index) => {
+    deleteBtn.onclick = () => {
+      console.log(deleteBtn);
 
-        deleteBtn.onclick = () => {
-            console.log(deleteBtn);
-
-            $.ajax({
-                async: false,
-                type: "delete",
-                url: "/api/shopping-basket/delete/" + data[index].name + "/" + data[index].color_code,
-                dataType: "json",
-                success: (response) => {
-                    alert("성공");
-                    console.log(response);
-                    location.reload();
-                },
-                error: (error) => {
-                    alert("실패");
-                    // console.log(error);
-                }
-            })
-        }
-
-    })
+      $.ajax({
+        async: false,
+        type: "delete",
+        url: "/api/shopping-basket/delete/" + data[index].name + "/" + data[index].color_code,
+        dataType: "json",
+        success: (response) => {
+          alert("성공");
+          console.log(response);
+          location.reload();
+        },
+        error: (error) => {
+          alert("실패");
+          // console.log(error);
+        },
+      });
+    };
+  });
 }
-
 
 window.onload = () => {
-    getCart();
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
+  getCart();
+};

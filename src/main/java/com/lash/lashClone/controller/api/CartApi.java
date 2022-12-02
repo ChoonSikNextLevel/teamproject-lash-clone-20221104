@@ -20,7 +20,7 @@ public class CartApi {
 
     private final CartServiceImpl cartService;
 
-    @GetMapping("/shopping-basket/test")
+    @GetMapping("/shopping-basket")
     public ResponseEntity<?> loadCart(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception{
 
         System.out.println("memberId : " + principalDetails.getMember().getUsername());
