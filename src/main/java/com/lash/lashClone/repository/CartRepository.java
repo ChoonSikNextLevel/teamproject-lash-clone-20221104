@@ -1,6 +1,7 @@
 package com.lash.lashClone.repository;
 
 import com.lash.lashClone.domain.Cart;
+import com.lash.lashClone.dto.shop.OrderReqDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface CartRepository {
     public int plusCount(Map<String, Object> map) throws Exception;
 
     public int minusCount(Map<String, Object> map) throws Exception;
+
+    public int order(OrderReqDto order) throws Exception;
 }

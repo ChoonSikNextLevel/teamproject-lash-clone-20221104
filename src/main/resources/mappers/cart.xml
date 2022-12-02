@@ -145,4 +145,14 @@
         ));
     </update>
 
+    <insert id="order" parameterType="com.lash.lashClone.dto.shop.OrderReqDto">
+
+
+
+
+
+
+
+    </insert>
+
 </mapper>

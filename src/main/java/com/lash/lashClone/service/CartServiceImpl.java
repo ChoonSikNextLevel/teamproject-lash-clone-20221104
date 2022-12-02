@@ -1,6 +1,7 @@
 package com.lash.lashClone.service;
 
 import com.lash.lashClone.domain.Cart;
+import com.lash.lashClone.dto.shop.OrderReqDto;
 import com.lash.lashClone.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -59,6 +60,17 @@ public class CartServiceImpl implements CartService {
 
 
         return cartRepository.minusCount(map);
+    }
+
+    @Override
+    public int order(OrderReqDto orderReqDto) throws Exception {
+
+        List<Cart> cartList = orderReqDto.getOrderItems();
+        System.out.println(cartList);
+        System.out.println(orderReqDto);
+
+
+        return 0;
     }
 
 
