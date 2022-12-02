@@ -51,6 +51,12 @@ public class AccountApi {
         return ResponseEntity.created(null)
                 .body(new CMRespDto<>(1, "success", addressService.addAddress(addressReqDto, username)));
     }
+    //-------------유저 정보 삭제--------------
+    @DeleteMapping("/user/{memberId}")
+    public ResponseEntity<?> deleteUser(@PathVariable int memberId) throws Exception {
+//        principalDetails.getMember().setmemberId(userUpdateReqDto.getmemberId());
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", userService.deleteUser(memberId)));
+    }
     // ----------유저 정보 수정-------
     @PutMapping("/user/update")
     public ResponseEntity<?> updateUser(@RequestBody UserUpdateReqDto userUpdateReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {

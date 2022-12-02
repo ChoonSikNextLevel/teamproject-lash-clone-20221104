@@ -25,4 +25,12 @@ public class UserServiceImpl implements UserService{
         System.out.println(username);
         return userRepository.getUser(username);
     }
+    //-------------유저 정보 삭제---------------
+    @Override
+    public boolean deleteUser(int memberId) throws Exception {
+        return userRepository.deleteUser(memberId) > 0;
+    }
+
+
+
 }

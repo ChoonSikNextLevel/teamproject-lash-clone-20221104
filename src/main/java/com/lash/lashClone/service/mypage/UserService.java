@@ -11,7 +11,9 @@ public interface UserService {
 
     //유저 정보 찾기
     public Member getUser(String username) throws Exception;
-
+    
+    // 유저 정보 삭제
+    public boolean deleteUser(int memberId) throws Exception;
 
     //-----------유저 정보------------------
 }

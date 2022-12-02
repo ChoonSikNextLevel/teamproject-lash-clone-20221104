@@ -8,6 +8,7 @@ function load() {
             responseData = response.data;
             loadUser(responseData);
             updateButtonClickEvent();
+            deleteButtonClickEvent();
         },
         error: (error) => {
             alert("유저정보 불러오기 실패");
@@ -87,6 +88,33 @@ function updateUser() {
       });
 
     
+}
+function deleteButtonClickEvent() {
+    const deleteButton = document.querySelector(".deleteBtn");
+    deleteButton.onclick =() => {
+        deleteUsr();
+    }
+}
+function deleteUsr() {
+    const id = responseData.member_id;
+    alert("삭제버튼 클릭");
+
+    if(confirm("삭제?")) {
+        $.ajax({
+            async: false,
+            type: "delete",
+            url: "/api/account/user/" + id,
+            dataType : "json",
+            success: (response) => {
+                alert("아이디 삭제 완료");
+                location.replace("/logout");
+            },
+            error: (error) => {
+                alert("아이디 삭제 못했다!");
+                console.log(error);
+            }
+        });
+    }
 }
 
 window.onload = () => {

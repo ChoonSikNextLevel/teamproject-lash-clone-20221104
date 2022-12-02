@@ -9,7 +9,7 @@
         <result property="role_name" column="role_name"></result>
     </resultMap>
     <resultMap id="member" type="com.lash.lashClone.domain.Member">
-        <result property="member_id" column="member_id"></result>
+        <result property="member_id" column="id"></result>
         <result property="username" column="username"></result>
         <result property="oauth_username" column="oauth_username"></result>
         <result property="password" column="password"></result>

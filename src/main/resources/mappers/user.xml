@@ -42,6 +42,13 @@
         where
             member_id = #{member_id}
     </update>
+    <delete id="deleteUser" parameterType="Integer">
+        delete
+        from
+        member_mst
+        where
+        member_id = #{member_id}
+    </delete>
     <select id="getUser" parameterType="string" resultType="com.lash.lashClone.domain.Member">
         SELECT
             name,
