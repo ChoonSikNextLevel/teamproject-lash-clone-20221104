@@ -268,7 +268,7 @@ function orderer() {
 
 /** 배송자 정보 */
 function recipient() {
-  const rname = document.querySelector(".input-name").value;
+  const rname = document.querySelector(".receiver-name-input").value;
 
   const rtel1 = document.querySelector(".select-phone").value;
   const rtel2 = document.querySelector(".input-phone2").value;
@@ -279,8 +279,7 @@ function recipient() {
   const radd2 = document.querySelector(".input-address2").value;
   const radd3 = document.querySelector(".input-address3").value;
 
-  const rmail = document.querySelector(".input-email").value;
-  const rmails = document.querySelector(".select-email").value;
+  const shipping_msg = document.querySelector(".input-email").value;
 
   const recipient = {
     recipient: rname,
@@ -288,7 +287,7 @@ function recipient() {
     re_address: radd2,
     re_address_detail: radd3,
     re_address_number: radd1,
-    re_email: rmail + "@" + rmails,
+    message: shipping_msg,
   };
 
   return recipient;
@@ -451,4 +450,4 @@ function orderProductInfo() {
 
 function paySuccess() {}
 
-// order_id, orderItems(name, color_code, member_id, product_count, cart_id) , orderer , recipient ...
+// order_id, orderItems(name, color_code, product_count, member_id) , orderer , recipient, message
