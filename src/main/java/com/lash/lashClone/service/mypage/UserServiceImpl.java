@@ -5,6 +5,7 @@ import com.lash.lashClone.dto.account.UserUpdateReqDto;
 import com.lash.lashClone.repository.account.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.lash.lashClone.service.auth.PrincipalDetails;
 
 
 @Service
@@ -14,8 +15,9 @@ public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     //--------------유저 정보 수정----------------
     @Override
-    public Member updateUser(UserUpdateReqDto userUpdateReqDto) throws Exception {
-        return userRepository.updateUser(userUpdateReqDto.userEntity());
+    public boolean updateUser(UserUpdateReqDto userUpdateReqDto, PrincipalDetails principalDetails) throws Exception {
+        System.out.println(principalDetails.getMember().getMember_id());
+        return userRepository.updateUser(userUpdateReqDto.toUserEntity(principalDetails)) > 0;
     }
     //-----------유저 정보------------------
     @Override

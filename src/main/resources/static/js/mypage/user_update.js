@@ -7,7 +7,7 @@ function load() {
         success: (response) => {
             responseData = response.data;
             loadUser(responseData);
-            updateButtonClickEvent(responseData);
+            updateButtonClickEvent();
         },
         error: (error) => {
             alert("유저정보 불러오기 실패");
@@ -54,40 +54,26 @@ function loadUser(responseData) {
     }
    
 }
-function updateButtonClickEvent(responseData) {
+function updateButtonClickEvent() {
     const userButton = document.querySelector(".updateBtn");
     userButton.onclick = () => {
-        updateUser(responseData);
+        updateUser();
     }
 }
-function updateUser(responseData) {
+function updateUser() {
     const userInput = document.querySelectorAll(".inputTypeText");
     let userData = {}
-    if(responseData.provider == null) {
-        userData.firstphone = userInput[5].value,
-        userData.lastphone= userInput[6].value,
-        userData.password = userInput[2].value,
-        userData.email = userInput[7].value
-    }else{
-    
-        userData.firstphone = userInput[5].value,
-        userData.lastphone= userInput[6].value,
-        userData.email = userInput[7].value
-    }
-
-    
-        
-    
-        
-        // userData.append("firstphone",userInput[5].value)
-        
-    
+    userData.firstPhone = userInput[5].value,
+    userData.lastPhone= userInput[6].value,
+    userData.password = userInput[2].value,
+    userData.email = userInput[7].value
     console.log(userData)
     
     $.ajax({
         async: false,
         type: "put",
         url: "/api/account/user/update",
+        contentType: "application/json",
         data: JSON.stringify(userData),
         dataType: "json",
         success: (response) => {

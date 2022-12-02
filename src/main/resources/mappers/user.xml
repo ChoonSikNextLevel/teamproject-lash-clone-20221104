@@ -34,19 +34,13 @@
         update
             member_mst
         set
-        <choose>
-            <when test="provider == naver || kakao">
-                phone = #{phone},
-            </when>
-            <otherwise>
-                password = #{password},
-                email = #{email},
-                phone = #{phone},
-            </otherwise>
-        </choose>
+            <if test='phone != null'>phone = #{phone},</if>
+            <if test='password != null'>password = #{password},</if>
+            <if test='email != null'>email = #{email},</if>
+
             update_date = now()
         where
-            username = #{username}
+            member_id = #{member_id}
     </update>
     <select id="getUser" parameterType="string" resultType="com.lash.lashClone.domain.Member">
         SELECT
@@ -61,23 +55,4 @@
         WHERE
             username = #{username};
     </select>
-    <!--    <select id="user" resultType="com.lash.lashClone.domain.User">-->
-<!--        SELECT-->
-    <!--        mm.member_id,-->
-    <!--        mm.username,-->
-    <!--        mm.password,-->
-    <!--        mm.name,-->
-    <!--        mm.email,-->
-    <!--        am.address_number,-->
-    <!--        am.address,-->
-    <!--        am.address_detail,-->
-    <!--        am.land_phone,-->
-    <!--        am.mobile_phone-->
-    <!--        FROM-->
-    <!--        member_mst mm-->
-    <!--        LEFT OUTER JOIN address_mst am-->
-    <!--        ON(am.member_id = mm.member_id)-->
-    <!--        WHERE-->
-    <!--        mm.member_id = #{member_id}-->
-    <!--    </select>-->
 </mapper>

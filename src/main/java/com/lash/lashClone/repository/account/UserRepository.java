@@ -12,5 +12,5 @@ public interface UserRepository {
 
     public Member getUser(String username) throws Exception;
 
-    public Member updateUser(Member member) throws Exception;
+    public int updateUser(Member member) throws Exception;
 }

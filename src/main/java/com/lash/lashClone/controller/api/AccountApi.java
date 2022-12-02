@@ -53,9 +53,13 @@ public class AccountApi {
     }
     // ----------유저 정보 수정-------
     @PutMapping("/user/update")
-    public ResponseEntity<?> updateUser(UserUpdateReqDto userUpdateReqDto) throws Exception {
+    public ResponseEntity<?> updateUser(@RequestBody UserUpdateReqDto userUpdateReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+//        principalDetails.getMember().setphone(userUpdateReqDto.getphone());
+        System.out.println("update");
+        System.out.println(principalDetails.getMember());
+        System.out.println(userUpdateReqDto);
 
-        return ResponseEntity.ok().body(new CMRespDto<>(1, "success", userService.updateUser(userUpdateReqDto)));
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", userService.updateUser(userUpdateReqDto, principalDetails)));
     }
 //    //-------유저 페이지-----
     @GetMapping("/user")
