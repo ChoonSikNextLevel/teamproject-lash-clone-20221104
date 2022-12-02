@@ -173,5 +173,6 @@ function deleteCartItem(data) {
 }
 
 window.onload = () => {
+  localStorage.clear();
   getCart();
 };

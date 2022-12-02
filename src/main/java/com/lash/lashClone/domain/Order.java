@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
@@ -12,14 +13,19 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order {
+    private int member_id;
 
     private int order_id;
     private int product_id;
-    private int qty;
-    private int member_id;
+    private String name;
+    private String color_code;
+    private int price;
+    private int product_count;
     private int address_id;
-    private String status;
-    private LocalDateTime order_date;
-    private LocalDateTime status_date;
+    private String re_address;
+    private String re_address_detail;
 
+    private String status;
+
+    private LocalDate order_date;
 }
