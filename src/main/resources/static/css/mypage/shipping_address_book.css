@@ -99,7 +99,7 @@ section {
     color: #353535;
     vertical-align: middle;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 13px;
 }
 .ec-base-table .center {
     text-align: center;
@@ -110,6 +110,7 @@ section {
     color: #353535;
     vertical-align: middle;
     background: #fff;
+    font-size: 13px;
 }
 table {
     width: 100%;
@@ -167,4 +168,7 @@ div.ec-base-help li {
     border: 1px solid #aaa;
     border-radius: 2px;
     color: #777;
+}
+.addressBook-font span {
+    font-size: 13px;
 }

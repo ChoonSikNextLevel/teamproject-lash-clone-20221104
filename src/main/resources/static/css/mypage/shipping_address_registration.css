@@ -271,3 +271,7 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     color: #1b1c1c;
     transition: all .15s linear;
 }
+.add-button {
+    padding: 0;
+    height: 30px;
+}
