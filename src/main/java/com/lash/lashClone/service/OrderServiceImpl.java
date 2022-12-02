@@ -1,6 +1,5 @@
 package com.lash.lashClone.service;
 
-import com.lash.lashClone.dto.shop.IMPInfoRespDto;
 import com.lash.lashClone.repository.shop.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

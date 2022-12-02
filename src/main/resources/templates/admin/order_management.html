@@ -62,11 +62,12 @@
                     <fieldset class="date-select-box">
 
                         <div class="state-select">
-                            <select id="order-status" name="order-status">
+                            <select id="order-status" name="order_status">
                                 <option value="all">전체 주문처리상태</option>
                                 <option value="shipped_before">결제완료</option>
                                 <option value="shipped_begin">배송중</option>
-                                <option value="shipped_complate">배송완료</option>
+                                <option value="shipped_complete">배송완료</option>
+                                <!-- <option value="" class="order-status-hidden" hidden>${order_status}</option> -->
                             </select>
                         </div>
 
@@ -88,10 +89,11 @@
                             </a>
                         </span>
 
-                        <input id="history_start_date" name="history-start-date" class="history-date date-picker"
+                        <input id="history_start_date" name="history_start_date" class="history-date date-picker"
                             readonly="readonly" size="10" value="" type="text">
+
                         ~
-                        <input id="history_end_date" name="history-end-date" class="history-date date-picker"
+                        <input id="history_end_date" name="history_end_date" class="history-date date-picker"
                             readonly="readonly" size="10" value="" type="text">
 
 
@@ -135,7 +137,7 @@
                         </tr>
                     </thead>
                     <tbody class="order-list">
-                        <tr>
+                        <!-- <tr>
                             <td>2022-11-12</td>
                             <td>HUNTER C1</td>
                             <td>1</td>
@@ -183,7 +185,7 @@
                                 </select>
                             </td>
                             <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
 

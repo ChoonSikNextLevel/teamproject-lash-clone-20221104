@@ -48,8 +48,6 @@ $(function () {
   });
 });
 
-/* 상품 상세 페이지에서 buy now 해서 하나만 결제 할 때 . . . . . */
-
 const productListBody = document.querySelector(".product-list-tbody");
 const productListFoot = document.querySelector("tfoot");
 const paymentTotalPrice = document.querySelector(".payment-total-price");
@@ -62,7 +60,7 @@ let productTotalPrice = 0;
 function buynowOrder(cartList) {
   productListBody.innerHTML = ``;
 
-  cartList.forEach((product, index) => {
+  cartList.forEach((product) => {
     productListBody.innerHTML += `
                     <tr style="height: 112px;">
                         <td class="product-list-table-input">
@@ -126,9 +124,12 @@ function buynowOrder(cartList) {
 
     paymentTotalPrice.innerHTML = `${productTotalPrice}`;
     afterDiscount.innerHTML = `${productTotalPrice}`;
-    paymentTotal.value = productTotalPrice;
 
     orderData(product);
+  });
+
+  paymentTotal.forEach((p) => {
+    p.value = productTotalPrice;
   });
 }
 
@@ -163,6 +164,7 @@ function orderData(product) {
     orderItems.push(product);
   }
 
+  console.log("orderItems");
   console.log(orderItems);
   return orderItems;
 }
@@ -206,13 +208,13 @@ function deleteCartItem(data) {
         dataType: "json",
         success: (response) => {
           console.log(response);
-          location.reload();
         },
         error: (error) => {
           console.log(error);
         },
       });
     });
+    location.reload();
   };
 }
 
@@ -296,107 +298,112 @@ function recipient() {
 const payMethodN = document.getElementById("pay-method-normal");
 const payMethodK = document.getElementById("pay-method-kakao");
 const payMethodT = document.getElementById("pay-method-toss");
-const payBtn = document.querySelector(".pay-button");
+const payBtn = document.querySelectorAll(".pay-button");
 
-payBtn.onclick = () => {
+payBtn.forEach((pbtn, index) => {
   orderer();
   let uid = new Date().getTime();
 
-  if (payMethodN.checked) {
-    alert("일반결제");
+  pbtn.onclick = () => {
+    if (index == 0) {
+      alert("일반결제");
 
-    IMP.request_pay(
-      {
-        pg: "html5_inicis.INIpayTest", //테스트 시 html5_inicis.INIpayTest 기재
-        pay_method: "card",
-        merchant_uid: uid, //상점에서 생성한 고유 주문번호
-        name: "주문명:" + uid,
-        amount: getTotalPrice(orderItems),
-        buyer_email: orderer.or_email,
-        buyer_name: orderer.orderer,
-        buyer_tel: orderer.or_mobile_phone,
-        buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
-        buyer_postcode: orderer.or_address_number,
-        m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
-        escrow: true, //에스크로 결제인 경우 설
-        bypass: {
-          acceptmethod: "noeasypay", // 간편결제 버튼을 통합결제창에서 제외(PC)
-          P_RESERVED: "noeasypay=Y", // 간편결제 버튼을 통합결제창에서 제외(모바일)
-          acceptmethod: "cardpoint", // 카드포인트 사용시 설정(PC)
-          P_RESERVED: "cp_yn=Y", // 카드포인트 사용시 설정(모바일)
+      IMP.request_pay(
+        {
+          pg: "html5_inicis.INIpayTest", //테스트 시 html5_inicis.INIpayTest 기재
+          pay_method: "card",
+          merchant_uid: uid, //상점에서 생성한 고유 주문번호
+          name: "주문명:" + uid,
+          amount: 100, // getTotalPrice(orderItems),
+          buyer_email: orderer.or_email,
+          buyer_name: orderer.orderer,
+          buyer_tel: orderer.or_mobile_phone,
+          buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
+          buyer_postcode: orderer.or_address_number,
+          m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
+          escrow: true, //에스크로 결제인 경우 설
+          bypass: {
+            acceptmethod: "noeasypay", // 간편결제 버튼을 통합결제창에서 제외(PC)
+            P_RESERVED: "noeasypay=Y", // 간편결제 버튼을 통합결제창에서 제외(모바일)
+            acceptmethod: "cardpoint", // 카드포인트 사용시 설정(PC)
+            P_RESERVED: "cp_yn=Y", // 카드포인트 사용시 설정(모바일)
+          },
+          period: {
+            from: "20220101", //YYYYMMDD
+            to: "20221231", //YYYYMMDD
+          },
         },
-        period: {
-          from: "20220101", //YYYYMMDD
-          to: "20221231", //YYYYMMDD
+        function (rsp) {
+          // callback 로직
+          if (rsp.success) {
+            paySuccess(uid);
+            alert("구매되었습니다. 감사합니다.");
+          } else {
+            alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
+          }
         },
-      },
-      function (rsp) {
-        // callback 로직
-        if (rsp.success) {
-          alert("구매되었습니다. 감사합니다.");
-        } else {
-          alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
-        }
-      },
-    );
-  } else if (payMethodK.checked) {
-    alert("카카오결제");
+      );
+    } else if (index == 1) {
+      alert("카카오결제");
 
-    IMP.request_pay(
-      {
-        pg: "kakaopay.TC0ONETIME", //테스트인경우 kcp.T000
-        pay_method: "card",
-        merchant_uid: uid, //상점에서 생성한 고유 주문번호
-        name: "주문명:" + uid,
-        amount: getTotalPrice(orderItems),
-        company: "lash", //해당 파라미터 설정시 통합결제창에 해당 상호명이 노출됩니다.
-        buyer_email: orderer.or_email,
-        buyer_name: orderer.orderer,
-        buyer_tel: orderer.or_mobile_phone,
-        buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
-        buyer_postcode: orderer.or_address_number,
-        language: "ko", // en 설정시 영문으로 출력되면 해당 파라미터 생략시 한국어 default
-        m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
-      },
-      function (rsp) {
-        // callback 로직
-        if (rsp.success) {
-          alert("구매되었습니다. 감사합니다.");
-        } else {
-          alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
-        }
-      },
-    );
-  } else if (payMethodT.checked) {
-    alert("토스결제");
+      IMP.request_pay(
+        {
+          pg: "kakaopay.TC0ONETIME", //테스트인경우 kcp.T000
+          pay_method: "card",
+          merchant_uid: uid, //상점에서 생성한 고유 주문번호
+          name: "주문명:" + uid,
+          amount: getTotalPrice(orderItems),
+          company: "lash", //해당 파라미터 설정시 통합결제창에 해당 상호명이 노출됩니다.
+          buyer_email: orderer.or_email,
+          buyer_name: orderer.orderer,
+          buyer_tel: orderer.or_mobile_phone,
+          buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
+          buyer_postcode: orderer.or_address_number,
+          language: "ko", // en 설정시 영문으로 출력되면 해당 파라미터 생략시 한국어 default
+          m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
+        },
+        function (rsp) {
+          // callback 로직
+          if (rsp.success) {
+            paySuccess(uid);
+            alert("구매되었습니다. 감사합니다.");
+          } else {
+            alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
+          }
+        },
+      );
+    } else if (index == 2) {
+      alert("토스결제");
 
-    IMP.request_pay(
-      {
-        pg: "uplus.tosstest",
-        pay_method: "card",
-        merchant_uid: uid, //상점에서 생성한 고유 주문번호
-        name: "주문명:" + uid,
-        amount: getTotalPrice(orderItems),
-        buyer_email: orderer.or_email,
-        buyer_name: orderer.orderer,
-        buyer_tel: orderer.or_mobile_phone,
-        buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
-        buyer_postcode: orderer.or_address_number,
-        m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
-        appCard: true, // 설정시 신용카드 결제모듈에서 앱카드 결제만 활성화됩니다.
-      },
-      function (rsp) {
-        // callback 로직
-        if (rsp.success) {
-          alert("구매되었습니다. 감사합니다.");
-          // db insert
-        } else {
-          alert("결제 실패하였습니다. 다시 한 번 시도해 주세요.");
-        }
-      },
-    );
-  }
-};
+      IMP.request_pay(
+        {
+          pg: "uplus.tosstest",
+          pay_method: "card",
+          merchant_uid: uid, //상점에서 생성한 고유 주문번호
+          name: "주문명:" + uid,
+          amount: getTotalPrice(orderItems),
+          buyer_email: orderer.or_email,
+          buyer_name: orderer.orderer,
+          buyer_tel: orderer.or_mobile_phone,
+          buyer_addr: orderer.or_address + " " + orderer.or_address_detail,
+          buyer_postcode: orderer.or_address_number,
+          m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
+          appCard: true, // 설정시 신용카드 결제모듈에서 앱카드 결제만 활성화됩니다.
+        },
+        function (rsp) {
+          // callback 로직
+          if (rsp.success) {
+            paySuccess(uid);
+            alert("구매되었습니다. 감사합니다.");
+            // db insert
+          } else {
+            alert("결제 실패하였습니다. 다시 한 번 시도해 주세요.");
+          }
+        },
+      );
+    }
+  };
+});
 
 window.onload = () => {
   if (localStorage.getItem("buy-now-product")) {
@@ -440,14 +447,30 @@ function getCartItems() {
 
 // 성공시 주문정보 db insert
 
-function orderProductInfo() {
+function getOrderProductInfo(uid) {
   let orderProductInfo = {
     order_id: uid,
+    orderItems: orderItems,
   };
 
   return orderProductInfo;
 }
 
-function paySuccess() {}
+function paySuccess(uid) {
+  $.ajax({
+    async: false,
+    type: "post",
+    url: "/api/order/success",
+    data: Object.assign(getOrderProductInfo(uid), orderer(), recipient()),
+    dataType: "json",
+    success: (response) => {
+      alert("주문완료");
+      console.log(response);
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
+}
 
 // order_id, orderItems(name, color_code, product_count, member_id) , orderer , recipient, message

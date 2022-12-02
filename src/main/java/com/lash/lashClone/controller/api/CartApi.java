@@ -2,6 +2,7 @@ package com.lash.lashClone.controller.api;
 
 import com.lash.lashClone.domain.Cart;
 import com.lash.lashClone.dto.CMRespDto;
+import com.lash.lashClone.dto.shop.OrderReqDto;
 import com.lash.lashClone.repository.CartRepository;
 import com.lash.lashClone.service.CartService;
 import com.lash.lashClone.service.CartServiceImpl;
@@ -50,5 +51,13 @@ public class CartApi {
         String username = principalDetails.getMember().getUsername();
 
         return ResponseEntity.ok(new CMRespDto<>(1, "success", cartService.deleteCart(username, name, colorCode)));
+    }
+
+
+    @PostMapping("/order/success")
+    public ResponseEntity<?> orderSuccess(OrderReqDto orderReqDto) throws Exception {
+
+        System.out.println(orderReqDto);
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", null));
     }
 }
