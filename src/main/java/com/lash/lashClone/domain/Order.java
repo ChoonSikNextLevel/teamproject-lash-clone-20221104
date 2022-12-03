@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Order {
     private int member_id;
 
-    private int order_id;
+    private String order_id;
     private int product_id;
     private String name;
     private String color_code;

@@ -145,14 +145,33 @@
         ));
     </update>
 
-    <insert id="order" parameterType="com.lash.lashClone.dto.shop.OrderReqDto">
-
-
-
-
-
-
-
+    <insert id="orderInfo" parameterType="com.lash.lashClone.domain.OrderVo">
+        insert into
+            order_mst
+        values
+        <foreach item="item" collection="orderItems" separator=",">
+            (
+            #{order_id},
+            #{item.product_id},
+            #{item.product_count},
+            #{item.member_id},
+            'shipped_before',
+            #{orderer},
+            #{or_address_number},
+            #{or_address},
+            #{or_address_detail},
+            #{or_mobile_phone},
+            #{or_email},
+            #{recipient},
+            #{re_address_number},
+            #{re_address},
+            #{re_address_detail},
+            #{re_mobile_phone},
+            #{message},
+            now(),
+            now()
+            )
+            </foreach>
     </insert>
 
 </mapper>

@@ -339,6 +339,7 @@ payBtn.forEach((pbtn, index) => {
             paySuccess(uid);
             alert("구매되었습니다. 감사합니다.");
           } else {
+            paySuccess(uid);
             alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
           }
         },
@@ -450,7 +451,7 @@ function getCartItems() {
 function getOrderProductInfo(uid) {
   let orderProductInfo = {
     order_id: uid,
-    orderItems: orderItems,
+    orderItems: JSON.stringify(orderItems)
   };
 
   return orderProductInfo;

@@ -58,6 +58,6 @@ public class CartApi {
     public ResponseEntity<?> orderSuccess(OrderReqDto orderReqDto) throws Exception {
 
         System.out.println(orderReqDto);
-        return ResponseEntity.ok(new CMRespDto<>(1, "success", null));
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", cartService.order(orderReqDto)));
     }
 }

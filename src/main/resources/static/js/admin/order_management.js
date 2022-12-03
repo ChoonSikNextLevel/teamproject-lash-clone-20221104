@@ -130,7 +130,7 @@ function loadOrder(responseData) {
   orderList.innerHTML = "";
 
   responseData.forEach((order, index) => {
-    if (order.order_id != 0) {
+    if (order.order_id != null) {
       orderList.innerHTML += `
                         <tr>
                             <td>${order.order_date}
