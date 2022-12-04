@@ -2,6 +2,10 @@ img {
     cursor: pointer;
 }
 
+img > .none {
+    cursor: none;
+}
+
 section {
     width: 100%;
     height: 100%;

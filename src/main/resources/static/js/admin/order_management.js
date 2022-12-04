@@ -178,9 +178,28 @@ function loadByStatus() {
 
 // ---------------------------onload------------------------ //
 window.onload = () => {
-  // createNumButtons(1, 106);
-  //createNumButtons($('#now-page'), 106);
   getOrder();
   loadByStatus();
-  // document.getElementById('search-form').reset();
+
+  console.log(testValue1);
+  console.log(testValue2);
+  console.log(testValue3);
+
+  setModel();
 };
+
+
+function setModel() {
+  const statusSelect = document.querySelector("#order-status");
+  for (let i = 0; i < statusSelect.options.length; i++) {
+    if (statusSelect.options[i].value == testValue1) {
+      statusSelect.options[i].selected = true;
+    }
+  }
+
+  const startDate = document.querySelector("#history_start_date");
+  startDate.value = testValue2;
+
+  const endDate = document.querySelector("#history_end_date");
+  endDate.value = testValue3;
+}
