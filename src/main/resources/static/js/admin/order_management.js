@@ -182,4 +182,5 @@ window.onload = () => {
   //createNumButtons($('#now-page'), 106);
   getOrder();
   loadByStatus();
+  // document.getElementById('search-form').reset();
 };
