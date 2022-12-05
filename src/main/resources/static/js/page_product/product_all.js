@@ -94,7 +94,7 @@ function loadCollectionByName(data) {
       if (index == 0) {
         productHunter[productHunter.length - 1].innerHTML = ``;
         productHunter[productHunter.length - 1].innerHTML = `
-            <div class="product-hunter hunter-c1" style="display: block; z-index: 100;">
+            <div class="product-hunter img${product.name} img-visible" style="z-index: 100;">
                 <a href="/products/product/${product.name}/${product.color_code}">  
                             <img src="/image/product/${product.img_name}">
                 </a>
@@ -102,12 +102,12 @@ function loadCollectionByName(data) {
             `;
 
         productInfoColor[productInfoColor.length - 1].innerHTML += `
-            <p class="other-color" style="margin-right:6px"> ■ </p>
+            <p class="other-color color${product.name}" style="margin-right:6px" onclick="colorSelector('${product.name}')"> ${index + 1} </p>
         `;
       } else {
         // productHunter[productHunter.length - 1].innerHTML = ``;
         productHunter[productHunter.length - 1].innerHTML += `
-            <div class="product-hunter hunter-c1 img-invisible" style="z-index: 100;">
+            <div class="product-hunter img${product.name} img-invisible" style="z-index: 100;">
                 <a href="/products/product/${product.name}/${product.color_code}">
                                  <img src="/image/product/${product.img_name}">
                 </a>
@@ -116,50 +116,32 @@ function loadCollectionByName(data) {
 
         // let num = index + 1;
         productInfoColor[productInfoColor.length - 1].innerHTML += `
-            <p class="other-color" style="margin-right:6px"> ■ </p>
+            <p class="other-color color${product.name}" style="margin-right:6px" onmouseover="colorSelector('${product.name}')"> ${index + 1} </p>
         `;
              
       }
-           
-   
-      const selectColor = document.querySelectorAll(".other-color");
-      const imgList = document.querySelectorAll(".product-hunter");
-
-      selectColor.forEach((color, index) => {
-        color.onclick = () => {
-          if(color[index] == imgList[index]) {
-            imgList[index].classList.remove("img-invisible");
-          }
-          // else {
-          //   imgList[index].classList.add("img-invisible");
-          // }
-        }
-      });
-
-
-
-        // $(function () {
-        //   $(".hunter-color > p").mouseover(function () {
-        //     let i = $(this).index();
-
-        //     // $('.product-info-color > img').mouseover(function(){
-        //     //     let i = $(this).index();
-
-        //     $(".product-list-img .product-hunter").hide();
-        //     $(".product-list-img .product-hunter").eq(i).show();
-        //   });
-        // });
-
-
-
-
-
-
-
-
-
     });
   }
+}
+
+// color spec 클릭 시 색상 변경 함수
+function colorSelector(name) {
+  const selectColor = document.querySelectorAll(".color" + name);
+  const imgList = document.querySelectorAll(".img" + name);
+
+  selectColor.forEach((color, i) => {
+    color.onclick = () => {
+
+      imgList[0].classList.remove("img-visible");
+      
+      imgList.forEach(img => {
+        img.classList.add("img-invisible");
+      });
+   
+      imgList[i].classList.remove("img-invisible");
+      
+    }
+  });
 }
 
 window.onload = () => {

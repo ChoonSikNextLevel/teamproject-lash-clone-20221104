@@ -101,7 +101,7 @@ header {
     position: relative;
 }
 
-.basket-count {
+/* .basket-count {
     line-height: 1;
     position: absolute;
     top: -0.4rem;
@@ -113,7 +113,7 @@ header {
     color: #ffffff;
     border-radius: 50%;
     padding-top: 1.5px;
-}
+} */
 
 /* sub */
 nav {
