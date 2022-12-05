@@ -1,5 +1,7 @@
 package com.lash.lashClone.domain;
 
+import com.lash.lashClone.dto.account.AddressListRespDto;
+import com.lash.lashClone.dto.account.MyPageOrderRespDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,4 +30,19 @@ public class Order {
     private String status;
 
     private LocalDate order_date;
+
+        public MyPageOrderRespDto myPageOrderRespDto() {
+        return MyPageOrderRespDto.builder()
+                .order_id(order_id)
+                .member_id(member_id)
+                .order_date(order_date)
+                .product_id(product_id)
+                .product_count(product_count)
+                .status(status)
+                .name(name)
+                .color_code(color_code)
+                .price(price)
+                .build();
+
+    }
 }

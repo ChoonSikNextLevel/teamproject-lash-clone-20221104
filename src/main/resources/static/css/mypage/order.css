@@ -1,82 +1,87 @@
 
-section {
-    width: 100%;
-    height: 100%;
-}
-
-.content-container {
-    width: 100%;
-    
-    display: flex;
-    justify-content: space-between;
-}
-
-.content-container li {
-    width: 25%;
-}
-/* .contents {
-    margin: 60px 0 0 5px;
-} */
-
-.contents {
-    position: relative;
-    float: left;
-    width: 100%;
-    margin-top: 60px;
-    height: 100%;
-    
-    min-height: 800px;
-    padding-bottom: 0px;
-
-}
-
-.titleArea {
-    width: 100%;
-
-    float: left;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.titleArea h2 {  
-    
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    line-height: 20px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 
 /*---------------------------사이드바--------------------------------------------------------------------*/
-.sideMenu {position:fixed; top:125px; left:2.5%; width:10%; float:Left; background:none; }
-.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
-.sideMenu ul {width:100%; float:left; }
-.sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
-.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
-.sideMenu a:hover {text-decoration:underline}
-    
-@media screen and (max-width: 1280px) {
-.sideMenu {width:100%; float:none; text-align:center; position:static; top:0; left:0;}
-.sideMenu ul {text-align:center;}
-.sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
-.sideMenu a {float:none;}
-.sideMenu a:hover {text-decoration:underline}
+
+.sideMenu {
+    position:fixed; 
+    top:125px; 
+    left:2.5%; 
+    width:10%; 
+    float:Left; 
 }
-.oderList {  
+
+.sideMenu h2 {
+    font-size:14px; 
+    font-weight:500; 
+    margin-bottom:20px;
+}
+
+.sideMenu ul {
+    width:100%; 
+    float:left; 
+}
+
+.sideMenu li {
+    margin-bottom: 16.45px;
+    font-size: 12.5px;
+    font-weight: 400; 
+}
+
+.sideMenu a:hover {
+    text-decoration: underline;
+}
+
+
+/* contents */
+
+.contents {
+    width: 100%;
+    margin-top: 60px;
+    height: 100%;
+}
+
+.titleArea h2 {
+    width: 100%;
+
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.main-content { 
     width: 1000px;
-    height: 491.297px;
     margin: 0 auto;
 }
-/*-----------------------본문 첫번째-------------------------------*/
-/* ======취소/주문내역 글자======== */
-.ec-base-box {
-    padding: 10px 10px;
-    border: 2px solid #ddd;
+
+
+/* 주문내역조회 */ 
+
+.history-date {
+    width: 72px;
+    height: 32px;
+    margin: 0 0 0 2px;
+    border: 1px solid #d5d5d5;
+    line-height: 22px;
+    font-size: 12px;
+
+    background: #ededed;
 }
-.ec-base-tab .menu li:first-child {
+
+
+/* 내역 조회 메뉴 */
+
+.orders .menu li:first-child {
     padding-left: 0;
 }
-.ec-base-tab .menu {
+.orders .menu {
     width: 100%;
     float: left;
     margin-bottom: 20px;
@@ -86,14 +91,21 @@ section {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
-.ec-base-tab .menu li {
+.orders .menu li {
     float: left;
     padding: 0px 20px;
     line-height: 16px;
     border-right: 1px solid #ddd;
 }
 
-.ec-base-tab .menu li.selected a {
+.orders .menu li a {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+}
+
+.orders .menu li.selected a {
     position: relative;
     top: -1px;
     left: -1px;
@@ -101,109 +113,119 @@ section {
     color: #111;
     font-size: 16px;
 }
-.ec-base-tab .menu li a {
-    display: block;
-    font-size: 14px;
-    color: #999;
-    font-weight: 500;
+
+/* 날짜별 조회 form */
+
+.date-select-box {
+    padding: 10px 10px;
+    border: 2px solid #ddd;
 }
-.xans-myshop-orderhistoryhead .stateSelect {
+
+.order-history-head .state-select {
     display: inline-block;
     min-width: 150px;
     padding: 0 12px 0 0;
     margin: 0 5px 0 2px;
-    background: url(//img.echosting.cafe24.com/skin/base/common/ico_bar.gif) no-repeat 100% 6px;
 }
-.xans-myshop-orderhistoryhead .stateSelect select {
+.order-history-head .state-select select {
     width: 100%;
 }
-/* ========날짜 박스설정========= */
 
-.xans-myshop-orderhistoryhead fieldset .period {
+.order-history-head fieldset .period {
     margin: 0 7px;
 }
-.xans-myshop-orderhistoryhead fieldset .period a {
+.order-history-head fieldset .period a {
     margin: 0 0 0 -5px;
 }
-.xans-myshop-orderhistoryhead fieldset img {
+.order-history-head fieldset img {
     vertical-align: middle;
 }
-/* ======날짜 체크박스===== */
+
 .order-search-control input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
     height: 32px;
     padding: 0;
 }
-/* ======설명박스====== */
-.xans-myshop-orderhistoryhead ul {
+
+.order-history-head ul {
     margin: 10px 0 0;
     color: #939393;
     line-height: 1.5;
 }
-.xans-myshop-orderhistoryhead ul li {
+.order-history-head ul li {
     padding: 0 0 0 9px;
     font-size: 15px;
     background: url(//img.echosting.cafe24.com/skin/base/common/ico_square2.gif) no-repeat 4px 7px;
 }
-/*-----------------------본문 두번째-------------------------------*/
+
+.date-picker {
+    margin-right: 2px;
+}
+
+/* 주문 및 배송 관리 */
+
 .title {
-    position: relative;
-    width: 99%;
     float: left;
-    background: none;
-    border-left: 2px solid #bbb;
-    padding: 0 0 0 1%;
+    padding-left: 1%;
     line-height: 16px;
     margin: 50px 0 20px;
+    
+    border-left: 2px solid #bbb;
 }
+
 .title h3 {
     font-size: 16px;
-    font-weight: 500;
-    color: #333;
+    font-weight: 400;
+    color: #353535;
     letter-spacing: -0.1px;
 }
 
-.ec-base-table.typeList table {
-    border-top-color: #d7d5d5;
-}
-table {
+.order-management-table table {
     width: 100%;
-    border: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-.ec-base-table table {
-    position: relative;
     border: 1px solid #d7d5d5;
-    border-top-color: #fff;
     color: #fff;
     line-height: 1.5;
 }
-.ec-base-table th:first-child {
-    border-left: 0;
-}
-.ec-base-table thead th {
+
+.order-management-table thead th, .order-management-table tbody td {
     padding: 11px 0 10px;
     border-left: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    
     color: #353535;
     vertical-align: middle;
     font-weight: normal;
     font-size: 15px;
+    text-align: center;
+    word-break:normal;
 }
-/* =====주문내역이 없을시 나오는 문구===== */
-.ec-base-table table + .message {
-    margin: -1px 0 0;
+
+.order-management-table tbody td:nth-child(n+2):nth-child(-n+5) {
+    text-align: left;
+    padding-left: 1%;
 }
-.ec-base-table .message {
+
+.order-management-table .empty-message {
+    margin-top: -1px;
+}
+
+.order-management-table .empty-message {
     border: 1px solid #d7d5d5;
     padding: 50px 0;
-    text-align: center;
+    
     color: #757575;
     font-weight: bold;
     font-size: 15px;
 }
-/* ===== 페이지 넘기는 버튼====== */
-.sm-paginate {
+
+.status-update {
+    background: none;
+    padding: 10px 20px;
+}
+
+
+/* 페이지 이동 */
+
+.paging {
     width: 100%;
     float: left;
     text-align: center;
@@ -212,7 +234,7 @@ table {
     padding: 15px 0;
 }
 
-.sm-paginate a.first {
+.paging a.first {
     padding-right: 50px;
     margin-right: 20px;
     padding-bottom: 2px;
@@ -222,7 +244,7 @@ table {
     border-bottom: 1px solid #ddd;
 }
 
-.sm-paginate a.prev {
+.paging a.prev {
     padding-right: 20px;
     margin-right: 10px;
     padding-bottom: 2px;
@@ -232,7 +254,7 @@ table {
     border-bottom: 1px solid #aaa;
 }
 
-.sm-paginate ol {
+.paging ol {
     display: inline-block;
     vertical-align: top;
     *display: inline;
@@ -240,18 +262,20 @@ table {
     *margin: 0;
 }
 
-.sm-paginate li {
+.paging li {
     display: inline-block;
     font-size: 12px;
     vertical-align: top;
     *display: inline;
     *zoom: 1;
 }
-.sm-paginate li a.this {
+
+.paging li a.this {
     color: #111;
     font-weight: 700;
 }
-.sm-paginate li a {
+
+.paging li a {
     display: block;
     width: 33px;
     font-size: 14px;
@@ -260,12 +284,13 @@ table {
     line-height: 24px;
     background: #fff;
 }
-.sm-paginate li a:hover {
+
+.paging li a:hover {
     text-decoration: none;
     background: #f0f2f2;
 }
 
-.sm-paginate a.next {
+.paging a.next {
     padding-left: 20px;
     margin-left: 10px;
     padding-bottom: 2px;
@@ -275,7 +300,7 @@ table {
     border-bottom: 1px solid #aaa;
 }
 
-.sm-paginate a.last {
+.paging a.last {
     padding-left: 50px;
     margin-left: 20px;
     padding-bottom: 2px;
@@ -283,4 +308,21 @@ table {
     font-weight: 400;
     font-size: 12px;
     border-bottom: 1px solid #ddd;
+}
+
+/* datepicker 위치 */
+.ui-datepicker {
+    margin-top: -60px;
+}
+
+/* ===취소반품교환 처리상태(준호....)=== */
+.inputTypeText {
+    display: block;
+    white-space: nowrap;
+    width: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(/web/upload/p2/select-arrow.png) no-repeat 95% 50%;
+    padding: 0 5px 2px !important;
 }

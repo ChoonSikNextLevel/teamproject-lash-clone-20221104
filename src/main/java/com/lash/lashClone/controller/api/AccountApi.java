@@ -5,11 +5,13 @@ import com.lash.lashClone.aop.annotation.LogAspect;
 import com.lash.lashClone.aop.annotation.ValidAspect;
 import com.lash.lashClone.dto.CMRespDto;
 import com.lash.lashClone.dto.account.AddressReqDto;
+import com.lash.lashClone.dto.account.MyPageOrderRespDto;
 import com.lash.lashClone.dto.account.RegisterReqDto;
 import com.lash.lashClone.dto.account.UserUpdateReqDto;
 import com.lash.lashClone.dto.validation.ValidationSequence;
 import com.lash.lashClone.service.AccountService;
 import com.lash.lashClone.service.mypage.AddressService;
+import com.lash.lashClone.service.mypage.MyPageOrderService;
 import com.lash.lashClone.service.mypage.MyPageService;
 
 import com.lash.lashClone.service.auth.PrincipalDetails;
@@ -32,6 +34,7 @@ public class AccountApi {
     private final AddressService addressService;
     private final MyPageService myPageService;
     private final UserService userService;
+    private final MyPageOrderService myPageOrderService;
 
 
     @LogAspect
@@ -86,7 +89,6 @@ public class AccountApi {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.addressList(principalDetails.getMember().getUsername())));
 
-
     }
     // --------배송지 삭제-----------
     @DeleteMapping("/shippingAddress/{addressId}")
@@ -99,10 +101,13 @@ public class AccountApi {
     public ResponseEntity<?> getPrincipalMember(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully get principal", principalDetails == null ? "" : principalDetails));
     }
-//    @GetMapping("/principal/Address")
-//    public ResponseEntity<?> getPrincipalAddress(@AuthenticationPrincipal PrincipalDetails principalDetails) {
-//        return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully get principal", principalDetails == null ? "" : principalDetails));
-//    }
+    //-----------배송관리-----------------
+    @GetMapping("/mypage/order")
+        public ResponseEntity<?> getMyPageOrder(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+//            System.out.println(principalDetails.getMember().getUsername());
+//        myPageOrderService.getMyPageOrder(principalDetails.getMember().getUsername())
+            return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageOrderService.getMyPageOrder(principalDetails.getMember().getUsername())));
+        }
 
 
 }

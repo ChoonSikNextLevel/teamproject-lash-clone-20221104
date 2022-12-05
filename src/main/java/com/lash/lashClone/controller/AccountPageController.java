@@ -32,7 +32,13 @@ public class AccountPageController {
     }
 
     @GetMapping("/mypage/order")
-    public String loadOrderPage() {
+    public String getMypageOrder(Model model, @RequestParam @Nullable String order_status,
+                                @RequestParam @Nullable String history_start_date,
+                                @RequestParam @Nullable String history_end_date) {
+        System.out.println(order_status + history_start_date + history_end_date);
+        model.addAttribute("order_status", order_status);
+        model.addAttribute("history_start_date", history_start_date);
+        model.addAttribute("history_end_date", history_end_date);
         return "mypage/order";
     }
 
@@ -61,6 +67,7 @@ public class AccountPageController {
 
         return "login/login";
     }
+
 
 
     @GetMapping("/join")

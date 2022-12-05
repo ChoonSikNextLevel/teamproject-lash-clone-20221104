@@ -12,7 +12,11 @@
     <link rel="stylesheet" href="/static/css/mypage/order.css">
     <link rel="stylesheet" href="/static/css/mypage/style.css">
 
-    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">   
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    
+    <!--datepicker-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <title>order</title>
 </head>
@@ -24,6 +28,9 @@
     <div class="contents">
         <div class="titleArea">
             <h2 style="margin-top: 0px;margin-bottom: 0px;">ORDER LIST</h2>
+            <h2 th:text="${order_status}"></h2>
+            <h2 th:text="${history_start_date}"></h2>
+            <h2 th:text="${history_end_date}"></h2>
         </div>
         <ul class="sideMenu">
             <h2>Account</h2>
@@ -32,84 +39,86 @@
             <li><a href="/account/mypage/user">회원정보관리</a></li>
             <li><a href="/account/mypage/address">배송주소록</a></li>
         </ul>     
-       <div class="oderList">
-            <div class="xans-element- xans-myshop xans-myshop-orderhistorytab ec-base-tab ">
+        <div class="main-content">
+            <div class="orders">
                 <ul class="menu">
-                    <li class="tab_class selected">
-                        <a href="">주문내역조회 (<span id="xans_myshop_total_orders">0</span>)</a>
+                    <li class="order-all selected">
+                        <a href="#none">주문내역조회 (0)</a>
                     </li>
-                    <li class="tab_class_cs">
-                        <a href="">취소/반품/교환 내역 (<span id="xans_myshop_total_orders_cs">0</span>)</a>
+                    <li class="order-cs">
+                        <a href="#none">취소/반품/교환 내역 (0)</a>
                     </li>
-                    <!-- <li class="tab_class_old displaynone">
-                        <a href="">이전 주문내역 (<span id="xans_myshop_total_orders_old">0</span>)</a>
-                    </li> -->
                 </ul>
             </div>
-            <form method="GET" id="OrderHistoryForm" name="OrderHistoryForm">
-                <div class="xans-element- xans-myshop xans-myshop-orderhistoryhead order-search-control ">
-                    <fieldset class="ec-base-box">
-                        
-                        <div class="stateSelect ">
-                            <select id="order_status" name="order_status" class="fSelect">
+
+            <form action="/account/mypage/order" method="GET" id="search-form">
+                <div class="order-history-head order-search-control">
+
+                    <fieldset class="date-select-box">
+
+                        <div class="state-select">
+                            <select id="order-status" name="order_status">
                                 <option value="all">전체 주문처리상태</option>
-                                <option value="shipped_before">입금전</option>
-                                <option value="shipped_standby">배송준비중</option>
+                                <option value="shipped_before">결제완료</option>
                                 <option value="shipped_begin">배송중</option>
-                                <option value="shipped_complate">배송완료</option>
-                                <option value="order_cancel">취소</option>
-                                <option value="order_exchange">교환</option>
-                                <option value="order_return">반품</option>
+                                <option value="shipped_complete">배송완료</option>
+                                <option class="order-status-hidden" th:value="${order_status}" hidden></option>
                             </select>
                         </div>
+
                         <span class="period">
-                            <a href="#none" class="btnNormal" days="00">
-                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date1.gif" offimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date1.gif" onimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date1_on.gif" alt="오늘">
+                            <a href="#none" class="btnNormal1" days="00">
+                                <img src="/static/images/btn_img/btn_date1.gif" alt="오늘">
                             </a>
-                            <a href="#none" class="btnNormal" days="07">
-                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date2.gif" offimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date2.gif" onimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date2_on.gif" alt="1주일">
+                            <a href="#none" class="btnNormal2" days="07">
+                                <img src="/static/images/btn_img/btn_date2.gif" alt="1주일">
                             </a>
-                            <a href="#none" class="btnNormal" days="30">
-                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date3.gif" offimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date3.gif" onimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date3_on.gif" alt="1개월">
+                            <a href="#none" class="btnNormal3" days="30">
+                                <img src="/static/images/btn_img/btn_date3.gif" alt="1개월">
                             </a>
-                            <a href="#none" class="btnNormal" days="90">
-                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date4.gif" offimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date4.gif" onimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date4_on.gif" alt="3개월">
+                            <a href="#none" class="btnNormal4" days="90">
+                                <img src="/static/images/btn_img/btn_date4.gif" alt="3개월">
                             </a>
-                            <a href="#none" class="btnNormal" days="180">
-                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date5.gif" offimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date5.gif" onimage="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_date5_on.gif" alt="6개월">
+                            <a href="#none" class="btnNormal5" days="180">
+                                <img src="/static/images/btn_img/btn_date5.gif" alt="6개월">
                             </a>
                         </span>
-                        <input id="history_start_date" name="history_start_date" class="fText hasDatepicker" readonly="readonly" size="10" value="2022-08-08" type="text">
-                        <button type="button" class="ui-datepicker-trigger">
-                            <img src="//img.echosting.cafe24.com/skin/admin_ko_KR/myshop/ico_cal.gif" alt="..." title="...">
-                        </button>
-                         ~ 
-                        <input id="history_end_date" name="history_end_date" class="fText hasDatepicker" readonly="readonly" size="10" value="2022-11-06" type="text">
-                        <button type="button" class="ui-datepicker-trigger">
-                            <img src="//img.echosting.cafe24.com/skin/admin_ko_KR/myshop/ico_cal.gif" alt="..." title="...">
-                        </button>
-                        <input alt="조회" id="order_search_btn" type="image" src="//img.echosting.cafe24.com/skin/admin_ko_KR/myshop/btn_search.gif">
+
+                        <input id="history_start_date" name="history_start_date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
+                        <input id="history_start_date_hidden"
+                            readonly="readonly" size="10" th:value="${history_start_date}" type="hidden">
+
+                        ~
+                        <input id="history_end_date" name="history_end_date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
+                        <input id="history_end_date_hidden"
+                            readonly="readonly" size="10" th:value="${history_end_date}" type="hidden">
+
+
+                        <input alt="조회" id="order-search-btn" type="image" src="/static/images/lash_btn/btn_search.gif"
+                            onclick="submit();">
                     </fieldset>
+
                     <ul>
-                        <li>기본적으로 최근 3개월간의 자료가 조회되며, 기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
+                        <li>기본적으로 최근 1개월간의 자료가 조회되며, 기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
                         <li>주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수 있습니다.</li>
                     </ul>
                 </div>
-                <input id="mode" name="mode" value="" type="hidden">
-                <input id="term" name="term" value="" type="hidden">
             </form>
-            <div class="xans-element- xans-myshop xans-myshop-orderhistorylistitem ec-base-table typeList">
+
+
+            <div class="order-management-table">
                 <div class="title">
                     <h3>주문 상품 정보</h3>
                 </div>
                 <table border="1" summary>
-                    <!-- <caption>주문 상품 정보</caption> -->
+
                     <colgroup>
                         <col style="width:135px;">
                         <col style="width:93px;">
                         <col style="width:auto;">
                         <col style="width:61px;">
-                        <col style="width:111px;">
                         <col style="width:111px;">
                         <col style="width:111px;">
                     </colgroup>
@@ -121,114 +130,82 @@
                             <th scope="col">수량</th>
                             <th scope="col">상품구매금액</th>
                             <th scope="col">주문처리상태</th>
-                            <th scope="col">취소/교환/반품</th>
                         </tr>
                     </thead>
-                    <tbody class="center displaynone">
-                        <!-- <tr class="">
-                            <td class="number displaynone">
-                                <p>
-                                    <a href="detail.html" class="line">[]</a>
-                                </p>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">주문취소</a>
-                                <a href="cancel.html" class="btnType-2 displaynone button">취소신청</a>
-                                <a href="exchange.html" class="btnType-2 displaynone button">교환신청</a>
-                                <a href="return.html" class="btnType-2 displaynone button">반품신청</a>
-                            </td>
-                            <td class="thumb">
-                                <a href="/product/detail.html">
-                                    <img src="//img.echosting.cafe24.com/thumb/img_product_small.gif" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="">
-                                </a>
-                            </td>
-                            <td class="product left top">
-                                <a href="/product/detail.html">
-                                    <strong></strong>
-                                </a>
-                                <div class="option displaynone"></div>
-                                <ul class="xans-element- xans-myshop xans-myshop-optionset option">
-                                    <li class="">
-                                        <strong></strong>
-                                        (개)
-                                    </li>
-                                </ul>
-                                <p class="gBlank5 displaynone">무이자할부 상품</p>
-                            </td>
-                            <td></td>
-                            <td class="right">
-                                <strong></strong>
-                                <div class="displaynone"></div>
-                            </td>
-                            <td class="state">
-                                <p class="txtEm"></p>
-                                <p class="displaynone"><a href="" target=""></a></p>
-                                <p class="displaynone"><a href="#none" class="line" onclick="">[]</a></p>
-                                <a href="/board/product/write.html" class="btnType-2 displaynone">구매후기</a>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">취소철회</a>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">교환철회</a>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">반품철회</a>
-                            </td>
+                    <tbody class="order-list">
+                        <!-- <tr>
+                            <td>2022-11-12</td>
+                            <td>HUNTER C1</td>
+                            <td>1</td>
+                            <td>254,000 원</td>
+                            <td>부산광역시 동래구</td>
                             <td>
-                                <p class="displaynone"><a href="#none" class="line" onclick="">[상세정보]</a></p>
-                                <p class="displaynone">-</p>
+                                <select id="order-status" name="order-status">
+                                    <option value="shipped_before">결제완료</option>
+                                    <option value="shipped_begin">배송중</option>
+                                    <option value="shipped_complate">배송완료</option>
+                                </select>
                             </td>
+                            <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
                         </tr>
-                        <tr class="">
-                            <td class="number displaynone">
-                                <p>
-                                    <a href="detail.html" class="line">[]</a>
-                                </p>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">주문취소</a>
-                                <a href="cancel.html" class="btnType-2 displaynone button">취소신청</a>
-                                <a href="exchange.html" class="btnType-2 displaynone button">교환신청</a>
-                                <a href="return.html" class="btnType-2 displaynone button">반품신청</a>
-                            </td>
-                            <td class="thumb"><a href="/product/detail.html"><img src="//img.echosting.cafe24.com/thumb/img_product_small.gif" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
-                            <td class="product left top">
-                                <a href="/product/detail.html"><strong></strong></a>
-                                <div class="option displaynone"></div>
-                                <ul class="xans-element- xans-myshop xans-myshop-optionset option">
-                                    <li class="">
-                                        <strong></strong>
-                                        (개)
-                                    </li>
-                                </ul>
-                                <p class="gBlank5 displaynone">무이자할부 상품</p>
-                            </td>
-                            <td></td>
-                            <td class="right">
-                                <strong></strong>
-                                <div class="displaynone"></div>
-                            </td>
-                            <td class="state">
-                                <p class="txtEm"></p>
-                                <p class="displaynone"><a href="" target=""></a></p>
-                                <p class="displaynone"><a href="#none" class="line" onclick="">[]</a></p>
-                                <a href="/board/product/write.html" class="btnType-2 displaynone">구매후기</a>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">취소철회</a>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">교환철회</a>
-                                <a href="#none" class="btnType-2 displaynone" onclick="">반품철회</a>
-                            </td>
+
+                        <tr>
+                            <td>2022-11-12</td>
+                            <td>HUNTER C1</td>
+                            <td>1</td>
+                            <td>254,000 원</td>
+                            <td>부산광역시 동래구</td>
                             <td>
-                                <p class="displaynone"><a href="#none" class="line" onclick="">[상세정보]</a></p>
-                                <p class="displaynone">-</p>
+                                <select id="order-status" name="order-status">
+                                    <option value="shipped_before">결제완료</option>
+                                    <option value="shipped_begin">배송중</option>
+                                    <option value="shipped_complate">배송완료</option>
+                                    <option value="order_change">취소·교환·반품</option>
+                                </select>
                             </td>
+                            <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
+                        </tr>
+
+                        <tr>
+                            <td>2022-11-12</td>
+                            <td>HUNTER C1</td>
+                            <td>1</td>
+                            <td>254,000 원</td>
+                            <td>부산광역시 동래구</td>
+                            <td>
+                                <select id="order-status" name="order-status">
+                                    <option value="shipped_before">결제완료</option>
+                                    <option value="shipped_begin">배송중</option>
+                                    <option value="shipped_complate">배송완료</option>
+                                    <option value="order_change">취소·교환·반품</option>
+                                </select>
+                            </td>
+                            <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
                         </tr> -->
                     </tbody>
                 </table>
-                <p class="message ">주문 내역이 없습니다.</p>
+
+                <!--
+                <p class="empty-message">주문 내역이 없습니다.</p>
+                -->
             </div>
-            <div class="xans-element- xans-myshop xans-myshop-orderhistorypaging sm-paginate">
-                <a href="?page=1&amp;history_start_date=2022-08-08&amp;history_end_date=2022-11-06&amp;past_year=2021" class="first">first</a>
-                <a href="?page=1&amp;history_start_date=2022-08-08&amp;history_end_date=2022-11-06&amp;past_year=2021" class="prev">prev</a>
-                <ol>
-                    <li class="xans-record-">
-                        <a href="?page=1&amp;history_start_date=2022-08-08&amp;history_end_date=2022-11-06&amp;past_year=2021" class="this">1</a>
-                    </li>
+
+
+            <div class="paging">
+                <a href="#" class="first">first</a>
+                <a href="#" class="prev" id="prev">prev</a>
+
+                <ol class="page-buttons">
+                    <!-- <li class="now-page">
+                        <a href="?page=1" class="this">1</a>
+                    </li> -->
                 </ol>
-                <a href="?page=1&amp;history_start_date=2022-08-08&amp;history_end_date=2022-11-06&amp;past_year=2021" class="next">next</a>
-                <a href="?page=1&amp;history_start_date=2022-08-08&amp;history_end_date=2022-11-06&amp;past_year=2021" class="last">last</a>
+
+                <a href="#" class="next" id="next">next</a>
+                <a href="#" class="last">last</a>
             </div>
         </div>
     </div>
+    <script src="/static/js/mypage/order.js"></script>
 </body>
 </html>
