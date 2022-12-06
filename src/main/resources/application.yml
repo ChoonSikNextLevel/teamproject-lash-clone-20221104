@@ -5,6 +5,11 @@ spring:
   mvc:
     static-path-pattern: /static/**
 
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://web-study.cpuvzwftvmcz.ap-northeast-2.rds.amazonaws.com:3306/teamproject-lash-20221104?allowMultiQueries=true
@@ -68,3 +73,5 @@ mybatis:
 
 file:
   path: C:/TeamProjectLash/web/springboot/teamproject-lash-clone-20221104/upload/
+
+
