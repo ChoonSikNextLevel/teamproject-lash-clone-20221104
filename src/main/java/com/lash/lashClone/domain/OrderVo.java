@@ -30,7 +30,7 @@ public class OrderVo {
 
     private String message;
 
-//    public void setOrderItems(List<Cart> orderItems) {
-//        this.orderItems = orderItems;
-//    }
+
+    private String product_id;
+    private int member_id;
 }

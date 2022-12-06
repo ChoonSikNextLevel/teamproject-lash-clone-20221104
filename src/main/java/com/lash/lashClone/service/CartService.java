@@ -16,4 +16,6 @@ public interface CartService {
     public int minusCount(String username, String name, String colorCode, int productCount) throws Exception;
 
     public int order(OrderReqDto orderReqDto) throws Exception;
+
+    public int orderOne(OrderReqDto orderReqDto, String string) throws Exception;
 }

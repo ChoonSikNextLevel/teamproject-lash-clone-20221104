@@ -84,6 +84,8 @@ const pdPrice = document.querySelector(".pd-price");
 
 const moreColor = document.querySelector(".more-color");
 
+let orderItems = [];
+
 function loadProduct(data) {
   data.forEach((product) => {
     console.log(product);
@@ -103,11 +105,15 @@ function loadProduct(data) {
       ex2.innerHTML = `${product.description}`;
 
       localStorage.setItem("buy-now-product", JSON.stringify(product));
+
+      orderItems.push(product);
+      
     } else {
       moreColor.innerHTML += `
 									<a href="/products/product/${product.name}/${product.color_code}"><img src="/image/product/${product.product_imgs[0].img_name}"></a>
 								`;
     }
+
   });
 
   console.log("끝");
@@ -153,6 +159,8 @@ var IMP = window.IMP;
 IMP.init("imp75586747");
 
 let impData = null;
+let orderer = {};
+let recipient = {};
 // 함수1. ajax 로 로그인한 유저 정보를 가져온다 .
 // 근데 배송지 없으면 주문 할 수 없음 .
 // 정보 성공적으로 가져오면 IMP.request_pay() 실행되도록 //
@@ -171,8 +179,13 @@ function getMemberInfo() {
     success: (response) => {
       // response data 에 principal 객체에서 필요한 정보를 담아 서버에서 보내주게 됨
       getImpData(response.data);
+      getOrderer(response.data);
+      getRecipient(response.data);
       console.log(response.data);
       console.log(impData);
+      console.log("orderer / recipient");
+      console.log(getOrderer(response.data));
+      console.log(getRecipient(response.data));
     },
     error: (error) => {
       alert("회원 로그인 후 구매하실 수 있습니다.");
@@ -194,6 +207,34 @@ function getImpData(responseData) {
   return impData;
 }
 
+function getOrderer(responseData) {
+
+  orderer = {
+    orderer: responseData.name,
+    or_mobile_phone: responseData.mobile_phone,
+    or_address: responseData.address,
+    or_address_detail: responseData.address_detail,
+    or_address_number: responseData.address_number,
+    or_email: responseData.email,
+  };
+
+  return orderer;
+}
+
+function getRecipient(responseData) {
+
+  recipient = {
+    recipient: responseData.name,
+    re_mobile_phone: responseData.mobile_phone,
+    re_address: responseData.address,
+    re_address_detail: responseData.address_detail,
+    re_address_number: responseData.address_number,
+    message: "",
+  };
+
+  return recipient;
+}
+
 function checkMemberAddress(impdata) {
   if (impdata.buyer_postcode != undefined) {
     console.log(impdata["buyer_postcode"]);
@@ -209,32 +250,61 @@ kbtn.onclick = () => {
   // 함수1 실행됨
   getMemberInfo();
   console.log(impData);
+  let uid = new Date().getTime();
 
   if (checkMemberAddress(impData)) {
     IMP.request_pay(
       {
         pg: "kakaopay.TC0ONETIME", //테스트인경우 kcp.T000
         pay_method: "card",
-        merchant_uid: new Date().getTime(), //상점에서 생성한 고유 주문번호
-        name: "주문명:결제테스트",
+        merchant_uid: uid, //상점에서 생성한 고유 주문번호
+        name: "주문명:" + uid,
         amount: 1,
         company: "lash", //해당 파라미터 설정시 통합결제창에 해당 상호명이 노출됩니다.
-        buyer_email: "address002@naver.com",
-        buyer_name: "나갱",
-        buyer_tel: "010-9044-2249",
-        buyer_addr: "서울특별시 강남구 삼성동",
-        buyer_postcode: "123-456",
+        buyer_email: impData["buyer_email"],
+        buyer_name: impData["buyer_name"],
+        buyer_tel: impData["buyer_tel"],
+        buyer_addr: impData["buyer_addr"],
+        buyer_postcode: impData["buyer_postcode"],
         language: "ko", // en 설정시 영문으로 출력되면 해당 파라미터 생략시 한국어 default
         m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
       },
       function (rsp) {
         // callback 로직
         if (rsp.success) {
+          paySuccess(uid);
           alert("구매되었습니다. 감사합니다.");
         } else {
+          paySuccess(uid);
           alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
         }
       },
     );
   }
 };
+
+function getOrderProductInfo(uid) {
+  let orderProductInfo = {
+    order_id: uid,
+    orderItems: JSON.stringify(orderItems)
+  };
+
+  return orderProductInfo;
+}
+
+function paySuccess(uid) {
+  $.ajax({
+    async: false,
+    type: "post",
+    url: "/api/order/one",
+    data: Object.assign(getOrderProductInfo(uid), orderer, recipient),
+    dataType: "json",
+    success: (response) => {
+      alert("주문완료");
+      console.log(response);
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
+}

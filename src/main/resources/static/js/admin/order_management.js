@@ -95,18 +95,19 @@ const orderList = document.querySelector(".order-list"); // 가져온 데이터 
 
 /**-----------------------------------------*/
 
-// let start_date = new Date($("#history_start_date").datepicker("getDate"));
-// let end_date = $("#history_end_date").datepicker("getDate");
+let order_status = document.querySelector(".order-status-hidden").value;
+let start_date = new Date(document.querySelector("#history_start_date_hidden").value);
+let end_date = new Date(document.querySelector("#history_end_date_hidden").value);
 
 let param = {
   status: "all",
-  // history_start_date: start_date,
-  // history_end_date: end_date
+  history_start_date: start_date,
+  history_end_date: end_date
 };
 
-// console.log(param);
-// console.log(start_date);
-// console.log(end_date);
+console.log(param);
+console.log(start_date);
+console.log(end_date);
 
 function getOrder() {
   $.ajax({
@@ -178,9 +179,28 @@ function loadByStatus() {
 
 // ---------------------------onload------------------------ //
 window.onload = () => {
-  // createNumButtons(1, 106);
-  //createNumButtons($('#now-page'), 106);
   getOrder();
   loadByStatus();
-  // document.getElementById('search-form').reset();
+
+  console.log(testValue1);
+  console.log(testValue2);
+  console.log(testValue3);
+
+  setModel();
 };
+
+
+function setModel() {
+  const statusSelect = document.querySelector("#order-status");
+  for (let i = 0; i < 4; i++) {
+    if (statusSelect.options[i].value == testValue1) {
+      statusSelect.options[i].selected = true;
+    }
+  }
+
+  const startDate = document.querySelector("#history_start_date");
+  startDate.value = testValue2;
+
+  const endDate = document.querySelector("#history_end_date");
+  endDate.value = testValue3;
+}

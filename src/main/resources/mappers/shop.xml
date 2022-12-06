@@ -49,6 +49,8 @@
 
     <select id="getProduct" resultMap="product_details" parameterType="string">
         SELECT
+            pm.product_id,
+            pm.color,
             pm.name,
             pm.color_code,
             pm.price,
