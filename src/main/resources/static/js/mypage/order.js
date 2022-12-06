@@ -131,10 +131,24 @@ function loadOrder(responseData) {
         let orderDate = new Date(order.order_date);
         let orderStatus2 = order.status;
         if (param.status != "all" ? orderStatus2 == param.status : true) {
-            console.log(orderStatus2);
-            console.log(param.status);
+            console.log("2 : " + orderStatus2);
+            console.log("paramStatus : " + param.status);
             if ((orderDate >= param.history_start_date && orderDate <= param.history_end_date) || (param.history_start_date == "Invalid Date" && param.history_end_date == "Invalid Date")) {
             // const orderImgsArray = order.img_name;
+
+            console.log("aaa : ", order.status);
+            
+            let orStatus = order.status;
+            let statusText = null;
+            
+            if(orStatus == "shipped_before") {
+                statusText = "결제완료";
+            }else if(orStatus == "shipped_begin") {
+                statusText = "배송중";
+            }else if(orStatus == "shipped_complete") {
+                statusText == "배송완료";
+            }
+
             orderList.innerHTML += `
                             <tr>
                                     <td>${order.order_date}
@@ -145,13 +159,7 @@ function loadOrder(responseData) {
                                     <td style = "text-align: center;">${order.product_count}</td>
                                     <td style = "text-align: center;">${order.price} 원</td>
 
-                                    <td>
-                                        <select id="order-status2" name="order-status">
-                                            <option value="shipped_before">결제완료</option>
-                                            <option value="shipped_begin">배송중</option>
-                                            <option value="shipped_complete">배송완료</option>
-                                        </select>
-                                    </td>
+                                    <td>${statusText}</td>
 
                                 </tr>
             `;
@@ -182,24 +190,24 @@ function loadOrder(responseData) {
 }
 
 
-function setStatus(responseData) {
-    const shipping = document.querySelectorAll(".status11");
-    console.log(shipping);
+// function setStatus(responseData) {
+//     const shipping = document.querySelectorAll(".status11");
+//     console.log(shipping);
 
-    shipping.forEach((s, index) => {
-        console.log("s" + s);
-        console.log(s.value);
-        console.log("ddd" + responseData[index].status);
+//     shipping.forEach((s, index) => {
+//         console.log("s" + s);
+//         console.log(s.value);
+//         console.log("ddd" + responseData[index].status);
 
-        if(shipping[index].value == 'shipped_before') {
-            s.innerHTML = `결제완료`;
-        } else if(shipping[index].value == 'shipped_begin') {
-            s.innerHTML = `배송중`;
-        } else if(shipping[index].value == 'shipped_complete') {
-            s.innerHTML == '배송완료';
-        }
-    })
-}
+//         if(shipping[index].value == 'shipped_before') {
+//             s.innerHTML = `결제완료`;
+//         } else if(shipping[index].value == 'shipped_begin') {
+//             s.innerHTML = `배송중`;
+//         } else if(shipping[index].value == 'shipped_complete') {
+//             s.innerHTML == '배송완료';
+//         }
+//     })
+// }
 
 // // status 업데이트 버튼
 // function updateStatus(data) {
