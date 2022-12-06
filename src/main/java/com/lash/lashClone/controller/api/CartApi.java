@@ -60,4 +60,11 @@ public class CartApi {
         System.out.println(orderReqDto);
         return ResponseEntity.ok(new CMRespDto<>(1, "success", cartService.order(orderReqDto)));
     }
+
+    @PostMapping("/order/one")
+    public ResponseEntity<?> orderOne(OrderReqDto orderReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", cartService.orderOne(orderReqDto, principalDetails.getMember().getUsername())));
+    }
+
 }

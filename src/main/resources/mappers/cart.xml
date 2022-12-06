@@ -174,4 +174,31 @@
             </foreach>
     </insert>
 
+    <insert id="orderOne" parameterType="com.lash.lashClone.domain.OrderVo">
+        insert into
+        order_mst
+        values
+            (
+            #{order_id},
+            #{product_id},
+            1,
+            #{member_id},
+            'shipped_before',
+            #{orderer},
+            #{or_address_number},
+            #{or_address},
+            #{or_address_detail},
+            #{or_mobile_phone},
+            #{or_email},
+            #{recipient},
+            #{re_address_number},
+            #{re_address},
+            #{re_address_detail},
+            #{re_mobile_phone},
+            #{message},
+            now(),
+            now()
+            )
+    </insert>
+
 </mapper>

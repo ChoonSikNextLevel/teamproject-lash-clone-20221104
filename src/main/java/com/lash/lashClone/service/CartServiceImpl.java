@@ -4,8 +4,11 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lash.lashClone.domain.Cart;
 import com.lash.lashClone.domain.OrderVo;
+import com.lash.lashClone.domain.ProductDetail;
+import com.lash.lashClone.domain.ProductImg;
 import com.lash.lashClone.dto.shop.OrderReqDto;
 import com.lash.lashClone.repository.CartRepository;
+import com.lash.lashClone.repository.account.AddressRepository;
 import lombok.RequiredArgsConstructor;
 import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
@@ -24,6 +27,7 @@ import java.util.Map;
 public class CartServiceImpl implements CartService {
 
     private final CartRepository cartRepository;
+    private final AddressRepository addressRepository;
 
     @Override
     public List<Cart> getCart(String username) throws Exception{
@@ -87,7 +91,7 @@ public class CartServiceImpl implements CartService {
 
             System.out.println("\n"+json.get("name") + " " + json.get("color_code") + " -> " + json.get("product_id"));
             System.out.println(json.get("product_count"));
-            System.out.println(json.get("member_id"));
+            // System.out.println(json.get("member_id"));
 
             try {
                 Cart cart = mapper.readValue(json.toString(), Cart.class);
@@ -105,5 +109,36 @@ public class CartServiceImpl implements CartService {
         return cartRepository.orderInfo(orderVo);
     }
 
+    @Override
+    public int orderOne(OrderReqDto orderReqDto, String username) throws Exception {
 
+        System.out.println(addressRepository.getMemberId(username).keySet());
+
+        OrderVo orderVo = orderReqDto.orderVo();
+
+        JSONParser parser = new JSONParser();
+        System.out.println("---");
+        System.out.println(parser.parse(orderReqDto.getOrderItems()));
+        System.out.println("---");
+
+        JSONArray json = new JSONArray();
+        json = (JSONArray) parser.parse(orderReqDto.getOrderItems());
+        System.out.println(parser.parse(orderReqDto.getOrderItems()).getClass());
+        System.out.println("+++++");
+
+        String productId = null;
+
+        //for (int i = 0; i < json.size(); i++) {
+            JSONObject jsonObject = (JSONObject) json.get(0);
+            System.out.println(jsonObject);
+            productId = jsonObject.getAsString("product_id");
+            System.out.println("ProductID => " + productId);
+        //}
+
+        orderVo.setMember_id((Integer) addressRepository.getMemberId(username).get("member_id"));
+
+        orderVo.setProduct_id(productId);
+
+        return cartRepository.orderOne(orderVo);
+    }
 }

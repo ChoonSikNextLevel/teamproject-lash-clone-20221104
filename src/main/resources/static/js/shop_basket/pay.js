@@ -314,7 +314,7 @@ payBtn.forEach((pbtn, index) => {
           pay_method: "card",
           merchant_uid: uid, //상점에서 생성한 고유 주문번호
           name: "주문명:" + uid,
-          amount: 100, // getTotalPrice(orderItems),
+          amount: getTotalPrice(orderItems),
           buyer_email: orderer.or_email,
           buyer_name: orderer.orderer,
           buyer_tel: orderer.or_mobile_phone,

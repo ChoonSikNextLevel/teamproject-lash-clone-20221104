@@ -71,7 +71,7 @@
                                 <option value="shipped_before">결제완료</option>
                                 <option value="shipped_begin">배송중</option>
                                 <option value="shipped_complete">배송완료</option>
-                                <option class="order-status-hidden" th:text="${order_status}" th:value="${order_status}"></option>
+                                <option class="order-status-hidden" th:text="${order_status}" th:value="${order_status}" hidden></option>
                             </select>
                         </div>
 
@@ -96,13 +96,13 @@
                         <input id="history_start_date" name="history_start_date" class="history-date date-picker"
                             readonly="readonly" size="10" value="" type="text">
                         <input id="history_start_date_hidden"
-                            readonly="readonly" size="10" th:value="${history_start_date}">
+                            readonly="readonly" size="10" th:value="${history_start_date}" type="hidden">
 
                         ~
                         <input id="history_end_date" name="history_end_date" class="history-date date-picker"
                             readonly="readonly" size="10" value="" type="text">
                         <input id="history_end_date_hidden"
-                            readonly="readonly" size="10" th:value="${history_end_date}">
+                            readonly="readonly" size="10" th:value="${history_end_date}" type="hidden">
 
 
                         <input alt="조회" id="order-search-btn" type="image" src="/static/images/lash_btn/btn_search.gif"
