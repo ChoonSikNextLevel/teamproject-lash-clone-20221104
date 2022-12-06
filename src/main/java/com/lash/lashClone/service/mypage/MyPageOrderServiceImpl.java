@@ -14,6 +14,8 @@ public class MyPageOrderServiceImpl implements MyPageOrderService{
 
     @Override
     public List<Order> getMyPageOrder(String username) throws Exception {
-        return myPageOrderRepository.getMyPageOrder(username);
+        System.out.println(username);
+        List<Order> orderList = myPageOrderRepository.getMyPageOrder(username);
+        return orderList;
     }
 }

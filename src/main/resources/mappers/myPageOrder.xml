@@ -14,52 +14,54 @@
         <result property="create_date" column="create_date"></result>
         <result property="update_date" column="update_date"></result>
     </resultMap>
-    <resultMap id="product" type="com.lash.lashClone.domain.Product">
-        <result property="product_id" column="product_id"></result>
-        <result property="category" column="category"></result>
-        <result property="name" column="name"></result>
-        <result property="color_code" column="color_code"></result>
-        <result property="color" column="color"></result>
-        <result property="price" column="price"></result>
-        <result property="product_features" column="product_features"></result>
-        <result property="description" column="description"></result>
-        <result property="create_date" column="create_date"></result>
-        <result property="update_date" column="update_date"></result>
-        <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>
+<!--    <resultMap id="order" type="com.lash.lashClone.domain.Order">-->
+<!--        <result property="member_id" column="member_id"></result>-->
+<!--        <result property="order_id" column="order_id"></result>-->
+<!--        <result property="product_id" column="product_id"></result>-->
+<!--        <result property="name" column="name"></result>-->
+<!--        <result property="color_code" column="color_code"></result>-->
+<!--        <result property="price" column="price"></result>-->
+<!--        <result property="product_count" column="product_count"></result>-->
+<!--        <result property="address_id" column="address_id"></result>-->
+<!--        <result property="re_address" column="re_address"></result>-->
+<!--        <result property="re_address_detail" column="re_address_detail"></result>-->
+<!--        <result property="status" column="status"></result>-->
+<!--        <result property="order_date" column="order_date"></result>-->
+<!--        <result property="member" column="member"></result>-->
+<!--        <result property="create_date" column="create_date"></result>-->
+<!--        <result property="update_date" column="update_date"></result>-->
 
-        <!--        <result property="product_total_count" column="product_total_count"></result>-->
-    </resultMap>
-    <select id="getMyPageOrder" resultType="com.lash.lashClone.domain.Order">
+<!--        <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>-->
+
+<!--    </resultMap>-->
+    <select id="getMyPageOrder"  parameterType="String" resultType="com.lash.lashClone.domain.Order">
                 SELECT
-                om.order_date,
-                om.order_id,
-                om.product_id,
-                om.product_count,
-                om.status,
-                om.member_id,
+                    om.order_date,
+                    om.order_id,
+                    om.product_id,
+                    om.product_count,
+                    om.status,
+                    om.member_id,
 
-                pm.name,
-                pm.color_code,
-                pm.product_id,
-                pm.price,
+                    pm.name,
+                    pm.color_code,
+                    pm.product_id,
+                    pm.price,
 
-                pimg.product_id,
-                pimg.img_name
+                    pimg.product_id,
+                    pimg.img_name
 
                 FROM
-                order_mst om
-                LEFT OUTER JOIN product_mst pm
-                ON(om.product_id = pm.product_id)
-                LEFT OUTER JOIN product_img pimg
-                ON(pm.product_id = pimg.product_id)
-                LEFT OUTER JOIN member_mst mm
-                ON(mm.member_id = om.member_id)
+                    order_mst om
+                    LEFT OUTER JOIN product_mst pm
+                    ON(om.product_id = pm.product_id)
+                    LEFT OUTER JOIN product_img pimg
+                    ON(pm.product_id = pimg.product_id)
+                    LEFT OUTER JOIN member_mst mm
+                    ON(mm.member_id = om.member_id)
                 WHERE
-                mm.username = #{username};
+                    mm.username = #{username}
+                GROUP BY (om.order_id);
     </select>
 
-
-    <!--    <select id="getMyPageOrder" resultType="java.lang.Integer">-->
-
-<!--    </select>-->
 </mapper>

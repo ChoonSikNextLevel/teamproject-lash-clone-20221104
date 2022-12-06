@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @Data
@@ -30,19 +31,26 @@ public class Order {
     private String status;
 
     private LocalDate order_date;
+    private LocalDateTime create_date;
+    private LocalDateTime update_date;
+
+    private Member member;
+
+    private String img_name;
 
         public MyPageOrderRespDto myPageOrderRespDto() {
-        return MyPageOrderRespDto.builder()
-                .order_id(order_id)
-                .member_id(member_id)
-                .order_date(order_date)
-                .product_id(product_id)
-                .product_count(product_count)
-                .status(status)
-                .name(name)
-                .color_code(color_code)
-                .price(price)
-                .build();
+            return MyPageOrderRespDto.builder()
+                    .order_id(order_id)
+                    .member_id(member_id)
+                    .order_date(order_date)
+                    .product_id(product_id)
+                    .product_count(product_count)
+                    .status(status)
+                    .name(name)
+                    .color_code(color_code)
+                    .price(price)
+                    .productImgs(img_name)
+                    .build();
 
     }
 }

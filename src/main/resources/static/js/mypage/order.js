@@ -55,23 +55,23 @@ $(function () {
         $("#history_end_date").datepicker("setDate", "today");
     });
 });
-let param = {
-    status: "all",
-};
-
 const orderList = document.querySelector(".order-list");
+let data = null;
+
+
 function getOrder() {
     $.ajax({
         async: false,
         type: "get",
         url: "/api/account/mypage/order",
-        // data: param,
+        data: param,
         dataType: "json",
         success: (response) => {
             alert("상품 불러오기성공 성공");
             responseData = response.data;
             console.log(responseData);
             loadOrder(responseData);
+            data = responseData;
         },
         error: (error) => {
             alert("상품 불러오기실패 실패");
@@ -79,61 +79,205 @@ function getOrder() {
         },
     });
 }
+  
+let order_status = document.querySelector(".order-status-hidden").value;
+let start_date = new Date(document.querySelector("#history_start_date_hidden").value);
+let end_date = new Date(document.querySelector("#history_end_date_hidden").value);
+
+console.log(order_status);
+console.log(start_date);
+console.log(end_date);
+
+let param = {
+  status: order_status,
+  history_start_date: start_date,
+  history_end_date: end_date
+};
+
+function setParam() {
+  if (param.status == '') {
+    param.status = "all";
+  }
+}
+
+
+const orderStatus = document.querySelector("#order-status");
+orderStatus.onchange = () => {
+  param.status = orderStatus.value;
+  console.log(param.status);
+}
+
 function loadOrder(responseData) {
+    
+    // const shippingStatus = null;
+
+    // if(order.status== 'shipped_before'){
+    //     shippingStatus = "결제완료";
+    // }else if (order.status == 'shipped_begin') {
+    //     shippingStatus = "배송중";
+    // }else {
+    //     shippingStatus = "배송완료";
+    // }
+    
+
+    
     orderList.innerHTML = "";
   
     responseData.forEach((order, index) => {
-      if (order.order_id != null) {
-        const orderImgsArray = order.productImgs;
-        orderList.innerHTML += `
-                          <tr>
-                              <td>${order.order_date}
-                              <br>[${order.order_id}]
-                              </td>
-                              <td>${orderImgsArray[0].img_name}</td>
-                              <td>${order.product_count}</td>
-                              <td>${order.price} 원</td>
-                              <td>${order.re_address} ${order.re_address_detail}</td>
-                              <td>
-                                  <select id="order-status2" name="order-status">
-                                      
-                                      <option value="shipped_before">결제완료</option>
-                                      <option value="shipped_begin">배송중</option>
-                                      <option value="shipped_complete">배송완료</option>
-                                  </select>
-                              </td>
-                              <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
-                          </tr>
-    `;
-      }
-      const updateSelect = document.querySelector("#order-status2");
-      const selectLength = updateSelect.options.length;
-      let optionValue = order.status;
-  
-      // 기존 select 값과 일치하는 value에 seleted 옵션을 줘라
-      for (let i = 0; i < selectLength; i++) {
-        if (updateSelect.options[i].value == optionValue) {
-          updateSelect.options[i].selected = true;
+
+
+
+
+        let orderDate = new Date(order.order_date);
+        let orderStatus2 = order.status;
+        if (param.status != "all" ? orderStatus2 == param.status : true) {
+            console.log(orderStatus2);
+            console.log(param.status);
+            if ((orderDate >= param.history_start_date && orderDate <= param.history_end_date) || (param.history_start_date == "Invalid Date" && param.history_end_date == "Invalid Date")) {
+            // const orderImgsArray = order.img_name;
+            orderList.innerHTML += `
+                            <tr>
+                                    <td>${order.order_date}
+                                    <br>[${order.order_id}]
+                                    </td>
+                                    <td><img style = "width:100px" src="/image/product/${order.img_name}"></td>
+                                    <td style = "text-align: center;">${order.name} ${order.color_code}</td> 
+                                    <td style = "text-align: center;">${order.product_count}</td>
+                                    <td style = "text-align: center;">${order.price} 원</td>
+
+                                    <td>
+                                        <select id="order-status2" name="order-status">
+                                            <option value="shipped_before">결제완료</option>
+                                            <option value="shipped_begin">배송중</option>
+                                            <option value="shipped_complete">배송완료</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+            `;
+            }
+            
         }
-      }
+
     });
-  }
 
-function loadByStatus() {
-    const statusSelect = document.querySelector("#order-status");
+    setStatus(responseData);
 
-    statusSelect.onchange = () => {
-        param.status = statusSelect.value;
-        console.log("status : ", param.status);
-        getOrder();
-    };
+    const updateSelects = document.querySelectorAll(".order-status2");
+      // 기존 select 값과 일치하는 value에 seleted 옵션을 줘라
+    updateSelects.forEach((updateSelect, index) => {
+        const selectLength = updateSelect.options.length;
+        const optionValue = responseData[index].status;
+    
+        // console.log(selectLength);
+        // console.log(optionValue);
+    
+        for (let i = 0; i < selectLength; i++) {
+            if (optionValue == updateSelect.options[i].value) {
+                updateSelect.options[i].selected = true;
+            }
+        }
+    })
+
 }
+
+
+function setStatus(responseData) {
+    const shipping = document.querySelectorAll(".status11");
+    console.log(shipping);
+
+    shipping.forEach((s, index) => {
+        console.log("s" + s);
+        console.log(s.value);
+        console.log("ddd" + responseData[index].status);
+
+        if(shipping[index].value == 'shipped_before') {
+            s.innerHTML = `결제완료`;
+        } else if(shipping[index].value == 'shipped_begin') {
+            s.innerHTML = `배송중`;
+        } else if(shipping[index].value == 'shipped_complete') {
+            s.innerHTML == '배송완료';
+        }
+    })
+}
+
+// // status 업데이트 버튼
+// function updateStatus(data) {
+//     const updateButtons = document.querySelectorAll(".status-update");
+  
+//     const orderStatus2 = document.querySelectorAll(".order-status2");
+  
+  
+//     updateButtons.forEach((updateBtn, index) => {
+  
+  
+  
+  
+//       updateBtn.onclick = () => {
+//         let updateData = {};
+  
+//         updateData.status = orderStatus2[index].value;
+//         updateData.order_id = responseData[index].order_id;
+//         updateData.product_id = responseData[index].product_id;
+  
+//         console.log(updateData);
+  
+//         $.ajax({
+//           async: false,
+//           type: "post",
+//           url: "/api/admin/orderManagement/updateStatus",
+//           data: updateData,
+//           dataType: "json",
+//           success: (response) => {
+//             alert("수정 완료");
+//             console.log(response);
+//             location.reload();
+//           },
+//           error: (error) => {
+//             alert("수정 실패");
+//             console.log(error);
+//           }
+//         });
+  
+//       };
+  
+//     });
+  
+//   }
+
+function setModel() {
+    const statusSelect = document.querySelector("#order-status");
+    for (let i = 0; i < 4; i++) {
+      if (statusSelect.options[i].value == testValue1) {
+        statusSelect.options[i].selected = true;
+      }
+    }
+  
+    const startDate = document.querySelector("#history_start_date");
+    startDate.value = testValue2;
+  
+    const endDate = document.querySelector("#history_end_date");
+    endDate.value = testValue3;
+}
+
+
+// function loadByStatus() {
+//     const statusSelect = document.querySelector("#order-status");
+
+//     statusSelect.onchange = () => {
+//         param.status = statusSelect.value;
+//         console.log("status : ", param.status);
+//         getOrder();
+//     };
+// }
 
 // ---------------------------onload------------------------ //
 window.onload = () => {
-// createNumButtons(1, 106);
-//createNumButtons($('#now-page'), 106);
-    getOrder(); 
-    loadByStatus();
-// document.getElementById('search-form').reset();
+    setParam();
+    getOrder();
+    // updateStatus();
+    setModel();
 };
+                                    // <td style = "text-align: center;" value="shipped_before">결제완료</td>
+                                    // <td style = "text-align: center;" value="shipped_begin">배송중</td>
+                                    // <td style = "text-align: center;" value="shipped_complete">배송완료</td>

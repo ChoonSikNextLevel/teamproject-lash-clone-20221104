@@ -1,9 +1,11 @@
 package com.lash.lashClone.dto.account;
 
+import com.lash.lashClone.domain.ProductImg;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Builder
 @Data
@@ -17,4 +19,5 @@ public class MyPageOrderRespDto {
     private String name;
     private String color_code;
     private int price;
+    private String productImgs;
 }

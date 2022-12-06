@@ -8,5 +8,5 @@ import java.util.List;
 
 @Mapper
 public interface MyPageOrderRepository {
-    public List<Order> getMyPageOrder(String username) throws Exception;
+    public List<Order> getMyPageOrder(String username) ;
 }

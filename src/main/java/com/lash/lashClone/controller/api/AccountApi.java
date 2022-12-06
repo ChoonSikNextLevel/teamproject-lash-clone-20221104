@@ -70,14 +70,14 @@ public class AccountApi {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "success", userService.updateUser(userUpdateReqDto, principalDetails)));
     }
-//    //-------유저 페이지-----
+    //---------유저 페이지-------------
     @GetMapping("/user")
     public ResponseEntity<?> getuser(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
         System.out.println(principalDetails.getMember().getUsername());
         return ResponseEntity.ok(new CMRespDto<>(1, "success", userService.getUser(principalDetails.getMember().getUsername())));
     }
 
-    // ----------마이페이지-------
+    // ----------마이페이지------------
     @GetMapping("/mypage")
     public ResponseEntity<?> myPage(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
         return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageService.memberList(principalDetails.getMember().getUsername())));
@@ -96,18 +96,18 @@ public class AccountApi {
 
         return ResponseEntity.ok(new CMRespDto<>(1, "success", addressService.deleteAddress(addressId)));
     }
-
+    //-----------배송관리-----------------
+    @GetMapping("/mypage/order")
+    public ResponseEntity<?> getMyPageOrder(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+//            System.out.println(principalDetails.getMember().getUsername());
+//        myPageOrderService.getMyPageOrder(principalDetails.getMember().getUsername())
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageOrderService.getMyPageOrder(principalDetails.getMember().getUsername())));
+    }
     @GetMapping("/principal/member")
     public ResponseEntity<?> getPrincipalMember(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Successfully get principal", principalDetails == null ? "" : principalDetails));
     }
-    //-----------배송관리-----------------
-    @GetMapping("/mypage/order")
-        public ResponseEntity<?> getMyPageOrder(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
-//            System.out.println(principalDetails.getMember().getUsername());
-//        myPageOrderService.getMyPageOrder(principalDetails.getMember().getUsername())
-            return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageOrderService.getMyPageOrder(principalDetails.getMember().getUsername())));
-        }
+
 
 
 }
