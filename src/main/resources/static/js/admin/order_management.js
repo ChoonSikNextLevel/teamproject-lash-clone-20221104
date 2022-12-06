@@ -95,19 +95,9 @@ const orderList = document.querySelector(".order-list"); // 가져온 데이터 
 
 /**-----------------------------------------*/
 
-let order_status = document.querySelector(".order-status-hidden").value;
-let start_date = new Date(document.querySelector("#history_start_date_hidden").value);
-let end_date = new Date(document.querySelector("#history_end_date_hidden").value);
+let data = null;
 
-let param = {
-  status: "all",
-  history_start_date: start_date,
-  history_end_date: end_date
-};
 
-console.log(param);
-console.log(start_date);
-console.log(end_date);
 
 function getOrder() {
   $.ajax({
@@ -120,30 +110,71 @@ function getOrder() {
       responseData = response.data;
       console.log(responseData);
       loadOrder(responseData);
+      data = responseData;
     },
     error: (error) => {
       console.log(error);
-    },
+    }
   });
+}
+
+let order_status = document.querySelector(".order-status-hidden").value;
+let start_date = new Date(document.querySelector("#history_start_date_hidden").value);
+let end_date = new Date(document.querySelector("#history_end_date_hidden").value);
+
+console.log(order_status);
+console.log(start_date);
+console.log(end_date);
+
+let param = {
+  status: order_status,
+  history_start_date: start_date,
+  history_end_date: end_date
+};
+
+function setParam() {
+  // if ((param.status != "shipped_before") && (param.status != "shipped_begin") && (param.status != "shipped_complete")) {
+  //   param.status = "all";
+  // }
+  if (param.status == '') {
+    param.status = "all";
+  }
+}
+
+
+const orderStatus = document.querySelector("#order-status");
+orderStatus.onchange = () => {
+  param.status = orderStatus.value;
+  console.log(param.status);
 }
 
 function loadOrder(responseData) {
   orderList.innerHTML = "";
-
+  // if (param.status == '') {
+  //   param.status = "all"
+  // }
   responseData.forEach((order, index) => {
-    if (order.order_id != null) {
-      orderList.innerHTML += `
+    let orderDate = new Date(order.order_date);
+    let orderStatus2 = order.status;
+    // console.log(orderStatus2);
+    if (param.status != "all" ? orderStatus2 == param.status : true) {
+      // console.log("1");
+      console.log(orderStatus2);
+      console.log(param.status);
+      if ((orderDate >= param.history_start_date && orderDate <= param.history_end_date) || (param.history_start_date == "Invalid Date" && param.history_end_date == "Invalid Date")) {
+        // console.log("2");
+
+        orderList.innerHTML += `
                         <tr>
-                            <td>${order.order_date}
-                            <br>[${order.order_id}]
+                            <td><p class="order-date" style="margin: 0;">${order.order_date}</p>
+                            <p style="margin: 0;">[${order.order_id}]</p>
                             </td>
                             <td>${order.name} ${order.color_code}</td>
                             <td>${order.product_count}</td>
                             <td>${order.price} 원</td>
                             <td>${order.re_address} ${order.re_address_detail}</td>
                             <td>
-                                <select id="order-status2" name="order-status">
-                                    
+                                <select class="order-status2">
                                     <option value="shipped_before">결제완료</option>
                                     <option value="shipped_begin">배송중</option>
                                     <option value="shipped_complete">배송완료</option>
@@ -151,43 +182,82 @@ function loadOrder(responseData) {
                             </td>
                             <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
                         </tr>
-  `;
-    }
-
-    const updateSelect = document.querySelector("#order-status2");
-    const selectLength = updateSelect.options.length;
-    let optionValue = order.status;
-
-    // 기존 select 값과 일치하는 value에 seleted 옵션을 줘라
-    for (let i = 0; i < selectLength; i++) {
-      if (updateSelect.options[i].value == optionValue) {
-        updateSelect.options[i].selected = true;
+    `;
       }
     }
   });
+
+
+  // 
+
+  const updateSelects = document.querySelectorAll(".order-status2");
+
+  updateSelects.forEach((updateSelect, index) => {
+    const selectLength = updateSelect.options.length;
+    const optionValue = responseData[index].status;
+
+    // console.log(selectLength);
+    // console.log(optionValue);
+
+    for (let i = 0; i < selectLength; i++) {
+      if (optionValue == updateSelect.options[i].value) {
+        updateSelect.options[i].selected = true;
+      }
+    }
+
+  })
+  // 
+
+
+
+
 }
 
-function loadByStatus() {
-  const statusSelect = document.querySelector("#order-status");
 
-  statusSelect.onchange = () => {
-    param.status = statusSelect.value;
-    console.log("status : ", param.status);
-    getOrder();
-  };
+
+// status 업데이트 버튼
+function updateStatus(data) {
+  const updateButtons = document.querySelectorAll(".status-update");
+
+  const orderStatus2 = document.querySelectorAll(".order-status2");
+
+
+  updateButtons.forEach((updateBtn, index) => {
+
+
+
+
+    updateBtn.onclick = () => {
+      let updateData = {};
+
+      updateData.status = orderStatus2[index].value;
+      updateData.order_id = responseData[index].order_id;
+      updateData.product_id = responseData[index].product_id;
+
+      console.log(updateData);
+
+      $.ajax({
+        async: false,
+        type: "post",
+        url: "/api/admin/orderManagement/updateStatus",
+        data: updateData,
+        dataType: "json",
+        success: (response) => {
+          alert("수정 완료");
+          console.log(response);
+          location.reload();
+        },
+        error: (error) => {
+          alert("수정 실패");
+          console.log(error);
+        }
+      });
+
+    };
+
+  });
+
 }
-
-// ---------------------------onload------------------------ //
-window.onload = () => {
-  getOrder();
-  loadByStatus();
-
-  console.log(testValue1);
-  console.log(testValue2);
-  console.log(testValue3);
-
-  setModel();
-};
 
 
 function setModel() {
@@ -204,3 +274,86 @@ function setModel() {
   const endDate = document.querySelector("#history_end_date");
   endDate.value = testValue3;
 }
+
+
+
+// 
+
+
+
+
+
+
+// function loadByDate() {
+
+// const orderStatus = document.querySelector("#order-status").value;
+// param.status = orderStatus;
+
+//   console.log(param);
+
+// const orderDate = document.querySelectorAll(".order-date");
+// const orderStatus2 = document.querySelectorAll(".order-status2");
+
+
+//   const orderSearchButton = document.querySelector("#order-search-btn");
+
+//   orderSearchButton.onclick = () => {
+
+
+//     responseData.forEach((order, index) => {
+//       let orderDate = new Date(order.order_date);
+//       let orderStatus2 = order.status;
+//       console.log(orderStatus2);
+//       if (orderStatus2 == param.status) {
+//         console.log("1");
+//         if (orderDate >= param.history_start_date && orderDate <= param.history_end_date) {
+//           console.log("2");
+//           orderList.innerHTML = ``;
+
+//           //       orderList.innerHTML += `
+//           //                     <tr>
+//           //                         <td><p class="order-date" style="margin: 0;">${order.order_date}</p>
+//           //                         <p style="margin: 0;">[${order.order_id}]</p>
+//           //                         </td>
+//           //                         <td>${order.name} ${order.color_code}</td>
+//           //                         <td>${order.product_count}</td>
+//           //                         <td>${order.price} 원</td>
+//           //                         <td>${order.re_address} ${order.re_address_detail}</td>
+//           //                         <td>
+//           //                             <select class="order-status2">
+//           //                                 <option value="shipped_before">결제완료</option>
+//           //                                 <option value="shipped_begin">배송중</option>
+//           //                                 <option value="shipped_complete">배송완료</option>
+//           //                             </select>
+//           //                         </td>
+//           //                         <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
+//           //                     </tr>
+//           // `;
+//         }
+//       }
+
+
+//     })
+
+
+//   }
+
+
+// }
+
+
+
+
+
+
+
+
+
+// ---------------------------onload------------------------ //
+window.onload = () => {
+  setParam();
+  getOrder();
+  updateStatus();
+  setModel();
+  // loadByDate();
+};
