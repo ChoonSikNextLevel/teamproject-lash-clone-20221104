@@ -67,14 +67,14 @@ function getOrder() {
         data: param,
         dataType: "json",
         success: (response) => {
-            alert("상품 불러오기성공 성공");
+            alert("상품 불러오기성공");
             responseData = response.data;
             console.log(responseData);
             loadOrder(responseData);
             data = responseData;
         },
         error: (error) => {
-            alert("상품 불러오기실패 실패");
+            alert("상품 불러오기실패");
             console.log(error);
         },
     });
@@ -131,22 +131,24 @@ function loadOrder(responseData) {
         let orderDate = new Date(order.order_date);
         let orderStatus2 = order.status;
         if (param.status != "all" ? orderStatus2 == param.status : true) {
-            console.log("2 : " + orderStatus2);
-            console.log("paramStatus : " + param.status);
+            console.log(orderStatus2);
+            console.log(param.status);
             if ((orderDate >= param.history_start_date && orderDate <= param.history_end_date) || (param.history_start_date == "Invalid Date" && param.history_end_date == "Invalid Date")) {
             // const orderImgsArray = order.img_name;
 
-            console.log("aaa : ", order.status);
+            // console.log("aaa : ", order.status);
             
             let orStatus = order.status;
             let statusText = null;
             
             if(orStatus == "shipped_before") {
                 statusText = "결제완료";
+
             }else if(orStatus == "shipped_begin") {
                 statusText = "배송중";
+
             }else if(orStatus == "shipped_complete") {
-                statusText == "배송완료";
+                statusText = "배송완료";
             }
 
             orderList.innerHTML += `
@@ -169,7 +171,7 @@ function loadOrder(responseData) {
 
     });
 
-    setStatus(responseData);
+    // setStatus(responseData);
 
     const updateSelects = document.querySelectorAll(".order-status2");
       // 기존 select 값과 일치하는 value에 seleted 옵션을 줘라
