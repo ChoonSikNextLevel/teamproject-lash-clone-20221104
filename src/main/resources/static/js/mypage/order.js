@@ -149,6 +149,9 @@ function loadOrder(responseData) {
 
             }else if(orStatus == "shipped_complete") {
                 statusText = "배송완료";
+                
+            }else if(orStatus == "order_cancel") {
+                statusText = "취소∙교환∙반품";
             }
 
             orderList.innerHTML += `
