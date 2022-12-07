@@ -36,8 +36,8 @@ section {
 }
 
 .titleArea h2 {  
-    margin-top: 0px
-    ;margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -110,7 +110,8 @@ section {
 }
 .xans-myshop-orderstate .order {
     float: left;
-    width: 80%;
+    width: 100%;
+    padding: 0;
 }
 .xans-myshop-orderstate .title {
     padding: 11px 21px;
@@ -129,14 +130,16 @@ section {
     font-style: normal;
 }
 .xans-myshop-orderstate .state {
+    display: flex;
+    justify-content: center;
     overflow: hidden;
     padding: 19px 0;
 }
 .xans-myshop-orderstate .order li {
     float: left;
-    width: 25%;
+    width: 20%;
     padding: 0 0 4px;
-    margin: 0 -1px 0 0;
+    /* margin: 0 -1px 0 0; */
     border-right: 1px dotted #c9c7ca;
     text-align: center;
 }
@@ -146,7 +149,7 @@ section {
     font-size: 14px;
     color: #353535;
 }
-.xans-myshop-orderstate .cs {
+/* .xans-myshop-orderstate .cs {
     float: right;
     width: 20%;
 }
@@ -168,7 +171,7 @@ section {
     margin: 3px 0 0 0;
     background: #4d4d4d;
     vertical-align: top;
-}
+} */
 /*---------------------------본문3번째--------------------------------------------------------------------*/
 .xans-myshop-asyncbankbook ul {
     width: 100%;
