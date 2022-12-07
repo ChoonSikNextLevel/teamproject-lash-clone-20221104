@@ -32,6 +32,32 @@ function loadList(responseData) {
     </p>
     `;
 }
+
+
+function loadOrder() {
+    $.ajax({
+        async: false,
+        type: "get",
+        url: "/api/account/mypage/count",
+        dataType: "json",
+        success: (response) => {
+            console.log(response.data);
+        },
+        error: (error) => {
+            console.log(error);
+        }
+    })
+}
+
+let orderCount = {
+    shipped_before :"", 
+    shipped_begin : "",
+    shipped_after : ""
+}
+
+
+
 window.onload = () => {
     addMyshop();
+    loadOrder();
 };

@@ -31,6 +31,8 @@ public class Order {
 
     private LocalDate order_date;
 
+    private int order_count;
+
         public MyPageOrderRespDto myPageOrderRespDto() {
         return MyPageOrderRespDto.builder()
                 .order_id(order_id)
