@@ -39,4 +39,18 @@
 
 
     </select>
+
+    <update id="updateStatus">
+        UPDATE
+            order_mst
+        SET
+            status = #{status}
+
+        WHERE
+            order_id = #{order_id}
+            and
+            product_id = #{product_id};
+
+
+    </update>
 </mapper>

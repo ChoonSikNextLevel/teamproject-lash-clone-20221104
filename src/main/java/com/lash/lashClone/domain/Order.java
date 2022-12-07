@@ -33,7 +33,7 @@ public class Order {
 
     private int order_count;
 
-        public MyPageOrderRespDto myPageOrderRespDto() {
+    public MyPageOrderRespDto myPageOrderRespDto() {
         return MyPageOrderRespDto.builder()
                 .order_id(order_id)
                 .member_id(member_id)
