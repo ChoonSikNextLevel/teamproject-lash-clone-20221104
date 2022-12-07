@@ -79,10 +79,9 @@ function loadCart(responseData) {
         
         `;
     } else {
-      productTableTbody.innerHTML = `
-                <tr>
-                    <td>장바구니가 비어있음</td>
-                </tr>
+      const empty = document.querySelector(".empty");
+      empty.innerHTML = `
+                <span>장바구니가 비어있음</span>
         `;
     }
   });
