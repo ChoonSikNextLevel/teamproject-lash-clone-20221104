@@ -306,7 +306,7 @@ payBtn.forEach((pbtn, index) => {
 
   pbtn.onclick = () => {
     if (index == 0) {
-      alert("일반결제");
+      //alert("일반결제");
 
       IMP.request_pay(
         {
@@ -345,7 +345,7 @@ payBtn.forEach((pbtn, index) => {
         },
       );
     } else if (index == 1) {
-      alert("카카오결제");
+      //alert("카카오결제");
 
       IMP.request_pay(
         {
@@ -374,7 +374,7 @@ payBtn.forEach((pbtn, index) => {
         },
       );
     } else if (index == 2) {
-      alert("토스결제");
+      alert("토스결제는 현재 사용하실 수 없습니다. 죄송합니다.");
 
       IMP.request_pay(
         {
@@ -451,7 +451,7 @@ function getCartItems() {
 function getOrderProductInfo(uid) {
   let orderProductInfo = {
     order_id: uid,
-    orderItems: JSON.stringify(orderItems)
+    orderItems: JSON.stringify(orderItems),
   };
 
   return orderProductInfo;
@@ -465,7 +465,7 @@ function paySuccess(uid) {
     data: Object.assign(getOrderProductInfo(uid), orderer(), recipient()),
     dataType: "json",
     success: (response) => {
-      alert("주문완료");
+      alert("주문이 완료되었습니다.");
       console.log(response);
     },
     error: (error) => {
