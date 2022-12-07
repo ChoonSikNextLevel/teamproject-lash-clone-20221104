@@ -36,6 +36,8 @@ public class Order {
 
     private Member member;
 
+    private int order_count;
+
     private String img_name;
 
         public MyPageOrderRespDto myPageOrderRespDto() {
