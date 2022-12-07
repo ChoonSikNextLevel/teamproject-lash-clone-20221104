@@ -8,4 +8,5 @@ public interface OrderManagementService {
 
     public List<Order> getOrder(Order order) throws Exception;
 
+    public int updateStatus(String status, String order_id, int product_id) throws Exception;
 }

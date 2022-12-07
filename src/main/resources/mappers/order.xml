@@ -59,5 +59,21 @@
         mm.username = #{username};
     </select>
 
-
+    <select id="getOrderCount" parameterType="string" resultType="com.lash.lashClone.domain.Order">
+        SELECT
+            om.member_id,
+            om.`status`,
+            COUNT(*) AS order_count
+        FROM
+            order_mst om
+        WHERE
+            om.member_id = (select
+                                mm.member_id
+                            from
+                                member_mst mm
+                            WHERE
+                                mm.username = #{username}
+                            )
+        GROUP BY om.member_id, om.`status`;
+    </select>
 </mapper>

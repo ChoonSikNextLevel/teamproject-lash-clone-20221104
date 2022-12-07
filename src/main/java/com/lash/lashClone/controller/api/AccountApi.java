@@ -83,6 +83,11 @@ public class AccountApi {
         return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageService.memberList(principalDetails.getMember().getUsername())));
     }
 
+    @GetMapping("/mypage/count")
+    public ResponseEntity<?> myPageOrder(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {
+        return ResponseEntity.ok(new CMRespDto<>(1, "success", myPageService.getOrderCount(principalDetails.getMember().getUsername())));
+    }
+
     // --------배송지 화면-----------
     @GetMapping("/shippingAddress")
     public ResponseEntity<?> addressList(@AuthenticationPrincipal PrincipalDetails principalDetails) throws Exception {

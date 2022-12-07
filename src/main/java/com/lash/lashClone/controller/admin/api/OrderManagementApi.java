@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +25,10 @@ public class OrderManagementApi {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "success", orderManagementService.getOrder(order)));
     }
 
+    @PostMapping("/orderManagement/updateStatus")
+    public ResponseEntity<?> updateStatus(String status, String order_id, int product_id) throws Exception {
 
+        return ResponseEntity.ok()
+                .body(new CMRespDto<>(1, "success", orderManagementService.updateStatus(status, order_id, product_id)));
+    }
 }

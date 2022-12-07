@@ -178,6 +178,7 @@ function loadOrder(responseData) {
                                     <option value="shipped_before">결제완료</option>
                                     <option value="shipped_begin">배송중</option>
                                     <option value="shipped_complete">배송완료</option>
+                                    <option value="order_cancel">취소∙교환∙반품</option>
                                 </select>
                             </td>
                             <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
@@ -356,6 +357,4 @@ window.onload = () => {
   updateStatus();
   setModel();
   // loadByDate();
-
 };
-// abcabc
