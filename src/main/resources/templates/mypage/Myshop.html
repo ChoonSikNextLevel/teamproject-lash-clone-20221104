@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/mypage/Myshop.css">
     <link rel="stylesheet" href="/static/css/mypage/style.css">
-    
+
     <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
-    
+
     <title>myshop</title>
 </head>
+
 <body>
     <div class="overlay"></div>
-    
+
     <header th:replace="~{fragment/header :: header}"></header>
-    
+
     <div class="contents">
         <div class="titleArea">
             <h2>My Shopping</h2>
@@ -31,7 +32,7 @@
             <li><a href="/account/mypage/order">주문내역조회</a></li>
             <li><a href="/account/mypage/user">회원정보관리</a></li>
             <li><a href="/account/mypage/address">배송주소록</a></li>
-        </ul>     
+        </ul>
         <div class="myshopping">
             <div class="myshop-asyncbenefit">
                 <div class="memberMent">
@@ -61,8 +62,9 @@
                     <ul class="order">
                         <li>
                             <strong>결제완료</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
-                            
+                            <a href="" class="count"><span class="order_status"
+                                    id="xans_myshop_orderstate_shppied_before_count"></span></a>
+
                         </li>
                         <!-- <li>
                             <strong>배송준비중</strong>
@@ -70,15 +72,18 @@
                         </li> -->
                         <li>
                             <strong>배송중</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
+                            <a href="" class="count"><span class="order_status"
+                                    id="xans_myshop_orderstate_shppied_before_count"></span></a>
                         </li>
                         <li>
                             <strong>배송완료</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
+                            <a href="" class="count"><span class="order_status"
+                                    id="xans_myshop_orderstate_shppied_before_count"></span></a>
                         </li>
                         <li>
                             <strong>취소·교환·반품</strong>
-                            <a href="" class="count"><span id="xans_myshop_orderstate_shppied_before_count">0</span></a>
+                            <a href="" class="count"><span class="order_status"
+                                    id="xans_myshop_orderstate_shppied_before_count"></span></a>
                         </li>
 
                     </ul>
@@ -143,4 +148,5 @@
     </div>
     <script src="/static/js/mypage/myshop.js"></script>
 </body>
+
 </html>
