@@ -36,7 +36,9 @@
         <if test='status != "all"'>
             and om.status = #{status}
         </if>
-
+        <if test="history_start_date != '' || history_end_date != ''">
+            AND om.order_date BETWEEN #{history_start_date} AND #{history_end_date}
+        </if>
 
     </select>
 

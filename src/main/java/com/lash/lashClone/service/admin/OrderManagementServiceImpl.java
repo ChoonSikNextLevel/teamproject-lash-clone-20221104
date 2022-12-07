@@ -18,6 +18,11 @@ public class OrderManagementServiceImpl implements OrderManagementService {
     @Override
     public List<Order> getOrder(Order order) throws Exception {
 
+        System.out.println("status :" + order.getStatus());
+        System.out.println("orderDate : " + order.getOrder_date());
+        System.out.println("endDate : " + order.getHistory_end_date());
+        System.out.println("startDate : " + order.getHistory_start_date());
+
         return orderManagementRepository.getOrder(order);
     }
 

@@ -22,9 +22,11 @@ function addressList() {
 function loadList(responseData) {
     const addressBody = document.querySelector(".center");
     console.log(addressBody);
+    
     addressBody.innerHTML="";
     responseData.forEach((address, index) => {
-        addressBody.innerHTML +=`
+        if(address.address_name != null){
+            addressBody.innerHTML +=`
         <tr class="xans-record-">
             <td>
                 <span>
@@ -48,6 +50,17 @@ function loadList(responseData) {
             </tdshssss>
         </tr>   
          `;
+        }else if(address.address_name == null) {
+            addressBody.innerHTML+=`
+                                    <tr class="xans-record-">
+                                        <td colspan='5'>
+                                            비어있습니다.
+                                        </td>
+                                    </tr>
+            `;
+    }
+
+        
     });
     deleteAddress();
 }
@@ -89,8 +102,8 @@ function deleteAddress() {
 }
 
 // $(".btnType-1").on("click", function(e){
-// 	e.preventDefault();
-// 	const cartId = $(this).data("cartid");
+//    e.preventDefault();
+//    const cartId = $(this).data("cartid");
 // });
 window.onload = () => {
     addressList();

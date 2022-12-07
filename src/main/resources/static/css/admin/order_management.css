@@ -65,7 +65,7 @@
 /* 주문내역조회 */ 
 
 .history-date {
-    width: 72px;
+    width: 100px;
     height: 32px;
     margin: 0 0 0 2px;
     border: 1px solid #d5d5d5;

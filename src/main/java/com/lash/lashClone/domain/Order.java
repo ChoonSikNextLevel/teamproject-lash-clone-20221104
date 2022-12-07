@@ -30,6 +30,9 @@ public class Order {
 
     private String status;
 
+    private String history_end_date;
+    private String history_start_date;
+
     private LocalDate order_date;
     private LocalDateTime create_date;
     private LocalDateTime update_date;

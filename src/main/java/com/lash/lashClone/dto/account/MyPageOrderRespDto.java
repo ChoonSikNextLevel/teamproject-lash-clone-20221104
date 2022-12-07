@@ -15,6 +15,8 @@ public class MyPageOrderRespDto {
     private String order_id;
     private int product_id;
     private int product_count;
+//    private LocalDate history_end_date;
+//    private LocalDate history_start_date;
     private String status;
     private String name;
     private String color_code;

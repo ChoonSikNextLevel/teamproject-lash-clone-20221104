@@ -30,12 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().disable();
         http.authorizeRequests()
                 /*<<<<<<<<<<<<<<<<<< Page >>>>>>>>>>>>>>>>*/
-//                .antMatchers("/admin/**", "/api/admin/**")
-////                .permitAll()
+//                .antMatchers("/admin/**")
 //                .access("hasRole('ADMIN') or hasRole('MANAGER')")
-//                .antMatchers("/account", "/order/**") //해당 요청 주소들은
-//                .access("hasRole('USER') or hasRole('ADMIN') or hasRole('MANAGER')")
-////                .permitAll()
+//
 
                 .antMatchers("/", "/index", "/product_all/**")
                 .permitAll()
@@ -49,9 +46,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 /*<<<<<<<<<<<<<<<<<< API >>>>>>>>>>>>>>>>*/
                 .antMatchers("/api/account/join", "/api/product_all/**")
                 .permitAll()
-
+                .antMatchers("/account/mypage") // 우리가 지정한 요청
+                .authenticated()
                 .anyRequest() //antMatchers 외에 다른 모든 요청들은
                 .permitAll()
+
 //                .denyAll() //모든 접근을 차단해라.
 
                 .and()
@@ -97,5 +96,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ////                .successHandler(loginSuccessHandler())//로그인 성공 후 핸들러 (해당 핸들러를 생성하여 핸들링 해준다.)
 ////                .failureHandler(loginFailureHandler())//로그인 실패 후 핸들러 (해당 핸들러를 생성하여 핸들링 해준다.)
 //                .permitAll(); //사용자 정의 로그인 페이지 접근 권한 승인
-
 

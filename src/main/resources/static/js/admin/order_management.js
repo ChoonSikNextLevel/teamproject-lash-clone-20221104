@@ -119,8 +119,9 @@ function getOrder() {
 }
 
 let order_status = document.querySelector(".order-status-hidden").value;
-let start_date = new Date(document.querySelector("#history_start_date_hidden").value);
-let end_date = new Date(document.querySelector("#history_end_date_hidden").value);
+let start_date = document.querySelector("#history_start_date_hidden").value;
+let end_date = document.querySelector("#history_end_date_hidden").value;
+
 
 console.log(order_status);
 console.log(start_date);
@@ -161,7 +162,13 @@ function loadOrder(responseData) {
       // console.log("1");
       console.log(orderStatus2);
       console.log(param.status);
-      if ((orderDate >= param.history_start_date && orderDate <= param.history_end_date) || (param.history_start_date == "Invalid Date" && param.history_end_date == "Invalid Date")) {
+
+      let start = new Date(param.history_start_date);
+      let end = new Date(param.history_end_date);
+
+
+
+      if ((orderDate >= start && orderDate <= end) || (start == "Invalid Date" || end == "Invalid Date")) {
         // console.log("2");
 
         orderList.innerHTML += `
