@@ -110,8 +110,11 @@ section {
 }
 .xans-myshop-orderstate .order {
     float: left;
+    display: flex;
+    justify-content: center;
     width: 100%;
     padding: 0;
+    
 }
 .xans-myshop-orderstate .title {
     padding: 11px 21px;
@@ -130,10 +133,9 @@ section {
     font-style: normal;
 }
 .xans-myshop-orderstate .state {
-    display: flex;
-    justify-content: center;
     overflow: hidden;
     padding: 19px 0;
+
 }
 .xans-myshop-orderstate .order li {
     float: left;
@@ -143,6 +145,11 @@ section {
     border-right: 1px dotted #c9c7ca;
     text-align: center;
 }
+
+.xans-myshop-orderstate .order li:first-child {
+    border-left: 1px dotted #c9c7ca;
+}
+
 .xans-myshop-orderstate .order li strong {
     display: block;
     margin: 2px 0 12.4px;

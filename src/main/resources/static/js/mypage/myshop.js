@@ -56,7 +56,7 @@ const orderStatus = document.querySelectorAll(".order_status");
 let orderCount = {
   shipped_before: 0,
   shipped_begin: 0,
-  shipped_after: 0,
+  shipped_complete: 0,
   order_cancel: 0,
 };
 
@@ -66,18 +66,18 @@ function getOrderCount(responseData) {
       orderCount.shipped_before = data.order_count;
     } else if (data.status == "shipped_begin") {
       orderCount.shipped_begin = data.order_count;
-    } else if (data.status == "shipped_after") {
-      orderCount.shipped_after = data.order_count;
+    } else if (data.status == "shipped_complete") {
+      orderCount.shipped_complete = data.order_count;
     } else if (data.status == "order_cancel") {
       orderCount.order_cancel = data.order_count;
     }
   });
 
-  console.log(orderCount);
+  console.log("aa : ", orderCount);
 
   orderStatus[0].innerHTML = `${orderCount.shipped_before}`;
   orderStatus[1].innerHTML = `${orderCount.shipped_begin}`;
-  orderStatus[2].innerHTML = `${orderCount.shipped_after}`;
+  orderStatus[2].innerHTML = `${orderCount.shipped_complete}`;
   orderStatus[3].innerHTML = `${orderCount.order_cancel}`;
 }
 
