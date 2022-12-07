@@ -40,6 +40,8 @@
             AND om.order_date BETWEEN #{history_start_date} AND #{history_end_date}
         </if>
 
+        order by om.order_date DESC
+
     </select>
 
     <update id="updateStatus">

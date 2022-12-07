@@ -38,7 +38,7 @@ function loadCart(responseData) {
                             <th class="none"></th>
                             <td class="cart-image">
                                 <a href="/products/product/${cart.name}/${cart.color_code}">
-                                    <img src="/static/images/product_img/${cart.category}_img/${cart.img_name}"
+                                    <img src="/image/product/${cart.img_name}"
                                         alt="" style="width: 80px; height: 90px; border-radius: 5px;">
                                 </a>
                             </td>

@@ -338,8 +338,8 @@ payBtn.forEach((pbtn, index) => {
           if (rsp.success) {
             paySuccess(uid);
             alert("구매되었습니다. 감사합니다.");
+            location.href = "/account/mypage";
           } else {
-            paySuccess(uid);
             alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
           }
         },
@@ -368,6 +368,7 @@ payBtn.forEach((pbtn, index) => {
           if (rsp.success) {
             paySuccess(uid);
             alert("구매되었습니다. 감사합니다.");
+            location.href = "/account/mypage";
           } else {
             alert("결제 실패하였습니다. 다시 한 번 시도해 주세요. ");
           }
@@ -396,6 +397,7 @@ payBtn.forEach((pbtn, index) => {
           if (rsp.success) {
             paySuccess(uid);
             alert("구매되었습니다. 감사합니다.");
+            location.href = "/account/mypage";
             // db insert
           } else {
             alert("결제 실패하였습니다. 다시 한 번 시도해 주세요.");

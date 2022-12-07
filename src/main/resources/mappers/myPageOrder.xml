@@ -61,7 +61,9 @@
                     ON(mm.member_id = om.member_id)
                 WHERE
                     mm.username = #{username}
-                GROUP BY om.order_id, om.product_id;
+                GROUP BY om.order_id, om.product_id
+
+                order by om.order_date DESC
     </select>
 
 </mapper>
