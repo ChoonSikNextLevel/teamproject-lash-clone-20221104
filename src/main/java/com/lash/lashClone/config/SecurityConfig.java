@@ -30,9 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().disable();
         http.authorizeRequests()
                 /*<<<<<<<<<<<<<<<<<< Page >>>>>>>>>>>>>>>>*/
-//                .antMatchers("/admin/**")
-//                .access("hasRole('ADMIN') or hasRole('MANAGER')")
-//
+                .antMatchers("/admin/**")
+                .access("hasRole('ADMIN') or hasRole('MANAGER')")
+
 
                 .antMatchers("/", "/index", "/product_all/**")
                 .permitAll()

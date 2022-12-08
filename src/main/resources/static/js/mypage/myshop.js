@@ -23,12 +23,7 @@ function loadList(responseData) {
     <p class="welcome">
         <span class="member-var-name">${responseData.name}</span> 고객님, 환영합니다. <br>
     </p>
-    <p class="grade">회원 님은 
-        <strong>
-            [<span class="member-group_name">일반회원</span>]
-        </strong>
-            회원이십니다.
-    </p>
+    
     `;
 }
 

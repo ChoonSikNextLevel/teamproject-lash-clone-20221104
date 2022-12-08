@@ -56,7 +56,9 @@
             member_mst mm
         LEFT OUTER JOIN address_mst am ON (am.member_id = mm.member_id)
         WHERE
-        mm.username = #{username};
+        mm.username = #{username}
+        limit 1
+
     </select>
 
     <select id="getOrderCount" parameterType="string" resultType="com.lash.lashClone.domain.Order">

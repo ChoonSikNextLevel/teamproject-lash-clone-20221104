@@ -97,20 +97,20 @@ function deleteButtonClickEvent() {
 }
 function deleteUsr() {
     const id = responseData.member_id;
-    alert("삭제버튼 클릭");
+    // alert("삭제버튼 클릭");
 
-    if(confirm("삭제?")) {
+    if(confirm("정말 탈퇴하시겠습니까?")) {
         $.ajax({
             async: false,
             type: "delete",
             url: "/api/account/user/" + id,
             dataType : "json",
             success: (response) => {
-                alert("아이디 삭제 완료");
+                alert("회원 탈퇴 완료!");
                 location.replace("/logout");
             },
             error: (error) => {
-                alert("아이디 삭제 못했다!");
+                alert("회원 탈퇴 실패");
                 console.log(error);
             }
         });

@@ -67,14 +67,14 @@ function getOrder() {
         data: param,
         dataType: "json",
         success: (response) => {
-            alert("상품 불러오기성공");
+            // alert("상품 불러오기성공");
             responseData = response.data;
             console.log(responseData);
             loadOrder(responseData);
             data = responseData;
         },
         error: (error) => {
-            alert("상품 불러오기실패");
+            alert("오류 발생!");
             console.log(error);
         },
     });
@@ -159,7 +159,7 @@ function loadOrder(responseData) {
                                     <td>${order.order_date}
                                     <br>[${order.order_id}]
                                     </td>
-                                    <td><img style = "width:100px" src="/image/product/${order.img_name}"></td>
+                                    <td style="padding:0;"><img style = "width:100%; padding:10px;" src="/image/product/${order.img_name}"></td>
                                     <td style = "text-align: center;">${order.name} ${order.color_code}</td> 
                                     <td style = "text-align: center;">${order.product_count}</td>
                                     <td style = "text-align: center;">${order.price} 원</td>

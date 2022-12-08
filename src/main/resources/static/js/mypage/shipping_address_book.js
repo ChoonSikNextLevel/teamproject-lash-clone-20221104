@@ -73,14 +73,14 @@ function deleteAddress() {
             const id = document.querySelectorAll(".address-id");
             const id2 = id[index].value;
             // console.log(id[index].value)
-            alert("삭제버튼 클릭");
+            // alert("삭제버튼 클릭");
 
             // localStorage.setItem("address", JSON.stringify(responseData[index]));
             // console.log("전체 : ", address);  // 제품 정보 배열 전체
             // const addrssId = address.address_Id;
             // console.log("번호만 : ", addrssId);  // 등록된 순번 가져오기
 
-            if (confirm("삭제?")) {
+            if (confirm("선택하신 배송 주소를 삭제 하시겠습니까?")) {
 
                 $.ajax({
                     async: false,
@@ -88,11 +88,11 @@ function deleteAddress() {
                     url: "/api/account/shippingAddress/" +id2,
                     dataType: "json",
                     success: (response) => {
-                        alert("주소 삭제 했다!");
+                        alert("주소 삭제 완료");
                         location.reload();
                     },
                     error: (error) => {
-                        alert("주소 삭제 못했다!");
+                        alert("주소 삭제 실패");
                         console.log(error);
                     }
                 });

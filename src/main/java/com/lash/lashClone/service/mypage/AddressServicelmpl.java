@@ -17,7 +17,7 @@ public class AddressServicelmpl implements AddressService {
 //    private final MyPageRepository myPageRepository;
 
 
-    //상품등록
+    //주소 등록
     @Override
     public boolean addAddress(AddressReqDto addressReqDto, String username) throws Exception {
         int result = 0;
